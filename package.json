@@ -1,0 +1,16 @@
+{
+  "name": "slate-modules",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=20" },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.6",
+    "sass": "^1.97.3"
+  }
+}

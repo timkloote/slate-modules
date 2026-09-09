@@ -1,0 +1,75 @@
+/* Accessibility enhancements shared by the standalone portal markup. */
+.visually-hidden,
+.skip-link:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  color: #000;
+  background: #fff;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+#main-content:focus {
+  outline: 3px solid #005fcc;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px #fff;
+}
+
+.account-menu summary {
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding-block: 0.5rem;
+}
+
+header:is([role="banner"], [role="dialog"]) nav .account-menu[open] > .account-panel > ul.submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+header:is([role="banner"], [role="dialog"]) .header-bottom .wrapper,
+header:is([role="banner"], [role="dialog"]) nav > ul,
+footer .footer-top .footer-location-links,
+footer .footer-meta,
+footer .footer-meta .footer-secondary-links,
+footer .footer-meta .footer-social-links {
+  flex-wrap: wrap;
+}
+
+header:is([role="banner"], [role="dialog"]) .header-bottom .wrapper,
+footer .footer-meta {
+  gap: 1rem;
+}
+
+.wrapper {
+  padding-inline: 1rem;
+}
+
+header:is([role="banner"], [role="dialog"]) .header-bottom nav a {
+  display: inline-block;
+  padding-block: 0.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  footer a,
+  footer li {
+    transition: none !important;
+  }
+}
