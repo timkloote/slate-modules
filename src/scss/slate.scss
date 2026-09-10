@@ -1,3 +1,26 @@
+/* ==========================================================================
+   Slate CRM — Northeastern Graduate Portal
+   Header + footer stylesheet
+
+   This file compiles (expanded, uncompressed) to css/slate.css, which is
+   the single source of truth pasted into Slate CRM alongside the header
+   and footer markup exports (dist/slate/header.html, dist/slate/footer.html).
+   Keep it organized by section — Slate has no build step of its own, so
+   whatever ships here is what admins will read and maintain by hand.
+
+   Contents:
+     1. Design tokens
+     2. Fonts
+     3. Base / reset
+     4. Utilities
+     5. Header
+     6. Footer
+     7. Preview-only placeholder sections (local demo, not shipped to Slate)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design tokens
+   -------------------------------------------------------------------------- */
 :root {
   --wrapperWidth: 1600px;
 
@@ -9,8 +32,14 @@
   --white: #ffffff;
 }
 
+/* --------------------------------------------------------------------------
+   2. Fonts
 
-/* FF Real Healine Pro 2 */
+   Body copy runs on Adobe Fonts (Typekit) — "ff-real-headline-pro" for
+   headings/labels and "ff-real-headline-pro-2" for paragraph text — loaded
+   via the two kit stylesheets below. Display headings use Noe Display,
+   self-hosted from the main Northeastern site's font CDN.
+   -------------------------------------------------------------------------- */
 @import url("https://use.typekit.net/fsb8bay.css");
 @import url("https://use.typekit.net/jck4boc.css");
 
@@ -46,6 +75,9 @@ h1 {
   font-weight: 500;
 }
 
+/* --------------------------------------------------------------------------
+   3. Base / reset
+   -------------------------------------------------------------------------- */
 *,
 *::before,
 *::after {
@@ -61,11 +93,13 @@ body {
   -webkit-tap-highlight-color: transparent
 }
 
-
 img {
   max-width: 100%;
 }
 
+/* --------------------------------------------------------------------------
+   4. Utilities
+   -------------------------------------------------------------------------- */
 .show {
   display: block;
   visibility: visible;
@@ -78,18 +112,24 @@ img {
   opacity: 0;
 }
 
+/* Centers content within the max page width; used by header, footer, and
+   any full-width section that needs an inner, gutter-padded column. */
 .wrapper {
   width: min(var(--wrapperWidth), 100%);
   margin-inline: auto;
 }
 
+/* ==========================================================================
+   5. Header
+   ========================================================================== */
 header:is([role="banner"], [role="dialog"]) {
   width: 100%;
   display: flex;
   flex-flow: column wrap;
   background: var(--white);
-  // border-bottom: 20px solid var(--black);
 
+  /* Mobile nav takes over the full viewport while open: the header becomes
+     a fixed, full-height panel with its own internal scroll for the menu. */
   @media (max-width: 1024px) {
     &.mobile-menu-open {
       position: fixed;
@@ -134,6 +174,7 @@ header:is([role="banner"], [role="dialog"]) {
     color: var(--white);
   }
 
+  /* --- Top bar: black strip with the Northeastern 'N' monogram --- */
   .header {
     width: min(var(--wrapperWidth), 100%);
 
@@ -145,7 +186,7 @@ header:is([role="banner"], [role="dialog"]) {
       justify-content: space-between;
       background: var(--black);
 
-      //Northeastern 'N' Logo
+      /* Northeastern 'N' logo */
       .n-brand-logo {
         width: var(--size);
         height: var(--size);
@@ -161,6 +202,7 @@ header:is([role="banner"], [role="dialog"]) {
       }
     }
 
+    /* --- Bottom bar: program wordmark + primary navigation --- */
     &-bottom {
       width: 100%;
       height: 80px;
@@ -195,6 +237,7 @@ header:is([role="banner"], [role="dialog"]) {
     }
   }
 
+  /* --- Hamburger / close toggle (mobile only) --- */
   .nav-toggle {
     display: none;
     width: 44px;
@@ -229,10 +272,18 @@ header:is([role="banner"], [role="dialog"]) {
     }
   }
 
+  /* --- Primary navigation --- */
   nav {
+    /* These only make sense in the mobile drill-down UI; hidden by default
+       so the desktop nav stays a plain horizontal link row. */
     .nav-arrow, .submenu-heading, .nav-chevron { display: none; }
 
+    /* Desktop (≥1025px): horizontal nav with a hover-opened account menu */
     @media (min-width: 1025px) {
+      > ul.navbar-nav > li > a:hover {
+        text-decoration: underline;
+      }
+
       .account-menu {
         position: relative;
 
@@ -343,6 +394,8 @@ header:is([role="banner"], [role="dialog"]) {
       }
     }
 
+    /* Mobile (≤1024px): full-height drill-down menu — top-level links,
+       then an "account" sub-page (submenu-active) with a back button. */
     @media (max-width: 1024px) {
       width: 100%;
       flex-basis: 100%;
@@ -386,6 +439,8 @@ header:is([role="banner"], [role="dialog"]) {
         }
       }
 
+      /* State: the "Manage Your Account" sub-page is open. Hide every other
+         top-level item and swap the summary for the submenu's own heading. */
       &.submenu-active {
         > ul.navbar-nav > li:not(:has(.account-menu)) { display: none; }
         > ul.navbar-nav > li:has(.account-menu) { border-bottom: 0; }
@@ -442,6 +497,9 @@ header:is([role="banner"], [role="dialog"]) {
           }
         }
 
+        /* Child links (Change Email, Change Password, Logout, etc.): plain
+           rows with no dividers or arrow icons — underline is the only
+           hover/focus affordance. */
         .account-menu[open] > .account-panel > ul.submenu {
           padding: 0;
           gap: 0;
@@ -471,6 +529,9 @@ header:is([role="banner"], [role="dialog"]) {
   }
 }
 
+/* ==========================================================================
+   6. Footer
+   ========================================================================== */
 footer {
   padding-block: 1.5rem;
   width: 100%;
@@ -481,114 +542,131 @@ footer {
     text-align: center;
   }
 
-    a {
-      &:focus{
-        outline: 2px solid #63b3ed;
-        outline-offset: 2px;
-      }
+  a {
+    &:focus {
+      /* Lifts the focused link above its neighbors so the outline never
+         gets clipped by an adjacent row sitting flush against it. */
+      position: relative;
+      z-index: 1;
+      outline: 2px solid #63b3ed;
+      outline-offset: 2px;
+    }
+  }
+
+  /* Cookie Preferences link, injected by the TrustArc widget script.
+     Its markup ships its own margins — zero them out and set spacing
+     here instead so it sits in rhythm with the row above. */
+  .cookies {
+    margin-top: 0.25rem;
+
+    * { margin: 0; }
+  }
+
+  /* --- Secondary link row: Emergency Info / Privacy / Accessibility / © --- */
+  .footer-secondary-links {
+    margin: 0 0 0 -0.5rem;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      gap: 0.75rem;
     }
 
-    .footer-secondary-links {
+    li {
+      font-size: 0.75rem;
+      color: var(--gray);
+      transition: all 0.3s ease;
+      position: relative;
+
+      &.copyright {
         @media (max-width: 768px) {
-          flex-direction: row;
-          flex-wrap: wrap;
-          justify-content: center;
-          align-items: center;
-          margin: 0;
-          gap: 0.75rem;
-        }
-
-        margin: 0 0 0 -0.5rem;
-        padding: 0;
-        list-style-type: none;
-        display: flex;
-        gap: 1rem;
-
-        li {
-            &.copyright {
-              @media (max-width: 768px) {
-                flex-basis: 100%;
-                margin-top: 0.5rem;
-              }
-            }
-
-            font-size: 0.75rem;
-            color: var(--gray);
-            transition: all 0.3s ease;
-            position: relative;
-
-            &:nth-last-child(1) {
-              &::after {
-                display: none;
-              }
-            }
-
-            &::after {
-              @media (max-width: 768px) { display: none; }
-              --size: 10px;
-              content: '';
-              width: 1px;
-              height: var(--size);
-              background: var(--gray);
-              position: absolute;
-              right: -0.25rem;
-              top: 4px;
-            }
-
-          a {
-            text-decoration: none;
-            font-size: 0.75rem;
-            color: var(--gray);
-            transition: all 0.3s ease;
-            padding: 0.5rem;
-
-            &:hover {
-              color: var(--white);
-            }
-          }
+          flex-basis: 100%;
+          margin-top: 0.5rem;
         }
       }
 
-    .footer-social-links {
-      @media (max-width: 768px) {
-        flex-direction: row;
-        flex-wrap: wrap;
+      /* Pipe separator between items, hidden on the wrapped mobile layout
+         and on the last item. */
+      &:nth-last-child(1) {
+        &::after {
+          display: none;
+        }
+      }
+
+      &::after {
+        @media (max-width: 768px) { display: none; }
+        --size: 10px;
+        content: '';
+        width: 1px;
+        height: var(--size);
+        background: var(--gray);
+        position: absolute;
+        right: -0.25rem;
+        top: 4px;
+      }
+
+      a {
+        text-decoration: none;
+        font-size: 0.75rem;
+        color: var(--gray);
+        transition: all 0.3s ease;
+        padding: 0.5rem;
+
+        &:hover {
+          color: var(--white);
+        }
+      }
+    }
+  }
+
+  /* --- Social icon row --- */
+  .footer-social-links {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    display: flex;
+    gap: 1rem;
+
+    @media (max-width: 768px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+    }
+
+    li {
+      a {
+        --size: 24px;
+        width: var(--size);
+        height: var(--size);
+        display: inline-flex;
         align-items: center;
         justify-content: center;
-      }
+        padding: 0.35rem;
+        background: #9E9E9E;
+        border-radius: 50%;
+        transition: all 0.4s ease;
 
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-      display: flex;
-      gap: 1rem;
+        &:hover {
+          background: var(--white);
+        }
 
-      li {
-
-        a {
-          --size: 24px;
-          width: var(--size);
-          height: var(--size);
-          display: inline-flex;
-          align-items: center;
-          justify-content: center;
-          padding: 0.35rem;
-          background: #9E9E9E;
-          border-radius: 50%;
-          transition: all 0.4s ease;
-
-          &:hover {
-            background: var(--white);
-          }
-
-          svg {
-            color: var(--black);
-          }
+        svg {
+          color: var(--black);
         }
       }
     }
+  }
 
   .footer {
+    /* --- Top: wordmark + campus location links --- */
     &-top {
       @media (max-width: 768px) {
         display: flex;
@@ -597,6 +675,12 @@ footer {
       }
 
       .footer-location-links {
+        margin: 1rem 0 0 -0.5rem;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        gap: 0;
+
         @media (max-width: 768px) {
           flex-direction: row;
           flex-wrap: wrap;
@@ -604,12 +688,6 @@ footer {
           align-items: center;
           margin-inline: 0;
         }
-
-        margin: 1rem 0 0 -0.5rem;
-        padding: 0;
-        list-style-type: none;
-        display: flex;
-        gap: 0;
 
         li {
           display: inline-flex;
@@ -620,7 +698,6 @@ footer {
             text-decoration: none;
             letter-spacing: 0.05rem;
             font-size: 0.875rem;
-            text-decoration: none;
             transition: all 0.3s ease;
 
             &:hover {
@@ -631,16 +708,18 @@ footer {
       }
     }
 
+    /* --- Meta row: secondary links + social icons, side by side on desktop --- */
     &-meta {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 1rem 0 0 0;
+
       @media (max-width: 768px) {
         flex-direction: column;
         align-items: center;
         gap: 1.5rem;
       }
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      padding: 1rem 0 0 0;
     }
   }
 
@@ -652,7 +731,13 @@ footer {
   }
 }
 
-// Temporary preview sections for layout and scroll testing.
+/* ==========================================================================
+   7. Preview-only placeholder sections
+
+   Temporary layout/scroll-testing blocks for the local Eleventy preview
+   (src/_includes/sections/placeholder-*.html). These are NOT part of the
+   header/footer Slate export and should be dropped before go-live.
+   ========================================================================== */
 .placeholder-section {
   background: #111;
   color: #fff;
