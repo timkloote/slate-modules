@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <style type="text/css">tr.plain a {
+      color: #00589f!important;}
+      .part_admissions ul {
+      list-style: none;}
+          .checklist a {
+      color: #c00!important;}
+    </style>
+  </head>
+  <body>
+    <div style="margin-top: 10px;">
+      <div class="part_admissions" id="part_admissions">
+        <h3>
+          Required Application Checklist Items
+        </h3>
+
+        <p style="padding: 1rem;">
+          Students are considered to be conditionally admitted until the below checklist is complete. Students must also satisfy any additional provisions or conditions of their acceptance if stated on the official decision letter or college admissions website. Please arrange to complete your checklist and meet any other additional requirements prior to enrolling at Northeastern University. If you have already made appropriate arrangements to complete your file, and your checklist is still incomplete, please be patient because it can take several weeks to update your status. Otherwise, if anything else is needed, the University will contact you. Visit the University catalog’s <a href="https://catalog.northeastern.edu/graduate/general-admission-transfer-credit/regulations-degree-programs/" target="_blank">website here</a> for more information on this topic.
+        </p>
+
+        <table>
+          <tbody>
+          </tbody>
+          <colgroup>
+            <col />
+            <col />
+            <col />
+          </colgroup>
+          <tbody>
+            <tr>
+              <th style="width: 15%;">Status</th>
+              <th style="width: 60%;">Checklist Item</th>
+              <th style="width: 25%;">Date Received</th>
+            </tr>
+            {% for checklist in checklistitems %}
+            <tr>
+              <td>{% if {{checklist.status}} != 'Received' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% else %}<img alt="" height="22" src="/icons/received.png" title="Status: {{checklist.status}}" width="22" />{% endif %}</td>
+              <td>{% if {{checklist.url}} == null %}{{checklist.subject}}{% else %}<a href="{{checklist.url}}" target="_blank">{{checklist.subject}}</a>{% endif %}</td>
+              <td>{% if {{checklist.date}} %}{{checklist.date}}{% else %}Pending{% endif %}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <!--=
+        <table class="nohighlight table">
+          <colgroup>
+            <col style="width: 10%;" />
+            <col style="width: 50%;" />
+            <col />
+            <col style="width: unset;" />
+          </colgroup>
+          <thead>
+            <tr class="column">
+              <th colspan="2">Status</th>
+              <th>Details</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>{% for checklist in checklistitems %}
+            <tr class="plain" style="vertical-align: top;">
+              <td>{% if {{checklist.status}} != 'Received' %}<img alt="" height="22" src="/icons/Awaiting.png" title="Status: Awaiting" width="22" />{% else %}<img alt="" height="22" src="/icons/{{checklist.status}}.png" title="Status: {{checklist.status}}" width="22" />{% endif %}</td>
+              <td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{% if {{checklist.url}} == null %}{{checklist.subject}}{% else %}<a href="{{checklist.url}}" target="_blank">{{checklist.subject}}</a>{% endif %}</td>
+              <td style="text-align: center;">{{checklist.date}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>=-->
+      </div>
+    </div>
+  </body>
+</html>

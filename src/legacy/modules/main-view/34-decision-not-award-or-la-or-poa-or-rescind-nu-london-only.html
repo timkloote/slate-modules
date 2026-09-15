@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <style type="text/css">.decision_card {
+  padding: 40px;
+  background: #fff;
+  border-radius: 20px;
+      box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
+      margin-top: 1em!important;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #294;
+}
+    </style>
+  </head>
+  <body>
+    <section>
+    <div class="row" style="margin: auto;">
+      <div class="col-12">
+        {% for decision in decisions_unread %}
+        <div class="decision_card row position-relative">
+          <div class="col-3">
+            <img src="/icons/new_decision2.png" />
+          </div>
+
+          <div class="col-9 position-static">
+            <h2>
+              <strong>You have a new decision</strong>
+            </h2>
+            <a href="/apply/update?id={{decision.guid}}" target="_blank">View your decision</a>
+          </div>
+        </div>
+        {% endfor %}{% if {{decisions_read}} %}{% for decision in decisions_read %}
+
+        <div class="decision_card row position-relative">
+          <div class="col-3">
+            <img src="/icons/new_decision2.png" />
+          </div>
+
+          <div class="col-9 position-static">
+            <h2>
+              Access your previously viewed {% if {{decision.name}} == 'Admit' %}<b>Offer to study</b>{% else %}<b>{{decision.name}}</b> decision{% endif %}
+            </h2>
+            <a href="/apply/update?id={{decision.guid}}" target="_blank">{% if {{decision.name}} == 'Admit' %}View your offer{% else %}View your decision{% endif %}</a><br />
+            <a href="/apply/download.pdf?s={{decision.guid}}&amp;output=letter.pdf">{% if {{decision.name}} == 'Admit' %}Download your offer letter{% else %}Download your decision letter{% endif %}</a>
+          </div>
+        </div>
+        {% endfor %}{% endif %}
+      </div>
+    </div>
+    </section>
+  </body>
+</html>

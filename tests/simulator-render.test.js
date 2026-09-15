@@ -65,3 +65,54 @@ test('simulator stays stacked and loads no portal JS even with a behavior or col
   assert.equal(document.querySelector('script[src="/js/app.js"]'),null);
  }
 });
+
+test('portal stylesheet option applies in both stacked and clean views and is off by default',async()=>{
+ for(const mode of ['', '&clean=1']) {
+  const enabled=await render(`?parts=&styles=portal${mode}`);
+  assert.equal(enabled.querySelectorAll('link[data-portal-style]').length,5);
+  assert.equal(enabled.querySelector('script[src*="build-mobile-global"]'),null);
+  const disabled=await render(`?parts=${mode}`);
+  assert.equal(disabled.querySelectorAll('link[data-portal-style]').length,0);
+ }
+});
+
+test('legacy preview keeps original head CSS, stylesheet links, inline styles, and header',async()=>{
+ const main=inventory().views.find(v=>v.slug==='main-view');
+ const parts=main.modules.filter(m=>[1,4,6].includes(m.order)).map(m=>m.partId).join(',');
+ const legacy=await render(`?source=legacy&parts=${parts}`);
+ assert.match(legacy.querySelector('style').textContent,/h1/);
+ assert.ok(legacy.querySelector('link[href="https://enroll-northeastern-edu.cdn.technolutions.net/shared/build-fonts.css"]'));
+ assert.equal(legacy.querySelector('.dashborder').getAttribute('style'),'padding: 0!important;');
+ assert.ok(legacy.querySelector('nav.navbar'));
+ assert.equal(legacy.querySelector('[data-shared="header"]'),null);
+ assert.equal(legacy.querySelector('script,iframe,[onclick],[onchange]'),null);
+ assert.ok(!legacy.body.classList.contains('sim-slate-behavior'));
+ const sanitized=await render(`?source=sanitized&parts=${parts}`);
+ assert.equal(sanitized.querySelector('style,link[rel="stylesheet"]'),null);
+ assert.equal(sanitized.querySelector('.dashborder').getAttribute('style'),null);
+ assert.ok(sanitized.querySelector('[data-shared="header"]'));
+});
+
+test('legacy clean view uses original DOM/footer and the vanilla behavior, without legacy scripts',async()=>{
+ const parts=inventory().capturedParts['main-view'].join(',');
+ const document=await render(`?source=legacy&clean=1&parts=${parts}`);
+ assert.ok(document.getElementById('leftcolumn').querySelector('.part.leftcolumn'));
+ assert.ok(document.getElementById('rightcolumn').querySelector('.part.rightcolumn'));
+ assert.equal(document.querySelectorAll('footer').length,1);
+ assert.equal(document.querySelector('[data-shared]'),null);
+ assert.equal(document.querySelector('script,iframe,[onclick],[onchange]'),null);
+});
+
+
+test('fallback grid targets sanitized columns only; legacy keeps Bootstrap layout',async()=>{
+ const parts=inventory().capturedParts['main-view'].join(',');
+ const selector='.sim-slate-behavior.sim-sanitized .bodybackground > .row:has(> #leftcolumn)';
+ const sanitized=await render(`?source=sanitized&clean=1&parts=${parts}`);
+ assert.ok(sanitized.querySelector(selector));
+ const legacy=await render(`?source=legacy&clean=1&parts=${parts}`);
+ assert.equal(legacy.querySelector(selector),null);
+ assert.ok(legacy.body.classList.contains('sim-legacy'));
+ assert.ok(legacy.getElementById('leftcolumn').classList.contains('col-md-6'));
+ assert.ok(legacy.getElementById('rightcolumn').classList.contains('col-md-6'));
+ assert.equal(legacy.querySelector('.part_rows_container').classList.contains('sim-columns'),false);
+});

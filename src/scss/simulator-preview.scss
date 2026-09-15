@@ -22,8 +22,8 @@ html, body { margin: 0; }
   display: none;
 }
 
-/* Main View's legacy destination containers, without Bootstrap. */
-.sim-slate-behavior .bodybackground > .row:has(> #leftcolumn) {
+/* Sanitized Main View supplies its own layout; legacy retains Bootstrap's row/column sizing. */
+.sim-slate-behavior.sim-sanitized .bodybackground > .row:has(> #leftcolumn) {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem;
@@ -31,10 +31,10 @@ html, body { margin: 0; }
   margin-inline: auto;
   padding: 2rem;
 }
-.sim-slate-behavior :is(#leftcolumn, #rightcolumn) { min-width: 0; }
-.sim-slate-behavior :is(#leftcolumn, #rightcolumn) > .part { margin-bottom: 1.5rem; }
+.sim-slate-behavior.sim-sanitized :is(#leftcolumn, #rightcolumn) { min-width: 0; width: 100%; max-width: none; }
+.sim-slate-behavior.sim-sanitized :is(#leftcolumn, #rightcolumn) > .part { margin-bottom: 1.5rem; }
 .sim-behavior-report { padding: 1rem; background: #fff4d5; color: #614b12; font: 14px/1.5 system-ui, sans-serif; overflow-wrap: anywhere; }
 .sim-clean .sim-behavior-report { display: none; }
 @media (max-width: 767px) {
-  .sim-slate-behavior .bodybackground > .row:has(> #leftcolumn) { grid-template-columns: minmax(0, 1fr); padding: 1rem; }
+  .sim-slate-behavior.sim-sanitized .bodybackground > .row:has(> #leftcolumn) { grid-template-columns: minmax(0, 1fr); padding: 1rem; }
 }

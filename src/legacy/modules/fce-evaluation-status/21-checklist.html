@@ -1,0 +1,28 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <style type="text/css">.checklist_info {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <h3>
+      Additional Materials Requested
+    </h3>
+    <br />
+    {% for results in {{fce_checklist_flags}} %}
+    <table border="0" style="width:100%;">
+      <tbody>
+        <tr>
+          <td><span style="color:#c8102e;"><strong>{{results.name}}</strong></span></td>
+        </tr>
+        <tr>
+          <td>{{results.flags}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    {% endfor %}
+  </body>
+</html>

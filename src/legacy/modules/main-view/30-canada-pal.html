@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <style type="text/css">.decision_card {
+  padding: 40px;
+      display: flex;
+      flex-direction: column;
+  background: #fff;
+  border-radius: 20px;
+      box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
+}
+      .decision_card >.col-4, .decision_card > .col-8 {
+      padding: 1rem;}
+
+.highlight {
+  font-weight: bold;
+  color: #294;
+}
+    </style>
+  </head>
+  <body>
+    <section>
+    <div class="row" style="margin: auto;">
+      <div class="col-12">
+        <div class="decision_card row position-relative">
+          <div class="col-3">
+            <img src="/icons/new_decision2.png" />
+          </div>
+
+          <div class="col-9 position-static">
+            <h2>
+              Access your Provincial Attestation Letter (PAL)
+            </h2>
+          </div>
+
+          <div class="col-9 position-static">
+            <a href="{{canada_pal_url}}" id="fin_aid_link" target="_blank">View and download your PAL</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </section>
+    <!--
+    <script>    $(document).ready(function() {
+        // Attach a click event handler to the anchor link
+        $('#fin_aid_link').click(function(e) {
+            e.preventDefault(); // Prevent the default link behavior
+
+            // Find the button you want to click within the form and trigger a click event
+            $('.read_financial_aid_letter button.form_button_submit').click();
+
+            // Delay the navigation to the link's href to ensure the button click event has time to execute
+            setTimeout(function() {
+                var href = $('#fin_aid_link').attr('href'); // Get the href attribute of the clicked link
+                window.open(href, '_blank'); // Open the link in a new tab
+            }, 5000); // Adjust the delay time as needed
+        });
+    });</script>
+-->
+  </body>
+</html>

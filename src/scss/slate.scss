@@ -15,8 +15,9 @@
      4. Utilities
      5. Header
      6. Footer
-     7. FCE credential tracker (static — bin logic lives in Slate)
-     8. Preview-only placeholder sections (local demo, not shipped to Slate)
+     7. Preview-only placeholder sections (local demo, not shipped to Slate)
+
+   Content module styles live in modules.scss.
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
@@ -733,123 +734,7 @@ footer {
 }
 
 /* ==========================================================================
-   7. FCE credential tracker
-
-   Renders the 5-step "Track My Status" stepper from the 9/4/2026 FCE
-   Pizza Tracker update. This file only supplies the two visual states,
-   is-complete and is-current — everything about WHICH step gets which
-   class for a given applicant is decided server-side in Slate, from their
-   checklist bin. That mapping needs to be confirmed with the Slate team;
-   nothing here assumes it's already wired up.
-   ========================================================================== */
-.fce-tracker {
-  padding-block: clamp(2rem, 5vw, 4rem);
-
-  h2 {
-    margin: 0 0 2rem;
-    font-family: "ff-real-headline-pro", sans-serif;
-    font-size: 1.125rem;
-    font-weight: 700;
-  }
-
-  &__steps {
-    display: flex;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  &__step {
-    position: relative;
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding-inline: 0.5rem;
-
-    /* Connecting line, drawn behind the node through the center of every
-       step but the first. */
-    &:not(:first-child)::before {
-      content: '';
-      position: absolute;
-      top: 10px;
-      right: 50%;
-      width: 100%;
-      height: 1px;
-      background: var(--light-gray);
-    }
-
-    &.is-complete {
-      .fce-tracker__node { border-color: #767676; background: #767676; }
-      .fce-tracker__label { color: #111; }
-      &::before { background: #767676; }
-    }
-
-    &.is-current {
-      .fce-tracker__node {
-        position: relative;
-        border-color: var(--red);
-        box-shadow: 0 0 0 3px rgb(212 27 44 / 15%);
-
-        &::after {
-          content: '';
-          position: absolute;
-          inset: 4px;
-          border-radius: 50%;
-          background: var(--red);
-        }
-      }
-
-      .fce-tracker__label { color: #111; font-weight: 700; }
-    }
-  }
-
-  &__node {
-    position: relative;
-    z-index: 1;
-    width: 22px;
-    height: 22px;
-    flex-shrink: 0;
-    border: 2px solid var(--light-gray);
-    border-radius: 50%;
-    background: #fff;
-  }
-
-  &__label {
-    margin-top: 0.75rem;
-    max-width: 9rem;
-    font-size: 0.8125rem;
-    line-height: 1.3;
-    color: #767676;
-  }
-
-  &__description {
-    margin: 2rem 0 0;
-    padding: 1.25rem 1.5rem;
-    border-left: 4px solid var(--red);
-    background: #f5f5f5;
-    font-size: 0.9375rem;
-    line-height: 1.5;
-  }
-
-  @media (max-width: 640px) {
-    &__steps {
-      flex-wrap: wrap;
-      row-gap: 1.5rem;
-    }
-
-    &__step {
-      flex-basis: 33.333%;
-
-      /* Line-drawing assumes a single row; skip it once steps wrap. */
-      &:not(:first-child)::before { display: none; }
-    }
-  }
-}
-
-/* ==========================================================================
-   8. Preview-only placeholder sections
+   7. Preview-only placeholder sections
 
    Temporary layout/scroll-testing blocks for the local Eleventy preview
    (src/_includes/sections/placeholder-*.html). These are NOT part of the
@@ -963,6 +848,3 @@ footer {
     }
   }
 }
-
-/* Empty-payment message inserted by the vanilla Main View behavior. */
-.slate-payment-heading { margin-top: 0; }

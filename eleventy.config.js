@@ -5,6 +5,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addWatchTarget('src/_includes/');
   eleventyConfig.addWatchTarget('src/scss/');
   eleventyConfig.addWatchTarget('src/modules/');
+  eleventyConfig.addWatchTarget('src/legacy/modules/');
   eleventyConfig.addWatchTarget('src/simulator/');
   eleventyConfig.addPassthroughCopy({ 'src/js': 'js', images: 'images' });
   eleventyConfig.on('eleventy.before', async () => {
@@ -12,6 +13,8 @@ export default function (eleventyConfig) {
     for (const [source, output, style] of [
       ['slate', 'slate', 'expanded'],
       ['slate', 'slate.min', 'compressed'],
+      ['modules', 'modules', 'expanded'],
+      ['modules', 'modules.min', 'compressed'],
       ['accessibility', 'accessibility', 'expanded'],
       ['simulator', 'simulator', 'expanded'],
       ['simulator-preview', 'simulator-preview', 'expanded'],

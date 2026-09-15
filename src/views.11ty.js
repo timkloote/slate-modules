@@ -18,6 +18,8 @@ export default class {
       </aside>
       <section class="sim-preview" aria-label="Portal preview">
         <div class="sim-toolbar">
+          <label>Modules <select id="module-source"><option value="sanitized">Sanitized</option><option value="legacy">Legacy originals</option></select></label>
+          <label>Styles <select id="portal-styles"><option value="design">Design only</option><option value="portal">Portal + design</option></select></label>
           <label>Classes <select id="class-mode"><option value="original">Original audit classes</option><option value="new">Proposed audit classes</option></select></label>
           <label>Clean view layout <select id="layout-mode"><option value="stacked">Slate stack</option>${view.slug === 'main-view' ? '<option value="behavior" selected>Slate behavior · vanilla JS</option>' : ''}<option value="columns">CSS column experiment</option></select></label>
           <label>Width <select id="preview-width"><option value="full">Full</option><option value="tablet">Tablet · 768px</option><option value="mobile">Mobile · 390px</option></select></label>
@@ -25,7 +27,7 @@ export default class {
           <a id="open-preview" target="_blank" rel="noopener">Open stacked preview</a>
           <a id="clean-preview" target="_blank" rel="noopener" title="Open selected modules without inspector labels or notices">Clean view ↗</a>
         </div>
-        <p class="sim-notice">This canvas stacks selected modules in audit order without portal JavaScript. Clean view applies its selected layout and vanilla-JS behavior. Liquid and live forms remain inactive.</p>
+        <p class="sim-notice">This canvas stacks selected modules in audit order without portal JavaScript. Legacy originals preserve module CSS and the original header/footer; sanitized modules use the new components. Clean view applies its selected layout and vanilla-JS behavior. Portal + design loads the five supplied portal stylesheets before local CSS. Legacy mobile JS, Liquid, and live forms remain inactive.</p>
         <div class="sim-canvas"><iframe id="portal-preview" title="${e(view.name)} portal preview" sandbox="allow-scripts allow-same-origin"></iframe></div>
       </section>
     </main>`, 'simulator');

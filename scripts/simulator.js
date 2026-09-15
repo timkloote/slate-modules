@@ -15,6 +15,11 @@ export function inventory() {
     const candidates = existsSync(directory) ? readdirSync(directory).filter(f => f.startsWith(`${String(record.order).padStart(2, '0')}-`) && f.endsWith('.html')) : [];
     if (candidates.length > 1) throw new Error(`Ambiguous source: ${slug} ${record.order}`);
     const source = candidates.length ? `${directory}/${candidates[0]}` : null;
+    const legacyDirectory = `src/legacy/modules/${slug}`;
+    const legacyCandidates = existsSync(legacyDirectory) ? readdirSync(legacyDirectory).filter(f => f.startsWith(`${String(record.order).padStart(2, '0')}-`) && f.endsWith('.html')) : [];
+    if (legacyCandidates.length > 1) throw new Error(`Ambiguous legacy source: ${slug} ${record.order}`);
+    const legacySource = legacyCandidates.length ? `${legacyDirectory}/${legacyCandidates[0]}` : null;
+    const legacyHtml = legacySource ? readFileSync(legacySource, 'utf8') : '';
     const fixture = `src/simulator/fixtures/${slug}/${record.partId}.html`;
     const hasFixture = existsSync(fixture);
     const html = source ? readFileSync(source, 'utf8') : '';
@@ -22,7 +27,7 @@ export function inventory() {
     if (/^header(?:\b|$)/i.test(record.name)) replacement = 'header';
     // These imported DOM modules contain the old footer. Substitution is local only.
     if (record.name === 'DOM' && /<footer\b/i.test(html)) replacement = 'footer';
-    view.modules.push({ ...record, source, fixture, hasFixture, replacement,
+    view.modules.push({ ...record, source, legacySource, legacyHtml, fixture, hasFixture, replacement,
       html: hasFixture ? readFileSync(fixture, 'utf8') : replacement ? component(`${replacement}.html`).replaceAll('src="images/', 'src="/images/') : html,
       sourceHtml: html,
       needsCapture: record.type !== 'Static Content' && !hasFixture,

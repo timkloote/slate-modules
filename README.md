@@ -120,3 +120,43 @@ Existing Clean view tabs retain the settings encoded in their URL. After changin
 ### Stacked editor versus Clean view
 
 The simulator canvas and **Open stacked preview** always render parts in audit order, without portal app.js, DOM moves, or the CSS column experiment. **Clean view layout** affects only **Clean view**: Main View defaults to the vanilla-JS behavior there. Module selection and classes are shared, while part labels remain an editor control. Select DOM and Scripts for the clean-view column behavior.
+
+### Portal stylesheet environment
+
+Choose **Styles → Portal + design** to load the five supplied build.xslt stylesheet references in this order:
+
+1. `https://enroll-northeastern-edu.cdn.technolutions.net/shared/build-fonts.css`
+2. `https://enroll-northeastern-edu.cdn.technolutions.net/shared/build.css`
+3. `https://enroll-northeastern-edu.cdn.technolutions.net/shared/index.css`
+4. `https://enroll-northeastern-edu.cdn.technolutions.net/shared/tailwind.css`
+5. `https://enroll-northeastern-edu.cdn.technolutions.net/shared/build-mobile-global.css`
+
+They load before the local preview/design styles. This uses the order supplied for development; match the final placement of new CSS in build.xslt when deploying. The choice persists per view and carries into Clean view URLs as `styles=portal`. **Design only** remains the default. Existing Clean view tabs retain their URL settings; reopen the link after switching styles.
+
+The simulator controls and landing page are unaffected. These are live CDN references, so network availability and upstream updates affect the preview; relative font/image URLs resolve on the CDN. Failed stylesheet loads are reported in the browser console.
+
+The supplied `build-mobile-global.js` is not loaded: it depends on jQuery and Slate `FW.generateUuid` / `FW.Dialog.Load`. It injects mobile table labels, converts the legacy menu to a select, observes DOM changes, and modifies dialog loading at widths up to 736px. Those behaviors need a separate vanilla-JS adaptation if required; the mobile CSS alone does not reproduce them. This layer also does not include Slate's additional framework CSS, widget-injected styles, or other portal-specific assets from the rendered page.
+
+### Production stylesheet organization
+
+- `src/scss/slate.scss`: shared CSS custom properties, fonts, base styles, header/footer.
+- `src/scss/modules.scss`: content module styles, including the existing FCE tracker and empty-payment heading. Use shared values directly, e.g. `color: var(--red)` or `max-width: var(--wrapperWidth)`. No import of slate.scss is needed.
+- `src/scss/accessibility.scss`: accessibility overrides, loaded last.
+
+`npm run build` produces `dist/css/modules.css` and `modules.min.css` alongside the existing CSS. Load **slate.css → modules.css → accessibility.css** in production. The landing page, stacked simulator, and Clean view already use that order. Use either the expanded or minified version of each stylesheet, not both. The tracker remains removed from the landing page; its styles are retained for module use.
+
+### Compare sanitized and legacy modules
+
+Use **Modules → Legacy originals** to preview `src/legacy/modules/` instead of `src/modules/`. All 217 legacy files are mapped to the same audit rows, part IDs, order, and selectable wrapper classes. The source choice persists per view and is included in stacked and Clean view links as `source=legacy`.
+
+- **Sanitized** retains the existing workflow: shared new header/footer substitutions, optional rendered captures, and stripped module CSS/scripts.
+- **Legacy originals** uses the original files, including the original header/footer and DOM layout. Inline `style` attributes, `<style>` blocks from both head and body, and stylesheet links are retained. Module style dependencies load when that module is selected. Relative CSS asset URLs and stylesheet paths resolve against the Slate CDN.
+- Legacy mode bypasses rendered capture overrides; non-static widgets remain explicit placeholders. A missing legacy source is reported, never silently replaced with sanitized markup. **Audit & source** exposes both source paths and both HTML versions.
+- The simulator canvas remains stacked with no portal JavaScript. Clean view can run the existing vanilla Main View migration against the legacy DOM if DOM and Scripts are selected. Original scripts, inline event handlers, embedded frames, and live form/navigation behavior remain disabled. The new header's app.js is not loaded with legacy markup.
+- **Styles → Portal + design** remains independent and adds the five supplied portal CSS files. Local design CSS remains loaded in either source mode, so legacy mode is a comparison/compatibility surface, not a pixel-identical historical screenshot. Legacy module styles occur inside the parts after the document's linked CSS and can override it, including through inline styles and `!important`.
+
+Changes under `src/legacy/modules/` trigger development rebuilds. Refresh the simulator and reopen Clean view to load updated source/settings. Neither source directory is rewritten by the simulator. Legacy-only Bootstrap interactions, Slate APIs, and unresolved Liquid still require separate work or validation in Slate.
+
+Temporary part borders now live in `src/scss/modules.scss`: `[id^="part_"] { border: 1px solid var(--light-gray); }`. Replace or remove this rule as module styling progresses; legacy CSS may override it.
+
+The vanilla-JS column moves run for either source in Clean view, but the simulator’s fallback grid, spacing, and column widths apply only to sanitized modules. Legacy mode uses the original Bootstrap `.row` / `.col-md-6` layout; keep the legacy Styles module selected to load its Bootstrap CSS.

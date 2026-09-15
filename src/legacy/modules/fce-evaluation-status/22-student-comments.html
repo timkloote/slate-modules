@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <table border="0" style="width:100%;">
+      <tbody>
+        <tr>
+          <td>
+          <h3>
+            Details From the Application Processing Team
+          </h3>
+          </td>
+        </tr>
+        {% for results in {{fce_checklist_flags_old}} %}{% if {{results.other_details_exists}} == 'Y' %}
+        <tr>
+          <td><strong><br />
+          <span style="color:#c8102e;">Other FCE Requirements</span></strong><span style="color:#c8102e;">&nbsp;</span></td>
+        </tr>
+        <tr>
+          <td>{{results.name}} - {{results.other_details}}</td>
+        </tr>
+        {% endif %}{% endfor %}{% for results in {{fce_checklist_flags}} %}{% if {{results.other_details_exists}} == 'Y' %}
+        <tr>
+          <td><strong><br />
+          <span style="color:#c8102e;">Other FCE Requirements</span></strong><span style="color:#c8102e;">&nbsp;</span></td>
+        </tr>
+        <tr>
+          <td>{{results.name}} - {{results.other_details}}</td>
+        </tr>
+        {% endif %}{% endfor %}
+        <tr>
+          <td><strong><br />
+          <span style="color:#c8102e;">Comments</span></strong></td>
+        </tr>
+        <tr>
+          <td>{{fce_person_checklist_student_facing_comments}}</td>
+        </tr>
+        <tr>
+          <td>{{fce_person_checklist_student_facing_comments_old}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
