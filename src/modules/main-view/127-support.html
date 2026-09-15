@@ -1,0 +1,145 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <!-- Redesign dev note: embedded styles extracted to ../css/extracted-module-styles.css. -->
+  </head>
+  <body autocomplete="off" class="module module--support">
+    <div class="dashborder contact">
+      <!--
+=============================================================================================== 
+ HEADER - GLOBAL PATHWAYS (App Type)
+===============================================================================================
+-->{% if {{app_type4}} == 'GP' %}
+      <h3 class="neu-module-127-inline-01">
+        Global Pathways - Northeastern
+      </h3>
+      <!--
+=============================================================================================== 
+ HEADER = BACHELOR'S DEGREE COMPLETION (App Type)
+===============================================================================================
+-->{% elsif {{app_type4}} == 'BDC' %}
+
+      <h3 class="neu-module-127-inline-02">
+        CPS Undergraduate Programs
+      </h3>
+      <!--
+=============================================================================================== 
+ HEADER = ALL OTHER (App Type)
+===============================================================================================
+-->{% else %}
+
+      <h3 class="neu-module-127-inline-03">
+        {{college}}
+      </h3>
+      {% endif %}<!--
+=============================================================================================== 
+ INFO = GLOBAL PATHWAYS (App Type)
+===============================================================================================
+-->{% if {{app_type4}} == 'GP' %}
+
+      <div class="neu-module-127-inline-04">
+        <a href="https://international.northeastern.edu/global-pathways/" target="_blank">Admissions Information</a> | <a href="https://international.northeastern.edu/global-pathways/contact-us/" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}<!--
+=============================================================================================== 
+ INFO = BACHELOR'S DEGREE COMPLETION (App Type)
+===============================================================================================
+-->{% if {{app_type4}} == 'BDC' %}
+
+      <div class="neu-module-127-inline-05">
+        <a href="https://cps.northeastern.edu/academics/undergraduate-programs/" target="_blank">Admissions Information</a> | <a href="https://northeastern.my.site.com/GraduateAdmissionsFAQ/s/" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}<!--
+=============================================================================================== 
+INFO = ALL OTHER (App Type)
+===============================================================================================
+-->{% if {{app_type4}} != 'GP' and {{app_type4}} != 'BDC' %}{% if {{college_category}} == 'College of Professional Studies' %}{% if  {{degree_category}} == 'Bachelors' %}
+
+      <div class="neu-module-127-inline-06">
+        <a href="https://cps.northeastern.edu/admissions-aid/admissions-policies/bachelors-completion-application-information/" target="_blank">Admissions Information</a> | <a href="https://northeastern.my.site.com/GraduateAdmissionsFAQ/s/" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}{% if {{degree_category}} != 'Bachelors' %}
+
+      <div class="neu-module-127-inline-07">
+        <a href="https://cps.northeastern.edu/admissions-aid/" target="_blank">Admissions Information</a> | <a href="https://northeastern.my.site.com/GraduateAdmissionsFAQ/s/" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}{% endif %}{% if {{college}} == 'Northeastern University London' and {{london_par}} != null and {{london_par}} != '' %}
+
+      <div class="neu-module-127-inline-08">
+        Your main contact at NU London:<br />
+        {{london_par}}
+      </div>
+      {% endif %}{% if {{college_category}} == 'College of Science' %}
+
+      <div class="neu-module-127-inline-09">
+        <a href="https://cos.northeastern.edu/admissions/graduate-programs/how-to-apply/" target="_blank">Admissions Information</a> | <a href="https://northeastern.my.site.com/GraduateAdmissionsFAQ/s/" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}{% if {{college_category}} == 'College of Engineering' %}
+
+      <div class="neu-module-127-inline-10">
+        <a href="https://coe.northeastern.edu/academics-experiential-learning/graduate-school-of-engineering/graduate-admissions/" target="_blank">Admissions Information</a> | <a href="https://husky.my.site.com/help/s/" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}{% if {{college_category}} == 'Khoury College of Computer Science' %}{% if {{degree_category}} != 'Doctorate' %}
+
+      <div class="neu-module-127-inline-11">
+        <a href="https://www.khoury.northeastern.edu/apply/masters-apply/masters-admissions-questions/" target="_blank">Admissions Information</a> | <a href="mailto:khoury-gradschool@northeastern.edu" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}{% if  {{degree_category}} == 'Doctorate' %}
+
+      <div class="neu-module-127-inline-12">
+        <a href="https://www.khoury.northeastern.edu/apply/phd-apply/" target="_blank">Admissions Information</a> | <a href="mailto:khoury-gradschool@northeastern.edu" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}{% endif %}{% if {{college_category}} == 'College of Arts, Media and Design' %}
+
+      <div class="neu-module-127-inline-13">
+        <a href="https://camd.northeastern.edu/graduate-admissions/" target="_blank">Admissions Information</a> | <a href="mailto:gradcamd@northeastern.edu" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}{% if {{college_category}} == 'College of Social Sciences and Humanities' %}{% if  {{degree_category}} != 'Doctorate' %}
+
+      <div class="neu-module-127-inline-14">
+        <a href="https://cssh.northeastern.edu/apply/#masters" target="_blank">Admissions Information</a> | <a href="mailto:{{cssh_contact_email}}" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}{% if {{degree_category}} == 'Doctorate' %}
+
+      <div class="neu-module-127-inline-15">
+        <a href="https://cssh.northeastern.edu/apply/#phd" target="_blank">Admissions Information</a> | <a href="mailto:{{cssh_contact_email}}" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}{% endif %}{% if {{college_category}} == 'Mills College at Northeastern' %}
+
+      <div class="neu-module-127-inline-16">
+        <a href="https://oakland.northeastern.edu/about/contact-us/" target="_blank">Admissions Information</a> | <a href="mailto:oaklandrecruitment@northeastern.edu" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}{% if {{college_category}} == 'Bouvé College of Health Sciences' %}
+
+      <div class="neu-module-127-inline-17">
+        <a href="https://bouve.northeastern.edu/admissions/graduate-admissions/" target="_blank">Admissions Information</a> | <a href="mailto:bouvegrad@neu.edu" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}{% if {{college_category}} == 'DMSB' %}{% if {{modality}} == 'Online' %}{% if  {{degree}} == 'Master of Business Administration' %}
+
+      <div class="neu-module-127-inline-18">
+        <a href="https://damore-mckim.northeastern.edu/programs/online-mba/" target="_blank">Admissions Information</a> | <a href="mailto:onlinemba@northeastern.edu" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}{% endif %}{% if {{modality}} != 'Online' %}{% if  {{degree}} == 'Master of Business Administration' %}
+
+      <div class="neu-module-127-inline-19">
+        <a href="https://damore-mckim.northeastern.edu/admissions" target="_blank">Admissions Information</a> | <a href="mailto:gradbusiness@northeastern.edu" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}{% endif %}{% if  {{degree}} != 'Master of Business Administration' %}{% if  {{msa_mba_contact}} == 'Y' %}
+
+      <div class="neu-module-127-inline-20">
+        <a href="https://damore-mckim.northeastern.edu/admissions" target="_blank">Admissions Information</a> | <a href="mailto:GSPA@northeastern.edu" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}{% endif %}{% if  {{degree}} != 'Master of Business Administration' %}{% if  {{msa_mba_contact}} != 'Y' %}
+
+      <div class="neu-module-127-inline-21">
+        <a href="https://damore-mckim.northeastern.edu/admissions" target="_blank">Admissions Information</a> | <a href="mailto:gradbusiness@northeastern.edu" target="_blank">Contact Us</a>
+      </div>
+      {% endif %}{% endif %}{% endif %}{% if {{college_category}} == 'School of Law' %}{% for results in {{law_about_contact}} %}
+
+      <div class="neu-module-127-inline-22">
+        <a href="{{results.website}}" target="_blank">Admissions Information</a> | <a href="mailto:{{results.contact}}" target="_blank">Contact Us</a>
+      </div>
+      {% endfor %}{% endif %}{% endif %}
+    </div>
+  </body>
+</html>

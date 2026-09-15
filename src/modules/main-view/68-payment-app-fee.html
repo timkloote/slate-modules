@@ -1,0 +1,27 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+  </head>
+  <body class="module module--payment-app-fee">
+    <div class="part whitebackground checklist leftcolumn" id="part_e4bcc4b3-c468-4caa-887c-6c56e1e42229">
+      <h3 class="payment_sum">
+        Payment Due{% if {{app_payment_due_date}} != null %}{% endif %}: {{app_payment_sum}} {{app_payment_currency}}
+      </h3>
+
+      <table class="nohighlight table">
+        <colgroup>
+          <col  class="neu-module-068-inline-01"/>
+          <col  class="neu-module-068-inline-02"/>
+          <col />
+        </colgroup>
+        <tbody>
+          <tr>
+            <td><img alt="Status: Awaiting" height="22" src="/icons/awaiting.png" width="22" /></td>
+            <td>Awaiting</td>
+            <td>Application Fee - <a href="/apply/payment?id={{app_payment_guid}}">Submit Payment for {{app_payment_sum}} {{app_payment_currency}}</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

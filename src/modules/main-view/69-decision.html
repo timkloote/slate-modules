@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <!-- Redesign dev note: embedded styles extracted to ../css/extracted-module-styles.css. -->
+  </head>
+  <body class="module module--decision">
+    <section>
+    <div class="row neu-module-069-inline-01">
+      <div class="col-12">
+        {% for decision in decisions_unread %}
+        <div class="decision_card row position-relative">
+          <div class="col-3">
+            <img src="/icons/new_decision2.png" />
+          </div>
+
+          <div class="col-9 position-static">
+            <h2>
+              You have a new decision
+            </h2>
+            <a href="/apply/update?id={{decision.guid}}" target="_blank">View your decision</a><br />
+            <a href="/apply/download.pdf?s={{decision.guid}}&amp;output=letter.pdf">Download your decision letter</a>
+          </div>
+        </div>
+        {% endfor %}{% if {{decisions_read}} %}{% for decision in decisions_read %}
+
+        <div class="decision_card row position-relative">
+          <div class="col-3">
+            <img src="/icons/new_decision2.png" />
+          </div>
+
+          <div class="col-9 position-static">
+            <h2>
+              Access your previously viewed <b>{{decision.name}}</b> decision
+            </h2>
+            <a href="/apply/update?id={{decision.guid}}" target="_blank">View your decision</a><br />
+            <a href="/apply/download.pdf?s={{decision.guid}}&amp;output=letter.pdf">Download your decision letter</a>
+          </div>
+        </div>
+        {% endfor %}{% endif %}
+      </div>
+    </div>
+    </section>
+  </body>
+</html>

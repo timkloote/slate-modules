@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <!-- Redesign dev note: embedded styles extracted to ../../css/extracted-other-view-styles.css. -->
+  </head>
+  <body class="module module--admissions-letters">
+    <div class="neu-letters-module-003-inline-01">
+      <div class="part_admissions" id="part_admissions">
+        <h3>
+          Admissions Letters
+        </h3>
+
+        <table>
+          <tbody>
+          </tbody>
+          <colgroup>
+            <col />
+            <col />
+            <col />
+          </colgroup>
+          <tbody>
+            <tr>
+              <th class="neu-letters-module-003-inline-02">Status</th>
+              <th class="neu-letters-module-003-inline-03">Letter Name</th>
+              <th class="neu-letters-module-003-inline-04">Date</th>
+            </tr>
+            {% for letters in decisionletters %}
+            <tr>
+              <td>{% if {{letters.status}} != 'Received' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% else %}<img alt="" height="22" src="/icons/received.png" title="Status: {{letters.status}}" width="22" />{% endif %}</td>
+              <td>{% if {{letters.url}} == null %}{{letters.subject}}{% else %}<a href="{{letters.url}}" target="_blank">{{letters.subject}}</a>{% endif %}</td>
+              <td>{{letters.date}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </body>
+</html>

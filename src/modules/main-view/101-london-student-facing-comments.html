@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+  </head>
+  <body class="module module--london-student-facing-comments">
+    <h3>
+      <strong>Details from the Application Processing Team</strong>
+    </h3>
+
+    <table class="table">
+      <tbody>{% for notes in uk_app_review %}
+        <tr>
+          <td>{{notes.portal_comments}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

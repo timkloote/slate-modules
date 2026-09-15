@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+  </head>
+  <body autocomplete="off" class="module module--nu-london-accepted-offer-block">
+    <b>We are delighted that you have accepted your offer.</b><br />
+    <br />
+    We are here to support you every step of the way as you prepare to start your master’s degree.<br />
+    <br />
+    Below you’ll find you list of important next steps.
+    <ul>
+      {% if {{uk_visa_required}} == 'Y' %}
+      <li>
+        <a href="https://www.nulondon.ac.uk/admissions/visas/student-visa-application-process/how-to-get-a-student-visa/">Start your visa process now</a>
+      </li>
+      {% endif %}{% if {{uk_home_student}} == 'Y' %}
+      <li>
+        <a href="https://www.gov.uk/masters-loan/apply">Check eligibility and apply for your postgraduate student loan now</a>
+      </li>
+      {% endif %}
+      <li>
+        <a href="https://www.nulondon.ac.uk/admissions/offer-holders-heres-whats-next/">Mark our key dates in your calendar</a>
+      </li>
+      <li>
+        <a href="https://www.nulondon.ac.uk/postgraduate-consultation/">Book a personal consultation with your Enrolment Counsellor</a>
+      </li>
+      <li>
+        Contact our Student Support Team about any disability, specific learning difference, neurological difference or a mental health condition via <a href="mailto:studentsupport@nulondon.ac.uk">studentsupport@nulondon.ac.uk</a>
+      </li>
+    </ul>
+  </body>
+</html>

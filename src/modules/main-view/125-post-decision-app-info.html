@@ -1,0 +1,54 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <!-- Redesign dev note: embedded styles extracted to ../css/extracted-module-styles.css. -->
+  </head>
+  <body class="module module--post-decision-app-info">
+    <div class="dashborder">
+      <h3 class="neu-module-125-inline-01">
+        {% if {{primary_program}} == 'Y' %}<strong>Primary Program</strong><br />
+        {% endif %} Your Application Details
+      </h3>
+
+      <ul id="appdetails" class="neu-module-125-inline-02">
+        <li>
+          <strong><span>Start Term</span></strong><br />
+          {% if {{enrollterm_exists}} == 'Y' %}{{enroll-term}}{% else %}{{start-term}}{% endif %}
+        </li>
+        <li>
+          <strong><span>Degree Sought</span></strong><br />
+          {% if {{global_pathway}} == 'Y' %}Global Pathway{% else %}{{degree}}{% endif %}
+        </li>
+        <li>
+          <strong><span>Program</span></strong><br />
+          <!-- The line below for Program previously contained 'College +Major',
+but per DMSB recommendation and Jeff Hengel assent, it now omits 'College'. JH 5/9/23 -->{% if {{global_pathway}} == 'Y' %}Global Pathway{% elsif {{major}} == 'AI MBA' %}Business Analytics{% else %}{{major}}{% endif %}
+        </li>
+        {% if {{concentration}} != empty and {{sol_jd}} == 'N' %}
+        <li>
+          <strong><span>Concentration</span></strong><br />
+          {{concentration}}
+        </li>
+        {% endif %}{% if {{nu_campus}} != 'Online' and {{sol_jd}} == 'N' %}
+        <li>
+          <strong><span>Campus</span></strong><br />
+          {{nu_campus}}
+        </li>
+        {% endif %}{% if {{nu_campus}} != 'Online' and {{sol_jd}} == 'N' %}
+        <li>
+          <strong><span>Modality</span></strong><span id="cke_bm_193S" class="neu-module-125-inline-03">&nbsp;</span><br />
+          {{modality}}
+        </li>
+        {% endif %}
+        <li>
+          <strong><span>Full-time or Part-time</span></strong><br />
+          {{enrollment_status}}
+        </li>
+        <li>
+          <strong><span>Status</span></strong><br />
+          {{status}}{% if {{sol_no_response}} == 'Y' %} - <em>Deadline Passed, No Response</em>{% endif %}
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

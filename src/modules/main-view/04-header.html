@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+    window.dataLayer = window.dataLayer || [];
+            const userId = $('#md5guid').text();
+            sessionStorage.setItem('sessionUserId', userId);
+
+            let eventName = sessionStorage.getItem('gtmEventName');
+            let sessionUserId = sessionStorage.getItem('sessionUserId');
+
+            console.log('app landing gtmEventName value entering function: ' + eventName);
+            console.log('Direct User ID: ' + userId);
+            console.log('Session Storage User ID: ' + sessionUserId);
+
+            if (eventName) {
+                window.dataLayer.push({
+                    'event': eventName,
+                    'user_id': userId
+                });
+            }
+            console.log("DataLayer event pushed:", eventName);
+            sessionStorage.setItem('gtmEventName', ''); 
+            console.log('user_id: ' + userId);
+
+        });</script>
+    <!-- Redesign dev note: embedded styles extracted to ../css/extracted-module-styles.css. -->
+    <!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&amp;='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-WGQLLJ');</script><!-- End Google Tag Manager --><!-- Google Tag Manager EM --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&amp;='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-PKNLJQX');</script><!-- End Google Tag Manager --><!-- Google Tag Manager (noscript) --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WGQLLJ" height="0" width="0" class="neu-module-004-inline-01"></iframe></noscript><!-- Google Tag Manager (noscript) EM --><noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKNLJQX" height="0" width="0" class="neu-module-004-inline-02"></iframe></noscript><!-- End Google Tag Manager (noscript) -->
+  </head>
+  <body class="module module--header">
+
+  <header></header>
+
+
+  </body>
+</html>

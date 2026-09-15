@@ -1,0 +1,43 @@
+<!--
+  FCE credential tracker — static markup only.
+
+  The "is-complete" / "is-current" classes below are placed by hand here so
+  the component is visible in preview. In Slate, whoever owns the Portal
+  page needs to set those two classes per <li> server-side, based on the
+  applicant's current checklist bin — see "Fw: Update to FCE Pizza Tracker"
+  (9/4/2026) for the five step names, the bin logic per step, and the
+  description copy that goes in fce-tracker__description below the steps.
+  Nothing here should be treated as that logic already being wired up.
+-->
+<section class="fce-tracker" aria-labelledby="fce-tracker-title">
+  <div class="wrapper">
+    <h2 id="fce-tracker-title">Track My Status</h2>
+
+    <ol class="fce-tracker__steps">
+      <li class="fce-tracker__step is-complete">
+        <span class="fce-tracker__node" aria-hidden="true"></span>
+        <span class="fce-tracker__label">Credentials submitted</span>
+      </li>
+      <li class="fce-tracker__step is-complete">
+        <span class="fce-tracker__node" aria-hidden="true"></span>
+        <span class="fce-tracker__label">Credentials reviewed – action needed</span>
+      </li>
+      <li class="fce-tracker__step is-complete">
+        <span class="fce-tracker__node" aria-hidden="true"></span>
+        <span class="fce-tracker__label">Credentials processing</span>
+      </li>
+      <li class="fce-tracker__step">
+        <span class="fce-tracker__node" aria-hidden="true"></span>
+        <span class="fce-tracker__label">Credentials under review</span>
+      </li>
+      <li class="fce-tracker__step is-current" aria-current="step">
+        <span class="fce-tracker__node" aria-hidden="true"></span>
+        <span class="fce-tracker__label">Credentials finalized</span>
+      </li>
+    </ol>
+
+    <p class="fce-tracker__description">
+      Your Foreign Credential Evaluation is complete. Continue to monitor your communications for any future updates.
+    </p>
+  </div>
+</section>

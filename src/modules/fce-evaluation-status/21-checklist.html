@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <!-- Redesign dev note: embedded styles extracted to ../../css/extracted-other-view-styles.css. -->
+  </head>
+  <body class="module module--checklist">
+    <h3>
+      Additional Materials Requested
+    </h3>
+    <br />
+    {% for results in {{fce_checklist_flags}} %}
+    <table border="0" class="neu-fce-evaluation-status-module-021-inline-01">
+      <tbody>
+        <tr>
+          <td><span class="neu-fce-evaluation-status-module-021-inline-02"><strong>{{results.name}}</strong></span></td>
+        </tr>
+        <tr>
+          <td>{{results.flags}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <br />
+    {% endfor %}
+  </body>
+</html>

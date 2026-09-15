@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <!-- Redesign dev note: embedded styles extracted to ../css/extracted-module-styles.css. -->
+  </head>
+  <body class="module module--checklist-post-admission-table-only-desktop-plus-mobile">
+    <div class="neu-module-095-inline-01">
+      <div class="part_admissions" id="part_admissions">
+        <h3>
+          Required Post Admission Checklist Items
+        </h3>
+
+        <table>
+          <tbody>
+          </tbody>
+          <colgroup>
+            <col />
+            <col />
+            <col />
+          </colgroup>
+          <tbody>
+            <tr>
+              <th class="neu-module-095-inline-02">Status</th>
+              <th class="neu-module-095-inline-03">Checklist Item</th>
+              <th class="neu-module-095-inline-04">Date Received</th>
+            </tr>
+            {% if {{accept_admission.status}} %}
+            <tr>
+              <td>{% if {{accept_admission.status}} != 'Received' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% else %}<img alt="" height="22" src="/icons/received.png" title="Status: {{accept_admission.status}}" width="22" />{% endif %}</td>
+              <td><a href="https://enroll.northeastern.edu/apply/form?id=a2e0ce5f-469d-42f0-b718-ed5507b93431" target="_blank">Reply to Your Offer of Admission</a></td>
+              <td>{% if {{accept_admission.date}} %}{{accept_admission.date}}{% else %}Pending{% endif %}</td>
+            </tr>
+            {% endif %}{% if {{deposit_fee.status}} %}
+            <tr>
+              <td>{% if {{deposit_fee.status}} != 'Received' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% else %}<img alt="" height="22" src="/icons/received.png" title="Status: {{deposit_fee.status}}" width="22" />{% endif %}</td>
+              <td><a href="https://enroll.northeastern.edu/apply/form?id=a2e0ce5f-469d-42f0-b718-ed5507b93431" target="_blank">Pay Deposit Fee</a></td>
+              <td>{% if {{deposit_fee.date}} %}{{deposit_fee.date}}{% else %}Pending{% endif %}</td>
+            </tr>
+            {% endif %}{% if {{final_official_transcript.status}} %}
+            <tr>
+              <td>{% if {{final_official_transcript.status}} != 'Received' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% else %}<img alt="" height="22" src="/icons/received.png" title="Status: {{final_official_transcript.status}}" width="22" />{% endif %}</td>
+              <td><a href="https://enroll.northeastern.edu/apply/form?id=a2e0ce5f-469d-42f0-b718-ed5507b93431" target="_blank">Final Official Transcript</a></td>
+              <td>{% if {{final_official_transcript.date}} %}{{final_official_transcript.date}}{% else %}Pending{% endif %}</td>
+            </tr>
+            {% endif %}{% if {{my_neu_account.status}} %}
+            <tr>
+              <td>{% if {{my_neu_account.status}} != 'Received' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% else %}<img alt="" height="22" src="/icons/received.png" title="Status: {{my_neu_account.status}}" width="22" />{% endif %}</td>
+              <td><a href="https://enroll.northeastern.edu/apply/form?id=a2e0ce5f-469d-42f0-b718-ed5507b93431" target="_blank">myNortheastern Account</a></td>
+              <td>{% if {{my_neu_account.date}} %}{{my_neu_account.date}}{% else %}Pending{% endif %}</td>
+            </tr>
+            {% endif %}{% if {{visa.status}} %}
+            <tr>
+              <td>{% if {{visa.status}} != 'Received' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% else %}<img alt="" height="22" src="/icons/received.png" title="Status: {{visa.status}}" width="22" />{% endif %}</td>
+              <td><a href="https://enroll.northeastern.edu/apply/form?id=a2e0ce5f-469d-42f0-b718-ed5507b93431" target="_blank">Submit VISA</a></td>
+              <td>{% if {{visa.date}} %}{{visa.date}}{% else %}Pending{% endif %}</td>
+            </tr>
+            {% endif %}{% if {{test_scores_intl.status}} %}
+            <tr>
+              <td>{% if {{test_scores_intl.status}} != 'Received' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% else %}<img alt="" height="22" src="/icons/received.png" title="Status: {{test_scores_intl.status}}" width="22" />{% endif %}</td>
+              <td><a href="https://enroll.northeastern.edu/apply/form?id=a2e0ce5f-469d-42f0-b718-ed5507b93431" target="_blank">Official Test Scores (TOEFL, IELTS, or Duolingo)</a></td>
+              <td>{% if {{test_scores_intl.date}} %}{{test_scores_intl.date}}{% else %}Pending{% endif %}</td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+
+        <p>
+          <a class="checklist_info" href="https://northeastern.my.site.com/GraduateAdmissionsFAQ/s/article/When-is-my-application-checklist-considered-incomplete" target="_blank">When is my application checklist considered incomplete?</a>
+        </p>
+      </div>
+    </div>
+  </body>
+</html>

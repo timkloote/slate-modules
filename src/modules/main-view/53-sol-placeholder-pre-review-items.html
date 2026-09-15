@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <!-- Redesign dev note: embedded styles extracted to ../css/extracted-module-styles.css. -->
+  </head>
+  <body class="module module--sol-placeholder-pre-review-items">
+    <div class="part_admissions" id="part_admissions">
+      <h3>
+        Required Items for Application Review
+      </h3>
+
+      <table border="1" cellpadding="1" cellspacing="1" class="neu-module-053-inline-01">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="col">Status</th>
+            <th scope="col">Required Items</th>
+          </tr>
+          <tr>
+            <td>{% if {{sol_eapp_received}} == 'N' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% endif %}{% if {{sol_eapp_received}} == 'Y' %}<img alt="" height="22" src="/icons/received.png" title="Status: Received" width="22" />{% endif %}</td>
+            <td>Application</td>
+          </tr>
+          <tr>
+            <td>{% if {{sol_cas_received}} == 'N' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% endif %}{% if {{sol_cas_received}} == 'Y' %}<img alt="" height="22" src="/icons/received.png" title="Status: Received" width="22" />{% endif %}</td>
+            <td>CAS Report</td>
+          </tr>
+          <tr>
+            <td>{% if {{sol_lor_received}} == 'N' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% endif %}{% if {{sol_lor_received}} == 'Y' %}<img alt="" height="22" src="/icons/received.png" title="Status: Received" width="22" />{% endif %}</td>
+            <td>Recommendation</td>
+          </tr>
+          {% if {{llm_velps}} == 'Y' %}
+          <tr>
+            <td>{% if {{llm_velps_received}} == 'N' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% endif %}{% if {{llm_velps_received}} == 'Y' %}<img alt="" height="22" src="/icons/received.png" title="Status: Received" width="22" />{% endif %}</td>
+            <td>Verified English Language Score</td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

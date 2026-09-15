@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+  </head>
+  <body class="module module--application-selector">
+    <div class="neu-module-055-inline-01">
+      <h3>
+        Check Other Applications
+      </h3>
+      <select autocomplete="off" data-onchange="{ init: false }" id="apps" onchange="FW.Navigate('/apply/?id=' + $(this).val() + '&amp;r=status');"><option value="">Select another application</option>{% for result in {{apps}} %}<option value="{{result.guid}}">{% if {{global_pathway}} == 'Y' %}Global Pathway{% else %}{{result.program}}{% endif %}{% if {{result.college}} == 'College of Engineering' %} - {{result.concentration}}{% endif %} - {{result.campus}} ({{result.term}})</option>{% endfor %}</select>
+    </div>
+    <script>/*   
+      $('#apps').change(function() {
+    var eventTypeName = $("#apps option:selected");
+});
+      */
+      
+
+$( document ).ready(function() {
+    let lable = document.querySelector("#apps");
+      let program = {{program}};
+            $(lable.selectedOptions[0]).html(program);
+});</script>
+  </body>
+</html>

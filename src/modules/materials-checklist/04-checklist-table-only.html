@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <!-- Redesign dev note: embedded styles extracted to ../../css/extracted-other-view-styles.css. -->
+  </head>
+  <body class="module module--checklist-table-only">
+    <div class="neu-materials-checklist-module-004-inline-01">
+      <div class="part_admissions" id="part_admissions">
+        <h3>
+          Required Application Checklist Items
+        </h3>
+
+        <table>
+          <tbody>
+          </tbody>
+          <colgroup>
+            <col />
+            <col />
+            <col />
+          </colgroup>
+          <tbody>
+            <tr>
+              <th class="neu-materials-checklist-module-004-inline-02">Status</th>
+              <th class="neu-materials-checklist-module-004-inline-03">Checklist Item</th>
+              <th class="neu-materials-checklist-module-004-inline-04">Date Received</th>
+            </tr>
+            {% for checklist in checklistitems %}
+            <tr>
+              <td>{% if {{checklist.status}} != 'Received' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% else %}<img alt="" height="22" src="/icons/received.png" title="Status: {{checklist.status}}" width="22" />{% endif %}</td>
+              <td>{% if {{checklist.url}} == null %}{{checklist.subject}}{% else %}<a href="{{checklist.url}}" target="_blank">{{checklist.subject}}</a>{% endif %}</td>
+              <td>{% if {{checklist.date}} %}{{checklist.date}}{% else %}Pending{% endif %}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <!--=
+        <table class="nohighlight table">
+          <colgroup>
+            <col  class="neu-materials-checklist-module-004-inline-05"/>
+            <col  class="neu-materials-checklist-module-004-inline-06"/>
+            <col />
+            <col  class="neu-materials-checklist-module-004-inline-07"/>
+          </colgroup>
+          <thead>
+            <tr class="column">
+              <th colspan="2">Status</th>
+              <th>Details</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>{% for checklist in checklistitems %}
+            <tr class="plain neu-materials-checklist-module-004-inline-08">
+              <td>{% if {{checklist.status}} != 'Received' %}<img alt="" height="22" src="/icons/Awaiting.png" title="Status: Awaiting" width="22" />{% else %}<img alt="" height="22" src="/icons/{{checklist.status}}.png" title="Status: {{checklist.status}}" width="22" />{% endif %}</td>
+              <td class="neu-materials-checklist-module-004-inline-09">{% if {{checklist.url}} == null %}{{checklist.subject}}{% else %}<a href="{{checklist.url}}" target="_blank">{{checklist.subject}}</a>{% endif %}</td>
+              <td class="neu-materials-checklist-module-004-inline-10">{{checklist.date}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>=-->{% if rec_missing == 'Y' %}
+
+        <p class="neu-materials-checklist-module-004-inline-11">
+          To re-send notification emails to your recommenders, re-visit the <a href="/apply/ref?r=https%3a%2f%2fenroll.northeastern.edu%2fportal%2fapp_status">recommendations page</a>, click "Edit", and then click "Send Reminder".
+        </p>
+        {% endif %}{% if {{missing_english_prof_score}} == 'Y' %}
+
+        <p class="neu-materials-checklist-module-004-inline-12">
+          Your file will be reviewed pending scores being verified. Please have your official scores forwarded directly from the testing center to Northeastern University.
+        </p>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+  </head>
+  <body class="module module--file-incomplete-bin-shoring-up-wf-student-facing-notes">
+    <h3>
+      <strong>Details From the Transcript Processing Team</strong>
+    </h3>
+
+    <table class="table">
+      <tbody>{% for notes in postdeposit_app_review %}
+        <tr>
+          <td>{{notes.student_comments}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,45 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+  </head>
+  <body class="module module--student-comments">
+    <table border="0" class="neu-fce-evaluation-status-module-022-inline-01">
+      <tbody>
+        <tr>
+          <td>
+          <h3>
+            Details From the Application Processing Team
+          </h3>
+          </td>
+        </tr>
+        {% for results in {{fce_checklist_flags_old}} %}{% if {{results.other_details_exists}} == 'Y' %}
+        <tr>
+          <td><strong><br />
+          <span class="neu-fce-evaluation-status-module-022-inline-02">Other FCE Requirements</span></strong><span class="neu-fce-evaluation-status-module-022-inline-03">&nbsp;</span></td>
+        </tr>
+        <tr>
+          <td>{{results.name}} - {{results.other_details}}</td>
+        </tr>
+        {% endif %}{% endfor %}{% for results in {{fce_checklist_flags}} %}{% if {{results.other_details_exists}} == 'Y' %}
+        <tr>
+          <td><strong><br />
+          <span class="neu-fce-evaluation-status-module-022-inline-04">Other FCE Requirements</span></strong><span class="neu-fce-evaluation-status-module-022-inline-05">&nbsp;</span></td>
+        </tr>
+        <tr>
+          <td>{{results.name}} - {{results.other_details}}</td>
+        </tr>
+        {% endif %}{% endfor %}
+        <tr>
+          <td><strong><br />
+          <span class="neu-fce-evaluation-status-module-022-inline-06">Comments</span></strong></td>
+        </tr>
+        <tr>
+          <td>{{fce_person_checklist_student_facing_comments}}</td>
+        </tr>
+        <tr>
+          <td>{{fce_person_checklist_student_facing_comments_old}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>
