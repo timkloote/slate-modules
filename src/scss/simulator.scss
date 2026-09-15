@@ -1,0 +1,42 @@
+/* Development interface only; never paste into Slate. */
+* { box-sizing: border-box; }
+body { margin: 0; font: 16px/1.5 system-ui, sans-serif; color: #17212a; background: #f1f3f5; }
+a { color: #aa1626; }
+button, input, select { font: inherit; }
+button, select, input[type=search] { border: 1px solid #aeb8c1; border-radius: 4px; padding: .45rem .6rem; background: white; color: #17212a; }
+button { cursor: pointer; }
+button:hover { background: #e9edf0; }
+:focus-visible { outline: 3px solid #1779ba; outline-offset: 2px; }
+[hidden] { display: none !important; }
+.sim-bar { display: flex; justify-content: space-between; padding: 1rem 1.5rem; background: #14191e; color: white; border-top: 4px solid #d41b2c; }
+.sim-bar a { color: white; }
+.sim-directory { max-width: 1250px; margin: auto; padding: 2rem; }
+h1 { font-size: 1.65rem; line-height: 1.2; }
+h2 { font-size: 1.2rem; }
+.sim-view-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 1rem; margin-top: 2rem; }
+.sim-view-card { text-decoration: none; color: inherit; background: white; padding: 1.5rem; border: 1px solid #cbd2d8; border-top: 3px solid #d41b2c; }
+.sim-view-card:hover { border-color: #d41b2c; }
+.sim-workspace { display: grid; grid-template-columns: 360px minmax(0,1fr); height: calc(100dvh - 64px); }
+.sim-inspector { padding: 1.25rem; overflow: auto; border-right: 1px solid #cbd2d8; background: white; }
+.sim-inspector > label { display: block; margin-top: 1rem; font-weight: 600; font-size: .875rem; }
+.sim-inspector > select, .sim-inspector > input { width: 100%; }
+.sim-actions { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0 .5rem; }
+.sim-hint, .sim-meta, .sim-notice { font-size: .875rem; color: #4e5b66; }
+.sim-module { padding: 1rem 0; border-top: 1px solid #dbe0e4; overflow-wrap: anywhere; }
+.sim-module > label { display: flex; gap: .65rem; align-items: baseline; font-weight: 600; }
+.sim-module input { accent-color: #c3182c; }
+.sim-meta { margin: .4rem 0 .5rem 1.6rem; }
+.sim-module summary { cursor: pointer; font-size: .875rem; }
+.sim-module dl { font-size: .875rem; }
+.sim-module dt { margin-top: .6rem; font-weight: 600; }
+.sim-module dd { margin: 0; }
+.sim-module pre { max-height: 350px; overflow: auto; white-space: pre-wrap; font-size: .8rem; background: #eef1f4; padding: .5rem; }
+.sim-preview { min-width: 0; display: flex; flex-direction: column; }
+.sim-toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; padding: .75rem 1rem; background: white; border-bottom: 1px solid #cbd2d8; font-size: .875rem; }
+.sim-toolbar label { display: flex; align-items: center; gap: .4rem; }
+.sim-notice { padding: .65rem 1rem; margin: 0; }
+.sim-canvas { flex: 1; min-height: 0; overflow: auto; padding: 0 1rem 1rem; text-align: center; }
+iframe { display: block; width: 100%; height: 100%; min-height: 500px; margin: auto; border: 1px solid #cbd2d8; background: white; }
+iframe[data-width=tablet] { width: 768px; max-width: 100%; }
+iframe[data-width=mobile] { width: 390px; max-width: 100%; }
+@media(max-width:900px) { .sim-workspace { grid-template-columns: 1fr; height: auto; }.sim-inspector { max-height: 50vh; }.sim-canvas { height: 80vh; flex: auto; } }

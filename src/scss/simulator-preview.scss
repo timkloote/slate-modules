@@ -1,0 +1,40 @@
+/* Structural compatibility and inspector annotations only, not production CSS. */
+html, body { margin: 0; }
+#main-content > table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+#main-content > table > tbody > tr > td { padding: 0; vertical-align: top; }
+.part { min-width: 0; overflow-wrap: anywhere; }
+.part img { max-width: 100%; }
+.sim-part-label { display: none; }
+.sim-labels .part { outline: 1px dashed #aab4be; outline-offset: -1px; }
+.sim-labels .sim-part-label { display: block; padding: .5rem .75rem; background: #eaf0f5; color: #263e50; font: 13px/1.5 system-ui,sans-serif; overflow-wrap: anywhere; }
+.sim-widget-placeholder, .sim-empty { padding: 1.5rem; background: #f2f5f7; color: #3e4f5c; font: 16px/1.5 system-ui,sans-serif; border: 1px dashed #95a4af; }
+.sim-widget-placeholder p { margin: .5rem 0 0; }
+.sim-liquid-note { padding: .5rem .75rem; margin: 0; background: #fff4d5; color: #614b12; font: 14px/1.5 system-ui,sans-serif; }
+.sim-columns { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
+.sim-columns > .part { grid-column: 1 / -1; }
+.sim-columns > :is(.leftcolumn,.col-left) { grid-column: 1; }
+.sim-columns > :is(.rightcolumn,.col-right) { grid-column: 2; }
+.sim-columns > :is(.full-width,[data-shared]) { grid-column: 1 / -1; }
+@media(max-width:767px) { .sim-columns { grid-template-columns: minmax(0,1fr); }.sim-columns > .part { grid-column: 1; } }
+
+/* Standalone front-end view: keep module markup, hide development annotations. */
+.sim-clean :is(.sim-part-label, .sim-widget-placeholder, .sim-liquid-note, .sim-empty) {
+  display: none;
+}
+
+/* Main View's legacy destination containers, without Bootstrap. */
+.sim-slate-behavior .bodybackground > .row:has(> #leftcolumn) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  max-width: var(--wrapperWidth, 1600px);
+  margin-inline: auto;
+  padding: 2rem;
+}
+.sim-slate-behavior :is(#leftcolumn, #rightcolumn) { min-width: 0; }
+.sim-slate-behavior :is(#leftcolumn, #rightcolumn) > .part { margin-bottom: 1.5rem; }
+.sim-behavior-report { padding: 1rem; background: #fff4d5; color: #614b12; font: 14px/1.5 system-ui, sans-serif; overflow-wrap: anywhere; }
+.sim-clean .sim-behavior-report { display: none; }
+@media (max-width: 767px) {
+  .sim-slate-behavior .bodybackground > .row:has(> #leftcolumn) { grid-template-columns: minmax(0, 1fr); padding: 1rem; }
+}
