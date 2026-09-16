@@ -56,6 +56,22 @@ export function fragmentForPreview(html, partId, localAssets = false, preserveSt
   if(preserveStyles) fragment.append(...parsed.head.querySelectorAll('style,link[rel="stylesheet"]'));
   fragment.append(...root.childNodes);return fragment;
 }
+/** Group adjacent column parts so each side stacks at its own height. */
+export function groupColumnParts(container) {
+  let segment;
+  for (const part of [...container.children]) {
+    const side=part.matches('.leftcolumn,.col-left') ? 'left' : part.matches('.rightcolumn,.col-right') ? 'right' : null;
+    if (!side || part.matches('.full-width,[data-shared]')) { segment=null; continue; }
+    if (!segment) {
+      segment=document.createElement('div');segment.className='sim-column-segment';
+      for (const column of ['left','right']) {
+        const bucket=document.createElement('div');bucket.className=`sim-column-${column}`;segment.append(bucket);
+      }
+      part.before(segment);
+    }
+    segment.querySelector(`.sim-column-${side}`).append(part);
+  }
+}
 export async function initPreview() {
  const params=new URLSearchParams(location.search);
  if(params.get('styles')==='portal') loadPortalStyles(document);
@@ -103,6 +119,7 @@ export async function initPreview() {
   }
   container.append(part);
  }
+ if(clean && params.get('layout')==='columns') groupColumnParts(container);
  if(behavior) {
   const scriptPart=view.modules.find(module=>module.order===133 && module.name==='Scripts');
   const messages=[];

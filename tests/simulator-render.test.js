@@ -53,6 +53,21 @@ test('explicit stack mode and deselected Scripts still disable DOM moves',async(
  assert.match(disabled.querySelector('.sim-behavior-report').textContent,/Select module 133/);
 });
 
+test('CSS column experiment stacks each side independently and keeps full-width parts between segments',async()=>{
+ const modules=inventory().views.find(v=>v.slug==='main-view').modules;
+ const selected=[5,6,55,56,62,67,69,109];
+ const parts=modules.filter(module=>selected.includes(module.order)).map(module=>module.partId).join(',');
+ const document=await render(`?clean=1&layout=columns&parts=${parts}`);
+ const container=document.querySelector('.part_rows_container');
+ const segments=[...container.querySelectorAll(':scope > .sim-column-segment')];
+ assert.equal(segments.length,2);
+ assert.deepEqual([...segments[0].querySelector('.sim-column-left').children].map(part=>Number(part.dataset.order)),[5,6,62]);
+ assert.deepEqual([...segments[0].querySelector('.sim-column-right').children].map(part=>Number(part.dataset.order)),[55,56]);
+ assert.equal(Number(container.children[1].dataset.order),67);
+ assert.deepEqual([...segments[1].querySelector('.sim-column-left').children].map(part=>Number(part.dataset.order)),[69]);
+ assert.deepEqual([...segments[1].querySelector('.sim-column-right').children].map(part=>Number(part.dataset.order)),[109]);
+});
+
 test('simulator stays stacked and loads no portal JS even with a behavior or columns URL',async()=>{
  const parts=inventory().capturedParts['main-view'].join(',');
  for(const layout of ['behavior','columns']) {
@@ -89,7 +104,9 @@ test('legacy preview keeps original head CSS, stylesheet links, inline styles, a
  assert.ok(!legacy.body.classList.contains('sim-slate-behavior'));
  const sanitized=await render(`?source=sanitized&parts=${parts}`);
  assert.equal(sanitized.querySelector('style,link[rel="stylesheet"]'),null);
- assert.equal(sanitized.querySelector('.dashborder').getAttribute('style'),null);
+ const messagingPart=sanitized.getElementById(main.modules.find(m=>m.order===6).partId);
+ assert.ok(messagingPart.querySelector('p'));
+ assert.equal(messagingPart.querySelector('[style]'),null);
  assert.ok(sanitized.querySelector('[data-shared="header"]'));
 });
 

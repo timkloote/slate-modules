@@ -562,6 +562,7 @@ footer {
     margin-top: 0.25rem;
 
     * { margin: 0; }
+    li:has(> [x-data]:not(:empty)) > .cookie-preferences-preview { display: none; }
   }
 
   /* --- Secondary link row: Emergency Info / Privacy / Accessibility / © --- */
@@ -625,6 +626,17 @@ footer {
           color: var(--white);
         }
       }
+    }
+  }
+
+  .footer-secondary-links.cookies {
+    margin-top: 0.25rem;
+
+    .cookie-preferences-preview {
+      display: inline-block;
+      padding: 0.5rem;
+      color: var(--gray);
+      font-size: 0.75rem;
     }
   }
 

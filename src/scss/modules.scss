@@ -138,3 +138,159 @@
 
 /* Empty-payment message inserted by the vanilla Main View behavior. */
 .slate-payment-heading { margin-top: 0; }
+
+/* Proposed Slate module class hooks
+   Paste the complete New CSS Class Names value into Slate’s module Class Name
+   field. These selectors target the generated .part wrapper, not body.
+   has-js records JavaScript in legacy source, including commented scripts;
+   it does not enable scripts or imply sanitized content still contains them.
+   Layout and component rules are intentionally pending. Comments keep these
+   declaration-free hooks visible in the compiled modules.css export. */
+
+.part.full-width {
+  /* Styling pending. */
+}
+
+.part.col-left {
+  /* Styling pending. */
+}
+
+.part.col-right {
+  /* Styling pending. */
+}
+
+.part.has-js {
+  /* Styling pending. */
+}
+
+.part.application-details {
+  /* Styling pending. */
+}
+
+.part.application-selector {
+  /* Styling pending. */
+}
+
+.part.chatbot {
+  /* Styling pending. */
+}
+
+.part.checklist {
+  /* Styling pending. */
+}
+
+.part.content-block {
+  /* Styling pending. */
+}
+
+.part.debug-output {
+  /* Styling pending. */
+}
+
+.part.divider {
+  /* Styling pending. */
+}
+
+.part.document-link {
+  /* Styling pending. */
+}
+
+.part.enrollment-actions {
+  /* Styling pending. */
+}
+
+.part.event-registration {
+  /* Styling pending. */
+}
+
+.part.faq {
+  /* Styling pending. */
+}
+
+.part.form-action {
+  /* Styling pending. */
+}
+
+.part.form-widget {
+  /* Styling pending. */
+}
+
+.part.hidden-fields {
+  /* Styling pending. */
+}
+
+.part.materials-upload {
+  /* Styling pending. */
+}
+
+.part.messaging-block {
+  /* Styling pending. */
+}
+
+.part.module-layout {
+  /* Styling pending. */
+}
+
+.part.module-scripts {
+  /* Styling pending. */
+}
+
+.part.module-styles {
+  /* Styling pending. */
+}
+
+.part.navigation-card {
+  /* Styling pending. */
+}
+
+.part.notification {
+  /* Styling pending. */
+}
+
+.part.payment-block {
+  /* Styling pending. */
+}
+
+.part.photo-block {
+  /* Styling pending. */
+}
+
+.part.portal-header {
+  /* Styling pending. */
+}
+
+.part.portal-navigation {
+  /* Styling pending. */
+}
+
+.part.resource-links {
+  /* Styling pending. */
+}
+
+.part.spacer {
+  /* Styling pending. */
+}
+
+.part.status-summary {
+  /* Styling pending. */
+}
+
+.part.status-tracker {
+  /* Styling pending. */
+}
+
+.part.student-comments {
+  /* Styling pending. */
+}
+
+.part.support-block {
+  /* Styling pending. */
+}
+
+.part.video-upload {
+  /* Styling pending. */
+}
+
+.part.welcome-links {
+  /* Styling pending. */
+}

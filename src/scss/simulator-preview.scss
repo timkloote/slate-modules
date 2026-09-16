@@ -10,12 +10,10 @@ html, body { margin: 0; }
 .sim-widget-placeholder, .sim-empty { padding: 1.5rem; background: #f2f5f7; color: #3e4f5c; font: 16px/1.5 system-ui,sans-serif; border: 1px dashed #95a4af; }
 .sim-widget-placeholder p { margin: .5rem 0 0; }
 .sim-liquid-note { padding: .5rem .75rem; margin: 0; background: #fff4d5; color: #614b12; font: 14px/1.5 system-ui,sans-serif; }
-.sim-columns { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; }
-.sim-columns > .part { grid-column: 1 / -1; }
-.sim-columns > :is(.leftcolumn,.col-left) { grid-column: 1; }
-.sim-columns > :is(.rightcolumn,.col-right) { grid-column: 2; }
-.sim-columns > :is(.full-width,[data-shared]) { grid-column: 1 / -1; }
-@media(max-width:767px) { .sim-columns { grid-template-columns: minmax(0,1fr); }.sim-columns > .part { grid-column: 1; } }
+.sim-column-segment { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; align-items: start; }
+.sim-column-segment > div { min-width: 0; }
+.sim-column-segment .part { margin-bottom: 1rem; }
+@media(max-width:767px) { .sim-column-segment { grid-template-columns: minmax(0,1fr); }.sim-column-segment .part { margin-bottom: 1rem; } }
 
 /* Standalone front-end view: keep module markup, hide development annotations. */
 .sim-clean :is(.sim-part-label, .sim-widget-placeholder, .sim-liquid-note, .sim-empty) {

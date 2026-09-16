@@ -66,7 +66,7 @@ The simulator contains all 217 audited modules across 11 views. Each preview sta
 - Main View initially selects the 15 part IDs observed in the supplied rendered page. **Select parts from supplied page** restores that subset. Only those IDs were retained from the capture, not its applicant/session data. This is a visibility subset, not a reproduction of its applicant values.
 - **Active** is the audit's configuration status, not an applicant visibility rule. Selecting all active modules may show contradictory content.
 - **Original audit classes** is the default. **Proposed audit classes** substitutes the proposed column, including blank values; it does not imply that audit recommendations have been adopted in production.
-- **Slate behavior · vanilla JS** is the default for Main View; other views default to **Slate stack**. Layout and class choices persist per view. **CSS column experiment** arranges left/right classes on their shared parent; it does not execute the legacy column-moving scripts or claim to reproduce the deployed layout.
+- **Slate behavior · vanilla JS** is the default for Main View; other views default to **Slate stack**. Layout and class choices persist per view. **CSS column experiment** groups selected left/right parts into independent stacks, then lays out the two stacks with CSS grid. Full-width parts stay between column segments in audit order. The preview assembly uses JavaScript to group parts; it does not execute the legacy column-moving scripts or claim to reproduce the deployed layout.
 - Hide part labels or choose tablet/mobile canvas widths to inspect styling.
 
 ### Sources and audit updates
@@ -83,6 +83,12 @@ The simulator contains all 217 audited modules across 11 views. Each preview sta
 - `src/simulator/captured-parts.json` defines the observed Main View subset.
 
 ### Styling and behavior
+
+The proposed classes in `src/simulator/audit.json` match column H (**New CSS Class Names**) of the revised inventory. Copy the entire space-separated value into Slate's module **Class Name** field; the classes belong on Slate's generated `.part` wrapper, not the static content's `<body>`. Select **Proposed audit classes** in the simulator to preview them.
+
+Layout follows original class evidence: `leftcolumn` becomes `col-left`, `rightcolumn` becomes `col-right`, and `maincolumn` becomes `full-width`. A blank original layout stays unassigned. Each module also has a component group based on its content, such as `messaging-block`, `form-action`, or `checklist`. `has-js` marks JavaScript found in the legacy source, including script tags, inline handlers, JavaScript URLs, and commented-out scripts; it does not enable JavaScript. The workbook's separate original JS column remains unchanged; column H contains the complete proposed class list.
+
+`src/scss/modules.scss` contains declaration-free `.part.<class>` hooks for these proposals, retained in the compiled CSS with comments. Add component styling there as modules are reviewed. The class proposals do not execute deletion or renaming suggestions from workbook notes.
 
 Edit `src/scss/slate.scss` and `src/js/app.js` for production work. Both views load the production CSS; only Clean view loads app.js after assembling the selected parts. Shared header controls remain interactive; destination links are prevented from navigating. The existing application entry point loads its Northeastern dependencies as usual.
 
