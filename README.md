@@ -24,7 +24,7 @@ Open the localhost URL printed by Eleventy. Changes to components, SCSS, and Jav
 - `src/_includes/icons/`: shared SVG fragments.
 - `src/_includes/styles.html` and `scripts.html`: asset references; the script export contains one app.js tag.
 - `src/scss/slate.scss`: styles with media queries nested within their regions.
-- `src/scss/accessibility.scss`: existing accessibility styles, loaded after slate.css.
+- `src/scss/accessibility.scss`: accessibility overrides, included last in the combined stylesheet.
 - `src/js/app.js`: documented application entry point, navigation functions, and Northeastern library loader.
 
 Include a component with `<!-- component: navigation.html -->`. Paths are relative to `src/_includes`. This deliberately distinct syntax leaves `{{ variables }}` and `{% liquid tags %}` untouched, including Slate-owned include tags. Do not add Liquid raw wrappers for the local build.
@@ -38,10 +38,10 @@ After `npm run build`:
 - `dist/slate/footer.html` contains the complete footer.
 - `dist/slate/navigation.html` and `account-menu.html` are alternative smaller exports for separately managed Slate regions. Do not paste them again alongside the complete header.
 - `dist/slate/content.html` is the sample main content, including the skip-link target `main-content`.
-- `dist/slate/styles.html` and `scripts.html` contain the asset tags.
+- `dist/css/grad-admissions.css` is the complete production stylesheet for direct pasting into Slate.
 - `dist/css/`, `dist/js/`, and `dist/images/` contain the assets to upload.
 
-Copy the exported file contents, not browser-rendered text. Adjust relative asset URLs to their uploaded Slate locations. Load styles in the exported order and paste the single deferred app.js tag once. The preview's skip link needs a `main-content` target in Slate as well.
+Copy the exported file contents, not browser-rendered text. Adjust relative asset URLs to their uploaded Slate locations. For a direct paste, copy all of `dist/css/grad-admissions.css` into Slate’s CSS area (without `<style>` tags). It includes shared, module, and accessibility styles in order. Alternatively, upload that file and link to it as a stylesheet. Paste the single deferred app.js tag once. The preview's skip link needs a `main-content` target in Slate as well.
 
 Live Slate data and server-owned routes cannot execute in the local static preview. Liquid remains visible in source until Slate renders it. Generated `dist/` and dependencies are ignored by Git; edit `src/`, then rebuild.
 
@@ -145,11 +145,15 @@ The supplied `build-mobile-global.js` is not loaded: it depends on jQuery and Sl
 
 ### Production stylesheet organization
 
+For external stylesheet development, each build also writes `css/grad-admissions-test.css` so it can be committed and pushed to GitHub. Edit the SCSS sources below, run `npm run build`, and commit the refreshed CSS file. This file is generated; direct edits will be overwritten on the next build.
+
+The build also writes `dist/css/grad-admissions-test.css` for the existing GitHub Pages deployment workflow. Once deployed, link it in Slate with `<link rel="stylesheet" href="https://timkloote.github.io/slate-modules/css/grad-admissions-test.css?v=1">`. Update the version query when publishing a new revision to request a fresh URL. Cache behavior still depends on the host and Slate.
+
 - `src/scss/slate.scss`: shared CSS custom properties, fonts, base styles, header/footer.
 - `src/scss/modules.scss`: content module styles, including the existing FCE tracker and empty-payment heading. Use shared values directly, e.g. `color: var(--red)` or `max-width: var(--wrapperWidth)`. No import of slate.scss is needed.
 - `src/scss/accessibility.scss`: accessibility overrides, loaded last.
 
-`npm run build` produces `dist/css/modules.css` and `modules.min.css` alongside the existing CSS. Load **slate.css → modules.css → accessibility.css** in production. The landing page, stacked simulator, and Clean view already use that order. Use either the expanded or minified version of each stylesheet, not both. The tracker remains removed from the landing page; its styles are retained for module use.
+`npm run build` produces one expanded production stylesheet: `dist/css/grad-admissions.css`. The `src/scss/grad-admissions.scss` entry point combines **slate.scss → modules.scss → accessibility.scss**, keeping the source files separate for editing. Copy the complete CSS file into Slate’s CSS area, or upload it and link to it as a stylesheet. The landing page, stacked simulator, and Clean view all load this same bundle. Font imports and font/image URLs retain their existing external dependencies. The tracker remains removed from the landing page; its styles are retained for module use.
 
 ### Compare sanitized and legacy modules
 

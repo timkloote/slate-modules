@@ -2,9 +2,9 @@
    Slate CRM — Northeastern Graduate Portal
    Header + footer stylesheet
 
-   This file compiles (expanded, uncompressed) to css/slate.css, which is
-   the single source of truth pasted into Slate CRM alongside the header
-   and footer markup exports (dist/slate/header.html, dist/slate/footer.html).
+   This file is combined with modules.scss and accessibility.scss into
+   dist/css/grad-admissions.css, the stylesheet pasted into Slate CRM alongside
+   the header and footer exports (dist/slate/header.html, dist/slate/footer.html).
    Keep it organized by section — Slate has no build step of its own, so
    whatever ships here is what admins will read and maintain by hand.
 

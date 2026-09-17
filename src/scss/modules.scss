@@ -1,10 +1,10 @@
 /* ==========================================================================
    Slate content modules
 
-   Compiles to css/modules.css. Load after slate.css and before accessibility.css.
+   Included after slate.scss and before accessibility.scss in grad-admissions.css.
    Shared tokens are CSS custom properties defined on :root in slate.scss:
    var(--red), var(--black), var(--gray), var(--light-gray), var(--white),
-   and var(--wrapperWidth). Fonts and base styles also come from slate.css.
+   and var(--wrapperWidth). Fonts and base styles also come from slate.scss.
 
    Do not @use or @import slate.scss: that would duplicate its generated CSS.
    Keep module rules scoped to their component class and nest media queries.
@@ -142,10 +142,9 @@
 /* Proposed Slate module class hooks
    Paste the complete New CSS Class Names value into Slate’s module Class Name
    field. These selectors target the generated .part wrapper, not body.
-   has-js records JavaScript in legacy source, including commented scripts;
-   it does not enable scripts or imply sanitized content still contains them.
+   has-js is a reference tag only and intentionally has no styling hook.
    Layout and component rules are intentionally pending. Comments keep these
-   declaration-free hooks visible in the compiled modules.css export. */
+   declaration-free hooks visible in the compiled grad-admissions.css export. */
 
 .part.full-width {
   /* Styling pending. */
@@ -156,10 +155,6 @@
 }
 
 .part.col-right {
-  /* Styling pending. */
-}
-
-.part.has-js {
   /* Styling pending. */
 }
 

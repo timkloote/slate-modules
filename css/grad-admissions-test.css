@@ -1,0 +1,1222 @@
+@charset "UTF-8";
+/* ==========================================================================
+   Slate CRM — Northeastern Graduate Portal
+   Header + footer stylesheet
+
+   This file is combined with modules.scss and accessibility.scss into
+   dist/css/grad-admissions.css, the stylesheet pasted into Slate CRM alongside
+   the header and footer exports (dist/slate/header.html, dist/slate/footer.html).
+   Keep it organized by section — Slate has no build step of its own, so
+   whatever ships here is what admins will read and maintain by hand.
+
+   Contents:
+     1. Design tokens
+     2. Fonts
+     3. Base / reset
+     4. Utilities
+     5. Header
+     6. Footer
+     7. Preview-only placeholder sections (local demo, not shipped to Slate)
+
+   Content module styles live in modules.scss.
+   ========================================================================== */
+/* --------------------------------------------------------------------------
+   1. Design tokens
+   -------------------------------------------------------------------------- */
+@import url("https://use.typekit.net/fsb8bay.css");
+@import url("https://use.typekit.net/jck4boc.css");
+:root {
+  --wrapperWidth: 1600px;
+  --red: #d41b2c;
+  --black: #000000;
+  --gray: #C4C4C4;
+  --light-gray: #e3e3e3;
+  --white: #ffffff;
+}
+
+/* --------------------------------------------------------------------------
+   2. Fonts
+
+   Body copy runs on Adobe Fonts (Typekit) — "ff-real-headline-pro" for
+   headings/labels and "ff-real-headline-pro-2" for paragraph text — loaded
+   via the two kit stylesheets below. Display headings use Noe Display,
+   self-hosted from the main Northeastern site's font CDN.
+   -------------------------------------------------------------------------- */
+/* Noe Display — Regular */
+@font-face {
+  font-family: "Noe Display";
+  src: url("https://graduate.northeastern.edu/wp-content/themes/neu/dist/fonts/noe/NoeDisplay-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* Noe Standard — Medium */
+@font-face {
+  font-family: "Noe Standard";
+  src: url("https://graduate.northeastern.edu/wp-content/themes/neu/dist/fonts/noe/NoeStandard-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+/* Noe Display — Bold */
+@font-face {
+  font-family: "Noe Display";
+  src: url("https://graduate.northeastern.edu/wp-content/themes/neu/dist/fonts/noe/NoeDisplay-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+h1 {
+  font-family: "Noe Display", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   3. Base / reset
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "ff-real-headline-pro-2", sans-serif;
+  font-feature-settings: normal;
+  font-variation-settings: normal;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* --------------------------------------------------------------------------
+   4. Utilities
+   -------------------------------------------------------------------------- */
+.show {
+  display: block;
+  visibility: visible;
+  opacity: 1;
+}
+
+.hide {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+}
+
+/* Centers content within the max page width; used by header, footer, and
+   any full-width section that needs an inner, gutter-padded column. */
+.wrapper {
+  width: min(var(--wrapperWidth), 100%);
+  margin-inline: auto;
+}
+
+/* ==========================================================================
+   5. Header
+   ========================================================================== */
+header:is([role=banner], [role=dialog]) {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  background: var(--white);
+  /* Mobile nav takes over the full viewport while open: the header becomes
+     a fixed, full-height panel with its own internal scroll for the menu. */
+}
+@media (max-width: 1024px) {
+  header:is([role=banner], [role=dialog]).mobile-menu-open {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    grid-template-rows: 48px 80px minmax(0, 1fr);
+    height: 100vh;
+    height: 100dvh;
+    border-bottom: 0;
+  }
+  header:is([role=banner], [role=dialog]).mobile-menu-open .header-bottom {
+    min-height: 0;
+    background: #fff;
+  }
+  header:is([role=banner], [role=dialog]).mobile-menu-open .header-bottom > .wrapper {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-rows: 80px;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding-block: 0;
+  }
+  header:is([role=banner], [role=dialog]).mobile-menu-open .header-bottom #primary-navigation {
+    position: absolute;
+    top: 128px;
+    bottom: 0;
+    inset-inline: 1.75rem;
+    width: auto;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding-bottom: 2rem;
+  }
+}
+header:is([role=banner], [role=dialog]) a {
+  color: var(--white);
+}
+header:is([role=banner], [role=dialog]) {
+  /* --- Top bar: black strip with the Northeastern 'N' monogram --- */
+}
+header:is([role=banner], [role=dialog]) .header {
+  width: min(var(--wrapperWidth), 100%);
+}
+header:is([role=banner], [role=dialog]) .header-top {
+  --size: 48px;
+  width: 100%;
+  height: var(--size);
+  display: flex;
+  justify-content: space-between;
+  background: var(--black);
+  /* Northeastern 'N' logo */
+}
+header:is([role=banner], [role=dialog]) .header-top .n-brand-logo {
+  width: var(--size);
+  height: var(--size);
+  padding: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--red);
+}
+header:is([role=banner], [role=dialog]) .header-top img {
+  max-width: 100%;
+}
+header:is([role=banner], [role=dialog]) .header {
+  /* --- Bottom bar: program wordmark + primary navigation --- */
+}
+header:is([role=banner], [role=dialog]) .header-bottom {
+  width: 100%;
+  height: 80px;
+  flex-shrink: 0;
+  display: flex;
+}
+header:is([role=banner], [role=dialog]) .header-bottom .wrapper {
+  display: flex;
+  padding-block: 0.61rem;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 1024px) {
+  header:is([role=banner], [role=dialog]) .header-bottom .wrapper {
+    padding-inline: 1.75rem;
+  }
+}
+header:is([role=banner], [role=dialog]) .header-bottom img {
+  max-width: 240px;
+}
+@media (max-width: 1024px) {
+  header:is([role=banner], [role=dialog]) .header-bottom img {
+    width: min(155px, 100% - 60px);
+    max-width: 155px;
+  }
+}
+header:is([role=banner], [role=dialog]) .header-bottom a {
+  color: var(--black);
+  text-decoration: none;
+  font-size: 0.875rem;
+}
+header:is([role=banner], [role=dialog]) {
+  /* --- Hamburger / close toggle (mobile only) --- */
+}
+header:is([role=banner], [role=dialog]) .nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 0;
+  color: var(--black);
+  background: #fff;
+  cursor: pointer;
+  transition: none;
+}
+header:is([role=banner], [role=dialog]) .nav-toggle svg {
+  width: 24px;
+  height: 24px;
+}
+header:is([role=banner], [role=dialog]) .nav-toggle .nav-icon-close {
+  display: none;
+}
+header:is([role=banner], [role=dialog]) .nav-toggle:hover, header:is([role=banner], [role=dialog]) .nav-toggle:active {
+  color: var(--red);
+}
+header:is([role=banner], [role=dialog]) .nav-toggle[aria-expanded=true] {
+  color: var(--red);
+  background: #fff;
+}
+header:is([role=banner], [role=dialog]) .nav-toggle[aria-expanded=true] .nav-icon-menu {
+  display: none;
+}
+header:is([role=banner], [role=dialog]) .nav-toggle[aria-expanded=true] .nav-icon-close {
+  display: inline;
+}
+@media (max-width: 1024px) {
+  header:is([role=banner], [role=dialog]) .nav-toggle:not([hidden]) {
+    display: inline-flex;
+  }
+}
+header:is([role=banner], [role=dialog]) {
+  /* --- Primary navigation --- */
+}
+header:is([role=banner], [role=dialog]) nav {
+  /* These only make sense in the mobile drill-down UI; hidden by default
+     so the desktop nav stays a plain horizontal link row. */
+}
+header:is([role=banner], [role=dialog]) nav .nav-arrow, header:is([role=banner], [role=dialog]) nav .submenu-heading, header:is([role=banner], [role=dialog]) nav .nav-chevron {
+  display: none;
+}
+header:is([role=banner], [role=dialog]) nav {
+  /* Desktop (≥1025px): horizontal nav with a hover-opened account menu */
+}
+@media (min-width: 1025px) {
+  header:is([role=banner], [role=dialog]) nav > ul.navbar-nav > li > a:hover {
+    text-decoration: underline;
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu {
+    position: relative;
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu > summary {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    list-style: none;
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu > summary::-webkit-details-marker {
+    display: none;
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu > summary:hover .nav-chevron svg, header:is([role=banner], [role=dialog]) nav .account-menu > summary:focus-visible .nav-chevron svg {
+    transform: translateY(0.875rem);
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu .nav-chevron {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    overflow: hidden;
+    gap: 0.25rem;
+    width: 1rem;
+    height: 0.625rem;
+    color: var(--black);
+    transition: transform 300ms ease-in-out;
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu .nav-chevron svg {
+    width: 1rem;
+    height: 0.625rem;
+    flex-shrink: 0;
+    transition: transform 300ms ease-in-out 100ms;
+  }
+}
+@media (min-width: 1025px) and (prefers-reduced-motion: reduce) {
+  header:is([role=banner], [role=dialog]) nav .account-menu .nav-chevron, header:is([role=banner], [role=dialog]) nav .account-menu .nav-chevron svg {
+    transition: none;
+  }
+}
+@media (min-width: 1025px) {
+  header:is([role=banner], [role=dialog]) nav .account-menu[open] > summary {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu[open] > summary .nav-chevron {
+    transform: scaleY(-1);
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu .account-panel {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    right: 0;
+    z-index: 20;
+    width: 34rem;
+    max-width: calc(100vw - 3.5rem);
+    padding: 2.5rem;
+    background: #fff;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu .submenu-heading {
+    display: block;
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu .submenu-heading .nav-back {
+    display: none;
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu .submenu-heading h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 0 0 1rem;
+    font-family: "ff-real-headline-pro", sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu .submenu-heading .nav-arrow {
+    display: block;
+    color: var(--red);
+    flex-shrink: 0;
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu .submenu-heading p {
+    margin: 0 0 2rem;
+    color: #525252;
+    font-family: "ff-real-headline-pro-2", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu[open] > .account-panel > ul.submenu {
+    padding: 0;
+    gap: 0.5rem;
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu[open] > .account-panel > ul.submenu a {
+    display: inline-block;
+    padding-block: 0.75rem;
+    color: #525252;
+    font-family: "ff-real-headline-pro-2", sans-serif;
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.18;
+    transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1), transform 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu[open] > .account-panel > ul.submenu a:hover, header:is([role=banner], [role=dialog]) nav .account-menu[open] > .account-panel > ul.submenu a:focus-visible {
+    color: #111;
+    transform: translateX(0.875rem);
+    text-decoration: none;
+  }
+}
+@media (min-width: 1025px) and (prefers-reduced-motion: reduce) {
+  header:is([role=banner], [role=dialog]) nav .account-menu[open] > .account-panel > ul.submenu a {
+    transition: none;
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu[open] > .account-panel > ul.submenu a:hover, header:is([role=banner], [role=dialog]) nav .account-menu[open] > .account-panel > ul.submenu a:focus-visible {
+    transform: none;
+  }
+}
+header:is([role=banner], [role=dialog]) nav {
+  /* Mobile (≤1024px): full-height drill-down menu — top-level links,
+     then an "account" sub-page (submenu-active) with a back button. */
+}
+@media (max-width: 1024px) {
+  header:is([role=banner], [role=dialog]) nav {
+    width: 100%;
+    flex-basis: 100%;
+    background: #fff;
+    padding-block: 2rem 1rem;
+  }
+  header:is([role=banner], [role=dialog]) nav, header:is([role=banner], [role=dialog]) nav * {
+    transition: none;
+    animation: none;
+  }
+  header:is([role=banner], [role=dialog]) nav[hidden] {
+    display: none;
+  }
+  header:is([role=banner], [role=dialog]) nav .nav-arrow {
+    display: inline-block;
+    color: var(--red);
+    flex-shrink: 0;
+  }
+  header:is([role=banner], [role=dialog]) nav > ul.navbar-nav {
+    flex-direction: column;
+    gap: 0;
+  }
+  header:is([role=banner], [role=dialog]) nav > ul.navbar-nav > li {
+    border-bottom: 1px solid;
+    border-bottom-color: rgb(82, 82, 82, var(--tw-border-opacity, 1));
+  }
+  header:is([role=banner], [role=dialog]) nav > ul.navbar-nav a, header:is([role=banner], [role=dialog]) nav > ul.navbar-nav summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+    padding: 1.5rem 0;
+    min-height: 44px;
+    font-family: "ff-real-headline-pro", sans-serif;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.01563rem;
+    list-style: none;
+  }
+  header:is([role=banner], [role=dialog]) nav > ul.navbar-nav a::-webkit-details-marker, header:is([role=banner], [role=dialog]) nav > ul.navbar-nav summary::-webkit-details-marker {
+    display: none;
+  }
+  header:is([role=banner], [role=dialog]) nav {
+    /* State: the "Manage Your Account" sub-page is open. Hide every other
+       top-level item and swap the summary for the submenu's own heading. */
+  }
+  header:is([role=banner], [role=dialog]) nav.submenu-active > ul.navbar-nav > li:not(:has(.account-menu)) {
+    display: none;
+  }
+  header:is([role=banner], [role=dialog]) nav.submenu-active > ul.navbar-nav > li:has(.account-menu) {
+    border-bottom: 0;
+  }
+  header:is([role=banner], [role=dialog]) nav.submenu-active .account-menu > summary {
+    display: none;
+  }
+  header:is([role=banner], [role=dialog]) nav.submenu-active .submenu-heading {
+    display: block;
+  }
+  header:is([role=banner], [role=dialog]) nav.submenu-active .nav-back {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 0.375rem;
+    min-height: 44px;
+    padding-block: 1rem;
+    padding-inline: 0;
+    margin-top: -1rem;
+    margin-bottom: 0.25rem;
+    border: 0;
+    background: #fff;
+    color: #555;
+    font: inherit;
+    cursor: pointer;
+  }
+  header:is([role=banner], [role=dialog]) nav.submenu-active .nav-back svg {
+    width: 0.875rem;
+    height: 0.821rem;
+    flex-shrink: 0;
+  }
+  header:is([role=banner], [role=dialog]) nav.submenu-active .nav-back span {
+    font-size: 0.875rem;
+    line-height: 1;
+  }
+  header:is([role=banner], [role=dialog]) nav.submenu-active .submenu-heading h2 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin: 1rem 0;
+    font-family: "ff-real-headline-pro", sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.15;
+  }
+  header:is([role=banner], [role=dialog]) nav.submenu-active .submenu-heading h2 .nav-arrow {
+    width: 0.875rem;
+    height: 0.821rem;
+  }
+  header:is([role=banner], [role=dialog]) nav.submenu-active .submenu-heading p {
+    margin: 0.25rem 0 1.5rem;
+    color: #525252;
+    font-size: 0.8125rem;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+  header:is([role=banner], [role=dialog]) nav.submenu-active {
+    /* Child links (Change Email, Change Password, Logout, etc.): plain
+       rows with no dividers or arrow icons — underline is the only
+       hover/focus affordance. */
+  }
+  header:is([role=banner], [role=dialog]) nav.submenu-active .account-menu[open] > .account-panel > ul.submenu {
+    padding: 0;
+    gap: 0;
+  }
+  header:is([role=banner], [role=dialog]) nav.submenu-active .account-menu[open] > .account-panel > ul.submenu .nav-arrow {
+    display: none;
+  }
+  header:is([role=banner], [role=dialog]) nav.submenu-active .account-menu[open] > .account-panel > ul.submenu a {
+    justify-content: flex-start;
+    padding-block: 0.875rem;
+  }
+  header:is([role=banner], [role=dialog]) nav.submenu-active .account-menu[open] > .account-panel > ul.submenu a:hover, header:is([role=banner], [role=dialog]) nav.submenu-active .account-menu[open] > .account-panel > ul.submenu a:focus-visible {
+    text-decoration: underline;
+  }
+}
+header:is([role=banner], [role=dialog]) nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  gap: 2rem;
+}
+header:is([role=banner], [role=dialog]) nav ul ul.submenu {
+  display: none;
+}
+
+/* ==========================================================================
+   6. Footer
+   ========================================================================== */
+footer {
+  padding-block: 1.5rem;
+  width: 100%;
+  background: var(--black);
+  color: var(--white);
+}
+@media (max-width: 768px) {
+  footer {
+    text-align: center;
+  }
+}
+footer a:focus {
+  /* Lifts the focused link above its neighbors so the outline never
+     gets clipped by an adjacent row sitting flush against it. */
+  position: relative;
+  z-index: 1;
+  outline: 2px solid #63b3ed;
+  outline-offset: 2px;
+}
+footer {
+  /* Cookie Preferences link, injected by the TrustArc widget script.
+     Its markup ships its own margins — zero them out and set spacing
+     here instead so it sits in rhythm with the row above. */
+}
+footer .cookies {
+  margin-top: 0.25rem;
+}
+footer .cookies * {
+  margin: 0;
+}
+footer .cookies li:has(> [x-data]:not(:empty)) > .cookie-preferences-preview {
+  display: none;
+}
+footer {
+  /* --- Secondary link row: Emergency Info / Privacy / Accessibility / © --- */
+}
+footer .footer-secondary-links {
+  margin: 0 0 0 -0.5rem;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+}
+@media (max-width: 768px) {
+  footer .footer-secondary-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    gap: 0.75rem;
+  }
+}
+footer .footer-secondary-links li {
+  font-size: 0.75rem;
+  color: var(--gray);
+  transition: all 0.3s ease;
+  position: relative;
+}
+@media (max-width: 768px) {
+  footer .footer-secondary-links li.copyright {
+    flex-basis: 100%;
+    margin-top: 0.5rem;
+  }
+}
+footer .footer-secondary-links li {
+  /* Pipe separator between items, hidden on the wrapped mobile layout
+     and on the last item. */
+}
+footer .footer-secondary-links li:nth-last-child(1)::after {
+  display: none;
+}
+@media (max-width: 768px) {
+  footer .footer-secondary-links li::after {
+    display: none;
+  }
+}
+footer .footer-secondary-links li::after {
+  --size: 10px;
+  content: "";
+  width: 1px;
+  height: var(--size);
+  background: var(--gray);
+  position: absolute;
+  right: -0.25rem;
+  top: 4px;
+}
+footer .footer-secondary-links li a {
+  text-decoration: none;
+  font-size: 0.75rem;
+  color: var(--gray);
+  transition: all 0.3s ease;
+  padding: 0.5rem;
+}
+footer .footer-secondary-links li a:hover {
+  color: var(--white);
+}
+footer .footer-secondary-links.cookies {
+  margin-top: 0.25rem;
+}
+footer .footer-secondary-links.cookies .cookie-preferences-preview {
+  display: inline-block;
+  padding: 0.5rem;
+  color: var(--gray);
+  font-size: 0.75rem;
+}
+footer {
+  /* --- Social icon row --- */
+}
+footer .footer-social-links {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+}
+@media (max-width: 768px) {
+  footer .footer-social-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+footer .footer-social-links li a {
+  --size: 24px;
+  width: var(--size);
+  height: var(--size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem;
+  background: #9E9E9E;
+  border-radius: 50%;
+  transition: all 0.4s ease;
+}
+footer .footer-social-links li a:hover {
+  background: var(--white);
+}
+footer .footer-social-links li a svg {
+  color: var(--black);
+}
+footer .footer {
+  /* --- Top: wordmark + campus location links --- */
+}
+@media (max-width: 768px) {
+  footer .footer-top {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+footer .footer-top .footer-location-links {
+  margin: 1rem 0 0 -0.5rem;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  gap: 0;
+}
+@media (max-width: 768px) {
+  footer .footer-top .footer-location-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-inline: 0;
+  }
+}
+footer .footer-top .footer-location-links li {
+  display: inline-flex;
+}
+footer .footer-top .footer-location-links li a {
+  color: var(--white);
+  padding: 0.5rem;
+  text-decoration: none;
+  letter-spacing: 0.05rem;
+  font-size: 0.875rem;
+  transition: all 0.3s ease;
+}
+footer .footer-top .footer-location-links li a:hover {
+  color: var(--light-gray);
+}
+footer .footer {
+  /* --- Meta row: secondary links + social icons, side by side on desktop --- */
+}
+footer .footer-meta {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0 0 0;
+}
+@media (max-width: 768px) {
+  footer .footer-meta {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+}
+footer ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+}
+
+/* ==========================================================================
+   7. Preview-only placeholder sections
+
+   Temporary layout/scroll-testing blocks for the local Eleventy preview
+   (src/_includes/sections/placeholder-*.html). These are NOT part of the
+   header/footer Slate export and should be dropped before go-live.
+   ========================================================================== */
+.placeholder-section {
+  background: #111;
+  color: #fff;
+  padding-block: clamp(3rem, 6vw, 7rem);
+}
+.placeholder-section__layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(2rem, 6vw, 7rem);
+  min-height: 620px;
+  padding-inline: 1.75rem;
+}
+@media (max-width: 768px) {
+  .placeholder-section__layout {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 0;
+    gap: 2.5rem;
+  }
+}
+.placeholder-section__copy h1, .placeholder-section__copy h2 {
+  margin: 0 0 0.875rem;
+  font-family: "Noe Display", Georgia, serif;
+  font-size: 2.4375rem;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: 0.00613rem;
+}
+@media (min-width: 1024px) {
+  .placeholder-section__copy h1, .placeholder-section__copy h2 {
+    font-size: 3.75rem;
+    letter-spacing: 0.00938rem;
+  }
+}
+.placeholder-section__copy p {
+  max-width: 60ch;
+  margin: 0 0 0.75rem;
+  font-family: "ff-real-headline-pro-2", sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+.placeholder-section__copy p:last-child {
+  margin-bottom: 0;
+}
+@media (min-width: 1024px) {
+  .placeholder-section__copy p {
+    font-size: 1.125rem;
+  }
+}
+.placeholder-section__copy .placeholder-section__eyebrow {
+  margin-bottom: 1.25rem;
+  font-family: "ff-real-headline-pro", sans-serif;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: 0.21875rem;
+  text-transform: uppercase;
+}
+@media (min-width: 1024px) {
+  .placeholder-section__copy .placeholder-section__eyebrow {
+    font-size: 0.875rem;
+    letter-spacing: 0.25rem;
+  }
+}
+.placeholder-section__collage {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 1.25rem;
+}
+.placeholder-section__tile {
+  min-height: 190px;
+  background: #333;
+}
+.placeholder-section__tile--wide {
+  grid-column: 1/-1;
+  aspect-ratio: 16/9;
+  background: #454545;
+}
+.placeholder-section__tile--red {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.25rem;
+  background: var(--red);
+  color: #fff;
+  font-family: "Noe Display", Georgia, serif;
+  font-size: clamp(1.5rem, 3vw, 3rem);
+  line-height: 1.1;
+}
+@media (max-width: 768px) {
+  .placeholder-section__tile {
+    min-height: 120px;
+  }
+}
+.placeholder-section--light {
+  background: #fff;
+  color: #111;
+}
+.placeholder-section--light .placeholder-section__tile:not(.placeholder-section__tile--red) {
+  background: #e3e3e3;
+}
+
+/* ==========================================================================
+   Slate content modules
+
+   Included after slate.scss and before accessibility.scss in grad-admissions.css.
+   Shared tokens are CSS custom properties defined on :root in slate.scss:
+   var(--red), var(--black), var(--gray), var(--light-gray), var(--white),
+   and var(--wrapperWidth). Fonts and base styles also come from slate.scss.
+
+   Do not @use or @import slate.scss: that would duplicate its generated CSS.
+   Keep module rules scoped to their component class and nest media queries.
+   ========================================================================== */
+/* Temporary part boundaries for development; revisit during module styling. */
+[id^=part_] {
+  border: 1px solid var(--light-gray);
+}
+
+/* ==========================================================================
+   FCE credential tracker
+
+   Renders the 5-step "Track My Status" stepper from the 9/4/2026 FCE
+   Pizza Tracker update. This file only supplies the two visual states,
+   is-complete and is-current — everything about WHICH step gets which
+   class for a given applicant is decided server-side in Slate, from their
+   checklist bin. That mapping needs to be confirmed with the Slate team;
+   nothing here assumes it's already wired up.
+   ========================================================================== */
+[id^=part_] {
+  border: 1px solid var(--light-gray);
+}
+
+.fce-tracker {
+  padding-block: clamp(2rem, 5vw, 4rem);
+}
+.fce-tracker h2 {
+  margin: 0 0 2rem;
+  font-family: "ff-real-headline-pro", sans-serif;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.fce-tracker__steps {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.fce-tracker__step {
+  position: relative;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-inline: 0.5rem;
+  /* Connecting line, drawn behind the node through the center of every
+     step but the first. */
+}
+.fce-tracker__step:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  right: 50%;
+  width: 100%;
+  height: 1px;
+  background: var(--light-gray);
+}
+.fce-tracker__step.is-complete .fce-tracker__node {
+  border-color: #767676;
+  background: #767676;
+}
+.fce-tracker__step.is-complete .fce-tracker__label {
+  color: #111;
+}
+.fce-tracker__step.is-complete::before {
+  background: #767676;
+}
+.fce-tracker__step.is-current .fce-tracker__node {
+  position: relative;
+  border-color: var(--red);
+  box-shadow: 0 0 0 3px rgba(212, 27, 44, 0.15);
+}
+.fce-tracker__step.is-current .fce-tracker__node::after {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: var(--red);
+}
+.fce-tracker__step.is-current .fce-tracker__label {
+  color: #111;
+  font-weight: 700;
+}
+.fce-tracker__node {
+  position: relative;
+  z-index: 1;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  border: 2px solid var(--light-gray);
+  border-radius: 50%;
+  background: #fff;
+}
+.fce-tracker__label {
+  margin-top: 0.75rem;
+  max-width: 9rem;
+  font-size: 0.8125rem;
+  line-height: 1.3;
+  color: #767676;
+}
+.fce-tracker__description {
+  margin: 2rem 0 0;
+  padding: 1.25rem 1.5rem;
+  border-left: 4px solid var(--red);
+  background: #f5f5f5;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+@media (max-width: 640px) {
+  .fce-tracker__steps {
+    flex-wrap: wrap;
+    row-gap: 1.5rem;
+  }
+  .fce-tracker__step {
+    flex-basis: 33.333%;
+    /* Line-drawing assumes a single row; skip it once steps wrap. */
+  }
+  .fce-tracker__step:not(:first-child)::before {
+    display: none;
+  }
+}
+
+/* Empty-payment message inserted by the vanilla Main View behavior. */
+.slate-payment-heading {
+  margin-top: 0;
+}
+
+/* Proposed Slate module class hooks
+   Paste the complete New CSS Class Names value into Slate’s module Class Name
+   field. These selectors target the generated .part wrapper, not body.
+   has-js is a reference tag only and intentionally has no styling hook.
+   Layout and component rules are intentionally pending. Comments keep these
+   declaration-free hooks visible in the compiled grad-admissions.css export. */
+.part.full-width {
+  /* Styling pending. */
+}
+
+.part.col-left {
+  /* Styling pending. */
+}
+
+.part.col-right {
+  /* Styling pending. */
+}
+
+.part.application-details {
+  /* Styling pending. */
+}
+
+.part.application-selector {
+  /* Styling pending. */
+}
+
+.part.chatbot {
+  /* Styling pending. */
+}
+
+.part.checklist {
+  /* Styling pending. */
+}
+
+.part.content-block {
+  /* Styling pending. */
+}
+
+.part.debug-output {
+  /* Styling pending. */
+}
+
+.part.divider {
+  /* Styling pending. */
+}
+
+.part.document-link {
+  /* Styling pending. */
+}
+
+.part.enrollment-actions {
+  /* Styling pending. */
+}
+
+.part.event-registration {
+  /* Styling pending. */
+}
+
+.part.faq {
+  /* Styling pending. */
+}
+
+.part.form-action {
+  /* Styling pending. */
+}
+
+.part.form-widget {
+  /* Styling pending. */
+}
+
+.part.hidden-fields {
+  /* Styling pending. */
+}
+
+.part.materials-upload {
+  /* Styling pending. */
+}
+
+.part.messaging-block {
+  /* Styling pending. */
+}
+
+.part.module-layout {
+  /* Styling pending. */
+}
+
+.part.module-scripts {
+  /* Styling pending. */
+}
+
+.part.module-styles {
+  /* Styling pending. */
+}
+
+.part.navigation-card {
+  /* Styling pending. */
+}
+
+.part.notification {
+  /* Styling pending. */
+}
+
+.part.payment-block {
+  /* Styling pending. */
+}
+
+.part.photo-block {
+  /* Styling pending. */
+}
+
+.part.portal-header {
+  /* Styling pending. */
+}
+
+.part.portal-navigation {
+  /* Styling pending. */
+}
+
+.part.resource-links {
+  /* Styling pending. */
+}
+
+.part.spacer {
+  /* Styling pending. */
+}
+
+.part.status-summary {
+  /* Styling pending. */
+}
+
+.part.status-tracker {
+  /* Styling pending. */
+}
+
+.part.student-comments {
+  /* Styling pending. */
+}
+
+.part.support-block {
+  /* Styling pending. */
+}
+
+.part.video-upload {
+  /* Styling pending. */
+}
+
+.part.welcome-links {
+  /* Styling pending. */
+}
+
+/* Accessibility enhancements shared by the standalone portal markup. */
+.visually-hidden,
+.skip-link:not(:focus) {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link:focus {
+  position: fixed;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+  color: #000;
+  background: #fff;
+}
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+#main-content:focus {
+  outline: 3px solid #005fcc;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 3px #fff;
+}
+
+.account-menu summary {
+  cursor: pointer;
+  font-size: 0.875rem;
+  padding-block: 0.5rem;
+}
+
+header:is([role=banner], [role=dialog]) nav .account-menu[open] > .account-panel > ul.submenu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+}
+
+header:is([role=banner], [role=dialog]) .header-bottom .wrapper,
+header:is([role=banner], [role=dialog]) nav > ul,
+footer .footer-top .footer-location-links,
+footer .footer-meta,
+footer .footer-meta .footer-secondary-links,
+footer .footer-meta .footer-social-links {
+  flex-wrap: wrap;
+}
+
+header:is([role=banner], [role=dialog]) .header-bottom .wrapper,
+footer .footer-meta {
+  gap: 1rem;
+}
+
+.wrapper {
+  padding-inline: 1rem;
+}
+
+header:is([role=banner], [role=dialog]) .header-bottom nav a {
+  display: inline-block;
+  padding-block: 0.5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  footer a,
+  footer li {
+    transition: none !important;
+  }
+}

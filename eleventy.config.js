@@ -11,16 +11,17 @@ export default function (eleventyConfig) {
   eleventyConfig.on('eleventy.before', async () => {
     await mkdir('dist/css', { recursive: true });
     for (const [source, output, style] of [
-      ['slate', 'slate', 'expanded'],
-      ['slate', 'slate.min', 'compressed'],
-      ['modules', 'modules', 'expanded'],
-      ['modules', 'modules.min', 'compressed'],
-      ['accessibility', 'accessibility', 'expanded'],
+      ['grad-admissions', 'grad-admissions', 'expanded'],
       ['simulator', 'simulator', 'expanded'],
       ['simulator-preview', 'simulator-preview', 'expanded'],
     ]) {
       const result = sass.compile(`src/scss/${source}.scss`, { style });
       await writeFile(`dist/css/${output}.css`, result.css);
+      if (output === 'grad-admissions') {
+        await mkdir('css', { recursive: true });
+        await writeFile('css/grad-admissions-test.css', result.css);
+        await writeFile('dist/css/grad-admissions-test.css', result.css);
+      }
     }
   });
   return {
