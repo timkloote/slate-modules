@@ -1,0 +1,251 @@
+{
+  "modules": 217,
+  "hasJs": 30,
+  "components": [
+    "application-details",
+    "application-selector",
+    "chatbot",
+    "checklist",
+    "content-block",
+    "debug-output",
+    "divider",
+    "document-link",
+    "enrollment-actions",
+    "event-registration",
+    "faq",
+    "form-action",
+    "form-widget",
+    "hidden-fields",
+    "materials-upload",
+    "messaging-block",
+    "module-layout",
+    "module-scripts",
+    "module-styles",
+    "navigation-card",
+    "notification",
+    "payment-block",
+    "photo-block",
+    "portal-header",
+    "portal-navigation",
+    "resource-links",
+    "spacer",
+    "status-summary",
+    "status-tracker",
+    "student-comments",
+    "support-block",
+    "video-upload",
+    "welcome-links"
+  ],
+  "layoutChanges": [
+    [
+      5,
+      "Header",
+      "full-width",
+      "has-js portal-header"
+    ],
+    [
+      60,
+      "Photo Section Mobile",
+      "col-right",
+      "col-left photo-block"
+    ],
+    [
+      68,
+      "Payment - Enrollment Deposit",
+      "full-width",
+      "payment-block"
+    ],
+    [
+      69,
+      "Payment - App Fee",
+      "full-width",
+      "payment-block"
+    ],
+    [
+      108,
+      "Checklist Standard",
+      "full-width",
+      "checklist"
+    ],
+    [
+      137,
+      "Enrollment Module",
+      null,
+      "full-width enrollment-actions"
+    ],
+    [
+      168,
+      "Information",
+      null,
+      "full-width resource-links"
+    ],
+    [
+      173,
+      "Admissions Letters",
+      null,
+      "full-width document-link"
+    ],
+    [
+      178,
+      "Reply to Offer of Admissions Form",
+      null,
+      "col-left has-js form-widget"
+    ],
+    [
+      179,
+      "Forms Widget-Admitted",
+      null,
+      "col-left checklist"
+    ],
+    [
+      180,
+      "Decision - Not Received",
+      null,
+      "col-left document-link"
+    ],
+    [
+      181,
+      "Admissions Letters",
+      null,
+      "col-left navigation-card"
+    ],
+    [
+      182,
+      "Materials/Checklist",
+      null,
+      "col-left navigation-card"
+    ],
+    [
+      183,
+      "Apply to another program",
+      null,
+      "col-left navigation-card"
+    ],
+    [
+      184,
+      "Transactions",
+      null,
+      "col-left navigation-card"
+    ],
+    [
+      185,
+      "Enrollment Module",
+      null,
+      "col-right navigation-card"
+    ],
+    [
+      186,
+      "Support",
+      null,
+      "col-right navigation-card"
+    ],
+    [
+      187,
+      "Information",
+      null,
+      "col-left navigation-card"
+    ],
+    [
+      190,
+      "Information",
+      null,
+      "col-right navigation-card"
+    ],
+    [
+      193,
+      "Create New Case (Beta)",
+      null,
+      "col-left form-action"
+    ],
+    [
+      194,
+      "Withdraw",
+      null,
+      "col-left form-action"
+    ],
+    [
+      195,
+      "Update Info",
+      null,
+      "col-left form-action"
+    ],
+    [
+      196,
+      "Test Score Inquiry",
+      null,
+      "col-left form-action"
+    ],
+    [
+      197,
+      "Official Transcript Inquiry",
+      null,
+      "col-left form-action"
+    ],
+    [
+      198,
+      "Decline My Offer (PBA only)",
+      null,
+      "col-left form-action"
+    ],
+    [
+      199,
+      "Update Info",
+      null,
+      "col-left form-action"
+    ],
+    [
+      200,
+      "Defer",
+      null,
+      "col-left form-action"
+    ],
+    [
+      201,
+      "Competing Offer",
+      null,
+      "col-left form-action"
+    ],
+    [
+      202,
+      "Acceptance-Decline Survey",
+      null,
+      "col-right form-action"
+    ],
+    [
+      203,
+      "Acceptance Survey",
+      null,
+      "col-right form-action"
+    ],
+    [
+      204,
+      "Apply to another program",
+      null,
+      "col-left form-action"
+    ],
+    [
+      205,
+      "Apply to another program (Bachelors Completion)",
+      null,
+      "col-left form-action"
+    ],
+    [
+      214,
+      "Checklist - table only - mobile",
+      null,
+      "full-width checklist"
+    ],
+    [
+      215,
+      "Checklist - table only",
+      null,
+      "full-width checklist"
+    ],
+    [
+      216,
+      "Materials",
+      null,
+      "full-width materials-upload"
+    ]
+  ]
+}

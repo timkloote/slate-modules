@@ -1,0 +1,72 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <style type="text/css">#appdetails span {
+        color: #c00!important;
+      font-size: .875em;
+          text-transform: uppercase;
+      }
+      #appdetails li {
+       font-size: 1em;}
+    </style>
+  </head>
+  <body>
+    <div class="dashborder">
+      <h3 style="text-align: center;">
+        Your Application Details
+      </h3>
+
+      <ul id="appdetails" style="list-style: none; margin-left: 0!important;">
+        <li>
+          <strong><span>Start Term</span></strong><br />
+          {% if {{enrollterm_exists}} == 'Y' %}{{enroll-term}}{% else %}{{start-term}}{% endif %}
+        </li>
+        <li>
+          <strong><span>Degree Sought</span></strong><br />
+          {% if {{global_pathway}} == 'Y' %}Global Pathway{% else %}{{degree}}{% endif %}
+        </li>
+        <li>
+          <strong><span>Program</span></strong><br />
+          <!-- The line below for Program previously contained 'College +Major',
+but per DMSB recommendation and Jeff Hengel assent, it now omits 'College'. JH 5/9/23 -->{% if {{global_pathway}} == 'Y' %}Global Pathway{% elsif {{major}} == 'AI MBA' %}Business Analytics{% else %}{{major}}{% endif %}
+        </li>
+        {% if {{sol_jd_llm_online}} == 'N' and {{sol_jd_flex}} == 'N' %}{% if {{concentration}} != empty and {{sol_jd}} == 'N' %}
+        <li>
+          <strong><span>Concentration</span></strong><br />
+          {{concentration}}
+        </li>
+        {% endif %}{% endif %}{% if {{campus}} != 'Online' and {{sol_jd}} == 'N' %}
+        <li>
+          <strong><span>Campus</span></strong><br />
+          {{nu_campus}}
+        </li>
+        {% endif %}{% if {{campus}} == 'Online' and {{sol_jd}} == 'N' %}
+        <li>
+          <strong><span>Modality</span></strong><br />
+          Online
+        </li>
+        {% endif %}
+        <li>
+          <strong><span>Full-time or Part-time</span></strong><br />
+          {{enrollment_status}}
+        </li>
+        {% if {{app_college_date}} != empty %}
+        <li>
+          <strong><span>Decision Notification Date</span></strong><br />
+          {{app_college_date}}
+        </li>
+        {% endif %}{% if {{round_key}} != 'lsac' %}{% if {{round_key}} != 'cas' %}{% if {{degree}} != 'Doctor of Philosophy (PhD)' %}
+        <li>
+          <strong><span>Status</span></strong><br />
+          {{pre-decision_status}}
+        </li>
+        {% endif %}{% endif %}{% endif %}{% if {{lsac_in_review}} == 'Y' %}{% endif %}{% if {{phd_exists}} == 'Y' %}
+        <li>
+          <strong><span>Status</span></strong><br />
+          {{phd_pre-decision_status}}
+        </li>
+        {% endif %}
+      </ul>
+    </div>
+  </body>
+</html>

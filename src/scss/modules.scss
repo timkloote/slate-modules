@@ -1,0 +1,291 @@
+/* ==========================================================================
+   Slate content modules
+
+   Included after slate.scss and before accessibility.scss in grad-admissions.css.
+   Shared tokens are CSS custom properties defined on :root in slate.scss:
+   var(--red), var(--black), var(--gray), var(--light-gray), var(--white),
+   and var(--wrapperWidth). Fonts and base styles also come from slate.scss.
+
+   Do not @use or @import slate.scss: that would duplicate its generated CSS.
+   Keep module rules scoped to their component class and nest media queries.
+   ========================================================================== */
+
+/* Temporary part boundaries for development; revisit during module styling. */
+[id^="part_"] {
+  border: 1px solid var(--light-gray);
+}
+
+/* ==========================================================================
+   FCE credential tracker
+
+   Renders the 5-step "Track My Status" stepper from the 9/4/2026 FCE
+   Pizza Tracker update. This file only supplies the two visual states,
+   is-complete and is-current — everything about WHICH step gets which
+   class for a given applicant is decided server-side in Slate, from their
+   checklist bin. That mapping needs to be confirmed with the Slate team;
+   nothing here assumes it's already wired up.
+   ========================================================================== */
+
+[id^="part_"] {
+  border: 1px solid var(--light-gray);
+}
+
+.fce-tracker {
+  padding-block: clamp(2rem, 5vw, 4rem);
+
+  h2 {
+    margin: 0 0 2rem;
+    font-family: "ff-real-headline-pro", sans-serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+
+  &__steps {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__step {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding-inline: 0.5rem;
+
+    /* Connecting line, drawn behind the node through the center of every
+       step but the first. */
+    &:not(:first-child)::before {
+      content: '';
+      position: absolute;
+      top: 10px;
+      right: 50%;
+      width: 100%;
+      height: 1px;
+      background: var(--light-gray);
+    }
+
+    &.is-complete {
+      .fce-tracker__node { border-color: #767676; background: #767676; }
+      .fce-tracker__label { color: #111; }
+      &::before { background: #767676; }
+    }
+
+    &.is-current {
+      .fce-tracker__node {
+        position: relative;
+        border-color: var(--red);
+        box-shadow: 0 0 0 3px rgb(212 27 44 / 15%);
+
+        &::after {
+          content: '';
+          position: absolute;
+          inset: 4px;
+          border-radius: 50%;
+          background: var(--red);
+        }
+      }
+
+      .fce-tracker__label { color: #111; font-weight: 700; }
+    }
+  }
+
+  &__node {
+    position: relative;
+    z-index: 1;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    border: 2px solid var(--light-gray);
+    border-radius: 50%;
+    background: #fff;
+  }
+
+  &__label {
+    margin-top: 0.75rem;
+    max-width: 9rem;
+    font-size: 0.8125rem;
+    line-height: 1.3;
+    color: #767676;
+  }
+
+  &__description {
+    margin: 2rem 0 0;
+    padding: 1.25rem 1.5rem;
+    border-left: 4px solid var(--red);
+    background: #f5f5f5;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 640px) {
+    &__steps {
+      flex-wrap: wrap;
+      row-gap: 1.5rem;
+    }
+
+    &__step {
+      flex-basis: 33.333%;
+
+      /* Line-drawing assumes a single row; skip it once steps wrap. */
+      &:not(:first-child)::before { display: none; }
+    }
+  }
+}
+
+/* Empty-payment message inserted by the vanilla Main View behavior. */
+.slate-payment-heading { margin-top: 0; }
+
+/* Proposed Slate module class hooks
+   Paste the complete New CSS Class Names value into Slate’s module Class Name
+   field. These selectors target the generated .part wrapper, not body.
+   has-js is a reference tag only and intentionally has no styling hook.
+   Layout and component rules are intentionally pending. Comments keep these
+   declaration-free hooks visible in the compiled grad-admissions.css export. */
+
+.part.full-width {
+  /* Styling pending. */
+}
+
+.part.col-left {
+  /* Styling pending. */
+}
+
+.part.col-right {
+  /* Styling pending. */
+}
+
+.part.application-details {
+  /* Styling pending. */
+}
+
+.part.application-selector {
+  /* Styling pending. */
+}
+
+.part.chatbot {
+  /* Styling pending. */
+}
+
+.part.checklist {
+  /* Styling pending. */
+}
+
+.part.content-block {
+  /* Styling pending. */
+}
+
+.part.debug-output {
+  /* Styling pending. */
+}
+
+.part.divider {
+  /* Styling pending. */
+}
+
+.part.document-link {
+  /* Styling pending. */
+}
+
+.part.enrollment-actions {
+  /* Styling pending. */
+}
+
+.part.event-registration {
+  /* Styling pending. */
+}
+
+.part.faq {
+  /* Styling pending. */
+}
+
+.part.form-action {
+  /* Styling pending. */
+}
+
+.part.form-widget {
+  /* Styling pending. */
+}
+
+.part.hidden-fields {
+  /* Styling pending. */
+}
+
+.part.materials-upload {
+  /* Styling pending. */
+}
+
+.part.messaging-block {
+  /* Styling pending. */
+}
+
+.part.module-layout {
+  /* Styling pending. */
+}
+
+.part.module-scripts {
+  /* Styling pending. */
+}
+
+.part.module-styles {
+  /* Styling pending. */
+}
+
+.part.navigation-card {
+  /* Styling pending. */
+}
+
+.part.notification {
+  /* Styling pending. */
+}
+
+.part.payment-block {
+  /* Styling pending. */
+}
+
+.part.photo-block {
+  /* Styling pending. */
+}
+
+.part.portal-header {
+  /* Styling pending. */
+}
+
+.part.portal-navigation {
+  /* Styling pending. */
+}
+
+.part.resource-links {
+  /* Styling pending. */
+}
+
+.part.spacer {
+  /* Styling pending. */
+}
+
+.part.status-summary {
+  /* Styling pending. */
+}
+
+.part.status-tracker {
+  /* Styling pending. */
+}
+
+.part.student-comments {
+  /* Styling pending. */
+}
+
+.part.support-block {
+  /* Styling pending. */
+}
+
+.part.video-upload {
+  /* Styling pending. */
+}
+
+.part.welcome-links {
+  /* Styling pending. */
+}

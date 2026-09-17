@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <style type="text/css">tr.plain a {
+      color: #00589f!important;}
+      .part_admissions ul {
+      list-style: none;}
+          .checklist a {
+      color: #c00!important;}
+    </style>
+  </head>
+  <body>
+    <div style="margin-top: 10px;">
+      <div class="part_admissions" id="part_admissions">
+        <h3>
+          Required Application Checklist Items
+        </h3>
+
+        <table>
+          <tbody>
+          </tbody>
+          <colgroup>
+            <col />
+            <col />
+            <col />
+          </colgroup>
+          <tbody>
+            <tr>
+              <th style="width: 15%;">Status</th>
+              <th style="width: 60%;">Checklist Item</th>
+              <th style="width: 25%;">Date Received</th>
+            </tr>
+            {% for checklist in checklistitems %}
+            <tr>
+              <td>{% if {{checklist.status}} != 'Received' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% else %}<img alt="" height="22" src="/icons/received.png" title="Status: {{checklist.status}}" width="22" />{% endif %}</td>
+              <td>{% if {{checklist.url}} == null %}{{checklist.subject}}{% else %}<a href="{{checklist.url}}" target="_blank">{{checklist.subject}}</a>{% endif %}</td>
+              <td>{% if {{checklist.date}} %}{{checklist.date}}{% else %}Pending{% endif %}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        <!--=
+        <table class="nohighlight table">
+          <colgroup>
+            <col style="width: 10%;" />
+            <col style="width: 50%;" />
+            <col />
+            <col style="width: unset;" />
+          </colgroup>
+          <thead>
+            <tr class="column">
+              <th colspan="2">Status</th>
+              <th>Details</th>
+              <th>Date</th>
+            </tr>
+          </thead>
+          <tbody>{% for checklist in checklistitems %}
+            <tr class="plain" style="vertical-align: top;">
+              <td>{% if {{checklist.status}} != 'Received' %}<img alt="" height="22" src="/icons/Awaiting.png" title="Status: Awaiting" width="22" />{% else %}<img alt="" height="22" src="/icons/{{checklist.status}}.png" title="Status: {{checklist.status}}" width="22" />{% endif %}</td>
+              <td style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">{% if {{checklist.url}} == null %}{{checklist.subject}}{% else %}<a href="{{checklist.url}}" target="_blank">{{checklist.subject}}</a>{% endif %}</td>
+              <td style="text-align: center;">{{checklist.date}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>=-->{% if rec_missing == 'Y' %}
+
+        <p style="padding: 1rem;">
+          To re-send notification emails to your recommenders, re-visit the <a href="/apply/ref?r=https%3a%2f%2fenroll.northeastern.edu%2fportal%2fapp_status">recommendations page</a>, click "Edit", and then click "Send Reminder".
+        </p>
+        {% endif %}{% if {{missing_english_prof_score}} == 'Y' %}
+
+        <p style="padding: 1rem;">
+          Your file will be reviewed pending scores being verified. Please have your official scores forwarded directly from the testing center to Northeastern University.
+        </p>
+        {% endif %}
+      </div>
+    </div>
+  </body>
+</html>

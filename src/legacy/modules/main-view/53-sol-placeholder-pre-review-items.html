@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+    <style type="text/css">.decision_card_deposit {
+  padding: 40px;
+  background: #000;
+      color: #fff!important;
+  border-radius: 20px;
+      box-shadow: 0 7px 30px -10px rgba(150,170,180,0.5);
+      margin-top: 1em!important;
+}
+
+.highlight {
+  font-weight: bold;
+  color: #294;
+}
+    </style>
+  </head>
+  <body>
+    <div class="part_admissions" id="part_admissions">
+      <h3>
+        Required Items for Application Review
+      </h3>
+
+      <table border="1" cellpadding="1" cellspacing="1" style="width:500px;">
+        <thead>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="col">Status</th>
+            <th scope="col">Required Items</th>
+          </tr>
+          <tr>
+            <td>{% if {{sol_eapp_received}} == 'N' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% endif %}{% if {{sol_eapp_received}} == 'Y' %}<img alt="" height="22" src="/icons/received.png" title="Status: Received" width="22" />{% endif %}</td>
+            <td>Application</td>
+          </tr>
+          <tr>
+            <td>{% if {{sol_cas_received}} == 'N' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% endif %}{% if {{sol_cas_received}} == 'Y' %}<img alt="" height="22" src="/icons/received.png" title="Status: Received" width="22" />{% endif %}</td>
+            <td>CAS Report</td>
+          </tr>
+          <tr>
+            <td>{% if {{sol_lor_received}} == 'N' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% endif %}{% if {{sol_lor_received}} == 'Y' %}<img alt="" height="22" src="/icons/received.png" title="Status: Received" width="22" />{% endif %}</td>
+            <td>Recommendation</td>
+          </tr>
+          {% if {{llm_velps}} == 'Y' %}
+          <tr>
+            <td>{% if {{llm_velps_received}} == 'N' %}<img alt="" height="22" src="/icons/awaiting.png" title="Status: Awaiting" width="22" />{% endif %}{% if {{llm_velps_received}} == 'Y' %}<img alt="" height="22" src="/icons/received.png" title="Status: Received" width="22" />{% endif %}</td>
+            <td>Verified English Language Score</td>
+          </tr>
+          {% endif %}
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
