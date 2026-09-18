@@ -27,7 +27,7 @@ test('updates widget content and remains idempotent when rerun', () => {
  assert.equal(document.querySelectorAll('[data-slate-visit-heading]').length,1);
  assert.equal(document.querySelectorAll('[data-slate-switch-heading]').length,1);
  assert.equal(document.querySelectorAll('.slate-payment-heading').length,1);
- assert.equal(document.querySelectorAll('.row').length,1);
+ assert.equal(document.querySelectorAll('.slate-form-layout').length,1);
  assert.equal(document.querySelector('#part_8957922f-9774-4ff2-a799-6efef0feacf3 h3').textContent,'You Have An Admissions Decision');
  assert.equal(document.querySelector('#content table').classList.contains('fixed'),false);
 });

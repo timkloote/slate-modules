@@ -1,15 +1,18 @@
-<!-- Proposed Slate class names: col-right application-details -->
+<!--
+Module: 124. Pre-Decision App Info
+Proposed Slate class names: col-right application-details
+-->
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title></title>
   </head>
   <body>
     <div class="dashborder">
-      <h3 class="neu-module-124-inline-01">
+      <h3>
         Your Application Details
       </h3>
 
-      <ul id="appdetails" class="neu-module-124-inline-02">
+      <ul id="appdetails">
         <li>
           <strong><span>Start Term</span></strong><br />
           {% if {{enrollterm_exists}} == 'Y' %}{{enroll-term}}{% else %}{{start-term}}{% endif %}

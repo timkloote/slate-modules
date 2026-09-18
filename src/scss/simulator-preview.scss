@@ -21,7 +21,7 @@ html, body { margin: 0; }
 }
 
 /* Sanitized Main View supplies its own layout; legacy retains Bootstrap's row/column sizing. */
-.sim-slate-behavior.sim-sanitized .bodybackground > .row:has(> #leftcolumn) {
+.sim-slate-behavior.sim-sanitized .bodybackground > .module-layout__group:has(> #leftcolumn) {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem;
@@ -34,5 +34,5 @@ html, body { margin: 0; }
 .sim-behavior-report { padding: 1rem; background: #fff4d5; color: #614b12; font: 14px/1.5 system-ui, sans-serif; overflow-wrap: anywhere; }
 .sim-clean .sim-behavior-report { display: none; }
 @media (max-width: 767px) {
-  .sim-slate-behavior.sim-sanitized .bodybackground > .row:has(> #leftcolumn) { grid-template-columns: minmax(0, 1fr); padding: 1rem; }
+  .sim-slate-behavior.sim-sanitized .bodybackground > .module-layout__group:has(> #leftcolumn) { grid-template-columns: minmax(0, 1fr); padding: 1rem; }
 }

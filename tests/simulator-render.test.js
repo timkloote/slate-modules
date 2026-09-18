@@ -123,7 +123,7 @@ test('legacy clean view uses original DOM/footer and the vanilla behavior, witho
 
 test('fallback grid targets sanitized columns only; legacy keeps Bootstrap layout',async()=>{
  const parts=inventory().capturedParts['main-view'].join(',');
- const selector='.sim-slate-behavior.sim-sanitized .bodybackground > .row:has(> #leftcolumn)';
+ const selector='.sim-slate-behavior.sim-sanitized .bodybackground > .module-layout__group:has(> #leftcolumn)';
  const sanitized=await render(`?source=sanitized&clean=1&parts=${parts}`);
  assert.ok(sanitized.querySelector(selector));
  const legacy=await render(`?source=legacy&clean=1&parts=${parts}`);

@@ -1,19 +1,22 @@
-<!-- Proposed Slate class names: col-left document-link -->
+<!--
+Module: 37. Decision (Award, POA, LA, PAL, UK Correspond; London Only)
+Proposed Slate class names: col-left document-link
+-->
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title></title>
   </head>
   <body>
     <section>
-    <div class="row neu-module-037-inline-01">
-      <div class="col-12">
+    <div class="document-link__group">
+      <div class="document-link__content">
         {% for decision in decisions_award_poa %}
-        <div class="decision_card row position-relative">
-          <div class="col-3">
+        <div class="document-link__layout">
+          <div class="document-link__media">
             <img src="/icons/new_decision2.png" />
           </div>
 
-          <div class="col-9 position-static">
+          <div class="document-link__content">
             <h2>
               Access your {% if {{decision.received}} == 'Y' %}previously viewed {% endif %}<b>{% if {{decision.name}} == 'Award' %}Scholarship{% else %}{{decision.name}}{% endif %}</b> letter
             </h2>

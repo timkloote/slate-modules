@@ -139,6 +139,78 @@
 /* Empty-payment message inserted by the vanilla Main View behavior. */
 .slate-payment-heading { margin-top: 0; }
 
+/* Icon and content layouts for migrated document links and form actions.
+   Only explicit internal classes opt into this layout. */
+@each $component in document-link, form-action, enrollment-actions, messaging-block, navigation-card, notification, resource-links {
+  .part.#{$component} {
+    .#{$component}__layout {
+      display: grid;
+      grid-template-columns: 3rem minmax(0, 1fr);
+      align-items: start;
+      gap: 1rem;
+
+      &:not(:has(> .#{$component}__media, > .#{$component}__icon)) {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .#{$component}__icon,
+    .#{$component}__media img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .#{$component}__media { width: 3rem; }
+
+    .#{$component}__layout + .#{$component}__layout { margin-top: 1.5rem; }
+
+    .#{$component}__content {
+      min-width: 0;
+      overflow-wrap: anywhere;
+
+      h2 { margin: 0 0 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      .#{$component}__layout { grid-template-columns: minmax(0, 1fr); }
+      .#{$component}__icon { width: 3rem; }
+    }
+  }
+}
+
+/* Column destinations retain their IDs for the Slate module-moving behavior. */
+.module-layout__group:has(> #leftcolumn):has(> #rightcolumn) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  max-width: var(--wrapperWidth);
+  margin-inline: auto;
+
+  > .module-layout__column { min-width: 0; }
+
+  @media (max-width: 767px) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Sanitized historical headers also work without a Bootstrap menu plugin. */
+.portal-header__container,
+.portal-header__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.portal-header__links,
+.portal-header__account-links {
+  list-style: none;
+  padding: 0;
+}
+
+.portal-header__account summary { cursor: pointer; }
+
 /* Proposed Slate module class hooks
    Paste the complete New CSS Class Names value into Slate’s module Class Name
    field. These selectors target the generated .part wrapper, not body.

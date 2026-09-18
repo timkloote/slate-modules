@@ -995,6 +995,303 @@ footer ul {
   margin-top: 0;
 }
 
+/* Icon and content layouts for migrated document links and form actions.
+   Only explicit internal classes opt into this layout. */
+.part.document-link .document-link__layout {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+}
+.part.document-link .document-link__layout:not(:has(> .document-link__media, > .document-link__icon)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+.part.document-link .document-link__icon,
+.part.document-link .document-link__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.part.document-link .document-link__media {
+  width: 3rem;
+}
+.part.document-link .document-link__layout + .document-link__layout {
+  margin-top: 1.5rem;
+}
+.part.document-link .document-link__content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.part.document-link .document-link__content h2 {
+  margin: 0 0 1rem;
+}
+@media (max-width: 480px) {
+  .part.document-link .document-link__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .part.document-link .document-link__icon {
+    width: 3rem;
+  }
+}
+
+.part.form-action .form-action__layout {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+}
+.part.form-action .form-action__layout:not(:has(> .form-action__media, > .form-action__icon)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+.part.form-action .form-action__icon,
+.part.form-action .form-action__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.part.form-action .form-action__media {
+  width: 3rem;
+}
+.part.form-action .form-action__layout + .form-action__layout {
+  margin-top: 1.5rem;
+}
+.part.form-action .form-action__content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.part.form-action .form-action__content h2 {
+  margin: 0 0 1rem;
+}
+@media (max-width: 480px) {
+  .part.form-action .form-action__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .part.form-action .form-action__icon {
+    width: 3rem;
+  }
+}
+
+.part.enrollment-actions .enrollment-actions__layout {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+}
+.part.enrollment-actions .enrollment-actions__layout:not(:has(> .enrollment-actions__media, > .enrollment-actions__icon)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+.part.enrollment-actions .enrollment-actions__icon,
+.part.enrollment-actions .enrollment-actions__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.part.enrollment-actions .enrollment-actions__media {
+  width: 3rem;
+}
+.part.enrollment-actions .enrollment-actions__layout + .enrollment-actions__layout {
+  margin-top: 1.5rem;
+}
+.part.enrollment-actions .enrollment-actions__content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.part.enrollment-actions .enrollment-actions__content h2 {
+  margin: 0 0 1rem;
+}
+@media (max-width: 480px) {
+  .part.enrollment-actions .enrollment-actions__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .part.enrollment-actions .enrollment-actions__icon {
+    width: 3rem;
+  }
+}
+
+.part.messaging-block .messaging-block__layout {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+}
+.part.messaging-block .messaging-block__layout:not(:has(> .messaging-block__media, > .messaging-block__icon)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+.part.messaging-block .messaging-block__icon,
+.part.messaging-block .messaging-block__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.part.messaging-block .messaging-block__media {
+  width: 3rem;
+}
+.part.messaging-block .messaging-block__layout + .messaging-block__layout {
+  margin-top: 1.5rem;
+}
+.part.messaging-block .messaging-block__content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.part.messaging-block .messaging-block__content h2 {
+  margin: 0 0 1rem;
+}
+@media (max-width: 480px) {
+  .part.messaging-block .messaging-block__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .part.messaging-block .messaging-block__icon {
+    width: 3rem;
+  }
+}
+
+.part.navigation-card .navigation-card__layout {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+}
+.part.navigation-card .navigation-card__layout:not(:has(> .navigation-card__media, > .navigation-card__icon)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+.part.navigation-card .navigation-card__icon,
+.part.navigation-card .navigation-card__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.part.navigation-card .navigation-card__media {
+  width: 3rem;
+}
+.part.navigation-card .navigation-card__layout + .navigation-card__layout {
+  margin-top: 1.5rem;
+}
+.part.navigation-card .navigation-card__content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.part.navigation-card .navigation-card__content h2 {
+  margin: 0 0 1rem;
+}
+@media (max-width: 480px) {
+  .part.navigation-card .navigation-card__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .part.navigation-card .navigation-card__icon {
+    width: 3rem;
+  }
+}
+
+.part.notification .notification__layout {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+}
+.part.notification .notification__layout:not(:has(> .notification__media, > .notification__icon)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+.part.notification .notification__icon,
+.part.notification .notification__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.part.notification .notification__media {
+  width: 3rem;
+}
+.part.notification .notification__layout + .notification__layout {
+  margin-top: 1.5rem;
+}
+.part.notification .notification__content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.part.notification .notification__content h2 {
+  margin: 0 0 1rem;
+}
+@media (max-width: 480px) {
+  .part.notification .notification__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .part.notification .notification__icon {
+    width: 3rem;
+  }
+}
+
+.part.resource-links .resource-links__layout {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem;
+}
+.part.resource-links .resource-links__layout:not(:has(> .resource-links__media, > .resource-links__icon)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+.part.resource-links .resource-links__icon,
+.part.resource-links .resource-links__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.part.resource-links .resource-links__media {
+  width: 3rem;
+}
+.part.resource-links .resource-links__layout + .resource-links__layout {
+  margin-top: 1.5rem;
+}
+.part.resource-links .resource-links__content {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.part.resource-links .resource-links__content h2 {
+  margin: 0 0 1rem;
+}
+@media (max-width: 480px) {
+  .part.resource-links .resource-links__layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .part.resource-links .resource-links__icon {
+    width: 3rem;
+  }
+}
+
+/* Column destinations retain their IDs for the Slate module-moving behavior. */
+.module-layout__group:has(> #leftcolumn):has(> #rightcolumn) {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2rem;
+  max-width: var(--wrapperWidth);
+  margin-inline: auto;
+}
+.module-layout__group:has(> #leftcolumn):has(> #rightcolumn) > .module-layout__column {
+  min-width: 0;
+}
+@media (max-width: 767px) {
+  .module-layout__group:has(> #leftcolumn):has(> #rightcolumn) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Sanitized historical headers also work without a Bootstrap menu plugin. */
+.portal-header__container,
+.portal-header__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.portal-header__links,
+.portal-header__account-links {
+  list-style: none;
+  padding: 0;
+}
+
+.portal-header__account summary {
+  cursor: pointer;
+}
+
 /* Proposed Slate module class hooks
    Paste the complete New CSS Class Names value into Slate’s module Class Name
    field. These selectors target the generated .part wrapper, not body.

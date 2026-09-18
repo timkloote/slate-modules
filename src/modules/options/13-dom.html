@@ -1,4 +1,7 @@
-<!-- Proposed Slate class names: has-js module-layout -->
+<!--
+Module: 13. DOM
+Proposed Slate class names: has-js module-layout
+-->
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title></title>
@@ -6,15 +9,15 @@
     <link href="https://global-packages.cdn.northeastern.edu/global-elements/dist/css/index.css" rel="stylesheet" /><script src="https://global-packages.cdn.northeastern.edu/kernl-ui/dist/js/index.umd.js" defer="defer"></script><!-- END Global Header-Footer -->
   </head>
   <body>
-    <div class="container-fluid bodybackground neu-options-module-013-inline-01">
-      <div class="row northeasternmaxwidth neu-options-module-013-inline-02">
-        <div class="col-md-6" id="leftcolumn">
+    <div class="module-layout__container bodybackground">
+      <div class="module-layout__group northeasternmaxwidth">
+        <div class="module-layout__column" id="leftcolumn">
         </div>
 
-        <div class="col-md-6" id="rightcolumn">
+        <div class="module-layout__column" id="rightcolumn">
         </div>
       </div>
-      <!--=<div class="row northeasternmaxwidth neu-options-module-013-inline-03" id="login">
+      <!--=<div class="module-layout__group northeasternmaxwidth" id="login">
         <p>
           You are logged in as: {{name}}.
         </p>
@@ -51,7 +54,7 @@
       </div>
     </div>
 
-    <div class="neu-options-module-013-inline-04">
+    <div>
       <div x-data="NUGlobalElements.trustarc()" x-init="init()">
       </div>
     </div>

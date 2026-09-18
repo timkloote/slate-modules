@@ -1,16 +1,19 @@
-<!-- Proposed Slate class names: col-right application-details -->
+<!--
+Module: 125. Post-Decision App Info
+Proposed Slate class names: col-right application-details
+-->
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title></title>
   </head>
   <body>
     <div class="dashborder">
-      <h3 class="neu-module-125-inline-01">
+      <h3>
         {% if {{primary_program}} == 'Y' %}<strong>Primary Program</strong><br />
         {% endif %} Your Application Details
       </h3>
 
-      <ul id="appdetails" class="neu-module-125-inline-02">
+      <ul id="appdetails">
         <li>
           <strong><span>Start Term</span></strong><br />
           {% if {{enrollterm_exists}} == 'Y' %}{{enroll-term}}{% else %}{{start-term}}{% endif %}
@@ -36,7 +39,7 @@ but per DMSB recommendation and Jeff Hengel assent, it now omits 'College'. JH 5
         </li>
         {% endif %}{% if {{nu_campus}} != 'Online' and {{sol_jd}} == 'N' %}
         <li>
-          <strong><span>Modality</span></strong><span id="cke_bm_193S" class="neu-module-125-inline-03">&nbsp;</span><br />
+          <strong><span>Modality</span></strong><span id="cke_bm_193S">&nbsp;</span><br />
           {{modality}}
         </li>
         {% endif %}

@@ -1,10 +1,13 @@
-<!-- Proposed Slate class names: full-width checklist -->
+<!--
+Module: 4. Checklist - table only
+Proposed Slate class names: full-width checklist
+-->
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title></title>
   </head>
   <body>
-    <div class="neu-materials-checklist-module-004-inline-01">
+    <div>
       <div class="part_admissions" id="part_admissions">
         <h3>
           Required Application Checklist Items
@@ -20,9 +23,9 @@
           </colgroup>
           <tbody>
             <tr>
-              <th class="neu-materials-checklist-module-004-inline-02">Status</th>
-              <th class="neu-materials-checklist-module-004-inline-03">Checklist Item</th>
-              <th class="neu-materials-checklist-module-004-inline-04">Date Received</th>
+              <th>Status</th>
+              <th>Checklist Item</th>
+              <th>Date Received</th>
             </tr>
             {% for checklist in checklistitems %}
             <tr>
@@ -34,12 +37,12 @@
           </tbody>
         </table>
         <!--=
-        <table class="nohighlight table">
+        <table class="nohighlight checklist__table">
           <colgroup>
-            <col  class="neu-materials-checklist-module-004-inline-05"/>
-            <col  class="neu-materials-checklist-module-004-inline-06"/>
+            <col/>
+            <col/>
             <col />
-            <col  class="neu-materials-checklist-module-004-inline-07"/>
+            <col/>
           </colgroup>
           <thead>
             <tr class="column">
@@ -49,21 +52,21 @@
             </tr>
           </thead>
           <tbody>{% for checklist in checklistitems %}
-            <tr class="plain neu-materials-checklist-module-004-inline-08">
+            <tr class="plain">
               <td>{% if {{checklist.status}} != 'Received' %}<img alt="" height="22" src="/icons/Awaiting.png" title="Status: Awaiting" width="22" />{% else %}<img alt="" height="22" src="/icons/{{checklist.status}}.png" title="Status: {{checklist.status}}" width="22" />{% endif %}</td>
-              <td class="neu-materials-checklist-module-004-inline-09">{% if {{checklist.url}} == null %}{{checklist.subject}}{% else %}<a href="{{checklist.url}}" target="_blank">{{checklist.subject}}</a>{% endif %}</td>
-              <td class="neu-materials-checklist-module-004-inline-10">{{checklist.date}}</td>
+              <td>{% if {{checklist.url}} == null %}{{checklist.subject}}{% else %}<a href="{{checklist.url}}" target="_blank">{{checklist.subject}}</a>{% endif %}</td>
+              <td>{{checklist.date}}</td>
             </tr>
             {% endfor %}
           </tbody>
         </table>=-->{% if rec_missing == 'Y' %}
 
-        <p class="neu-materials-checklist-module-004-inline-11">
+        <p>
           To re-send notification emails to your recommenders, re-visit the <a href="/apply/ref?r=https%3a%2f%2fenroll.northeastern.edu%2fportal%2fapp_status">recommendations page</a>, click "Edit", and then click "Send Reminder".
         </p>
         {% endif %}{% if {{missing_english_prof_score}} == 'Y' %}
 
-        <p class="neu-materials-checklist-module-004-inline-12">
+        <p>
           Your file will be reviewed pending scores being verified. Please have your official scores forwarded directly from the testing center to Northeastern University.
         </p>
         {% endif %}

@@ -39,8 +39,8 @@ export function initMainViewBehavior(root = document, { ignoreElement = () => fa
   ];
   for (const [selector, text] of labels) for (const node of find(selector)) node.textContent = text;
   for (const form of find('#part_93ad9de8-bb73-4452-b320-a89aa09af839 > div > form')) {
-    if (form.parentElement.classList.contains('row')) continue;
-    const row = create('div', '', 'row'); form.before(row); row.append(form);
+    if (form.parentElement.classList.contains('slate-form-layout')) continue;
+    const row = create('div', '', 'slate-form-layout'); form.before(row); row.append(form);
   }
   for (const selector of [
     '#part_f5a08f49-bb47-4769-a01b-c24f273eb8e2 > table > tbody > tr > td:nth-child(2) > a',

@@ -145,6 +145,8 @@ The supplied `build-mobile-global.js` is not loaded: it depends on jQuery and Sl
 
 ### Production stylesheet organization
 
+Sanitized modules use component-specific internal classes such as `document-link__layout`, `document-link__media`, and `document-link__content`; Slate's proposed classes still belong on the outer `.part` wrapper. Bootstrap grid, navigation, positioning, table, and stretched-link classes and Bootstrap/Popper imports have been removed from `src/modules/`. Card links use their visible link text as the click target. Historical sanitized headers use native `<details>` account menus and always-visible navigation; legacy originals are unchanged. Existing Tailwind classes in historical global header/footer markup are separate from this Bootstrap cleanup. Run `npm test` to check for reintroduced Bootstrap dependencies.
+
 For external stylesheet development, each build also writes `css/grad-admissions-test.css` so it can be committed and pushed to GitHub. Edit the SCSS sources below, run `npm run build`, and commit the refreshed CSS file. This file is generated; direct edits will be overwritten on the next build.
 
 The build also writes `dist/css/grad-admissions-test.css` for the existing GitHub Pages deployment workflow. Once deployed, link it in Slate with `<link rel="stylesheet" href="https://timkloote.github.io/slate-modules/css/grad-admissions-test.css?v=1">`. Update the version query when publishing a new revision to request a fresh URL. Cache behavior still depends on the host and Slate.

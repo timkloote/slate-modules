@@ -1,4 +1,7 @@
-<!-- Proposed Slate class names: payment-block -->
+<!--
+Module: 67. Payment - Enrollment Deposit
+Proposed Slate class names: payment-block
+-->
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title></title>
@@ -9,10 +12,10 @@
         Payment Due{% if {{payment_due_date}} != null and {{payment_due_date}} != '' %} by {{payment_due_date}}{% endif %}: {{payment_sum}} {{payment_currency}}
       </h3>
 
-      <table class="nohighlight table">
+      <table class="nohighlight payment-block__table">
         <colgroup>
-          <col  class="neu-module-067-inline-01"/>
-          <col  class="neu-module-067-inline-02"/>
+          <col/>
+          <col/>
           <col />
         </colgroup>
         <tbody>

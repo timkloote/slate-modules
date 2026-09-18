@@ -1,4 +1,7 @@
-<!-- Proposed Slate class names: col-left student-comments -->
+<!--
+Module: 101. London - Student-Facing Comments
+Proposed Slate class names: col-left student-comments
+-->
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title></title>
@@ -8,7 +11,7 @@
       <strong>Details from the Application Processing Team</strong>
     </h3>
 
-    <table class="table">
+    <table class="student-comments__table">
       <tbody>{% for notes in uk_app_review %}
         <tr>
           <td>{{notes.portal_comments}}</td>
