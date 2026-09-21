@@ -32,7 +32,7 @@ Proposed Slate class names: col-left document-link
 
           <div class="document-link__content">
             <h2>
-              Access your previously viewed {% if {{pba}} == 'Y' and {{decision.name}} == 'Deny' %}<b>Redirect</b>{% else %}<b>{{decision.name}}</b>{% endif %} decision
+              Access your previously viewed {% if {{pba}} == 'Y' and {{decision.name}} == 'Deny' %}<strong>Redirect</strong>{% else %}<strong>{{decision.name}}</strong>{% endif %} decision
             </h2>
             <a href="/apply/update?id={{decision.guid}}" target="_blank">View your decision</a><br />
             <a href="/apply/download.pdf?s={{decision.guid}}&amp;output=letter.pdf">Download your decision letter</a>

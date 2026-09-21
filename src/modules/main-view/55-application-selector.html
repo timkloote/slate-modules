@@ -13,17 +13,13 @@ Proposed Slate class names: col-right has-js application-selector
       </h3>
       <select autocomplete="off" data-onchange="{ init: false }" id="apps" onchange="FW.Navigate('/apply/?id=' + $(this).val() + '&amp;r=status');"><option value="">Select another application</option>{% for result in {{apps}} %}<option value="{{result.guid}}">{% if {{global_pathway}} == 'Y' %}Global Pathway{% else %}{{result.program}}{% endif %}{% if {{result.college}} == 'College of Engineering' %} - {{result.concentration}}{% endif %} - {{result.campus}} ({{result.term}})</option>{% endfor %}</select>
     </div>
-    <script>/*   
-      $('#apps').change(function() {
-    var eventTypeName = $("#apps option:selected");
-});
-      */
-      
+    <script>
+      $(document).ready(function () {
+        const applicationSelect = document.querySelector("#apps");
+        const program = {{program}};
 
-$( document ).ready(function() {
-    let lable = document.querySelector("#apps");
-      let program = {{program}};
-            $(lable.selectedOptions[0]).html(program);
-});</script>
+        $(applicationSelect.selectedOptions[0]).html(program);
+      });
+    </script>
   </body>
 </html>
