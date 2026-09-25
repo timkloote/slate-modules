@@ -91,6 +91,15 @@ test('portal stylesheet option applies in both stacked and clean views and is of
  }
 });
 
+test('sanitized preview preserves functional hidden fields and editor bookmarks',async()=>{
+ const main=inventory().views.find(v=>v.slug==='main-view');
+ const parts=main.modules.filter(m=>[5,117,118,125].includes(m.order)).map(m=>m.partId).join(',');
+ const document=await render(`?source=sanitized&parts=${parts}`);
+ const hidden=document.querySelectorAll('#md5guid, [id^="cke_bm_"]');
+ assert.equal(hidden.length,4);
+ for(const el of hidden) assert.equal(el.style.display,'none');
+});
+
 test('legacy preview keeps original head CSS, stylesheet links, inline styles, and header',async()=>{
  const main=inventory().views.find(v=>v.slug==='main-view');
  const parts=main.modules.filter(m=>[1,4,6].includes(m.order)).map(m=>m.partId).join(',');

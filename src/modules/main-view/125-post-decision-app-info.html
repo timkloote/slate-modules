@@ -7,7 +7,7 @@ Proposed Slate class names: col-right application-details
     <title></title>
   </head>
   <body>
-    <div class="dashborder">
+    <div>
       <h3>
         {% if {{primary_program}} == 'Y' %}<strong>Primary Program</strong><br />
         {% endif %} Your Application Details
@@ -39,7 +39,7 @@ but per DMSB recommendation and Jeff Hengel assent, it now omits 'College'. JH 5
         </li>
         {% endif %}{% if {{nu_campus}} != 'Online' and {{sol_jd}} == 'N' %}
         <li>
-          <strong><span>Modality</span></strong><span id="cke_bm_193S">&nbsp;</span><br />
+          <strong><span>Modality</span></strong><span id="cke_bm_193S" style="display: none;">&nbsp;</span><br />
           {{modality}}
         </li>
         {% endif %}

@@ -6,14 +6,35 @@ Proposed Slate class names: col-left has-js form-widget
   <head>
     <title></title>
   </head>
+
   <body>
-    <h3>
-      Reply to Offer of Admissions
-    </h3>
+    <h3>Reply to Offer of Admissions</h3>
 
     <div id="form_323f756b-cdac-4a10-a96b-460c3ddf1a40">
       Loading...
     </div>
-    <script>var script = document.createElement('script'); script.async = 1; script.src = 'https:///register/?id=323f756b-cdac-4a10-a96b-460c3ddf1a40&output=embed&div=form_323f756b-cdac-4a10-a96b-460c3ddf1a40' + ((location.search.length > 1) ? '&' + location.search.substring(1) : ''); var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);</script>
+
+    <script>
+      const formId = "323f756b-cdac-4a10-a96b-460c3ddf1a40";
+      const formContainerId = `form_${formId}`;
+
+      const script = document.createElement("script");
+
+      script.async = true;
+      script.src =
+        `https:///register/?id=${formId}` +
+        `&output=embed` +
+        `&div=${formContainerId}` +
+        (location.search.length > 1
+          ? `&${location.search.substring(1)}`
+          : "");
+
+      const firstScript = document.querySelector("script");
+
+      firstScript.parentNode.insertBefore(
+        script,
+        firstScript
+      );
+    </script>
   </body>
 </html>

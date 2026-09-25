@@ -36,7 +36,9 @@ export function fragmentForPreview(html, partId, localAssets = false, preserveSt
   }
   for(const el of parsed.querySelectorAll('*')) {
     for(const attr of [...el.attributes]) {
-      if (/^on/i.test(attr.name) || (attr.name==='style' && !preserveStyles) || attr.name==='srcdoc' || attr.name.startsWith('x-') || attr.name.startsWith('data-on') || ['action','formaction','autofocus','srcset'].includes(attr.name)) el.removeAttribute(attr.name);
+      // Initial hidden state is functional, even in the sanitized preview.
+      const hiddenOnly = attr.name==='style' && /^\s*display\s*:\s*none\s*;?\s*$/i.test(attr.value);
+      if (/^on/i.test(attr.name) || (attr.name==='style' && !preserveStyles && !hiddenOnly) || attr.name==='srcdoc' || attr.name.startsWith('x-') || attr.name.startsWith('data-on') || ['action','formaction','autofocus','srcset'].includes(attr.name)) el.removeAttribute(attr.name);
       if (['href','src','xlink:href'].includes(attr.name) && /^\s*(javascript|vbscript|data):/i.test(attr.value)) el.removeAttribute(attr.name);
     }
     if(preserveStyles) {

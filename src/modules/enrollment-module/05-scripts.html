@@ -3,26 +3,160 @@ Module: 5. Scripts
 Proposed Slate class names: has-js module-scripts
 -->
 <html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <title></title>
-  </head>
-  <body>
-    <script>//*$( "#part_b4257eea-1052-4cf8-8b39-5f0ceb3d4d58 > div").addClass(  "dashborder" );--->
-      $( ".maincolumn").appendTo(  "#maincolumn" );
-      $( ".leftcolumn").appendTo(  "#leftcolumn" );
-    $( ".rightcolumn").appendTo( "#rightcolumn") ;
-     $(".applicant_events_widget").prepend("<h3>Visit Campus<\/h3><p>Schedule your visit to find out more about Northeastern now!<\/p>");
-      $("#part_e15c84b6-a277-4315-bdb4-055b23bd7b84").addClass("whitebackground checklist");
-      $("#part_8957922f-9774-4ff2-a799-6efef0feacf3 > div > h3").html("You Have An  Admissions Decision");
-      $("#part_8957922f-9774-4ff2-a799-6efef0feacf3 > div > a").html("View Your Admissions Decision");
+<head>
+  <title></title>
+</head>
 
-      $("#part_93ad9de8-bb73-4452-b320-a89aa09af839 > div > form").wrap("<div class='module-scripts__group'><\/div>");
-      $("#part_12aaabe9-0c0e-4994-990e-f14bbdd9d2d0 > h3").html("Pay your application fee using the link below");
-      $("#part_f5a08f49-bb47-4769-a01b-c24f273eb8e2 > table > tbody > tr > td:nth-child(2) > a").attr("target","_blank");
-      $("#part_12aaabe9-0c0e-4994-990e-f14bbdd9d2d0 > table > tbody > tr > td:nth-child(3) > a").attr("target","_blank");
-      $("#part_8957922f-9774-4ff2-a799-6efef0feacf3 > div > p:nth-child(3) > a").attr("target","_blank");
-      $("#part_3ff542dd-3392-46e7-a627-521d9ad83c11 > table > tbody > tr > td:nth-child(3) > a").attr("target","_blank");
-      $("#content > table").removeClass("fixed");
-      $("<h3>Switch Applications<\/h3>").insertBefore("#part_afe2249d-76e1-4f29-ae0d-f27209fdfa11 > select");</script>
-  </body>
+<body>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+
+      /*
+       * -------------------------------------------------------
+       * Applicant Events / Visit Campus
+       * -------------------------------------------------------
+       */
+
+      const applicantEventsWidget = document.querySelector(
+        ".applicant_events_widget"
+      );
+
+      if (applicantEventsWidget) {
+        applicantEventsWidget.insertAdjacentHTML(
+          "afterbegin",
+          `
+            <h3>Visit Campus</h3>
+            <p>Schedule your visit to find out more about Northeastern now!</p>
+          `
+        );
+      }
+
+
+      /*
+       * -------------------------------------------------------
+       * Legacy Portal Code
+       * -------------------------------------------------------
+       *
+       * The selectors below reference legacy Slate part IDs that
+       * do not appear to be present in the current portal.
+       *
+       * This code is being retained for reference while the portal
+       * is being sanitized and modernized.
+       *
+       * The old maincolumn / leftcolumn / rightcolumn DOM-moving
+       * logic has been removed entirely.
+       *
+       * Do not remove the remaining legacy references until their
+       * associated functionality has been fully reviewed.
+       */
+
+      /*
+      const checklistModule = document.querySelector(
+        "#part_e15c84b6-a277-4315-bdb4-055b23bd7b84"
+      );
+
+      if (checklistModule) {
+        checklistModule.classList.add(
+          "whitebackground",
+          "checklist"
+        );
+      }
+
+
+      const decisionModule = document.querySelector(
+        "#part_8957922f-9774-4ff2-a799-6efef0feacf3"
+      );
+
+      if (decisionModule) {
+        const heading = decisionModule.querySelector(
+          ":scope > div > h3"
+        );
+
+        const decisionLink = decisionModule.querySelector(
+          ":scope > div > a"
+        );
+
+        if (heading) {
+          heading.textContent =
+            "You Have An Admissions Decision";
+        }
+
+        if (decisionLink) {
+          decisionLink.textContent =
+            "View Your Admissions Decision";
+        }
+      }
+
+
+      const groupedForm = document.querySelector(
+        "#part_93ad9de8-bb73-4452-b320-a89aa09af839 > div > form"
+      );
+
+      if (groupedForm) {
+        const wrapper = document.createElement("div");
+
+        wrapper.classList.add("module-scripts__group");
+
+        groupedForm.parentNode.insertBefore(
+          wrapper,
+          groupedForm
+        );
+
+        wrapper.appendChild(groupedForm);
+      }
+
+
+      const applicationFeeHeading = document.querySelector(
+        "#part_12aaabe9-0c0e-4994-990e-f14bbdd9d2d0 > h3"
+      );
+
+      if (applicationFeeHeading) {
+        applicationFeeHeading.textContent =
+          "Pay your application fee using the link below";
+      }
+
+
+      const externalLinkSelectors = [
+        "#part_f5a08f49-bb47-4769-a01b-c24f273eb8e2 > table > tbody > tr > td:nth-child(2) > a",
+        "#part_12aaabe9-0c0e-4994-990e-f14bbdd9d2d0 > table > tbody > tr > td:nth-child(3) > a",
+        "#part_8957922f-9774-4ff2-a799-6efef0feacf3 > div > p:nth-child(3) > a",
+        "#part_3ff542dd-3392-46e7-a627-521d9ad83c11 > table > tbody > tr > td:nth-child(3) > a"
+      ];
+
+      externalLinkSelectors.forEach((selector) => {
+        document.querySelectorAll(selector).forEach((link) => {
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+        });
+      });
+
+
+      const contentTable = document.querySelector(
+        "#content > table"
+      );
+
+      if (contentTable) {
+        contentTable.classList.remove("fixed");
+      }
+
+
+      const applicationSwitcher = document.querySelector(
+        "#part_afe2249d-76e1-4f29-ae0d-f27209fdfa11 > select"
+      );
+
+      if (applicationSwitcher) {
+        const heading = document.createElement("h3");
+
+        heading.textContent = "Switch Applications";
+
+        applicationSwitcher.parentNode.insertBefore(
+          heading,
+          applicationSwitcher
+        );
+      }
+      */
+
+    });
+  </script>
+</body>
 </html>
