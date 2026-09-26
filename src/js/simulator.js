@@ -11,12 +11,21 @@ async function initSimulator() {
   const $ = id => document.getElementById(id);
   const key = `slate-simulator:${view.slug}`;
   const settingsKey = `${key}:settings`;
-  try {
-    const settings = JSON.parse(localStorage.getItem(settingsKey));
+  const presets = {
+    redesign: {'module-source':'sanitized','portal-styles':'portal','class-mode':'new','layout-mode':'behavior','preview-width':'full'},
+    legacy: {'module-source':'legacy','portal-styles':'design','class-mode':'original','layout-mode':'behavior','preview-width':'full'},
+  };
+  function applySettings(settings) {
     for (const [id, value] of Object.entries(settings || {})) {
       const control = $(id);
       if (control?.options && [...control.options].some(option => option.value === value)) control.value = value;
     }
+    $('portal-preview').dataset.width = $('preview-width').value;
+  }
+  const currentPreset = () => Object.entries(presets).find(([, p]) => Object.entries(p).every(([id, value]) => $(id).value === value))?.[0] || 'custom';
+  try {
+    const settings = JSON.parse(localStorage.getItem(settingsKey));
+    applySettings(settings);
   } catch { /* Settings storage is optional. */ }
   let selected = new Set(capturedParts[view.slug] || view.modules.filter(m => m.status === 'Active').map(m=>m.partId));
   try { const saved = JSON.parse(localStorage.getItem(key)); if (Array.isArray(saved)) selected = new Set(saved); } catch { /* Storage is optional. */ }
@@ -63,8 +72,9 @@ async function initSimulator() {
     for(const {module,meta} of cards) meta.textContent=`${module.status} · ${module.type} · ${legacy ? (!module.legacySource ? 'Missing legacy file' : module.type!=='Static Content' ? 'Widget markup unavailable' : 'Legacy original') : module.needsCapture ? 'Needs capture' : module.hasFixture ? 'Captured markup' : 'Sanitized'}`;
     try {
       localStorage.setItem(key,JSON.stringify([...selected]));
-      localStorage.setItem(settingsKey,JSON.stringify({'layout-mode':$('layout-mode').value,'class-mode':$('class-mode').value,'portal-styles':$('portal-styles').value,'module-source':$('module-source').value}));
+      localStorage.setItem(settingsKey,JSON.stringify({'layout-mode':$('layout-mode').value,'class-mode':$('class-mode').value,'portal-styles':$('portal-styles').value,'module-source':$('module-source').value,'preview-width':$('preview-width').value}));
     } catch {}
+    $('view-preset').value=currentPreset();
     filter();
     const params=new URLSearchParams({parts:[...selected].join(','),classes:$('class-mode').value,layout:'stacked',source:$('module-source').value,styles:$('portal-styles').value,labels:$('show-labels').checked?'1':'0'});
     const url=`/views/${view.slug}/preview/?${params}`;
@@ -81,6 +91,7 @@ async function initSimulator() {
   $('select-none').addEventListener('click',()=>select([]));
   $('select-capture')?.addEventListener('click',()=>select(capturedParts[view.slug]||[]));
   for(const id of ['class-mode','layout-mode','show-labels','portal-styles','module-source'])$(id).addEventListener('change',updatePreview);
-  $('preview-width').addEventListener('change',e=>{$('portal-preview').dataset.width=e.target.value;});
+  $('preview-width').addEventListener('change',e=>{$('portal-preview').dataset.width=e.target.value;updatePreview();});
+  $('view-preset').addEventListener('change',e=>{if(presets[e.target.value]){applySettings(presets[e.target.value]);updatePreview();}});
   updatePreview();
 }
