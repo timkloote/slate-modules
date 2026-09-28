@@ -27,21 +27,35 @@ Proposed Slate class names: col-left has-js document-link
     </div>
     </section>
     <!--
-    <script>    $(document).ready(function() {
-        // Attach a click event handler to the anchor link
-        $('#fin_aid_link').click(function(e) {
-            e.preventDefault(); // Prevent the default link behavior
+    <script>
+       document.addEventListener("DOMContentLoaded", () => {
+        const financialAidLink = document.querySelector("#fin_aid_link");
 
-            // Find the button you want to click within the form and trigger a click event
-            $('.read_financial_aid_letter button.form_button_submit').click();
+        if (!financialAidLink) {
+          return;
+        }
 
-            // Delay the navigation to the link's href to ensure the button click event has time to execute
-            setTimeout(function() {
-                var href = $('#fin_aid_link').attr('href'); // Get the href attribute of the clicked link
-                window.open(href, '_blank'); // Open the link in a new tab
-            }, 5000); // Adjust the delay time as needed
+        financialAidLink.addEventListener("click", (event) => {
+          event.preventDefault();
+
+          const submitButton = document.querySelector(
+            ".read_financial_aid_letter button.form_button_submit"
+          );
+
+          if (submitButton) {
+            submitButton.click();
+          }
+
+          setTimeout(() => {
+            const href = financialAidLink.getAttribute("href");
+
+            if (href) {
+              window.open(href, "_blank", "noopener,noreferrer");
+            }
+          }, 5000);
         });
-    });</script>
--->
+      });
+    </script>
+    -->
   </body>
 </html>
