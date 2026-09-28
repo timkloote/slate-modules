@@ -16,10 +16,10 @@ Open the localhost URL printed by Eleventy. Changes to components, SCSS, and Jav
 ## Where to edit
 
 - `src/_includes/page.html`: full preview document, composing the modules.
-- `src/_includes/header.html`: header branding and navigation wrapper.
-- `src/_includes/navigation.html`: primary links.
+- `src/_includes/header.html`: header branding, inline menu toggle, and primary navigation.
+- `src/_includes/navigation.html`: standalone primary-links export; keep its links in sync with the inline navigation in header.html.
 - `src/_includes/account-menu.html`: dropdown, Back button, heading, and account links.
-- `src/_includes/footer.html`: location, policy, social, and cookie links.
+- `src/_includes/footer.html`: inline university wordmark plus location, policy, social, and cookie links.
 - `src/_includes/content.html`: sample preview main content.
 - `src/_includes/icons/`: shared SVG fragments.
 - `src/_includes/styles.html` and `scripts.html`: asset references; the script export contains one app.js tag.
