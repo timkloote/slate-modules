@@ -1,11 +1,16 @@
-/** Optional build.xslt stylesheet environment, isolated to the preview document. */
+/** Slate framework snapshots plus build.xslt styles, isolated to the preview. */
 export const portalStylesheets = [
+  '/simulator/styles/slate-framework-base.css',
+  '/simulator/styles/slate-portal-base.css',
+  '/simulator/styles/slate-layout.css',
+  ...[
   'build-fonts.css',
   'build.css',
   'index.css',
   'tailwind.css',
   'build-mobile-global.css',
-].map(file => `https://enroll-northeastern-edu.cdn.technolutions.net/shared/${file}`);
+  ].map(file => `https://enroll-northeastern-edu.cdn.technolutions.net/shared/${file}`),
+];
 
 export function loadPortalStyles(document) {
   // Keep the supplied order and insert before local design/preview CSS.

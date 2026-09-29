@@ -129,7 +129,7 @@ The simulator canvas and **Open stacked preview** always render parts in audit o
 
 ### Portal stylesheet environment
 
-Choose **Styles → Portal + design** to load the five supplied build.xslt stylesheet references in this order:
+Choose **Styles → Portal + design** to load the two supplied Slate base CSS snapshots (framework, then portal) and Slate layout.css, followed by the five build.xslt stylesheets in this order:
 
 1. `https://enroll-northeastern-edu.cdn.technolutions.net/shared/build-fonts.css`
 2. `https://enroll-northeastern-edu.cdn.technolutions.net/shared/build.css`
@@ -141,7 +141,7 @@ They load before the local preview/design styles. This uses the order supplied f
 
 The simulator controls and landing page are unaffected. These are live CDN references, so network availability and upstream updates affect the preview; relative font/image URLs resolve on the CDN. Failed stylesheet loads are reported in the browser console.
 
-The supplied `build-mobile-global.js` is not loaded: it depends on jQuery and Slate `FW.generateUuid` / `FW.Dialog.Load`. It injects mobile table labels, converts the legacy menu to a select, observes DOM changes, and modifies dialog loading at widths up to 736px. Those behaviors need a separate vanilla-JS adaptation if required; the mobile CSS alone does not reproduce them. This layer also does not include Slate's additional framework CSS, widget-injected styles, or other portal-specific assets from the rendered page.
+The supplied `build-mobile-global.js` is not loaded: it depends on jQuery and Slate `FW.generateUuid` / `FW.Dialog.Load`. It injects mobile table labels, converts the legacy menu to a select, observes DOM changes, and modifies dialog loading at widths up to 736px. Those behaviors need a separate vanilla-JS adaptation if required; the mobile CSS alone does not reproduce them. The two supplied Slate base stylesheets are included; widget-injected styles and other unsupplied portal assets still require captures.
 
 ### Production stylesheet organization
 
@@ -165,7 +165,7 @@ Use **Modules → Legacy originals** to preview `src/legacy/modules/` instead of
 - **Legacy originals** uses the original files, including the original header/footer and DOM layout. Inline `style` attributes, `<style>` blocks from both head and body, and stylesheet links are retained. Module style dependencies load when that module is selected. Relative CSS asset URLs and stylesheet paths resolve against the Slate CDN.
 - Legacy mode bypasses rendered capture overrides; non-static widgets remain explicit placeholders. A missing legacy source is reported, never silently replaced with sanitized markup. **Audit & source** exposes both source paths and both HTML versions.
 - The simulator canvas remains stacked with no portal JavaScript. Clean view can run the existing vanilla Main View migration against the legacy DOM if DOM and Scripts are selected. Original scripts, inline event handlers, embedded frames, and live form/navigation behavior remain disabled. The new header's app.js is not loaded with legacy markup.
-- **Styles → Portal + design** remains independent and adds the five supplied portal CSS files. Local design CSS remains loaded in either source mode, so legacy mode is a comparison/compatibility surface, not a pixel-identical historical screenshot. Legacy module styles occur inside the parts after the document's linked CSS and can override it, including through inline styles and `!important`.
+- **Styles → Portal + design** remains independent and adds the two Slate base snapshots, Slate layout.css, and five Northeastern CSS files. Local design CSS remains loaded in either source mode, so legacy mode is a comparison/compatibility surface, not a pixel-identical historical screenshot. Legacy module styles occur inside the parts after the document's linked CSS and can override it, including through inline styles and `!important`.
 
 Changes under `src/legacy/modules/` trigger development rebuilds. Refresh the simulator and reopen Clean view to load updated source/settings. Neither source directory is rewritten by the simulator. Legacy-only Bootstrap interactions, Slate APIs, and unresolved Liquid still require separate work or validation in Slate.
 
@@ -177,4 +177,10 @@ The vanilla-JS column moves run for either source in Clean view, but the simulat
 
 The production `app.js` groups adjacent direct `.part.col-left` and `.part.col-right` children of `.part_rows_container` into `.portal-columns` with independent left/right stacks. Keep those classes on Slate's generated part wrappers; no manually pasted wrapping tags are needed. Full-width and unassigned parts stay in place and separate column groups. Existing DOM nodes are moved intact, preserving form values and event listeners. Initialization runs when the document is ready; parts inserted later are not automatically regrouped.
 
-The production stylesheet supplies two equal columns, the shared maximum width, and a single-column layout below 768px. Deploy both the rebuilt CSS and `js/app.js` for this feature. This grouping does not run the simulator's separate Main View widget transformations or require the legacy DOM layout module.
+The production stylesheet supplies a 2:1 left/right split, the shared maximum width, and a single-column layout below 768px. Deploy both the rebuilt CSS and `js/app.js` for this feature. This grouping does not run the simulator's separate Main View widget transformations or require the legacy DOM layout module.
+
+Production wrappers and both sanitized simulator column layouts share one SCSS rule for the 2:1 split, 2rem gap/padding, part spacing, and mobile breakpoint. Preview CSS no longer supplies a separate column layout. Compare the same selected parts, viewport width, and stylesheet mode; Slate-rendered content and Slate framework typography can still differ from the static simulator.
+
+The Slate base CSS snapshots live in `src/simulator/styles/` and are copied unchanged by the build. They were supplied on 2026-09-29; only the framework snapshot's two root-relative icon URLs were made absolute against `https://enroll.northeastern.edu` so they do not request icons from localhost. Portal + design loads framework base → portal base → Slate layout → Northeastern styles → local design/preview CSS. This order follows the supplied base files and screenshot cascade; the full live `<link>` order has not yet been supplied. These snapshots are preview dependencies, not additions to the CSS deployed into Slate (which already loads them).
+
+`src/simulator/styles/slate-layout.css` preserves the supplied responsive 12-column grid rules (with pasted Markdown underscore escapes removed). It is loaded after the two base snapshots in Portal + design mode, including Clean view.

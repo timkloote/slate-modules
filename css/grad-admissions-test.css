@@ -84,6 +84,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: "ff-real-headline-pro-2", sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
   font-feature-settings: normal;
   font-variation-settings: normal;
   -webkit-tap-highlight-color: transparent;
@@ -1256,23 +1258,6 @@ footer ul {
   }
 }
 
-/* Column destinations retain their IDs for the Slate module-moving behavior. */
-.module-layout__group:has(> #leftcolumn):has(> #rightcolumn) {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  gap: 2rem;
-  max-width: var(--wrapperWidth);
-  margin-inline: auto;
-}
-.module-layout__group:has(> #leftcolumn):has(> #rightcolumn) > .module-layout__column {
-  min-width: 0;
-}
-@media (max-width: 767px) {
-  .module-layout__group:has(> #leftcolumn):has(> #rightcolumn) {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
 /* Sanitized historical headers also work without a Bootstrap menu plugin. */
 .portal-header__container,
 .portal-header__links {
@@ -1442,27 +1427,38 @@ footer ul {
   /* Styling pending. */
 }
 
-/* Production grouping of Slate's proposed col-left / col-right parts. */
-.portal-columns {
+/* Shared layout for production wrappers and both sanitized simulator layouts. */
+.portal-columns,
+.sim-column-segment,
+.module-layout__group:has(> #leftcolumn):has(> #rightcolumn) {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
   width: 100%;
   max-width: var(--wrapperWidth);
   margin-inline: auto;
-  padding: 1.5rem;
+  padding: 2rem;
   box-sizing: border-box;
 }
-.portal-columns > div {
+.portal-columns > div,
+.sim-column-segment > div,
+.module-layout__group:has(> #leftcolumn):has(> #rightcolumn) > div {
   min-width: 0;
+  width: 100%;
+  max-width: none;
 }
-.portal-columns > div > .part {
+.portal-columns > div > .part,
+.sim-column-segment > div > .part,
+.module-layout__group:has(> #leftcolumn):has(> #rightcolumn) > div > .part {
   width: 100%;
   box-sizing: border-box;
   margin-bottom: 1.5rem;
 }
 @media (max-width: 767px) {
-  .portal-columns {
+  .portal-columns,
+  .sim-column-segment,
+  .module-layout__group:has(> #leftcolumn):has(> #rightcolumn) {
     grid-template-columns: minmax(0, 1fr);
     padding: 1rem;
   }

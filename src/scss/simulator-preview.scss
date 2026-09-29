@@ -10,29 +10,11 @@ html, body { margin: 0; }
 .sim-widget-placeholder, .sim-empty { padding: 1.5rem; background: #f2f5f7; color: #3e4f5c; font: 16px/1.5 system-ui,sans-serif; border: 1px dashed #95a4af; }
 .sim-widget-placeholder p { margin: .5rem 0 0; }
 .sim-liquid-note { padding: .5rem .75rem; margin: 0; background: #fff4d5; color: #614b12; font: 14px/1.5 system-ui,sans-serif; }
-.sim-column-segment { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 1rem; align-items: start; }
-.sim-column-segment > div { min-width: 0; }
-.sim-column-segment .part { margin-bottom: 1rem; }
-@media(max-width:767px) { .sim-column-segment { grid-template-columns: minmax(0,1fr); }.sim-column-segment .part { margin-bottom: 1rem; } }
-
 /* Standalone front-end view: keep module markup, hide development annotations. */
 .sim-clean :is(.sim-part-label, .sim-widget-placeholder, .sim-liquid-note, .sim-empty) {
   display: none;
 }
 
-/* Sanitized Main View supplies its own layout; legacy retains Bootstrap's row/column sizing. */
-.sim-slate-behavior.sim-sanitized .bodybackground > .module-layout__group:has(> #leftcolumn) {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 2rem;
-  max-width: var(--wrapperWidth, 1600px);
-  margin-inline: auto;
-  padding: 2rem;
-}
-.sim-slate-behavior.sim-sanitized :is(#leftcolumn, #rightcolumn) { min-width: 0; width: 100%; max-width: none; }
-.sim-slate-behavior.sim-sanitized :is(#leftcolumn, #rightcolumn) > .part { margin-bottom: 1.5rem; }
+/* Column geometry comes from the shared production stylesheet. */
 .sim-behavior-report { padding: 1rem; background: #fff4d5; color: #614b12; font: 14px/1.5 system-ui, sans-serif; overflow-wrap: anywhere; }
 .sim-clean .sim-behavior-report { display: none; }
-@media (max-width: 767px) {
-  .sim-slate-behavior.sim-sanitized .bodybackground > .module-layout__group:has(> #leftcolumn) { grid-template-columns: minmax(0, 1fr); padding: 1rem; }
-}

@@ -179,21 +179,6 @@
   }
 }
 
-/* Column destinations retain their IDs for the Slate module-moving behavior. */
-.module-layout__group:has(> #leftcolumn):has(> #rightcolumn) {
-  display: grid;
-  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
-  gap: 2rem;
-  max-width: var(--wrapperWidth);
-  margin-inline: auto;
-
-  > .module-layout__column { min-width: 0; }
-
-  @media (max-width: 767px) {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-
 /* Sanitized historical headers also work without a Bootstrap menu plugin. */
 .portal-header__container,
 .portal-header__links {
@@ -362,19 +347,24 @@
   /* Styling pending. */
 }
 
-/* Production grouping of Slate's proposed col-left / col-right parts. */
-.portal-columns {
+/* Shared layout for production wrappers and both sanitized simulator layouts. */
+.portal-columns,
+.sim-column-segment,
+.module-layout__group:has(> #leftcolumn):has(> #rightcolumn) {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.5rem;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
   width: 100%;
   max-width: var(--wrapperWidth);
   margin-inline: auto;
-  padding: 1.5rem;
+  padding: 2rem;
   box-sizing: border-box;
 
   > div {
     min-width: 0;
+    width: 100%;
+    max-width: none;
   }
 
   > div > .part {
