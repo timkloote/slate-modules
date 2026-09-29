@@ -203,9 +203,39 @@
     syncLayout();
   }
 
-  // 3. APPLICATION STARTUP
+  // 3. PORTAL COLUMNS
+  /** Group adjacent Slate column parts without cloning forms or replacing widget markup.
+   * Requires .part_rows_container with direct .part.col-left/.col-right children.
+   * Full-width and unassigned parts separate groups. Already grouped parts stay put.
+   */
+  function initPortalColumns() {
+    for (const container of document.querySelectorAll('.part_rows_container')) {
+      let group = null;
+      for (const part of [...container.children]) {
+        const side = part.matches('.part.col-left') ? 'left' : part.matches('.part.col-right') ? 'right' : null;
+        if (!side || part.matches('.full-width')) {
+          group = null;
+          continue;
+        }
+        if (!group) {
+          group = document.createElement('div');
+          group.className = 'portal-columns';
+          for (const name of ['left', 'right']) {
+            const column = document.createElement('div');
+            column.className = `portal-columns__${name}`;
+            group.append(column);
+          }
+          part.before(group);
+        }
+        group.querySelector(`.portal-columns__${side}`).append(part);
+      }
+    }
+  }
+
+  // 4. APPLICATION STARTUP
   /** Register new feature initializers here; local UI does not wait for external libraries. */
   function initApp() {
+    initPortalColumns();
     initNavigation();
     void initGlobalLibraries();
   }

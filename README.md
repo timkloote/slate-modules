@@ -172,3 +172,9 @@ Changes under `src/legacy/modules/` trigger development rebuilds. Refresh the si
 Temporary part borders now live in `src/scss/modules.scss`: `[id^="part_"] { border: 1px solid var(--light-gray); }`. Replace or remove this rule as module styling progresses; legacy CSS may override it.
 
 The vanilla-JS column moves run for either source in Clean view, but the simulator’s fallback grid, spacing, and column widths apply only to sanitized modules. Legacy mode uses the original Bootstrap `.row` / `.col-md-6` layout; keep the legacy Styles module selected to load its Bootstrap CSS.
+
+### Production column layout
+
+The production `app.js` groups adjacent direct `.part.col-left` and `.part.col-right` children of `.part_rows_container` into `.portal-columns` with independent left/right stacks. Keep those classes on Slate's generated part wrappers; no manually pasted wrapping tags are needed. Full-width and unassigned parts stay in place and separate column groups. Existing DOM nodes are moved intact, preserving form values and event listeners. Initialization runs when the document is ready; parts inserted later are not automatically regrouped.
+
+The production stylesheet supplies two equal columns, the shared maximum width, and a single-column layout below 768px. Deploy both the rebuilt CSS and `js/app.js` for this feature. This grouping does not run the simulator's separate Main View widget transformations or require the legacy DOM layout module.

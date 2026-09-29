@@ -11,9 +11,10 @@ async function initSimulator() {
   const $ = id => document.getElementById(id);
   const key = `slate-simulator:${view.slug}`;
   const settingsKey = `${key}:settings`;
+  const presetLayout = view.slug === 'main-view' ? 'behavior' : 'stacked';
   const presets = {
-    redesign: {'module-source':'sanitized','portal-styles':'portal','class-mode':'new','layout-mode':'behavior','preview-width':'full'},
-    legacy: {'module-source':'legacy','portal-styles':'design','class-mode':'original','layout-mode':'behavior','preview-width':'full'},
+    redesign: {'module-source':'sanitized','portal-styles':'portal','class-mode':'new','layout-mode':presetLayout,'preview-width':'full'},
+    legacy: {'module-source':'legacy','portal-styles':'design','class-mode':'original','layout-mode':presetLayout,'preview-width':'full'},
   };
   function applySettings(settings) {
     for (const [id, value] of Object.entries(settings || {})) {

@@ -1442,6 +1442,32 @@ footer ul {
   /* Styling pending. */
 }
 
+/* Production grouping of Slate's proposed col-left / col-right parts. */
+.portal-columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: var(--wrapperWidth);
+  margin-inline: auto;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+.portal-columns > div {
+  min-width: 0;
+}
+.portal-columns > div > .part {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1.5rem;
+}
+@media (max-width: 767px) {
+  .portal-columns {
+    grid-template-columns: minmax(0, 1fr);
+    padding: 1rem;
+  }
+}
+
 /* Accessibility enhancements shared by the standalone portal markup. */
 .visually-hidden,
 .skip-link:not(:focus) {
