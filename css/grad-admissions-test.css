@@ -232,6 +232,7 @@ header:is([role=banner], [role=dialog]) {
   /* --- Hamburger / close toggle (mobile only) --- */
 }
 header:is([role=banner], [role=dialog]) .nav-toggle {
+  padding: 0;
   display: none;
   width: 44px;
   height: 44px;
