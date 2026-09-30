@@ -5,12 +5,12 @@ import { runInNewContext } from 'node:vm';
 import { parseHTML } from 'linkedom';
 import { component } from '../scripts/components.js';
 
-const app = readFileSync(new URL('../src/js/app.js', import.meta.url), 'utf8');
+const app = readFileSync(new URL('../src/js/grad-admissions.js', import.meta.url), 'utf8');
 
 test('Slate export contains a single deferred app script', () => {
   const html = component('scripts.html');
   assert.equal((html.match(/<script\b/g) || []).length, 1);
-  assert.match(html, /src="js\/app.js" defer/);
+  assert.match(html, /src="js\/grad-admissions.js" defer/);
 });
 
 test('app waits for markup, tolerates absent navigation, and loads libraries once in order', async () => {

@@ -22,10 +22,10 @@ Open the localhost URL printed by Eleventy. Changes to components, SCSS, and Jav
 - `src/_includes/footer.html`: inline university wordmark plus location, policy, social, and cookie links.
 - `src/_includes/content.html`: sample preview main content.
 - `src/_includes/icons/`: shared SVG fragments.
-- `src/_includes/styles.html` and `scripts.html`: asset references; the script export contains one app.js tag.
+- `src/_includes/styles.html` and `scripts.html`: asset references; the script export contains one grad-admissions.js tag.
 - `src/scss/slate.scss`: styles with media queries nested within their regions.
 - `src/scss/accessibility.scss`: accessibility overrides, included last in the combined stylesheet.
-- `src/js/app.js`: documented application entry point, navigation functions, and Northeastern library loader.
+- `src/js/grad-admissions.js`: documented application entry point, navigation functions, and Northeastern library loader.
 
 Include a component with `<!-- component: navigation.html -->`. Paths are relative to `src/_includes`. This deliberately distinct syntax leaves `{{ variables }}` and `{% liquid tags %}` untouched, including Slate-owned include tags. Do not add Liquid raw wrappers for the local build.
 
@@ -41,7 +41,7 @@ After `npm run build`:
 - `dist/css/grad-admissions.css` is the complete production stylesheet for direct pasting into Slate.
 - `dist/css/`, `dist/js/`, and `dist/images/` contain the assets to upload.
 
-Copy the exported file contents, not browser-rendered text. Adjust relative asset URLs to their uploaded Slate locations. For a direct paste, copy all of `dist/css/grad-admissions.css` into Slate’s CSS area (without `<style>` tags). It includes shared, module, and accessibility styles in order. Alternatively, upload that file and link to it as a stylesheet. Paste the single deferred app.js tag once. The preview's skip link needs a `main-content` target in Slate as well.
+Copy the exported file contents, not browser-rendered text. Adjust relative asset URLs to their uploaded Slate locations. For a direct paste, copy all of `dist/css/grad-admissions.css` into Slate’s CSS area (without `<style>` tags). It includes shared, module, and accessibility styles in order. Alternatively, upload that file and link to it as a stylesheet. Paste the single deferred grad-admissions.js tag once. The preview's skip link needs a `main-content` target in Slate as well.
 
 Live Slate data and server-owned routes cannot execute in the local static preview. Liquid remains visible in source until Slate renders it. Generated `dist/` and dependencies are ignored by Git; edit `src/`, then rebuild.
 
@@ -49,9 +49,9 @@ The former root index.html and css/js source locations have moved into src. Ther
 
 ## Adding JavaScript features
 
-Keep custom JavaScript in `src/js/app.js`. Each feature gets a documented `initFeature()` function with private state and named event handlers. Call it from `initApp()`, guard against missing markup, and avoid attaching duplicate listeners. Document purpose, required elements, and any focus or accessibility behavior beside each function.
+Keep custom JavaScript in `src/js/grad-admissions.js`. Each feature gets a documented `initFeature()` function with private state and named event handlers. Call it from `initApp()`, guard against missing markup, and avoid attaching duplicate listeners. Document purpose, required elements, and any focus or accessibility behavior beside each function.
 
-Upload `dist/js/app.js` and use the single tag in `dist/slate/scripts.html` (adjust its URL to the uploaded asset). The app loads the two existing Northeastern libraries dynamically in order; do not paste their tags separately. This meets the one-pasted-tag workflow, but still makes two external library requests and creates script elements at runtime. Slate must permit those existing CDN URLs.
+Upload `dist/js/grad-admissions.js` and use the single tag in `src/_includes/scripts.html` (adjust its URL to the uploaded asset). The app loads the two existing Northeastern libraries dynamically in order; do not paste their tags separately. This meets the one-pasted-tag workflow, but still makes two external library requests and creates script elements at runtime. Slate must permit those existing CDN URLs.
 
 ## Slate simulator
 
@@ -90,7 +90,7 @@ Layout follows original class evidence: `leftcolumn` becomes `col-left`, `rightc
 
 `src/scss/modules.scss` contains declaration-free `.part.<class>` hooks for these proposals, retained in the compiled CSS with comments. Add component styling there as modules are reviewed. The class proposals do not execute deletion or renaming suggestions from workbook notes.
 
-Edit `src/scss/slate.scss` and `src/js/app.js` for production work. Both views load the production CSS; only Clean view loads app.js after assembling the selected parts. Shared header controls remain interactive; destination links are prevented from navigating. The existing application entry point loads its Northeastern dependencies as usual.
+Edit `src/scss/slate.scss` and `src/js/grad-admissions.js` for production work. Both views load the production CSS; only Clean view loads grad-admissions.js after assembling the selected parts. Shared header controls remain interactive; destination links are prevented from navigating. The existing application entry point loads its Northeastern dependencies as usual.
 
 `src/scss/simulator.scss`, `src/scss/simulator-preview.scss`, and `src/js/simulator*.js` belong only to the development interface. Do not paste these into Slate. No source modules or audit notes are rewritten during preview generation.
 
@@ -125,7 +125,7 @@ Existing Clean view tabs retain the settings encoded in their URL. After changin
 
 ### Stacked editor versus Clean view
 
-The simulator canvas and **Open stacked preview** always render parts in audit order, without portal app.js, DOM moves, or the CSS column experiment. **Clean view layout** affects only **Clean view**: Main View defaults to the vanilla-JS behavior there. Module selection and classes are shared, while part labels remain an editor control. Select DOM and Scripts for the clean-view column behavior.
+The simulator canvas and **Open stacked preview** always render parts in audit order, without portal grad-admissions.js, DOM moves, or the CSS column experiment. **Clean view layout** affects only **Clean view**: Main View defaults to the vanilla-JS behavior there. Module selection and classes are shared, while part labels remain an editor control. Select DOM and Scripts for the clean-view column behavior.
 
 ### Portal stylesheet environment
 
@@ -164,7 +164,7 @@ Use **Modules → Legacy originals** to preview `src/legacy/modules/` instead of
 - **Sanitized** retains the existing workflow: shared new header/footer substitutions, optional rendered captures, and stripped module CSS/scripts.
 - **Legacy originals** uses the original files, including the original header/footer and DOM layout. Inline `style` attributes, `<style>` blocks from both head and body, and stylesheet links are retained. Module style dependencies load when that module is selected. Relative CSS asset URLs and stylesheet paths resolve against the Slate CDN.
 - Legacy mode bypasses rendered capture overrides; non-static widgets remain explicit placeholders. A missing legacy source is reported, never silently replaced with sanitized markup. **Audit & source** exposes both source paths and both HTML versions.
-- The simulator canvas remains stacked with no portal JavaScript. Clean view can run the existing vanilla Main View migration against the legacy DOM if DOM and Scripts are selected. Original scripts, inline event handlers, embedded frames, and live form/navigation behavior remain disabled. The new header's app.js is not loaded with legacy markup.
+- The simulator canvas remains stacked with no portal JavaScript. Clean view can run the existing vanilla Main View migration against the legacy DOM if DOM and Scripts are selected. Original scripts, inline event handlers, embedded frames, and live form/navigation behavior remain disabled. The new header's grad-admissions.js is not loaded with legacy markup.
 - **Styles → Portal + design** remains independent and adds the two Slate base snapshots, Slate render.css and layout.css, and five Northeastern CSS files. Local design CSS remains loaded in either source mode, so legacy mode is a comparison/compatibility surface, not a pixel-identical historical screenshot. Legacy module styles occur inside the parts after the document's linked CSS and can override it, including through inline styles and `!important`.
 
 Changes under `src/legacy/modules/` trigger development rebuilds. Refresh the simulator and reopen Clean view to load updated source/settings. Neither source directory is rewritten by the simulator. Legacy-only Bootstrap interactions, Slate APIs, and unresolved Liquid still require separate work or validation in Slate.
@@ -175,9 +175,9 @@ The vanilla-JS column moves run for either source in Clean view, but the simulat
 
 ### Production column layout
 
-The production `app.js` groups adjacent direct `.part.col-left` and `.part.col-right` children of `.part_rows_container` into `.portal-columns` with independent left/right stacks. Keep those classes on Slate's generated part wrappers; no manually pasted wrapping tags are needed. Full-width and unassigned parts stay in place and separate column groups. Existing DOM nodes are moved intact, preserving form values and event listeners. Initialization runs when the document is ready; parts inserted later are not automatically regrouped.
+The production `grad-admissions.js` groups adjacent direct `.part.col-left` and `.part.col-right` children of `.part_rows_container` into `.portal-columns` with independent left/right stacks. Keep those classes on Slate's generated part wrappers; no manually pasted wrapping tags are needed. Full-width and unassigned parts stay in place and separate column groups. Existing DOM nodes are moved intact, preserving form values and event listeners. Initialization runs when the document is ready; parts inserted later are not automatically regrouped.
 
-The production stylesheet supplies a 2:1 left/right split, the shared maximum width, and a single-column layout below 768px. Deploy both the rebuilt CSS and `js/app.js` for this feature. This grouping does not run the simulator's separate Main View widget transformations or require the legacy DOM layout module.
+The production stylesheet supplies a 2:1 left/right split, the shared maximum width, and a single-column layout below 768px. Deploy both the rebuilt CSS and `js/grad-admissions.js` for this feature. This grouping does not run the simulator's separate Main View widget transformations or require the legacy DOM layout module.
 
 Production wrappers and both sanitized simulator column layouts share one SCSS rule for the 2:1 split, 2rem gap/padding, part spacing, and mobile breakpoint. Preview CSS no longer supplies a separate column layout. Compare the same selected parts, viewport width, and stylesheet mode; Slate-rendered content and Slate framework typography can still differ from the static simulator.
 

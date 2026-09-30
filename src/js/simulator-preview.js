@@ -160,6 +160,6 @@ export async function initPreview() {
  document.addEventListener('submit',e=>e.preventDefault());
  document.addEventListener('click',e=>{if(e.target.closest('a'))e.preventDefault();});
  // Load the production entry point after the assembled parts exist.
- if(clean && !legacy) {const app=document.createElement('script');app.src='/js/app.js';document.body.append(app);}
+ if(clean && !legacy) {const app=document.createElement('script');app.src='/js/grad-admissions.js';document.body.append(app);}
 }
 if(typeof document!=='undefined' && document.querySelector('[data-view]'))initPreview().catch(error=>{document.querySelector('.part_rows_container').textContent=`Preview unavailable: ${error.message}`;});

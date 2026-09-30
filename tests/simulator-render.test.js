@@ -77,7 +77,7 @@ test('simulator stays stacked and loads no portal JS even with a behavior or col
   assert.equal(container.classList.contains('sim-columns'),false);
   assert.equal(document.body.classList.contains('sim-slate-behavior'),false);
   assert.deepEqual([...container.children].map(part=>part.id),inventory().views.find(v=>v.slug==='main-view').modules.filter(m=>parts.split(',').includes(m.partId)).map(m=>m.partId));
-  assert.equal(document.querySelector('script[src="/js/app.js"]'),null);
+  assert.equal(document.querySelector('script[src="/js/grad-admissions.js"]'),null);
  }
 });
 
