@@ -7,7 +7,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addWatchTarget('src/modules/');
   eleventyConfig.addWatchTarget('src/legacy/modules/');
   eleventyConfig.addWatchTarget('src/simulator/');
-  eleventyConfig.addPassthroughCopy({ 'src/js': 'js', 'src/simulator/styles': 'simulator/styles', images: 'images' });
+  eleventyConfig.addPassthroughCopy({ 'src/js': 'js', 'src/references': 'references', 'src/simulator/styles': 'simulator/styles', images: 'images' });
   eleventyConfig.on('eleventy.before', async () => {
     await mkdir('dist/css', { recursive: true });
     for (const [source, output, style] of [

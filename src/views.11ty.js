@@ -5,7 +5,7 @@ export default class {
   data() { return { pagination: { data: 'simulatorViews', size: 1, alias: 'view' }, simulatorViews: inventory().views, permalink: ({view}) => `views/${view.slug}/index.html` }; }
   render({ view }) {
     return documentPage(`${view.name} — Slate simulator`, `
-    <header class="sim-bar"><a href="/views/">Slate simulator</a><a href="/modules/">Module library</a><a href="/">Landing page</a>${liveViewPicker(view.slug)}</header>
+    <header class="sim-bar"><a href="/views/">Slate simulator</a><a href="/modules/">Module library</a><a href="/references/">References</a><a href="/">Landing page</a>${liveViewPicker(view.slug)}</header>
     <main class="sim-workspace" data-view="${e(view.slug)}">
       <aside class="sim-inspector">
         <label for="view-picker">View</label><select id="view-picker"></select>

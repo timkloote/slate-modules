@@ -224,8 +224,13 @@ header:is([role="banner"], [role="dialog"]) {
        }
       }
 
-      img {
-        max-width: 240px;
+      .graduate-logo {
+        display: block;
+        width: 213px;
+        height: auto;
+        max-width: 100%;
+        color: var(--black);
+        overflow: visible;
 
         @media (max-width: 1024px) {
           width: min(155px, calc(100% - 60px));
@@ -300,6 +305,8 @@ header:is([role="banner"], [role="dialog"]) {
           &::-webkit-details-marker { display: none; }
 
           &:hover, &:focus-visible {
+            text-decoration: underline;
+            text-underline-offset: 0.2em;
             .nav-chevron svg { transform: translateY(0.875rem); }
           }
         }

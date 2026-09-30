@@ -212,11 +212,16 @@ header:is([role=banner], [role=dialog]) .header-bottom .wrapper {
     padding-inline: 1.75rem;
   }
 }
-header:is([role=banner], [role=dialog]) .header-bottom img {
-  max-width: 240px;
+header:is([role=banner], [role=dialog]) .header-bottom .graduate-logo {
+  display: block;
+  width: 213px;
+  height: auto;
+  max-width: 100%;
+  color: var(--black);
+  overflow: visible;
 }
 @media (max-width: 1024px) {
-  header:is([role=banner], [role=dialog]) .header-bottom img {
+  header:is([role=banner], [role=dialog]) .header-bottom .graduate-logo {
     width: min(155px, 100% - 60px);
     max-width: 155px;
   }
@@ -291,6 +296,10 @@ header:is([role=banner], [role=dialog]) nav .nav-arrow, header:is([role=banner],
   }
   header:is([role=banner], [role=dialog]) nav .account-menu > summary::-webkit-details-marker {
     display: none;
+  }
+  header:is([role=banner], [role=dialog]) nav .account-menu > summary:hover, header:is([role=banner], [role=dialog]) nav .account-menu > summary:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
   }
   header:is([role=banner], [role=dialog]) nav .account-menu > summary:hover .nav-chevron svg, header:is([role=banner], [role=dialog]) nav .account-menu > summary:focus-visible .nav-chevron svg {
     transform: translateY(0.875rem);
