@@ -28,7 +28,7 @@ export function moduleForSource(module, legacy) {
   return legacy ? {...module, html:module.legacyHtml||'', sourceHtml:module.legacyHtml||'', replacement:null, hasFixture:false, needsCapture:module.type!=='Static Content', missingSource:!module.legacySource} : module;
 }
 
-export function fragmentForPreview(html, partId, localAssets = false, preserveStyles = false) {
+export function fragmentForPreview(html, partId, localAssets = false, preserveStyles = false, allowLinks = false) {
   const parsed = new DOMParser().parseFromString(html, 'text/html');
   parsed.querySelectorAll('script,meta,title,base,iframe,object,embed,noscript,template').forEach(el=>el.remove());
   for(const el of parsed.querySelectorAll('style,link')) {
@@ -50,7 +50,25 @@ export function fragmentForPreview(html, partId, localAssets = false, preserveSt
       if (el.hasAttribute(attribute)) el.setAttribute(attribute,resolveSlateAsset(el.getAttribute(attribute),localAssets));
     }
     if(el.matches('input,select,textarea,button')) el.disabled=true;
-    if(el.matches('a')) {el.removeAttribute('href');el.removeAttribute('target');}
+    if(el.matches('a')) {
+      const href = el.getAttribute('href');
+      el.removeAttribute('target');
+      el.removeAttribute('ping');
+      el.removeAttribute('download');
+      if (allowLinks && href && !/\{[{%]/.test(href)) {
+        try {
+          const url = new URL(href, 'https://enroll.northeastern.edu/portal/app_status_sandbox');
+          if (['http:', 'https:', 'mailto:', 'tel:'].includes(url.protocol)) {
+            el.setAttribute('href', url.href);
+            el.setAttribute('target', '_blank');
+            el.setAttribute('rel', 'noopener noreferrer');
+          } else el.removeAttribute('href');
+        } catch { el.removeAttribute('href'); }
+      } else {
+        el.removeAttribute('href');
+        if (allowLinks && href && /\{[{%]/.test(href)) el.setAttribute('title', 'This link requires Slate to resolve its Liquid values.');
+      }
+    }
   }
   const wrapper=parsed.getElementById(partId);
   const root=wrapper?.classList.contains('part') ? wrapper : parsed.body;
@@ -109,7 +127,7 @@ export async function initPreview() {
       content.querySelectorAll('button').forEach(button=>button.disabled=false);
       content.querySelectorAll('a').forEach(link=>link.setAttribute('href','#'));
     }
-    if(behavior && module.name==='DOM' && module.replacement==='footer' && !module.hasFixture) {
+    if(behavior && (module.name==='DOM' || module.legacyName==='DOM') && module.replacement==='footer' && !module.hasFixture) {
       const layout=fragmentForPreview(module.sourceHtml,module.partId);
       layout.querySelectorAll('footer').forEach(footer=>footer.remove());
       part.append(layout);
@@ -123,7 +141,7 @@ export async function initPreview() {
  }
  if(clean && params.get('layout')==='columns') groupColumnParts(container);
  if(behavior) {
-  const scriptPart=view.modules.find(module=>module.order===133 && module.name==='Scripts');
+  const scriptPart=view.modules.find(module=>module.order===133 && (module.name==='Scripts' || module.legacyName==='Scripts'));
   const messages=[];
   if(!scriptPart || !selected.has(scriptPart.partId)) messages.push('Select module 133 (Scripts) to run Main View behavior.');
   else {
@@ -144,4 +162,4 @@ export async function initPreview() {
  // Load the production entry point after the assembled parts exist.
  if(clean && !legacy) {const app=document.createElement('script');app.src='/js/app.js';document.body.append(app);}
 }
-if(typeof document!=='undefined')initPreview().catch(error=>{document.querySelector('.part_rows_container').textContent=`Preview unavailable: ${error.message}`;});
+if(typeof document!=='undefined' && document.querySelector('[data-view]'))initPreview().catch(error=>{document.querySelector('.part_rows_container').textContent=`Preview unavailable: ${error.message}`;});

@@ -71,14 +71,14 @@ The simulator contains all 217 audited modules across 11 views. Each preview sta
 
 ### Sources and audit updates
 
-- `src/simulator/audit.json` is the workbook snapshot, with source row numbers and all audit fields. Workbook notes are retained as data; deletions and renames in those notes are not executed.
-- `scripts/import-slate-audit.py` imports the supplied workbook using Python's standard library, without modifying it. To refresh:
+- `src/simulator/audit.json` is the latest Book1.xlsx workbook snapshot, with source row numbers and all audit fields. Workbook notes are retained as data; deletions and renames in those notes are not executed.
+- `scripts/update-module-catalog.py` merges the current workbook by Module ID using Python's standard library, without modifying it. It retains original source numbering and legacy names, and rejects unknown, missing, or duplicate IDs before writing. To refresh:
 
   ```sh
-  python3 scripts/import-slate-audit.py /absolute/path/to/slate-module-inventory.xlsx
+  python3 scripts/update-module-catalog.py /absolute/path/to/Book1.xlsx
   ```
 
-- `scripts/simulator.js` maps each audit view and numeric order to `src/modules/<view>/<order>-*.html`. Ambiguous file matches fail the build. Missing sources are recorded in the inspector.
+- `scripts/simulator.js` maps each audit record’s retained source view and source order to `src/modules/<view>/<order>-*.html`. Ambiguous file matches fail the build. Missing sources are recorded in the inspector.
 - Local shared header substitutions apply to audited Header modules. DOM modules that contain a footer use the shared footer in the preview. This replaces their legacy layout/footer locally; original source stays available in the inspector. Views without those parts get no automatic header/footer shell.
 - `src/simulator/captured-parts.json` defines the observed Main View subset.
 
@@ -129,7 +129,7 @@ The simulator canvas and **Open stacked preview** always render parts in audit o
 
 ### Portal stylesheet environment
 
-Choose **Styles → Portal + design** to load the two supplied Slate base CSS snapshots (framework, then portal) and Slate layout.css, followed by the five build.xslt stylesheets in this order:
+Choose **Styles → Portal + design** to load the two supplied Slate base CSS snapshots (framework, then portal) and Slate render.css/layout.css, followed by the five build.xslt stylesheets in this order:
 
 1. `https://enroll-northeastern-edu.cdn.technolutions.net/shared/build-fonts.css`
 2. `https://enroll-northeastern-edu.cdn.technolutions.net/shared/build.css`
@@ -165,7 +165,7 @@ Use **Modules → Legacy originals** to preview `src/legacy/modules/` instead of
 - **Legacy originals** uses the original files, including the original header/footer and DOM layout. Inline `style` attributes, `<style>` blocks from both head and body, and stylesheet links are retained. Module style dependencies load when that module is selected. Relative CSS asset URLs and stylesheet paths resolve against the Slate CDN.
 - Legacy mode bypasses rendered capture overrides; non-static widgets remain explicit placeholders. A missing legacy source is reported, never silently replaced with sanitized markup. **Audit & source** exposes both source paths and both HTML versions.
 - The simulator canvas remains stacked with no portal JavaScript. Clean view can run the existing vanilla Main View migration against the legacy DOM if DOM and Scripts are selected. Original scripts, inline event handlers, embedded frames, and live form/navigation behavior remain disabled. The new header's app.js is not loaded with legacy markup.
-- **Styles → Portal + design** remains independent and adds the two Slate base snapshots, Slate layout.css, and five Northeastern CSS files. Local design CSS remains loaded in either source mode, so legacy mode is a comparison/compatibility surface, not a pixel-identical historical screenshot. Legacy module styles occur inside the parts after the document's linked CSS and can override it, including through inline styles and `!important`.
+- **Styles → Portal + design** remains independent and adds the two Slate base snapshots, Slate render.css and layout.css, and five Northeastern CSS files. Local design CSS remains loaded in either source mode, so legacy mode is a comparison/compatibility surface, not a pixel-identical historical screenshot. Legacy module styles occur inside the parts after the document's linked CSS and can override it, including through inline styles and `!important`.
 
 Changes under `src/legacy/modules/` trigger development rebuilds. Refresh the simulator and reopen Clean view to load updated source/settings. Neither source directory is rewritten by the simulator. Legacy-only Bootstrap interactions, Slate APIs, and unresolved Liquid still require separate work or validation in Slate.
 
@@ -181,6 +181,30 @@ The production stylesheet supplies a 2:1 left/right split, the shared maximum wi
 
 Production wrappers and both sanitized simulator column layouts share one SCSS rule for the 2:1 split, 2rem gap/padding, part spacing, and mobile breakpoint. Preview CSS no longer supplies a separate column layout. Compare the same selected parts, viewport width, and stylesheet mode; Slate-rendered content and Slate framework typography can still differ from the static simulator.
 
-The Slate base CSS snapshots live in `src/simulator/styles/` and are copied unchanged by the build. They were supplied on 2026-09-29; only the framework snapshot's two root-relative icon URLs were made absolute against `https://enroll.northeastern.edu` so they do not request icons from localhost. Portal + design loads framework base → portal base → Slate layout → Northeastern styles → local design/preview CSS. This order follows the supplied base files and screenshot cascade; the full live `<link>` order has not yet been supplied. These snapshots are preview dependencies, not additions to the CSS deployed into Slate (which already loads them).
+The Slate base CSS snapshots live in `src/simulator/styles/` and are copied unchanged by the build. They were supplied on 2026-09-29; only the framework snapshot's two root-relative icon URLs were made absolute against `https://enroll.northeastern.edu` so they do not request icons from localhost. Portal + design loads framework base → portal base → Slate render → Slate layout → Northeastern styles → local design/preview CSS. The four Slate files follow the live `<head>` order supplied on 2026-09-29. Northeastern styles retain their previously supplied build.xslt order, before local grad admissions CSS. These snapshots are preview dependencies, not additions to the CSS deployed into Slate (which already loads them).
 
 `src/simulator/styles/slate-layout.css` preserves the supplied responsive 12-column grid rules (with pasted Markdown underscore escapes removed). It is loaded after the two base snapshots in Portal + design mode, including Clean view.
+
+
+### Individual module library
+
+Open **Module library** from the simulator, or visit **`/modules/`**. It lists all 217 modules using the latest workbook names and classes, matched by stable Module ID. Original names remain searchable; modern and legacy file paths retain their original filenames and numbering, including the two reordered Transactions modules. Workbook notes are displayed as reference text, never applied as commands. `legacyName`, `sourceOrder`, and `sourceView` preserve this mapping through future workbook updates.
+
+- Search by module name, original name, class, or part ID; filter by portal view and component class. Previous/Next follows the filtered list.
+- Legacy and Modern appear in separate iframe documents. Choose fit, 390px, 768px, or 1200px widths; wider canvases scroll horizontally without scaling the content. Open either preview in its own tab to use browser DevTools.
+- Legacy loads the Slate/Northeastern CSS environment, the owning view's primary legacy Styles module, and the selected module's original styles and classes. Modern loads the same base environment plus the current compiled grad admissions CSS and current module classes. Legacy does not load grad admissions CSS.
+- Source panels expose and copy the exact source files. Modern also exposes effective preview HTML for shared header/footer replacements or captures. Source paths show where to edit. The applied-styles list identifies inherited legacy sources, stylesheet URLs, and load failures.
+- Related modules lists every match across views by component class or normalized module name, with the reason for each match. Generic layout, JavaScript, and mobile markers are excluded. Select a component class to browse that entire family one module at a time.
+- Selection, filters, and canvas width are recorded in the URL for bookmarks. The library does not change the full-view simulator's saved selections.
+
+Previews remain static: imported scripts and form actions do not execute, Liquid conditions are not evaluated, and uncaptured server widgets display explicit placeholders. Isolated modules can also depend on ancestor markup or conditional legacy Styles variants not present here. Use the full-view simulator for page layout checks. External styles/fonts still require network access; the stylesheet list reports failed linked files.
+
+`src/simulator/styles/slate-render.css` is a local snapshot downloaded from the exact supplied URL `https://slate-technolutions-net.cdn.technolutions.net/portal/render.css?v=TS-8c08-637877369635539772` on 2026-09-30. It is loaded between shared base.css and layout.css in all Portal + design previews, and in both module-library versions.
+
+The module library styles Liquid logic (`{% … %}`) and values (`{{ … }}`) with italics and slightly reduced opacity in both code panels and visible preview text. This is annotation only: no mock values or Liquid evaluation. Source files and copied code remain exact. Attribute expressions, comments, and form values are highlighted in source code only; preview highlighting never rewrites attributes or form values.
+
+### Live Slate view links
+
+The simulator directory, view pages, and module library have a **Live Slate view** dropdown with the 11 supplied sandbox URLs. Choose a destination, then **Open live view ↗** to open a new tab; the two inactive destinations are labeled. View pages preselect their matching destination where the audit name has a confirmed match. FCE Evaluation Status and FCE Updates - Temp Message are not assumed to match differently named live FCE views. The destination list lives in `src/js/live-views.js`; opening a link uses your existing Slate login and does not change the local preview.
+
+Standard links in the individual module library open in a new tab. Relative page links resolve against the live Slate sandbox (not localhost or the asset CDN). Liquid-dependent URLs remain disabled with an explanatory tooltip; executable URLs, imported scripts, and form submissions remain disabled. The full-view simulator retains its existing inert-link behavior.

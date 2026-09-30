@@ -14,6 +14,7 @@ export default function (eleventyConfig) {
       ['grad-admissions', 'grad-admissions', 'expanded'],
       ['simulator', 'simulator', 'expanded'],
       ['simulator-preview', 'simulator-preview', 'expanded'],
+      ['module-preview', 'module-preview', 'expanded'],
     ]) {
       const result = sass.compile(`src/scss/${source}.scss`, { style });
       await writeFile(`dist/css/${output}.css`, result.css);

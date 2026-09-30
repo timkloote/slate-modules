@@ -2,6 +2,7 @@
 export const portalStylesheets = [
   '/simulator/styles/slate-framework-base.css',
   '/simulator/styles/slate-portal-base.css',
+  '/simulator/styles/slate-render.css',
   '/simulator/styles/slate-layout.css',
   ...[
   'build-fonts.css',

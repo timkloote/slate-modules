@@ -1,33 +1,22 @@
 {
-  "source": "slate-module-inventory.xlsx",
+  "source": "Book1.xlsx",
   "modules": [
     {
       "view": "Main View",
       "viewStatus": "Active",
       "order": 1,
-      "name": "Styles",
+      "name": "Document Head",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
-      "newClasses": "has-js module-styles",
+      "newClasses": "has-js module-document-head",
       "js": "has-js",
       "partId": "part_8dcd694e-857d-4e0a-a239-e0ef0bf6347c",
-      "notes": "Delete (styles go in build.css)",
-      "sourceRow": 2
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 2,
-      "name": "Styles (SOL)",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "",
-      "newClasses": "has-js module-styles",
-      "js": "has-js",
-      "partId": "part_a3f7d186-b8fd-42aa-8eb2-bdfab5df1bfe",
-      "notes": "Delete (styles go in build.css)",
-      "sourceRow": 3
+      "notes": "Renamed from Styles to Document Head",
+      "sourceRow": 2,
+      "legacyName": "Styles",
+      "sourceOrder": 1,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -40,8 +29,11 @@
       "newClasses": "has-js chatbot",
       "js": "has-js",
       "partId": "part_a2e9de08-526e-40d4-bd75-3a02489b07ed",
-      "notes": "Rename Jill Chatbot (JS)",
-      "sourceRow": 4
+      "notes": "",
+      "sourceRow": 3,
+      "legacyName": "Jill Chatbot",
+      "sourceOrder": 3,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -54,8 +46,11 @@
       "newClasses": "has-js portal-header",
       "js": "has-js",
       "partId": "part_22b2ddb0-57f8-43df-b2e1-96005671d10b",
-      "notes": "Rename Global Header",
-      "sourceRow": 5
+      "notes": "",
+      "sourceRow": 4,
+      "legacyName": "Header",
+      "sourceOrder": 4,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -68,8 +63,11 @@
       "newClasses": "col-left hidden-fields",
       "js": "",
       "partId": "part_2a9e49d2-9216-4e2d-9f81-590061f14216",
-      "notes": "",
-      "sourceRow": 6
+      "notes": "Inline style tied to JS - keep",
+      "sourceRow": 5,
+      "legacyName": "Hidden Fields",
+      "sourceOrder": 5,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -83,21 +81,10 @@
       "js": "",
       "partId": "part_fcdea16e-81e8-4213-b263-b39027ef914d",
       "notes": "",
-      "sourceRow": 7
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 7,
-      "name": "Messaging Block - Pre-Admit and Deny (London)",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "whitebackground leftcolumn",
-      "newClasses": "col-left messaging-block",
-      "js": "",
-      "partId": "part_6f8684c7-6a3b-4e4f-ac2f-7b37c660c87e",
-      "notes": "",
-      "sourceRow": 8
+      "sourceRow": 6,
+      "legacyName": "Messaging Block - Pre-Admit and Deny (Except: SOL)",
+      "sourceOrder": 6,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -111,7 +98,10 @@
       "js": "",
       "partId": "part_3bab3fe1-b813-4f67-bbfa-280d4f0cee4d",
       "notes": "",
-      "sourceRow": 9
+      "sourceRow": 7,
+      "legacyName": "Messaging Block - Pre-Admit and Deny (SOL)",
+      "sourceOrder": 8,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -125,7 +115,10 @@
       "js": "",
       "partId": "part_d737d959-999d-411f-ae5c-3ce016657746",
       "notes": "",
-      "sourceRow": 10
+      "sourceRow": 8,
+      "legacyName": "Messaging Block - Waitlist (SOL-JD Only)",
+      "sourceOrder": 9,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -139,7 +132,10 @@
       "js": "",
       "partId": "part_514ec63d-4f0d-48f7-81c3-156ce07ea502",
       "notes": "",
-      "sourceRow": 11
+      "sourceRow": 9,
+      "legacyName": "Messaging Block - Post-Admit (All Colleges, with Exceptions)",
+      "sourceOrder": 10,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -153,7 +149,10 @@
       "js": "",
       "partId": "part_51e989ae-475d-47c0-a793-ace50bbc502f",
       "notes": "",
-      "sourceRow": 12
+      "sourceRow": 10,
+      "legacyName": "Messaging Block - Post-Admit (London Only)",
+      "sourceOrder": 11,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -167,7 +166,10 @@
       "js": "",
       "partId": "part_c0068e80-c4ce-4670-91ad-27b4b38e0295",
       "notes": "",
-      "sourceRow": 13
+      "sourceRow": 11,
+      "legacyName": "Messaging Block - Post-Admit (DMSB not MS Business Analytics)",
+      "sourceOrder": 12,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -181,7 +183,10 @@
       "js": "",
       "partId": "part_4f1d8232-4366-47e9-9b4b-61a969a85d46",
       "notes": "",
-      "sourceRow": 14
+      "sourceRow": 12,
+      "legacyName": "Messaging Block - Post-Admit (DMSB MS Business Analytics Only)",
+      "sourceOrder": 13,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -195,7 +200,10 @@
       "js": "",
       "partId": "part_58a1d106-cf46-40aa-86e1-b25937f5d186",
       "notes": "",
-      "sourceRow": 15
+      "sourceRow": 13,
+      "legacyName": "Messaging Block - Post-Admit + Award (SOL-JD Only)",
+      "sourceOrder": 14,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -209,7 +217,10 @@
       "js": "",
       "partId": "part_c32c614e-f34f-42a8-8f12-e6f265541190",
       "notes": "",
-      "sourceRow": 16
+      "sourceRow": 14,
+      "legacyName": "Messaging Block - Post-Deny",
+      "sourceOrder": 15,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -223,7 +234,10 @@
       "js": "",
       "partId": "part_e6b7d75d-028e-4616-a1ce-826931de6e3f",
       "notes": "",
-      "sourceRow": 17
+      "sourceRow": 15,
+      "legacyName": "Content Block - Khoury Post-Admit - Campus Welcome",
+      "sourceOrder": 16,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -237,7 +251,10 @@
       "js": "",
       "partId": "part_d223477e-44b2-40c5-beba-babaa2f711d7",
       "notes": "",
-      "sourceRow": 18
+      "sourceRow": 16,
+      "legacyName": "Content Block - Khoury Post-Admit - Faculty/Staff Info",
+      "sourceOrder": 17,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -251,7 +268,10 @@
       "js": "",
       "partId": "part_91c256e0-3e69-4796-b473-f6d3203a857b",
       "notes": "",
-      "sourceRow": 19
+      "sourceRow": 17,
+      "legacyName": "Content Block - Khoury Post-Admit - Program Director",
+      "sourceOrder": 18,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -265,7 +285,10 @@
       "js": "",
       "partId": "part_45e227e6-bfc9-4524-b68e-1de8fa0c98c3",
       "notes": "",
-      "sourceRow": 20
+      "sourceRow": 18,
+      "legacyName": "Content Block - COE",
+      "sourceOrder": 19,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -279,7 +302,10 @@
       "js": "",
       "partId": "part_57c7a7ec-98e4-45eb-af46-74ff854fb8ed",
       "notes": "",
-      "sourceRow": 21
+      "sourceRow": 19,
+      "legacyName": "Enrollment Agreement Notification",
+      "sourceOrder": 20,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -293,21 +319,10 @@
       "js": "",
       "partId": "part_552ae6b5-0896-45e6-b35d-84a4af9e7958",
       "notes": "",
-      "sourceRow": 22
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 22,
-      "name": "Canada PAL Notification",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn whitebackground checklist",
-      "newClasses": "col-left notification",
-      "js": "",
-      "partId": "part_866bccc5-79e2-49d5-a554-c4b91ae7cbd2",
-      "notes": "",
-      "sourceRow": 23
+      "sourceRow": 20,
+      "legacyName": "Portal Message for Confirmed Enrollment in Canada - No Commit",
+      "sourceOrder": 21,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -321,7 +336,10 @@
       "js": "",
       "partId": "part_3dc748bd-04ee-4f95-a26d-270eefa86e43",
       "notes": "",
-      "sourceRow": 24
+      "sourceRow": 21,
+      "legacyName": "US Financial Status Form",
+      "sourceOrder": 23,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -335,7 +353,10 @@
       "js": "",
       "partId": "part_fcb2b63c-5fa2-4548-848c-d5630e0616f1",
       "notes": "",
-      "sourceRow": 25
+      "sourceRow": 22,
+      "legacyName": "Canada Financial Status Form",
+      "sourceOrder": 24,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -349,7 +370,10 @@
       "js": "",
       "partId": "part_98058282-38ac-4d05-8e9c-9ef218c41382",
       "notes": "",
-      "sourceRow": 26
+      "sourceRow": 23,
+      "legacyName": "UK Financial Status Form",
+      "sourceOrder": 25,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -363,35 +387,10 @@
       "js": "",
       "partId": "part_532cee0b-66dc-4551-b52b-d6266499c419",
       "notes": "",
-      "sourceRow": 27
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 27,
-      "name": "Preregistration Acknowledgement Form",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn",
-      "newClasses": "col-left form-action",
-      "js": "",
-      "partId": "part_8d14cd9c-5ceb-42ec-9284-5dc5efa27cb5",
-      "notes": "",
-      "sourceRow": 28
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 28,
-      "name": "Priority App Selection Form",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn",
-      "newClasses": "col-left form-action",
-      "js": "",
-      "partId": "part_7d8cc279-4920-49a3-ac8f-a6ee86ef2899",
-      "notes": "",
-      "sourceRow": 29
+      "sourceRow": 24,
+      "legacyName": "CPS Short App Notification",
+      "sourceOrder": 26,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -405,7 +404,10 @@
       "js": "",
       "partId": "part_43ada4b5-1326-44ba-ad29-32bad37c18ac",
       "notes": "",
-      "sourceRow": 30
+      "sourceRow": 25,
+      "legacyName": "Financial Aid Award",
+      "sourceOrder": 29,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -419,21 +421,10 @@
       "js": "",
       "partId": "part_e0d2d69b-021d-414f-92c1-6dac775b1326",
       "notes": "",
-      "sourceRow": 31
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 31,
-      "name": "London Unconditional Offer Letter",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn",
-      "newClasses": "col-left has-js document-link",
-      "js": "",
-      "partId": "part_ee4db570-664f-4e68-800f-21e23c38e752",
-      "notes": "",
-      "sourceRow": 32
+      "sourceRow": 26,
+      "legacyName": "Canada PAL",
+      "sourceOrder": 30,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -447,7 +438,10 @@
       "js": "",
       "partId": "part_4b8331b7-e77e-427b-abd7-07eda55e6879",
       "notes": "",
-      "sourceRow": 33
+      "sourceRow": 27,
+      "legacyName": "Committed Student Registration Plans",
+      "sourceOrder": 32,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -461,7 +455,10 @@
       "js": "",
       "partId": "part_0b36c5a3-4762-4e4f-80aa-9d105d509387",
       "notes": "",
-      "sourceRow": 34
+      "sourceRow": 28,
+      "legacyName": "Decision (Not Award or LA or POA or Rescind; Not NU London)",
+      "sourceOrder": 33,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -475,7 +472,10 @@
       "js": "",
       "partId": "part_09820320-2f3f-46cd-83e3-531686e37833",
       "notes": "",
-      "sourceRow": 35
+      "sourceRow": 29,
+      "legacyName": "Decision (Not Award or LA or POA or Rescind) - NU London Only",
+      "sourceOrder": 34,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -489,7 +489,10 @@
       "js": "",
       "partId": "part_7ebbab21-ada1-45b6-9983-1995e784218c",
       "notes": "",
-      "sourceRow": 36
+      "sourceRow": 30,
+      "legacyName": "Decision (Award, POA, LA, PAL, UK Correspond; Not SOL or London)",
+      "sourceOrder": 35,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -503,7 +506,10 @@
       "js": "",
       "partId": "part_d2da05e8-8784-49f6-ae0a-97075cb0f0cc",
       "notes": "",
-      "sourceRow": 37
+      "sourceRow": 31,
+      "legacyName": "Decision (Award, SOL Only)",
+      "sourceOrder": 36,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -517,35 +523,10 @@
       "js": "",
       "partId": "part_1493d3ed-48e5-476e-83f9-8116c5bfe55d",
       "notes": "",
-      "sourceRow": 38
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 38,
-      "name": "POA Tuition Estimate Note",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn",
-      "newClasses": "col-left notification",
-      "js": "",
-      "partId": "part_905eaf9a-ebae-41ef-8971-a4fca980abc4",
-      "notes": "",
-      "sourceRow": 39
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 39,
-      "name": "SOL Admit Registrations (SOL JD Admit LSAC 24-25)",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "whitebackground leftcolumn",
-      "newClasses": "col-left event-registration",
-      "js": "",
-      "partId": "part_7a1fd293-762e-4f2a-83a8-551044405acb",
-      "notes": "",
-      "sourceRow": 40
+      "sourceRow": 32,
+      "legacyName": "Decision (Award, POA, LA, PAL, UK Correspond; London Only)",
+      "sourceOrder": 37,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -559,21 +540,10 @@
       "js": "",
       "partId": "part_830c15fb-cff4-4d97-820e-8744ed07e487",
       "notes": "",
-      "sourceRow": 41
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 41,
-      "name": "Admitted Student Day Registration (SOL JD Admit LSAC 24-25)",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "whitebackground leftcolumn",
-      "newClasses": "col-left event-registration",
-      "js": "",
-      "partId": "part_8dffcc79-6656-4af9-a044-ea8655dbfa5d",
-      "notes": "",
-      "sourceRow": 42
+      "sourceRow": 33,
+      "legacyName": "SOL Admit Registrations (SOL FlexJD Admit LSAC 24-25)",
+      "sourceOrder": 40,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -587,7 +557,10 @@
       "js": "",
       "partId": "part_f1689e6d-53b0-4840-96ab-ba2b41f4104e",
       "notes": "",
-      "sourceRow": 43
+      "sourceRow": 34,
+      "legacyName": "SOL LLM Admit Website (SOL LLM Admit) UPDATE YEARLY",
+      "sourceOrder": 42,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -601,7 +574,10 @@
       "js": "",
       "partId": "part_c8f09e22-08ad-4268-9baa-edfb3954ca00",
       "notes": "",
-      "sourceRow": 44
+      "sourceRow": 35,
+      "legacyName": "Review Active Applications (Admit Received, Non-Programmatic)",
+      "sourceOrder": 43,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -615,21 +591,10 @@
       "js": "",
       "partId": "part_94ff6bf4-1fd4-4c2a-a71d-d71e814249e3",
       "notes": "",
-      "sourceRow": 45
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 45,
-      "name": "***OLD*** Pay Deposit CTA",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn",
-      "newClasses": "col-left enrollment-actions",
-      "js": "",
-      "partId": "part_1613068d-0f66-44ee-9563-19c334c0a9e5",
-      "notes": "",
-      "sourceRow": 46
+      "sourceRow": 36,
+      "legacyName": "Re-applicant form (Eligible to reapply = Yes)",
+      "sourceOrder": 44,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -643,21 +608,10 @@
       "js": "",
       "partId": "part_eb3895da-e14f-4d54-add5-34dd12651d7a",
       "notes": "",
-      "sourceRow": 47
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 47,
-      "name": "PhD Apps - Email Group Letter Reminder",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn whitebackground checklist",
-      "newClasses": "col-left notification",
-      "js": "",
-      "partId": "part_03ce89e4-6990-43e7-924e-abf5684029b6",
-      "notes": "",
-      "sourceRow": 48
+      "sourceRow": 37,
+      "legacyName": "Fall 25 International Pay Deposit Early Notification",
+      "sourceOrder": 46,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -671,7 +625,10 @@
       "js": "",
       "partId": "part_f2de19f7-7a0c-4787-b5c4-2d2e1eb30994",
       "notes": "",
-      "sourceRow": 49
+      "sourceRow": 38,
+      "legacyName": "Pay Deposit CTA",
+      "sourceOrder": 48,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -685,21 +642,10 @@
       "js": "",
       "partId": "part_9766bb51-c60e-4d66-b74c-e24833914ecf",
       "notes": "",
-      "sourceRow": 50
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 50,
-      "name": "Canada PAL Priority Change Form",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "part whitebackground checklist leftcolumn",
-      "newClasses": "col-left form-action",
-      "js": "",
-      "partId": "part_c75a267d-595c-4010-ae29-0606d123587c",
-      "notes": "",
-      "sourceRow": 51
+      "sourceRow": 39,
+      "legacyName": "Pay Deposit CTA",
+      "sourceOrder": 49,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -713,7 +659,10 @@
       "js": "",
       "partId": "part_e3ed28ad-a41c-4350-a58c-7930c582ba8f",
       "notes": "",
-      "sourceRow": 52
+      "sourceRow": 40,
+      "legacyName": "SOL Placeholder",
+      "sourceOrder": 51,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -727,7 +676,10 @@
       "js": "",
       "partId": "part_82c8b452-ad95-43bc-a855-cd1531b50413",
       "notes": "",
-      "sourceRow": 53
+      "sourceRow": 41,
+      "legacyName": "SOL Placeholder - Student-Facing Comments",
+      "sourceOrder": 52,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -741,21 +693,10 @@
       "js": "",
       "partId": "part_745508ad-68b7-402b-ba23-38ae87d345f5",
       "notes": "",
-      "sourceRow": 54
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 54,
-      "name": "Payments-App Payment",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn whitebackground checklist desktop",
-      "newClasses": "col-left payment-block",
-      "js": "",
-      "partId": "part_d2ef2420-4148-42db-a1d6-dcea999cb83a",
-      "notes": "",
-      "sourceRow": 55
+      "sourceRow": 42,
+      "legacyName": "SOL Placeholder - Pre-Review Items",
+      "sourceOrder": 53,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -769,7 +710,10 @@
       "js": "has-js",
       "partId": "part_db95594d-9baa-4b19-be86-3ce316ed0037",
       "notes": "",
-      "sourceRow": 56
+      "sourceRow": 43,
+      "legacyName": "Application Selector",
+      "sourceOrder": 55,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -783,7 +727,10 @@
       "js": "",
       "partId": "part_bd8ec5a9-5340-4439-9c44-3c575762ba91",
       "notes": "",
-      "sourceRow": 57
+      "sourceRow": 44,
+      "legacyName": "Unsubmitted Application Selector",
+      "sourceOrder": 56,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -797,7 +744,10 @@
       "js": "",
       "partId": "part_6abcc47c-dd82-4d74-92ed-b1d233e69035",
       "notes": "",
-      "sourceRow": 58
+      "sourceRow": 45,
+      "legacyName": "Add Program Prompt (Hengel, October 2025)",
+      "sourceOrder": 57,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -811,7 +761,10 @@
       "js": "",
       "partId": "part_5087029b-6847-44a8-b81e-f118a046e6a9",
       "notes": "",
-      "sourceRow": 59
+      "sourceRow": 46,
+      "legacyName": "Photo Section Desktop",
+      "sourceOrder": 58,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -825,7 +778,10 @@
       "js": "",
       "partId": "part_21ee0441-0d6b-4be9-8e28-8396fa7548f0",
       "notes": "",
-      "sourceRow": 60
+      "sourceRow": 47,
+      "legacyName": "Photo Section Mobile",
+      "sourceOrder": 59,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -839,7 +795,10 @@
       "js": "",
       "partId": "part_7ccbca49-d1d8-4224-b650-7a2ad7597410",
       "notes": "",
-      "sourceRow": 61
+      "sourceRow": 48,
+      "legacyName": "Photo Section London - Pre-Offer",
+      "sourceOrder": 60,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -853,7 +812,10 @@
       "js": "",
       "partId": "part_d027d5ba-bfdd-41eb-be71-605b78676301",
       "notes": "",
-      "sourceRow": 62
+      "sourceRow": 49,
+      "legacyName": "Photo Section London - Post-Offer",
+      "sourceOrder": 61,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -861,13 +823,16 @@
       "order": 62,
       "name": "Payment Due",
       "status": "Active",
-      "type": "Static Content",
+      "type": "Payments",
       "originalClasses": "part whitebackground checklist leftcolumn",
       "newClasses": "col-left payment-block",
       "js": "",
       "partId": "part_2dd69944-5553-456a-8b05-4c6903e6f2be",
-      "notes": "",
-      "sourceRow": 63
+      "notes": "Slate Payments Module",
+      "sourceRow": 50,
+      "legacyName": "Payment Due",
+      "sourceOrder": 62,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -881,7 +846,10 @@
       "js": "",
       "partId": "part_9e0b1abb-7190-43d4-ba64-77cf6f637f92",
       "notes": "",
-      "sourceRow": 64
+      "sourceRow": 51,
+      "legacyName": "Payment Due (No Payment Due, No Decision)",
+      "sourceOrder": 63,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -895,21 +863,10 @@
       "js": "",
       "partId": "part_ebe66ab1-6428-4475-9c52-24fb2cba584f",
       "notes": "",
-      "sourceRow": 65
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 65,
-      "name": "Payment Due (London Acceptance Deposit)",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "whitebackground leftcolumn checklist",
-      "newClasses": "col-left payment-block",
-      "js": "",
-      "partId": "part_45b6d445-42b3-4e3a-a896-bdb01e1f6ee9",
-      "notes": "",
-      "sourceRow": 66
+      "sourceRow": 52,
+      "legacyName": "PAL Deposit Message",
+      "sourceOrder": 64,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -923,49 +880,10 @@
       "js": "",
       "partId": "part_98695587-8638-4898-8d83-998bc48404b0",
       "notes": "",
-      "sourceRow": 67
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 67,
-      "name": "Payment - Enrollment Deposit",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "",
-      "newClasses": "payment-block",
-      "js": "",
-      "partId": "part_d1c9c6f4-14e5-4a5d-aea7-c230428ba03e",
-      "notes": "",
-      "sourceRow": 68
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 68,
-      "name": "Payment - App Fee",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "",
-      "newClasses": "payment-block",
-      "js": "",
-      "partId": "part_2fde12d9-8fba-460f-8b76-70710cd5982e",
-      "notes": "",
-      "sourceRow": 69
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 69,
-      "name": "Decision",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn",
-      "newClasses": "col-left document-link",
-      "js": "",
-      "partId": "part_764f5a34-72af-4e4f-9cce-552e96323655",
-      "notes": "",
-      "sourceRow": 70
+      "sourceRow": 53,
+      "legacyName": "Grad Transfer Credit",
+      "sourceOrder": 66,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -979,21 +897,10 @@
       "js": "",
       "partId": "part_aa4c436a-9e43-43bb-815b-601d56cc63d8",
       "notes": "",
-      "sourceRow": 71
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 71,
-      "name": "OGS POA - Canada",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn whitebackground checklist",
-      "newClasses": "col-left resource-links",
-      "js": "",
-      "partId": "part_f3083015-78a2-42b8-ad01-1c5a0f99c8cb",
-      "notes": "",
-      "sourceRow": 72
+      "sourceRow": 54,
+      "legacyName": "Decision (Rescind)",
+      "sourceOrder": 70,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1007,7 +914,10 @@
       "js": "",
       "partId": "part_2a050344-3cb1-45f7-a01a-02681da35dc1",
       "notes": "",
-      "sourceRow": 73
+      "sourceRow": 55,
+      "legacyName": "Canada Study Permit",
+      "sourceOrder": 72,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1021,21 +931,10 @@
       "js": "",
       "partId": "part_ef837abc-bc5f-47db-9b01-23fee795d160",
       "notes": "",
-      "sourceRow": 74
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 74,
-      "name": "Canada SDS Selection",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn whitebackground checklist",
-      "newClasses": "col-left form-action",
-      "js": "",
-      "partId": "part_85aab032-0381-4bef-b82c-338db85e6a23",
-      "notes": "",
-      "sourceRow": 75
+      "sourceRow": 56,
+      "legacyName": "Canada Study Permit",
+      "sourceOrder": 73,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1049,7 +948,10 @@
       "js": "",
       "partId": "part_60fad6f5-168f-4c78-873a-dfd381aca226",
       "notes": "",
-      "sourceRow": 76
+      "sourceRow": 57,
+      "legacyName": "CPS Husky Countdown",
+      "sourceOrder": 75,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1063,7 +965,10 @@
       "js": "",
       "partId": "part_6fe08aaa-072f-4fa9-a1aa-06b1d803f3e1",
       "notes": "",
-      "sourceRow": 77
+      "sourceRow": 58,
+      "legacyName": "FCE Forms Checklist Header",
+      "sourceOrder": 76,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1077,7 +982,10 @@
       "js": "",
       "partId": "part_e4bdfe6b-e433-4765-9566-4da2c6ca1f4c",
       "notes": "",
-      "sourceRow": 78
+      "sourceRow": 59,
+      "legacyName": "FCE Completed Header",
+      "sourceOrder": 77,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1091,7 +999,10 @@
       "js": "",
       "partId": "part_f91ac963-212b-4f7f-925e-b204103deced",
       "notes": "",
-      "sourceRow": 79
+      "sourceRow": 60,
+      "legacyName": "FCE Review",
+      "sourceOrder": 78,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1105,7 +1016,10 @@
       "js": "",
       "partId": "part_71f1ece4-966d-461f-a69c-67eaba110e2e",
       "notes": "",
-      "sourceRow": 80
+      "sourceRow": 61,
+      "legacyName": "Channel Partner Confirmation (London)",
+      "sourceOrder": 79,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1119,7 +1033,10 @@
       "js": "",
       "partId": "part_4fdf01b4-8d5e-4fee-bf0f-87dccc42b4b6",
       "notes": "",
-      "sourceRow": 81
+      "sourceRow": 62,
+      "legacyName": "Scholarship Guidelines",
+      "sourceOrder": 80,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1133,7 +1050,10 @@
       "js": "",
       "partId": "part_75fd82cd-0988-49cf-b068-8da0251f4794",
       "notes": "",
-      "sourceRow": 82
+      "sourceRow": 63,
+      "legacyName": "English Requirements (non-GP)",
+      "sourceOrder": 81,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1147,7 +1067,10 @@
       "js": "",
       "partId": "part_af1d3e3a-6c05-41cd-998f-d41ea9c1a3fb",
       "notes": "",
-      "sourceRow": 83
+      "sourceRow": 64,
+      "legacyName": "English Requirements (Global Pathways)",
+      "sourceOrder": 82,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1160,22 +1083,11 @@
       "newClasses": "col-left form-widget",
       "js": "",
       "partId": "part_5adcf777-b965-4a07-b86e-f3a7b348bcbe",
-      "notes": "",
-      "sourceRow": 84
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 84,
-      "name": "CPS Video",
-      "status": "Inactive",
-      "type": "Portfolio",
-      "originalClasses": "leftcolumn whitebackground checklist",
-      "newClasses": "col-left video-upload",
-      "js": "",
-      "partId": "part_cf758676-27db-4ad6-b91a-f0b683e0aa70",
-      "notes": "",
-      "sourceRow": 85
+      "notes": "Form Module",
+      "sourceRow": 65,
+      "legacyName": "Missing SSN form",
+      "sourceOrder": 83,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1189,35 +1101,10 @@
       "js": "",
       "partId": "part_b7471d09-e099-488e-9452-24ea6513b9cd",
       "notes": "",
-      "sourceRow": 86
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 86,
-      "name": "INACTIVE (OLD): Self-Service Checklist (All Except DMSB)",
-      "status": "Inactive",
-      "type": "Form",
-      "originalClasses": "leftcolumn whitebackground checklist",
-      "newClasses": "col-left checklist",
-      "js": "",
-      "partId": "part_28712cd8-e911-4f49-9b7b-f9b12da1ec4d",
-      "notes": "",
-      "sourceRow": 87
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 87,
-      "name": "INACTIVE (OLD): Self-Service Checklist (DMSB Only)",
-      "status": "Inactive",
-      "type": "Form",
-      "originalClasses": "leftcolumn whitebackground checklist",
-      "newClasses": "col-left checklist",
-      "js": "",
-      "partId": "part_95765b67-d072-475d-ac0c-d9a40dbe49cd",
-      "notes": "",
-      "sourceRow": 88
+      "sourceRow": 66,
+      "legacyName": "Scholarship Opt-In",
+      "sourceOrder": 85,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1231,7 +1118,10 @@
       "js": "",
       "partId": "part_6cc51574-6fcf-48d7-96c0-d457ac50968f",
       "notes": "",
-      "sourceRow": 89
+      "sourceRow": 67,
+      "legacyName": "File Incomplete Bin (Shoring Up WF) - Student facing notes",
+      "sourceOrder": 88,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1244,8 +1134,11 @@
       "newClasses": "col-left form-widget",
       "js": "",
       "partId": "part_92af3041-16c7-4300-9f01-b09edc8f8fd0",
-      "notes": "",
-      "sourceRow": 90
+      "notes": "Form Module",
+      "sourceRow": 68,
+      "legacyName": "Next Steps to Enrollment (College-Specific Logic on Form)",
+      "sourceOrder": 89,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1259,7 +1152,10 @@
       "js": "",
       "partId": "part_dbf8698c-1f14-4611-a46b-d5431d07ccea",
       "notes": "",
-      "sourceRow": 91
+      "sourceRow": 69,
+      "legacyName": "upGrad Notification (Admit Received, Complete Status = No)",
+      "sourceOrder": 90,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1273,7 +1169,10 @@
       "js": "",
       "partId": "part_ce854d93-0446-4019-91ac-16c490f6a584",
       "notes": "",
-      "sourceRow": 92
+      "sourceRow": 70,
+      "legacyName": "Conditional Admit Warning (Admit Received, Complete = No, No UK)",
+      "sourceOrder": 91,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1287,21 +1186,10 @@
       "js": "",
       "partId": "part_deee77c3-124f-43ca-8a01-7e79170f655c",
       "notes": "",
-      "sourceRow": 93
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 93,
-      "name": "Admissions File Final Review Tracker",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn whitebackground checklist",
-      "newClasses": "col-left content-block",
-      "js": "",
-      "partId": "part_7a0eb2af-b36b-4ea3-9273-4ef6269ee26d",
-      "notes": "",
-      "sourceRow": 94
+      "sourceRow": 71,
+      "legacyName": "Conditional Admit Warning (Admit Received, Complete = No, UK)",
+      "sourceOrder": 92,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1315,7 +1203,10 @@
       "js": "",
       "partId": "part_f786ca40-9615-464f-bed6-382313d74985",
       "notes": "",
-      "sourceRow": 95
+      "sourceRow": 72,
+      "legacyName": "FCE File is currently under Foreign Credential Evaluation Review",
+      "sourceOrder": 94,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1329,21 +1220,10 @@
       "js": "",
       "partId": "part_6d29ec50-4869-4275-b74f-7fb9aaf58dfe",
       "notes": "",
-      "sourceRow": 96
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 96,
-      "name": "(Test Only) Checklist Post-Admission- table only - mobile",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn whitebackground checklist mobile",
-      "newClasses": "col-left checklist",
-      "js": "",
-      "partId": "part_e4b2f86b-269d-4917-b472-6e8ee62712dd",
-      "notes": "",
-      "sourceRow": 97
+      "sourceRow": 73,
+      "legacyName": "Checklist Post-Admission - table only - desktop + mobile",
+      "sourceOrder": 95,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1357,7 +1237,10 @@
       "js": "",
       "partId": "part_517f70c6-ff8e-432d-b1e9-dd7d7a03f305",
       "notes": "",
-      "sourceRow": 98
+      "sourceRow": 74,
+      "legacyName": "CASPA (no checklist)",
+      "sourceOrder": 97,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1371,7 +1254,10 @@
       "js": "",
       "partId": "part_d04244b8-01cc-4cb6-b08c-7937e4eace67",
       "notes": "",
-      "sourceRow": 99
+      "sourceRow": 75,
+      "legacyName": "Bouve CAS (no checklist)",
+      "sourceOrder": 98,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1385,7 +1271,10 @@
       "js": "",
       "partId": "part_bf3c6cdf-548b-4f6b-a12d-9651680cf7cb",
       "notes": "",
-      "sourceRow": 100
+      "sourceRow": 76,
+      "legacyName": "Awaiting Materials Hold - GAA Note",
+      "sourceOrder": 99,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1399,21 +1288,10 @@
       "js": "",
       "partId": "part_66a40d80-3c2d-4b61-95b9-860df0d0d9be",
       "notes": "",
-      "sourceRow": 101
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 101,
-      "name": "London - Student-Facing Comments",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn checklist whitebackground",
-      "newClasses": "col-left student-comments",
-      "js": "",
-      "partId": "part_5fe93c0a-3401-48e6-b44c-e2519bbb2738",
-      "notes": "",
-      "sourceRow": 102
+      "sourceRow": 77,
+      "legacyName": "UK London - Student-Facing Comments",
+      "sourceOrder": 100,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1427,7 +1305,10 @@
       "js": "",
       "partId": "part_09b9b91a-c8ec-4130-a0ba-d617716df95f",
       "notes": "",
-      "sourceRow": 103
+      "sourceRow": 78,
+      "legacyName": "NU London - Admit Received Block",
+      "sourceOrder": 102,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1441,7 +1322,10 @@
       "js": "",
       "partId": "part_e7bff210-75fe-4b0a-b6db-8945105a6ab4",
       "notes": "",
-      "sourceRow": 104
+      "sourceRow": 79,
+      "legacyName": "NU London - Accepted Offer Block",
+      "sourceOrder": 103,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1455,7 +1339,10 @@
       "js": "",
       "partId": "part_eee94d92-fb79-4336-98c0-6efe9ae61459",
       "notes": "",
-      "sourceRow": 105
+      "sourceRow": 80,
+      "legacyName": "NU London - Confirmed Block",
+      "sourceOrder": 104,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1469,49 +1356,10 @@
       "js": "",
       "partId": "part_4c30be44-79f0-4ef9-a112-39ed23850100",
       "notes": "",
-      "sourceRow": 106
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 106,
-      "name": "Checklist - table only - mobile",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn whitebackground checklist mobile",
-      "newClasses": "col-left checklist",
-      "js": "",
-      "partId": "part_428f93ce-d24d-4e38-83f0-99bb8ed404ea",
-      "notes": "",
-      "sourceRow": 107
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 107,
-      "name": "Checklist Standard",
-      "status": "Inactive",
-      "type": "Checklist",
-      "originalClasses": "",
-      "newClasses": "checklist",
-      "js": "",
-      "partId": "part_5d6fe731-71dc-4aca-b688-03a9bcdff1ad",
-      "notes": "",
-      "sourceRow": 108
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 108,
-      "name": "Military Checklist",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn whitebackground checklist desktop",
-      "newClasses": "col-left checklist",
-      "js": "",
-      "partId": "part_a00034d7-7b86-4b3e-a375-2b69678e4694",
-      "notes": "",
-      "sourceRow": 109
+      "sourceRow": 81,
+      "legacyName": "Checklist - table only - desktop + mobile",
+      "sourceOrder": 105,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1525,7 +1373,10 @@
       "js": "",
       "partId": "part_d45a21dc-234e-44f6-aba7-78c23ba1fc0a",
       "notes": "",
-      "sourceRow": 110
+      "sourceRow": 82,
+      "legacyName": "Bouve (not CAS) Welcome Page",
+      "sourceOrder": 109,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1539,7 +1390,10 @@
       "js": "",
       "partId": "part_13bd8caf-ac47-499f-9440-cdfbe2463cf8",
       "notes": "",
-      "sourceRow": 111
+      "sourceRow": 83,
+      "legacyName": "CAMD Welcome Page",
+      "sourceOrder": 110,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1553,7 +1407,10 @@
       "js": "",
       "partId": "part_5320bb02-1d61-4b29-9605-b0e2c31f7d33",
       "notes": "",
-      "sourceRow": 112
+      "sourceRow": 84,
+      "legacyName": "COE Welcome Page",
+      "sourceOrder": 111,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1567,7 +1424,10 @@
       "js": "",
       "partId": "part_452e2878-a9e1-4d84-9327-8da0105ee005",
       "notes": "",
-      "sourceRow": 113
+      "sourceRow": 85,
+      "legacyName": "COS Welcome Page",
+      "sourceOrder": 112,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1581,7 +1441,10 @@
       "js": "",
       "partId": "part_5342b933-e809-4d90-974d-9d9a372c43df",
       "notes": "",
-      "sourceRow": 114
+      "sourceRow": 86,
+      "legacyName": "CSSH Welcome Page",
+      "sourceOrder": 113,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1595,7 +1458,10 @@
       "js": "",
       "partId": "part_acaa8a9b-c0f5-4701-b43e-1a20e089d252",
       "notes": "",
-      "sourceRow": 115
+      "sourceRow": 87,
+      "legacyName": "CPS (BC) Welcome Page",
+      "sourceOrder": 114,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1609,7 +1475,10 @@
       "js": "",
       "partId": "part_485b8d39-e4c2-4961-aa1f-b534a92b2d52",
       "notes": "",
-      "sourceRow": 116
+      "sourceRow": 88,
+      "legacyName": "CPS (GP) Welcome Page",
+      "sourceOrder": 115,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1623,7 +1492,10 @@
       "js": "",
       "partId": "part_5e71445c-a88a-4188-8b23-70eba33cbdfa",
       "notes": "",
-      "sourceRow": 117
+      "sourceRow": 89,
+      "legacyName": "CPS (not BC or GP) Welcome Page",
+      "sourceOrder": 116,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1637,7 +1509,10 @@
       "js": "",
       "partId": "part_87e0fea4-724a-42a5-9515-00650d0afdf1",
       "notes": "",
-      "sourceRow": 118
+      "sourceRow": 90,
+      "legacyName": "DMSB Welcome Page",
+      "sourceOrder": 117,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1651,7 +1526,10 @@
       "js": "",
       "partId": "part_bfea0545-19e9-4dff-a957-367dcd3cf023",
       "notes": "",
-      "sourceRow": 119
+      "sourceRow": 91,
+      "legacyName": "DMSB Welcome Page - MSx -STL",
+      "sourceOrder": 118,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1665,7 +1543,10 @@
       "js": "",
       "partId": "part_72555385-c510-40ad-9e3d-1faadb0f57a0",
       "notes": "",
-      "sourceRow": 120
+      "sourceRow": 92,
+      "legacyName": "Khoury (Masters or Cert IN ALIGN) Welcome Page",
+      "sourceOrder": 119,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1679,7 +1560,10 @@
       "js": "",
       "partId": "part_835b2a4f-4ceb-4536-9b98-43db795b23f6",
       "notes": "",
-      "sourceRow": 121
+      "sourceRow": 93,
+      "legacyName": "Khoury (Masters or Cert NOT ALIGN) Welcome Page",
+      "sourceOrder": 120,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1692,22 +1576,11 @@
       "newClasses": "col-left materials-upload",
       "js": "",
       "partId": "part_8103fc67-9d64-48b7-aa61-77d188ed5aa0",
-      "notes": "",
-      "sourceRow": 122
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 122,
-      "name": "Materials - Final Review",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn whitebackground checklist",
-      "newClasses": "col-left materials-upload",
-      "js": "",
-      "partId": "part_3c3ebd23-3be3-4b56-bbba-868f571bd872",
-      "notes": "",
-      "sourceRow": 123
+      "notes": "Materials Module",
+      "sourceRow": 94,
+      "legacyName": "Materials",
+      "sourceOrder": 121,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1721,7 +1594,10 @@
       "js": "",
       "partId": "part_cf6009e1-4065-47ce-9f9d-fae0d8fd2123",
       "notes": "",
-      "sourceRow": 124
+      "sourceRow": 95,
+      "legacyName": "Co-op Information (>= Fall 2026)",
+      "sourceOrder": 123,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1735,7 +1611,10 @@
       "js": "",
       "partId": "part_d6c4d4f3-95d7-4911-800d-d1ddc30a90cc",
       "notes": "",
-      "sourceRow": 125
+      "sourceRow": 96,
+      "legacyName": "Pre-Decision App Info",
+      "sourceOrder": 124,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1749,7 +1628,10 @@
       "js": "",
       "partId": "part_ab9b4108-c8d8-4816-aa5c-783272f89b95",
       "notes": "",
-      "sourceRow": 126
+      "sourceRow": 97,
+      "legacyName": "Post-Decision App Info",
+      "sourceOrder": 125,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1763,7 +1645,10 @@
       "js": "",
       "partId": "part_afad1e50-fda3-4ac6-aa5d-af94787b6486",
       "notes": "",
-      "sourceRow": 127
+      "sourceRow": 98,
+      "legacyName": "Global Enrollment Support",
+      "sourceOrder": 126,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1777,7 +1662,10 @@
       "js": "",
       "partId": "part_8743c0a5-043e-417a-b71d-01ebe1837cc4",
       "notes": "",
-      "sourceRow": 128
+      "sourceRow": 99,
+      "legacyName": "Support",
+      "sourceOrder": 127,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1791,13 +1679,16 @@
       "js": "",
       "partId": "part_ecf76b55-7c12-4ad4-aeb7-9517a172d8f8",
       "notes": "",
-      "sourceRow": 129
+      "sourceRow": 100,
+      "legacyName": "NU Online Cert to Degree Form",
+      "sourceOrder": 128,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
       "viewStatus": "Active",
       "order": 129,
-      "name": "Performance Based Matric Form",
+      "name": "Performance Based Metric Form",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "whitebackground rightcolumn",
@@ -1805,21 +1696,10 @@
       "js": "",
       "partId": "part_94c7832f-a8ea-43c7-bfa1-8c576e91b8a2",
       "notes": "",
-      "sourceRow": 130
-    },
-    {
-      "view": "Main View",
-      "viewStatus": "Active",
-      "order": 130,
-      "name": "College Category Test",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "whitebackground checklist rightcolumn",
-      "newClasses": "col-right debug-output",
-      "js": "",
-      "partId": "part_ffac77af-80a7-455d-be8c-61f4dfda1df2",
-      "notes": "",
-      "sourceRow": 131
+      "sourceRow": 101,
+      "legacyName": "Performance Based Matric Form",
+      "sourceOrder": 129,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
@@ -1833,49 +1713,61 @@
       "js": "",
       "partId": "part_e7f197fe-0157-4823-ae63-a82139a75ee2",
       "notes": "",
-      "sourceRow": 132
+      "sourceRow": 102,
+      "legacyName": "Galante Grad Cert App (specific COE Grad Programs w/Commit ONLY)",
+      "sourceOrder": 131,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
       "viewStatus": "Active",
       "order": 132,
-      "name": "DOM",
+      "name": "Footer",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
-      "newClasses": "has-js module-layout",
+      "newClasses": "has-js portal-footer",
       "js": "has-js",
       "partId": "part_778356df-60b6-42b1-b574-26f514afc626",
-      "notes": "Rename to Global Footer",
-      "sourceRow": 133
+      "notes": "Renamed to  Footer from 'DOM'",
+      "sourceRow": 103,
+      "legacyName": "DOM",
+      "sourceOrder": 132,
+      "sourceView": "Main View"
     },
     {
       "view": "Main View",
       "viewStatus": "Active",
       "order": 133,
-      "name": "Scripts",
+      "name": "Javascript",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
       "newClasses": "has-js module-scripts",
       "js": "has-js",
       "partId": "part_516aff62-8c02-434c-8639-fa69f3523d92",
-      "notes": "Rename to Javascript",
-      "sourceRow": 134
+      "notes": "Renamed to Javascript from 'Scripts'",
+      "sourceRow": 104,
+      "legacyName": "Scripts",
+      "sourceOrder": 133,
+      "sourceView": "Main View"
     },
     {
       "view": "Enrollment  Module",
       "viewStatus": "Active",
       "order": 1,
-      "name": "Styles",
+      "name": "Document Head",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
-      "newClasses": "has-js module-styles",
+      "newClasses": "has-js module-document-head",
       "js": "has-js",
       "partId": "part_7246e5f7-7ffa-472d-b5d5-95e52786c36e",
-      "notes": "",
-      "sourceRow": 135
+      "notes": "Renamed to Document Head from Styles",
+      "sourceRow": 105,
+      "legacyName": "Styles",
+      "sourceOrder": 1,
+      "sourceView": "Enrollment  Module"
     },
     {
       "view": "Enrollment  Module",
@@ -1889,7 +1781,10 @@
       "js": "",
       "partId": "part_839a61f6-dd38-4f2c-a283-871922b58825",
       "notes": "",
-      "sourceRow": 136
+      "sourceRow": 106,
+      "legacyName": "Header",
+      "sourceOrder": 2,
+      "sourceView": "Enrollment  Module"
     },
     {
       "view": "Enrollment  Module",
@@ -1903,35 +1798,44 @@
       "js": "",
       "partId": "part_dfe41bc1-2cc0-4778-a32d-ffa1f8531743",
       "notes": "",
-      "sourceRow": 137
+      "sourceRow": 107,
+      "legacyName": "Enrollment Module",
+      "sourceOrder": 3,
+      "sourceView": "Enrollment  Module"
     },
     {
       "view": "Enrollment  Module",
       "viewStatus": "Active",
       "order": 4,
-      "name": "DOM",
+      "name": "Footer",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
-      "newClasses": "has-js module-layout",
+      "newClasses": "has-js portal-footer",
       "js": "has-js",
       "partId": "part_f384a223-86ca-4b77-9405-b3a8954837f1",
-      "notes": "",
-      "sourceRow": 138
+      "notes": "Renamef to  Footer from 'DOM'",
+      "sourceRow": 108,
+      "legacyName": "DOM",
+      "sourceOrder": 4,
+      "sourceView": "Enrollment  Module"
     },
     {
       "view": "Enrollment  Module",
       "viewStatus": "Active",
       "order": 5,
-      "name": "Scripts",
+      "name": "Javascript",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
       "newClasses": "has-js module-scripts",
       "js": "has-js",
       "partId": "part_510dc0b8-3e49-4385-a4c6-c35caa4ce961",
-      "notes": "",
-      "sourceRow": 139
+      "notes": "Renamed to Javascript from 'Scripts'",
+      "sourceRow": 109,
+      "legacyName": "Scripts",
+      "sourceOrder": 5,
+      "sourceView": "Enrollment  Module"
     },
     {
       "view": "FCE Evaluation Status",
@@ -1945,21 +1849,27 @@
       "js": "",
       "partId": "part_e9259ead-7c1c-4422-81fc-004443d6a34b",
       "notes": "",
-      "sourceRow": 140
+      "sourceRow": 110,
+      "legacyName": "Application Selector",
+      "sourceOrder": 1,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
       "viewStatus": "Active",
       "order": 2,
-      "name": "Scripts",
+      "name": "Javascript",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
       "newClasses": "has-js module-scripts",
       "js": "has-js",
       "partId": "part_b6ca4f02-158c-4a55-b4ab-efffebac58ee",
-      "notes": "",
-      "sourceRow": 141
+      "notes": "Renamed to Javascript from 'Scripts'",
+      "sourceRow": 111,
+      "legacyName": "Scripts",
+      "sourceOrder": 2,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -1973,7 +1883,10 @@
       "js": "",
       "partId": "part_145a815d-06e0-4c46-b249-2e8c470f9d17",
       "notes": "",
-      "sourceRow": 142
+      "sourceRow": 112,
+      "legacyName": "Return to Portal",
+      "sourceOrder": 3,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -1987,7 +1900,10 @@
       "js": "",
       "partId": "part_fa2fdd56-cf51-45a3-835d-d78ade39ee1a",
       "notes": "",
-      "sourceRow": 143
+      "sourceRow": 113,
+      "legacyName": "File is currently under Foreign Credential Evaluation Review",
+      "sourceOrder": 4,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2001,7 +1917,10 @@
       "js": "",
       "partId": "part_ab8227e0-bc6f-4a7a-940c-437a8dc731cb",
       "notes": "",
-      "sourceRow": 144
+      "sourceRow": 114,
+      "legacyName": "Admissions File Final Review Tracker",
+      "sourceOrder": 5,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2015,7 +1934,10 @@
       "js": "",
       "partId": "part_c8c8a955-6dd1-46a2-a6a9-e1f3b7fc9885",
       "notes": "",
-      "sourceRow": 145
+      "sourceRow": 115,
+      "legacyName": "Horizontal Line",
+      "sourceOrder": 6,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2029,7 +1951,10 @@
       "js": "",
       "partId": "part_a2ba677e-5859-40f7-a610-acd323894e8c",
       "notes": "",
-      "sourceRow": 146
+      "sourceRow": 116,
+      "legacyName": "Status",
+      "sourceOrder": 7,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2042,8 +1967,11 @@
       "newClasses": "status-tracker",
       "js": "",
       "partId": "part_f5cf6903-1124-4bcd-a8ae-8ecc6e6f1cb8",
-      "notes": "",
-      "sourceRow": 147
+      "notes": "Rebuild for redesigned FCE Tracker",
+      "sourceRow": 117,
+      "legacyName": "Tracker: Stage 1",
+      "sourceOrder": 8,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2056,8 +1984,11 @@
       "newClasses": "status-tracker",
       "js": "",
       "partId": "part_dbb8afa9-8c31-43d5-b025-4e1749b561fc",
-      "notes": "",
-      "sourceRow": 148
+      "notes": "Rebuild for redesigned FCE Tracker",
+      "sourceRow": 118,
+      "legacyName": "Tracker: Stage 2 (No Additional Docs Needed)",
+      "sourceOrder": 9,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2070,8 +2001,11 @@
       "newClasses": "status-tracker",
       "js": "",
       "partId": "part_2ffddbb1-31dc-4047-baab-d830c24df02b",
-      "notes": "",
-      "sourceRow": 149
+      "notes": "Rebuild for redesigned FCE Tracker",
+      "sourceRow": 119,
+      "legacyName": "Tracker: Stage 3 (No Additional Docs Needed)",
+      "sourceOrder": 10,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2084,8 +2018,11 @@
       "newClasses": "status-tracker",
       "js": "",
       "partId": "part_400b086d-a6c2-49fb-824d-907c828b79ea",
-      "notes": "",
-      "sourceRow": 150
+      "notes": "Rebuild for redesigned FCE Tracker",
+      "sourceRow": 120,
+      "legacyName": "Tracker: Stage 4 (No Additional Docs Needed)",
+      "sourceOrder": 11,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2098,8 +2035,11 @@
       "newClasses": "status-tracker",
       "js": "",
       "partId": "part_706c3dbd-e54c-4d0a-acc6-a5d6e6898032",
-      "notes": "",
-      "sourceRow": 151
+      "notes": "Rebuild for redesigned FCE Tracker",
+      "sourceRow": 121,
+      "legacyName": "Tracker: Inactive (No Additional Docs Needed)",
+      "sourceOrder": 12,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2112,8 +2052,11 @@
       "newClasses": "status-tracker",
       "js": "",
       "partId": "part_614427ec-2019-4096-8ce3-d855f49322f4",
-      "notes": "",
-      "sourceRow": 152
+      "notes": "Rebuild for redesigned FCE Tracker",
+      "sourceRow": 122,
+      "legacyName": "Tracker: Stage 2 (Additional Docs Needed)",
+      "sourceOrder": 13,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2126,8 +2069,11 @@
       "newClasses": "status-tracker",
       "js": "",
       "partId": "part_c00517b2-63b3-4015-9dac-10ed4545086c",
-      "notes": "",
-      "sourceRow": 153
+      "notes": "Rebuild for redesigned FCE Tracker",
+      "sourceRow": 123,
+      "legacyName": "Tracker: Stage 3 (Additional Docs Needed)",
+      "sourceOrder": 14,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2140,8 +2086,11 @@
       "newClasses": "status-tracker",
       "js": "",
       "partId": "part_dab4c05b-0f46-4e3b-be7e-38fe3b0ddbdd",
-      "notes": "",
-      "sourceRow": 154
+      "notes": "Rebuild for redesigned FCE Tracker",
+      "sourceRow": 124,
+      "legacyName": "Tracker: Stage 4 (Additional Docs Needed)",
+      "sourceOrder": 15,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2154,8 +2103,11 @@
       "newClasses": "status-tracker",
       "js": "",
       "partId": "part_ad3b6ca6-41c9-4030-9ac0-47fbc7feae9e",
-      "notes": "",
-      "sourceRow": 155
+      "notes": "Rebuild for redesigned FCE Tracker",
+      "sourceRow": 125,
+      "legacyName": "Tracker: Stage 5 (Additional Docs Needed)",
+      "sourceOrder": 16,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2168,8 +2120,11 @@
       "newClasses": "status-tracker",
       "js": "",
       "partId": "part_65cf7668-6e84-4b63-8013-517dccf8ff14",
-      "notes": "",
-      "sourceRow": 156
+      "notes": "Rebuild for redesigned FCE Tracker",
+      "sourceRow": 126,
+      "legacyName": "Tracker: Inactive (Additional Docs Needed)",
+      "sourceOrder": 17,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2183,21 +2138,10 @@
       "js": "",
       "partId": "part_71dcceab-78d9-4ff4-bb38-27b211218d35",
       "notes": "",
-      "sourceRow": 157
-    },
-    {
-      "view": "FCE Evaluation Status",
-      "viewStatus": "Active",
-      "order": 19,
-      "name": "Space",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "",
-      "newClasses": "spacer",
-      "js": "",
-      "partId": "part_36e25b67-2388-429e-8cdf-333311fbce05",
-      "notes": "",
-      "sourceRow": 158
+      "sourceRow": 127,
+      "legacyName": "Horizontal Line",
+      "sourceOrder": 18,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2211,7 +2155,10 @@
       "js": "",
       "partId": "part_75880a6f-e449-4204-930f-5f2fedab96e1",
       "notes": "",
-      "sourceRow": 159
+      "sourceRow": 128,
+      "legacyName": "FAQ",
+      "sourceOrder": 20,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2225,7 +2172,10 @@
       "js": "",
       "partId": "part_ae6ccc65-b882-4d06-b33a-ad8a313792b4",
       "notes": "",
-      "sourceRow": 160
+      "sourceRow": 129,
+      "legacyName": "Checklist",
+      "sourceOrder": 21,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2239,7 +2189,10 @@
       "js": "",
       "partId": "part_096d33b2-4df5-4718-86cb-e1fc6a68e495",
       "notes": "",
-      "sourceRow": 161
+      "sourceRow": 130,
+      "legacyName": "Student Comments",
+      "sourceOrder": 22,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2249,11 +2202,14 @@
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
-      "newClasses": "notification",
+      "newClasses": "notification note",
       "js": "",
       "partId": "part_f25a9015-2eab-42b3-90bc-d2128fcc8b50",
       "notes": "",
-      "sourceRow": 162
+      "sourceRow": 131,
+      "legacyName": "Note",
+      "sourceOrder": 23,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Evaluation Status",
@@ -2267,7 +2223,10 @@
       "js": "",
       "partId": "part_483d8f66-ee83-4087-a86a-deed4df54016",
       "notes": "",
-      "sourceRow": 163
+      "sourceRow": 132,
+      "legacyName": "FCE Section",
+      "sourceOrder": 24,
+      "sourceView": "FCE Evaluation Status"
     },
     {
       "view": "FCE Updates - Temp Message",
@@ -2281,7 +2240,10 @@
       "js": "",
       "partId": "part_2ec5856b-a01a-4549-adeb-e55cbc26f6fd",
       "notes": "",
-      "sourceRow": 164
+      "sourceRow": 133,
+      "legacyName": "Message",
+      "sourceOrder": 1,
+      "sourceView": "FCE Updates - Temp Message"
     },
     {
       "view": "FCE Updates - Temp Message",
@@ -2295,21 +2257,27 @@
       "js": "",
       "partId": "part_62ab62e5-0524-49a2-9924-65d2bd729505",
       "notes": "",
-      "sourceRow": 165
+      "sourceRow": 134,
+      "legacyName": "Uploader",
+      "sourceOrder": 2,
+      "sourceView": "FCE Updates - Temp Message"
     },
     {
       "view": "Information",
       "viewStatus": "Active",
       "order": 1,
-      "name": "Styles",
+      "name": "Document Head",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
-      "newClasses": "has-js module-styles",
+      "newClasses": "has-js module-document-head",
       "js": "has-js",
       "partId": "part_89c76a84-692e-4707-b1c8-3856bb77ab36",
-      "notes": "",
-      "sourceRow": 166
+      "notes": "Renamed to Document Head from Styles",
+      "sourceRow": 135,
+      "legacyName": "Styles",
+      "sourceOrder": 1,
+      "sourceView": "Information"
     },
     {
       "view": "Information",
@@ -2323,7 +2291,10 @@
       "js": "",
       "partId": "part_bcdee9b3-b2a5-44be-ba7e-2804a18bf2f3",
       "notes": "",
-      "sourceRow": 167
+      "sourceRow": 136,
+      "legacyName": "Header",
+      "sourceOrder": 2,
+      "sourceView": "Information"
     },
     {
       "view": "Information",
@@ -2337,49 +2308,61 @@
       "js": "",
       "partId": "part_f987738a-63c8-455e-a77d-6592e9f82b3a",
       "notes": "",
-      "sourceRow": 168
+      "sourceRow": 137,
+      "legacyName": "Information",
+      "sourceOrder": 3,
+      "sourceView": "Information"
     },
     {
       "view": "Information",
       "viewStatus": "Active",
       "order": 4,
-      "name": "DOM",
+      "name": "Footer",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
-      "newClasses": "has-js module-layout",
+      "newClasses": "has-js portal-footer",
       "js": "has-js",
       "partId": "part_abb8f8bb-0dfb-496c-ba92-911ccc01653e",
-      "notes": "",
-      "sourceRow": 169
+      "notes": "Renamed to Footer from 'DOM'",
+      "sourceRow": 138,
+      "legacyName": "DOM",
+      "sourceOrder": 4,
+      "sourceView": "Information"
     },
     {
       "view": "Information",
       "viewStatus": "Active",
       "order": 5,
-      "name": "Scripts",
+      "name": "Javascipt",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
       "newClasses": "has-js module-scripts",
       "js": "has-js",
       "partId": "part_bdd0cd2c-3fcb-4b91-a688-5240f7cc9895",
-      "notes": "",
-      "sourceRow": 170
+      "notes": "Renamed to Javascript from 'Scripts'",
+      "sourceRow": 139,
+      "legacyName": "Scripts",
+      "sourceOrder": 5,
+      "sourceView": "Information"
     },
     {
       "view": "Letters",
       "viewStatus": "Active",
       "order": 1,
-      "name": "Styles",
+      "name": "Document Head",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
-      "newClasses": "has-js module-styles",
+      "newClasses": "has-js module-document head",
       "js": "has-js",
       "partId": "part_f50a9c10-afa7-487d-94a4-fc14f6f5687e",
       "notes": "",
-      "sourceRow": 171
+      "sourceRow": 140,
+      "legacyName": "Styles",
+      "sourceOrder": 1,
+      "sourceView": "Letters"
     },
     {
       "view": "Letters",
@@ -2393,7 +2376,10 @@
       "js": "",
       "partId": "part_a7f3265c-2f77-4154-87ee-f7565504669b",
       "notes": "",
-      "sourceRow": 172
+      "sourceRow": 141,
+      "legacyName": "Header",
+      "sourceOrder": 2,
+      "sourceView": "Letters"
     },
     {
       "view": "Letters",
@@ -2407,49 +2393,61 @@
       "js": "",
       "partId": "part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6",
       "notes": "",
-      "sourceRow": 173
+      "sourceRow": 142,
+      "legacyName": "Admissions Letters",
+      "sourceOrder": 3,
+      "sourceView": "Letters"
     },
     {
       "view": "Letters",
       "viewStatus": "Active",
       "order": 4,
-      "name": "DOM",
+      "name": "Footer",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
-      "newClasses": "has-js module-layout",
+      "newClasses": "has-js portal-footer",
       "js": "has-js",
       "partId": "part_64bf00b6-bc17-4233-af77-895694d83c37",
-      "notes": "",
-      "sourceRow": 174
+      "notes": "Renamed to Footer from 'DOM'",
+      "sourceRow": 143,
+      "legacyName": "DOM",
+      "sourceOrder": 4,
+      "sourceView": "Letters"
     },
     {
       "view": "Letters",
       "viewStatus": "Active",
       "order": 5,
-      "name": "Scripts",
+      "name": "Javascript",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
       "newClasses": "has-js module-scripts",
       "js": "has-js",
       "partId": "part_d294f2b1-29f5-478e-b007-b52a4d420a6d",
-      "notes": "",
-      "sourceRow": 175
+      "notes": "Renamed to Javascript from 'Scripts'",
+      "sourceRow": 144,
+      "legacyName": "Scripts",
+      "sourceOrder": 5,
+      "sourceView": "Letters"
     },
     {
       "view": "Options",
       "viewStatus": "Active",
       "order": 1,
-      "name": "Styles",
+      "name": "Document Head",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
-      "newClasses": "has-js module-styles",
+      "newClasses": "has-js module-document-head",
       "js": "has-js",
       "partId": "part_7975a969-971d-478c-bc23-100a81e4a197",
-      "notes": "",
-      "sourceRow": 176
+      "notes": "Renamed to Document Head from Styles",
+      "sourceRow": 145,
+      "legacyName": "Styles",
+      "sourceOrder": 1,
+      "sourceView": "Options"
     },
     {
       "view": "Options",
@@ -2463,7 +2461,10 @@
       "js": "",
       "partId": "part_25c95b6a-908a-43e0-ad31-1004700276ce",
       "notes": "",
-      "sourceRow": 177
+      "sourceRow": 146,
+      "legacyName": "Header",
+      "sourceOrder": 2,
+      "sourceView": "Options"
     },
     {
       "view": "Options",
@@ -2477,7 +2478,10 @@
       "js": "has-js",
       "partId": "part_cb2fc8e1-c1ee-4760-bf18-5edfc35aae2e",
       "notes": "",
-      "sourceRow": 178
+      "sourceRow": 147,
+      "legacyName": "Reply to Offer of Admissions Form",
+      "sourceOrder": 3,
+      "sourceView": "Options"
     },
     {
       "view": "Options",
@@ -2491,7 +2495,10 @@
       "js": "",
       "partId": "part_c7a0422a-9d72-4d15-9381-7e0482476e6e",
       "notes": "",
-      "sourceRow": 179
+      "sourceRow": 148,
+      "legacyName": "Forms Widget-Admitted",
+      "sourceOrder": 4,
+      "sourceView": "Options"
     },
     {
       "view": "Options",
@@ -2505,35 +2512,10 @@
       "js": "",
       "partId": "part_0a68edc0-af9c-4690-926c-530ad50ff3fe",
       "notes": "",
-      "sourceRow": 180
-    },
-    {
-      "view": "Options",
-      "viewStatus": "Active",
-      "order": 6,
-      "name": "Admissions Letters",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn",
-      "newClasses": "col-left navigation-card",
-      "js": "",
-      "partId": "part_eeebc69f-cddd-4d6a-911a-c944987cfd0e",
-      "notes": "",
-      "sourceRow": 181
-    },
-    {
-      "view": "Options",
-      "viewStatus": "Active",
-      "order": 7,
-      "name": "Materials/Checklist",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn",
-      "newClasses": "col-left navigation-card",
-      "js": "",
-      "partId": "part_2966946b-3cb6-4c81-bb73-9fad71ffffe6",
-      "notes": "",
-      "sourceRow": 182
+      "sourceRow": 149,
+      "legacyName": "Decision - Not Received",
+      "sourceOrder": 5,
+      "sourceView": "Options"
     },
     {
       "view": "Options",
@@ -2547,7 +2529,10 @@
       "js": "",
       "partId": "part_9d3e0c78-1768-40ec-9673-b84d04cd0fae",
       "notes": "",
-      "sourceRow": 183
+      "sourceRow": 150,
+      "legacyName": "Apply to another program",
+      "sourceOrder": 8,
+      "sourceView": "Options"
     },
     {
       "view": "Options",
@@ -2561,35 +2546,10 @@
       "js": "",
       "partId": "part_cc56462b-cdb5-485d-a75c-c0a8b5fe44aa",
       "notes": "",
-      "sourceRow": 184
-    },
-    {
-      "view": "Options",
-      "viewStatus": "Active",
-      "order": 10,
-      "name": "Enrollment Module",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "rightcolumn",
-      "newClasses": "col-right navigation-card",
-      "js": "",
-      "partId": "part_4c93cd84-1d40-420b-bec6-73b8cbada2ab",
-      "notes": "",
-      "sourceRow": 185
-    },
-    {
-      "view": "Options",
-      "viewStatus": "Active",
-      "order": 11,
-      "name": "Support",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "rightcolumn",
-      "newClasses": "col-right navigation-card",
-      "js": "",
-      "partId": "part_10cedf97-0a98-42ef-8cb1-a03dba428f11",
-      "notes": "",
-      "sourceRow": 186
+      "sourceRow": 151,
+      "legacyName": "Transactions",
+      "sourceOrder": 9,
+      "sourceView": "Options"
     },
     {
       "view": "Options",
@@ -2603,77 +2563,78 @@
       "js": "",
       "partId": "part_b7660575-3aeb-4dae-9cb9-a5842c5fb1b5",
       "notes": "",
-      "sourceRow": 187
+      "sourceRow": 152,
+      "legacyName": "Information",
+      "sourceOrder": 12,
+      "sourceView": "Options"
     },
     {
       "view": "Options",
       "viewStatus": "Active",
       "order": 13,
-      "name": "DOM",
+      "name": "Footer",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
-      "newClasses": "has-js module-layout",
+      "newClasses": "has-js portal-footer",
       "js": "has-js",
       "partId": "part_ebf059b9-3c87-4f50-9dc9-11129806b70c",
-      "notes": "",
-      "sourceRow": 188
+      "notes": "Renamed to Footer from 'DOM'",
+      "sourceRow": 153,
+      "legacyName": "DOM",
+      "sourceOrder": 13,
+      "sourceView": "Options"
     },
     {
       "view": "Options",
       "viewStatus": "Active",
       "order": 14,
-      "name": "Scripts",
+      "name": "Javascript",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
       "newClasses": "has-js module-scripts",
       "js": "has-js",
       "partId": "part_a5a9f081-fac9-4226-beb4-fb995b37f4a6",
-      "notes": "",
-      "sourceRow": 189
-    },
-    {
-      "view": "Options",
-      "viewStatus": "Active",
-      "order": 15,
-      "name": "Information",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "rightcolumn",
-      "newClasses": "col-right navigation-card",
-      "js": "",
-      "partId": "part_75773325-8a49-4f8d-91e8-5a59e98b0afc",
-      "notes": "",
-      "sourceRow": 190
+      "notes": "Renamed to Javascript from 'Scripts'",
+      "sourceRow": 154,
+      "legacyName": "Scripts",
+      "sourceOrder": 14,
+      "sourceView": "Options"
     },
     {
       "view": "Transactions",
       "viewStatus": "Active",
-      "order": 1,
-      "name": "Header-Deposited",
+      "order": 2,
+      "name": "Header",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
       "newClasses": "portal-header",
       "js": "",
       "partId": "part_13313e7c-da42-432d-996a-09fc94342fdc",
-      "notes": "",
-      "sourceRow": 191
+      "notes": "Renamed from Header Deposited",
+      "sourceRow": 155,
+      "legacyName": "Header-Deposited",
+      "sourceOrder": 1,
+      "sourceView": "Transactions"
     },
     {
       "view": "Transactions",
       "viewStatus": "Active",
-      "order": 2,
-      "name": "Styles",
+      "order": 1,
+      "name": "Document Head",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
-      "newClasses": "has-js module-styles",
+      "newClasses": "has-js module-document-head",
       "js": "has-js",
       "partId": "part_e888eae8-78f0-4206-a403-3d7e9ccb3f5e",
-      "notes": "",
-      "sourceRow": 192
+      "notes": "Renamed to Document Head from Styles",
+      "sourceRow": 156,
+      "legacyName": "Styles",
+      "sourceOrder": 2,
+      "sourceView": "Transactions"
     },
     {
       "view": "Transactions",
@@ -2687,7 +2648,10 @@
       "js": "",
       "partId": "part_34e19cac-f0a8-4d7f-b223-9c522897516e",
       "notes": "",
-      "sourceRow": 193
+      "sourceRow": 157,
+      "legacyName": "Create New Case (Beta)",
+      "sourceOrder": 3,
+      "sourceView": "Transactions"
     },
     {
       "view": "Transactions",
@@ -2701,7 +2665,10 @@
       "js": "",
       "partId": "part_74726e8b-6de7-47ed-88e1-71b1551dcedd",
       "notes": "",
-      "sourceRow": 194
+      "sourceRow": 158,
+      "legacyName": "Withdraw",
+      "sourceOrder": 4,
+      "sourceView": "Transactions"
     },
     {
       "view": "Transactions",
@@ -2715,7 +2682,10 @@
       "js": "",
       "partId": "part_b46ccc68-57f1-4e98-8881-fd81932fb1cd",
       "notes": "",
-      "sourceRow": 195
+      "sourceRow": 159,
+      "legacyName": "Update Info",
+      "sourceOrder": 5,
+      "sourceView": "Transactions"
     },
     {
       "view": "Transactions",
@@ -2729,7 +2699,10 @@
       "js": "",
       "partId": "part_ac942727-1ed9-4cbf-88b5-8eee66877b5a",
       "notes": "",
-      "sourceRow": 196
+      "sourceRow": 160,
+      "legacyName": "Test Score Inquiry",
+      "sourceOrder": 6,
+      "sourceView": "Transactions"
     },
     {
       "view": "Transactions",
@@ -2743,7 +2716,10 @@
       "js": "",
       "partId": "part_39c42061-8184-4e74-9294-5602b9ec940a",
       "notes": "",
-      "sourceRow": 197
+      "sourceRow": 161,
+      "legacyName": "Official Transcript Inquiry",
+      "sourceOrder": 7,
+      "sourceView": "Transactions"
     },
     {
       "view": "Transactions",
@@ -2757,49 +2733,10 @@
       "js": "",
       "partId": "part_3180786d-4bc4-4133-903e-05b2ff6ea846",
       "notes": "",
-      "sourceRow": 198
-    },
-    {
-      "view": "Transactions",
-      "viewStatus": "Active",
-      "order": 9,
-      "name": "Update Info",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn",
-      "newClasses": "col-left form-action",
-      "js": "",
-      "partId": "part_655517af-c7f9-435b-89f2-297da74f9b3a",
-      "notes": "",
-      "sourceRow": 199
-    },
-    {
-      "view": "Transactions",
-      "viewStatus": "Active",
-      "order": 10,
-      "name": "Defer",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn",
-      "newClasses": "col-left form-action",
-      "js": "",
-      "partId": "part_e40697ea-0be1-44b5-a66e-b23dc8739855",
-      "notes": "",
-      "sourceRow": 200
-    },
-    {
-      "view": "Transactions",
-      "viewStatus": "Active",
-      "order": 11,
-      "name": "Competing Offer",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "leftcolumn",
-      "newClasses": "col-left form-action",
-      "js": "",
-      "partId": "part_9980df84-c974-465e-9b8f-78b57170a878",
-      "notes": "",
-      "sourceRow": 201
+      "sourceRow": 162,
+      "legacyName": "Decline My Offer (PBA only)",
+      "sourceOrder": 8,
+      "sourceView": "Transactions"
     },
     {
       "view": "Transactions",
@@ -2813,21 +2750,10 @@
       "js": "",
       "partId": "part_6b671956-8ea5-410c-b94c-cceeaccab76e",
       "notes": "",
-      "sourceRow": 202
-    },
-    {
-      "view": "Transactions",
-      "viewStatus": "Active",
-      "order": 13,
-      "name": "Acceptance Survey",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "rightcolumn",
-      "newClasses": "col-right form-action",
-      "js": "",
-      "partId": "part_17aab61d-d521-44b0-b658-b6f35f8b52a7",
-      "notes": "",
-      "sourceRow": 203
+      "sourceRow": 163,
+      "legacyName": "Acceptance-Decline Survey",
+      "sourceOrder": 12,
+      "sourceView": "Transactions"
     },
     {
       "view": "Transactions",
@@ -2841,7 +2767,10 @@
       "js": "",
       "partId": "part_45a0a61b-84af-4743-9c0f-13be7f04a167",
       "notes": "",
-      "sourceRow": 204
+      "sourceRow": 164,
+      "legacyName": "Apply to another program",
+      "sourceOrder": 14,
+      "sourceView": "Transactions"
     },
     {
       "view": "Transactions",
@@ -2855,49 +2784,44 @@
       "js": "",
       "partId": "part_b50b2f9e-84b1-40cf-99ff-e1801cf3ea29",
       "notes": "",
-      "sourceRow": 205
+      "sourceRow": 165,
+      "legacyName": "Apply to another program (Bachelors Completion)",
+      "sourceOrder": 15,
+      "sourceView": "Transactions"
     },
     {
       "view": "Transactions",
       "viewStatus": "Active",
       "order": 16,
-      "name": "DOM",
+      "name": "Footer",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
-      "newClasses": "has-js module-layout",
+      "newClasses": "has-js portal-footer",
       "js": "has-js",
       "partId": "part_74bacacc-54a2-4402-9577-00225c89c044",
-      "notes": "",
-      "sourceRow": 206
+      "notes": "Renamed to Footer from 'DOM'",
+      "sourceRow": 166,
+      "legacyName": "DOM",
+      "sourceOrder": 16,
+      "sourceView": "Transactions"
     },
     {
       "view": "Transactions",
       "viewStatus": "Active",
       "order": 17,
-      "name": "Scripts",
+      "name": "Javascript",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
       "newClasses": "has-js module-scripts",
       "js": "has-js",
       "partId": "part_ed819ba2-e064-48ae-a6e5-dcec96112ef5",
-      "notes": "",
-      "sourceRow": 207
-    },
-    {
-      "view": "Transactions",
-      "viewStatus": "Active",
-      "order": 18,
-      "name": "Apply to another program",
-      "status": "Inactive",
-      "type": "Static Content",
-      "originalClasses": "",
-      "newClasses": "form-action",
-      "js": "",
-      "partId": "part_b8f2b3d9-1ab3-471d-b718-ae1ccfef614d",
-      "notes": "",
-      "sourceRow": 208
+      "notes": "Renamed to Javascript from 'Scripts'",
+      "sourceRow": 167,
+      "legacyName": "Scripts",
+      "sourceOrder": 17,
+      "sourceView": "Transactions"
     },
     {
       "view": "Unsubmitted Applications",
@@ -2907,11 +2831,14 @@
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
-      "newClasses": "messaging-block",
+      "newClasses": "col-left messaging-block",
       "js": "",
       "partId": "part_53178a51-a294-47ca-b5aa-3ddead8a323a",
       "notes": "",
-      "sourceRow": 209
+      "sourceRow": 168,
+      "legacyName": "Welcome",
+      "sourceOrder": 1,
+      "sourceView": "Unsubmitted Applications"
     },
     {
       "view": "Admissions File Review Hub",
@@ -2925,7 +2852,10 @@
       "js": "",
       "partId": "part_d3d805c8-16a2-45fd-b65d-c3ecfd6e8937",
       "notes": "",
-      "sourceRow": 210
+      "sourceRow": 169,
+      "legacyName": "Application Selector",
+      "sourceOrder": 1,
+      "sourceView": "Admissions File Review Hub"
     },
     {
       "view": "Admissions File Review Hub",
@@ -2939,21 +2869,27 @@
       "js": "",
       "partId": "part_040c75bb-9217-4230-912e-ddd628dc1ae3",
       "notes": "",
-      "sourceRow": 211
+      "sourceRow": 170,
+      "legacyName": "Return to Portal",
+      "sourceOrder": 2,
+      "sourceView": "Admissions File Review Hub"
     },
     {
       "view": "Materials/Checklist",
       "viewStatus": "Inactive",
       "order": 1,
-      "name": "Styles",
+      "name": "Document Head",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
-      "newClasses": "has-js module-styles",
+      "newClasses": "has-js module-document-head",
       "js": "has-js",
       "partId": "part_7e991974-a674-4494-8bba-95ebf4203a7d",
-      "notes": "",
-      "sourceRow": 212
+      "notes": "Renamed to Document Head from Styles",
+      "sourceRow": 171,
+      "legacyName": "Styles",
+      "sourceOrder": 1,
+      "sourceView": "Materials/Checklist"
     },
     {
       "view": "Materials/Checklist",
@@ -2967,7 +2903,10 @@
       "js": "",
       "partId": "part_e18cad3d-1965-4ada-a8e5-d77b09c2ea94",
       "notes": "",
-      "sourceRow": 213
+      "sourceRow": 172,
+      "legacyName": "Header",
+      "sourceOrder": 2,
+      "sourceView": "Materials/Checklist"
     },
     {
       "view": "Materials/Checklist",
@@ -2977,11 +2916,14 @@
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "maincolumn whitebackground checklist mobile",
-      "newClasses": "full-width checklist",
+      "newClasses": "full-width checklist mobile",
       "js": "",
       "partId": "part_8877aec9-c0c2-412a-920a-26f8fd9c44ab",
       "notes": "",
-      "sourceRow": 214
+      "sourceRow": 173,
+      "legacyName": "Checklist - table only - mobile",
+      "sourceOrder": 3,
+      "sourceView": "Materials/Checklist"
     },
     {
       "view": "Materials/Checklist",
@@ -2995,7 +2937,10 @@
       "js": "",
       "partId": "part_c36877ad-b214-4d81-beba-7a12963e59b1",
       "notes": "",
-      "sourceRow": 215
+      "sourceRow": 174,
+      "legacyName": "Checklist - table only",
+      "sourceOrder": 4,
+      "sourceView": "Materials/Checklist"
     },
     {
       "view": "Materials/Checklist",
@@ -3009,35 +2954,741 @@
       "js": "",
       "partId": "part_fd0bf798-010e-4727-8ded-2bdd55db1131",
       "notes": "",
-      "sourceRow": 216
+      "sourceRow": 175,
+      "legacyName": "Materials",
+      "sourceOrder": 5,
+      "sourceView": "Materials/Checklist"
     },
     {
       "view": "Materials/Checklist",
       "viewStatus": "Inactive",
       "order": 6,
-      "name": "DOM",
+      "name": "Footer",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
-      "newClasses": "has-js module-layout",
+      "newClasses": "has-js portal-footer",
       "js": "has-js",
       "partId": "part_5480c46c-1489-4afa-b8c5-b2348ebdca2c",
-      "notes": "",
-      "sourceRow": 217
+      "notes": "Renamed to Footer from Dom",
+      "sourceRow": 176,
+      "legacyName": "DOM",
+      "sourceOrder": 6,
+      "sourceView": "Materials/Checklist"
     },
     {
       "view": "Materials/Checklist",
       "viewStatus": "Inactive",
       "order": 7,
-      "name": "Scripts",
+      "name": "Javascript",
       "status": "Active",
       "type": "Static Content",
       "originalClasses": "",
       "newClasses": "has-js module-scripts",
       "js": "has-js",
       "partId": "part_9cb7e0da-e5bc-4a50-8521-28b65b24f6f5",
+      "notes": "Renamed to Javascript from Scripts",
+      "sourceRow": 177,
+      "legacyName": "Scripts",
+      "sourceOrder": 7,
+      "sourceView": "Materials/Checklist"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 2,
+      "name": "Styles (SOL)",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "",
+      "newClasses": "has-js module-document-head",
+      "js": "has-js",
+      "partId": "part_a3f7d186-b8fd-42aa-8eb2-bdfab5df1bfe",
+      "notes": "CAN DELETE",
+      "sourceRow": 178,
+      "legacyName": "Styles (SOL)",
+      "sourceOrder": 2,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 7,
+      "name": "Messaging Block - Pre-Admit and Deny (London)",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "whitebackground leftcolumn",
+      "newClasses": "col-left messaging-block",
+      "js": "",
+      "partId": "part_6f8684c7-6a3b-4e4f-ac2f-7b37c660c87e",
       "notes": "",
-      "sourceRow": 218
+      "sourceRow": 179,
+      "legacyName": "Messaging Block - Pre-Admit and Deny (London)",
+      "sourceOrder": 7,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 22,
+      "name": "Canada PAL Notification",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn whitebackground checklist",
+      "newClasses": "col-left notification",
+      "js": "",
+      "partId": "part_866bccc5-79e2-49d5-a554-c4b91ae7cbd2",
+      "notes": "",
+      "sourceRow": 180,
+      "legacyName": "Canada PAL Notification",
+      "sourceOrder": 22,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 27,
+      "name": "Preregistration Acknowledgement Form",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn",
+      "newClasses": "col-left form-action",
+      "js": "",
+      "partId": "part_8d14cd9c-5ceb-42ec-9284-5dc5efa27cb5",
+      "notes": "",
+      "sourceRow": 181,
+      "legacyName": "Preregistration Acknowledgement Form",
+      "sourceOrder": 27,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 28,
+      "name": "Priority App Selection Form",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn",
+      "newClasses": "col-left form-action",
+      "js": "",
+      "partId": "part_7d8cc279-4920-49a3-ac8f-a6ee86ef2899",
+      "notes": "",
+      "sourceRow": 182,
+      "legacyName": "Priority App Selection Form",
+      "sourceOrder": 28,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 31,
+      "name": "London Unconditional Offer Letter",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn",
+      "newClasses": "col-left has-js document-link",
+      "js": "",
+      "partId": "part_ee4db570-664f-4e68-800f-21e23c38e752",
+      "notes": "",
+      "sourceRow": 183,
+      "legacyName": "London Unconditional Offer Letter",
+      "sourceOrder": 31,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 38,
+      "name": "POA Tuition Estimate Note",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn",
+      "newClasses": "col-left notification",
+      "js": "",
+      "partId": "part_905eaf9a-ebae-41ef-8971-a4fca980abc4",
+      "notes": "",
+      "sourceRow": 184,
+      "legacyName": "POA Tuition Estimate Note",
+      "sourceOrder": 38,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 39,
+      "name": "SOL Admit Registrations (SOL JD Admit LSAC 24-25)",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "whitebackground leftcolumn",
+      "newClasses": "col-left event-registration",
+      "js": "",
+      "partId": "part_7a1fd293-762e-4f2a-83a8-551044405acb",
+      "notes": "",
+      "sourceRow": 185,
+      "legacyName": "SOL Admit Registrations (SOL JD Admit LSAC 24-25)",
+      "sourceOrder": 39,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 41,
+      "name": "Admitted Student Day Registration (SOL JD Admit LSAC 24-25)",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "whitebackground leftcolumn",
+      "newClasses": "col-left event-registration",
+      "js": "",
+      "partId": "part_8dffcc79-6656-4af9-a044-ea8655dbfa5d",
+      "notes": "",
+      "sourceRow": 186,
+      "legacyName": "Admitted Student Day Registration (SOL JD Admit LSAC 24-25)",
+      "sourceOrder": 41,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 45,
+      "name": "***OLD*** Pay Deposit CTA",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn",
+      "newClasses": "col-left enrollment-actions",
+      "js": "",
+      "partId": "part_1613068d-0f66-44ee-9563-19c334c0a9e5",
+      "notes": "",
+      "sourceRow": 187,
+      "legacyName": "***OLD*** Pay Deposit CTA",
+      "sourceOrder": 45,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 47,
+      "name": "PhD Apps - Email Group Letter Reminder",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn whitebackground checklist",
+      "newClasses": "col-left notification",
+      "js": "",
+      "partId": "part_03ce89e4-6990-43e7-924e-abf5684029b6",
+      "notes": "",
+      "sourceRow": 188,
+      "legacyName": "PhD Apps - Email Group Letter Reminder",
+      "sourceOrder": 47,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 50,
+      "name": "Canada PAL Priority Change Form",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "part whitebackground checklist leftcolumn",
+      "newClasses": "col-left form-action",
+      "js": "",
+      "partId": "part_c75a267d-595c-4010-ae29-0606d123587c",
+      "notes": "",
+      "sourceRow": 189,
+      "legacyName": "Canada PAL Priority Change Form",
+      "sourceOrder": 50,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 54,
+      "name": "Payments-App Payment",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn whitebackground checklist desktop",
+      "newClasses": "col-left payment-block",
+      "js": "",
+      "partId": "part_d2ef2420-4148-42db-a1d6-dcea999cb83a",
+      "notes": "",
+      "sourceRow": 190,
+      "legacyName": "Payments-App Payment",
+      "sourceOrder": 54,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 65,
+      "name": "Payment Due (London Acceptance Deposit)",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "whitebackground leftcolumn checklist",
+      "newClasses": "col-left payment-block",
+      "js": "",
+      "partId": "part_45b6d445-42b3-4e3a-a896-bdb01e1f6ee9",
+      "notes": "",
+      "sourceRow": 191,
+      "legacyName": "Payment Due (London Acceptance Deposit)",
+      "sourceOrder": 65,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 67,
+      "name": "Payment - Enrollment Deposit",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "",
+      "newClasses": "col-left payment-block",
+      "js": "",
+      "partId": "part_d1c9c6f4-14e5-4a5d-aea7-c230428ba03e",
+      "notes": "",
+      "sourceRow": 192,
+      "legacyName": "Payment - Enrollment Deposit",
+      "sourceOrder": 67,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 68,
+      "name": "Payment - App Fee",
+      "status": "Inactive",
+      "type": "Payments",
+      "originalClasses": "",
+      "newClasses": "col-left payment-block",
+      "js": "",
+      "partId": "part_2fde12d9-8fba-460f-8b76-70710cd5982e",
+      "notes": "",
+      "sourceRow": 193,
+      "legacyName": "Payment - App Fee",
+      "sourceOrder": 68,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 69,
+      "name": "Decision",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn",
+      "newClasses": "col-left document-link",
+      "js": "",
+      "partId": "part_764f5a34-72af-4e4f-9cce-552e96323655",
+      "notes": "",
+      "sourceRow": 194,
+      "legacyName": "Decision",
+      "sourceOrder": 69,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 71,
+      "name": "OGS POA - Canada",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn whitebackground checklist",
+      "newClasses": "col-left resource-links",
+      "js": "",
+      "partId": "part_f3083015-78a2-42b8-ad01-1c5a0f99c8cb",
+      "notes": "",
+      "sourceRow": 195,
+      "legacyName": "OGS POA - Canada",
+      "sourceOrder": 71,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 74,
+      "name": "Canada SDS Selection",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn whitebackground checklist",
+      "newClasses": "col-left form-action",
+      "js": "",
+      "partId": "part_85aab032-0381-4bef-b82c-338db85e6a23",
+      "notes": "",
+      "sourceRow": 196,
+      "legacyName": "Canada SDS Selection",
+      "sourceOrder": 74,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 84,
+      "name": "CPS Video",
+      "status": "Inactive",
+      "type": "Portfolio",
+      "originalClasses": "leftcolumn whitebackground checklist",
+      "newClasses": "col-left video-upload",
+      "js": "",
+      "partId": "part_cf758676-27db-4ad6-b91a-f0b683e0aa70",
+      "notes": "",
+      "sourceRow": 197,
+      "legacyName": "CPS Video",
+      "sourceOrder": 84,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 86,
+      "name": "INACTIVE (OLD): Self-Service Checklist (All Except DMSB)",
+      "status": "Inactive",
+      "type": "Form",
+      "originalClasses": "leftcolumn whitebackground checklist",
+      "newClasses": "col-left checklist",
+      "js": "",
+      "partId": "part_28712cd8-e911-4f49-9b7b-f9b12da1ec4d",
+      "notes": "",
+      "sourceRow": 198,
+      "legacyName": "INACTIVE (OLD): Self-Service Checklist (All Except DMSB)",
+      "sourceOrder": 86,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 87,
+      "name": "INACTIVE (OLD): Self-Service Checklist (DMSB Only)",
+      "status": "Inactive",
+      "type": "Form",
+      "originalClasses": "leftcolumn whitebackground checklist",
+      "newClasses": "col-left checklist",
+      "js": "",
+      "partId": "part_95765b67-d072-475d-ac0c-d9a40dbe49cd",
+      "notes": "",
+      "sourceRow": 199,
+      "legacyName": "INACTIVE (OLD): Self-Service Checklist (DMSB Only)",
+      "sourceOrder": 87,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 93,
+      "name": "Admissions File Final Review Tracker",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn whitebackground checklist",
+      "newClasses": "col-left content-block",
+      "js": "",
+      "partId": "part_7a0eb2af-b36b-4ea3-9273-4ef6269ee26d",
+      "notes": "",
+      "sourceRow": 200,
+      "legacyName": "Admissions File Final Review Tracker",
+      "sourceOrder": 93,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 96,
+      "name": "(Test Only) Checklist Post-Admission- table only - mobile",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn whitebackground checklist mobile",
+      "newClasses": "col-left checklist",
+      "js": "",
+      "partId": "part_e4b2f86b-269d-4917-b472-6e8ee62712dd",
+      "notes": "",
+      "sourceRow": 201,
+      "legacyName": "(Test Only) Checklist Post-Admission- table only - mobile",
+      "sourceOrder": 96,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 101,
+      "name": "London - Student-Facing Comments",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn checklist whitebackground",
+      "newClasses": "col-left student-comments",
+      "js": "",
+      "partId": "part_5fe93c0a-3401-48e6-b44c-e2519bbb2738",
+      "notes": "",
+      "sourceRow": 202,
+      "legacyName": "London - Student-Facing Comments",
+      "sourceOrder": 101,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 106,
+      "name": "Checklist - table only - mobile",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn whitebackground checklist mobile",
+      "newClasses": "col-left checklist mobile",
+      "js": "",
+      "partId": "part_428f93ce-d24d-4e38-83f0-99bb8ed404ea",
+      "notes": "",
+      "sourceRow": 203,
+      "legacyName": "Checklist - table only - mobile",
+      "sourceOrder": 106,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 107,
+      "name": "Checklist Standard",
+      "status": "Inactive",
+      "type": "Checklist",
+      "originalClasses": "",
+      "newClasses": "col-left checklist",
+      "js": "",
+      "partId": "part_5d6fe731-71dc-4aca-b688-03a9bcdff1ad",
+      "notes": "",
+      "sourceRow": 204,
+      "legacyName": "Checklist Standard",
+      "sourceOrder": 107,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 108,
+      "name": "Military Checklist",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn whitebackground checklist desktop",
+      "newClasses": "col-left checklist",
+      "js": "",
+      "partId": "part_a00034d7-7b86-4b3e-a375-2b69678e4694",
+      "notes": "",
+      "sourceRow": 205,
+      "legacyName": "Military Checklist",
+      "sourceOrder": 108,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 122,
+      "name": "Materials - Final Review",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn whitebackground checklist",
+      "newClasses": "col-left materials-upload",
+      "js": "",
+      "partId": "part_3c3ebd23-3be3-4b56-bbba-868f571bd872",
+      "notes": "",
+      "sourceRow": 206,
+      "legacyName": "Materials - Final Review",
+      "sourceOrder": 122,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "Main View",
+      "viewStatus": "Active",
+      "order": 130,
+      "name": "College Category Test",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "whitebackground checklist rightcolumn",
+      "newClasses": "col-right debug-output",
+      "js": "",
+      "partId": "part_ffac77af-80a7-455d-be8c-61f4dfda1df2",
+      "notes": "",
+      "sourceRow": 207,
+      "legacyName": "College Category Test",
+      "sourceOrder": 130,
+      "sourceView": "Main View"
+    },
+    {
+      "view": "FCE Evaluation Status",
+      "viewStatus": "Active",
+      "order": 19,
+      "name": "Space",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "",
+      "newClasses": "space",
+      "js": "",
+      "partId": "part_36e25b67-2388-429e-8cdf-333311fbce05",
+      "notes": "",
+      "sourceRow": 208,
+      "legacyName": "Space",
+      "sourceOrder": 19,
+      "sourceView": "FCE Evaluation Status"
+    },
+    {
+      "view": "Options",
+      "viewStatus": "Active",
+      "order": 6,
+      "name": "Admissions Letters",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn",
+      "newClasses": "col-left navigation-card",
+      "js": "",
+      "partId": "part_eeebc69f-cddd-4d6a-911a-c944987cfd0e",
+      "notes": "",
+      "sourceRow": 209,
+      "legacyName": "Admissions Letters",
+      "sourceOrder": 6,
+      "sourceView": "Options"
+    },
+    {
+      "view": "Options",
+      "viewStatus": "Active",
+      "order": 7,
+      "name": "Materials/Checklist",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn",
+      "newClasses": "col-left navigation-card",
+      "js": "",
+      "partId": "part_2966946b-3cb6-4c81-bb73-9fad71ffffe6",
+      "notes": "",
+      "sourceRow": 210,
+      "legacyName": "Materials/Checklist",
+      "sourceOrder": 7,
+      "sourceView": "Options"
+    },
+    {
+      "view": "Options",
+      "viewStatus": "Active",
+      "order": 10,
+      "name": "Enrollment Module",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "rightcolumn",
+      "newClasses": "col-right navigation-card",
+      "js": "",
+      "partId": "part_4c93cd84-1d40-420b-bec6-73b8cbada2ab",
+      "notes": "",
+      "sourceRow": 211,
+      "legacyName": "Enrollment Module",
+      "sourceOrder": 10,
+      "sourceView": "Options"
+    },
+    {
+      "view": "Options",
+      "viewStatus": "Active",
+      "order": 11,
+      "name": "Support",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "rightcolumn",
+      "newClasses": "col-right navigation-card",
+      "js": "",
+      "partId": "part_10cedf97-0a98-42ef-8cb1-a03dba428f11",
+      "notes": "",
+      "sourceRow": 212,
+      "legacyName": "Support",
+      "sourceOrder": 11,
+      "sourceView": "Options"
+    },
+    {
+      "view": "Options",
+      "viewStatus": "Active",
+      "order": 15,
+      "name": "Information",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "rightcolumn",
+      "newClasses": "col-right navigation-card",
+      "js": "",
+      "partId": "part_75773325-8a49-4f8d-91e8-5a59e98b0afc",
+      "notes": "",
+      "sourceRow": 213,
+      "legacyName": "Information",
+      "sourceOrder": 15,
+      "sourceView": "Options"
+    },
+    {
+      "view": "Transactions",
+      "viewStatus": "Active",
+      "order": 9,
+      "name": "Update Info",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn",
+      "newClasses": "col-left form-action",
+      "js": "",
+      "partId": "part_655517af-c7f9-435b-89f2-297da74f9b3a",
+      "notes": "",
+      "sourceRow": 214,
+      "legacyName": "Update Info",
+      "sourceOrder": 9,
+      "sourceView": "Transactions"
+    },
+    {
+      "view": "Transactions",
+      "viewStatus": "Active",
+      "order": 10,
+      "name": "Defer",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn",
+      "newClasses": "col-left form-action",
+      "js": "",
+      "partId": "part_e40697ea-0be1-44b5-a66e-b23dc8739855",
+      "notes": "",
+      "sourceRow": 215,
+      "legacyName": "Defer",
+      "sourceOrder": 10,
+      "sourceView": "Transactions"
+    },
+    {
+      "view": "Transactions",
+      "viewStatus": "Active",
+      "order": 11,
+      "name": "Competing Offer",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "leftcolumn",
+      "newClasses": "col-left form-action",
+      "js": "",
+      "partId": "part_9980df84-c974-465e-9b8f-78b57170a878",
+      "notes": "",
+      "sourceRow": 216,
+      "legacyName": "Competing Offer",
+      "sourceOrder": 11,
+      "sourceView": "Transactions"
+    },
+    {
+      "view": "Transactions",
+      "viewStatus": "Active",
+      "order": 13,
+      "name": "Acceptance Survey",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "rightcolumn",
+      "newClasses": "col-right form-action",
+      "js": "",
+      "partId": "part_17aab61d-d521-44b0-b658-b6f35f8b52a7",
+      "notes": "",
+      "sourceRow": 217,
+      "legacyName": "Acceptance Survey",
+      "sourceOrder": 13,
+      "sourceView": "Transactions"
+    },
+    {
+      "view": "Transactions",
+      "viewStatus": "Active",
+      "order": 18,
+      "name": "Apply to another program",
+      "status": "Inactive",
+      "type": "Static Content",
+      "originalClasses": "",
+      "newClasses": "col-left form-action",
+      "js": "",
+      "partId": "part_b8f2b3d9-1ab3-471d-b718-ae1ccfef614d",
+      "notes": "",
+      "sourceRow": 218,
+      "legacyName": "Apply to another program",
+      "sourceOrder": 18,
+      "sourceView": "Transactions"
     }
   ]
 }

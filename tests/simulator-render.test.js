@@ -84,7 +84,7 @@ test('simulator stays stacked and loads no portal JS even with a behavior or col
 test('portal stylesheet option applies in both stacked and clean views and is off by default',async()=>{
  for(const mode of ['', '&clean=1']) {
   const enabled=await render(`?parts=&styles=portal${mode}`);
-  assert.equal(enabled.querySelectorAll('link[data-portal-style]').length,8);
+  assert.equal(enabled.querySelectorAll('link[data-portal-style]').length,9);
   assert.equal(enabled.querySelector('script[src*="build-mobile-global"]'),null);
   const disabled=await render(`?parts=${mode}`);
   assert.equal(disabled.querySelectorAll('link[data-portal-style]').length,0);

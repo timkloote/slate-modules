@@ -1,0 +1,6 @@
+/* Subtle development-only annotations; excluded from production CSS. */
+.liquid-token.liquid-token {
+  font-style: italic !important;
+  opacity: .8;
+  overflow-wrap: anywhere;
+}

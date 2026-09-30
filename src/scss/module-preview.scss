@@ -1,0 +1,6 @@
+@use "liquid-highlight";
+/* Preview canvas only. Typography and component styling come from the selected version. */
+html, body { margin: 0; }
+#module-preview-root > table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+#module-preview-root > table > tbody > tr > td { padding: 0; vertical-align: top; }
+.module-preview-message { padding: 1rem; font: 14px/1.5 system-ui, sans-serif; color: #4e5b66; background: #f2f5f7; }

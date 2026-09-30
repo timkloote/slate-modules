@@ -41,6 +41,10 @@ async function initSimulator() {
     check.addEventListener('change', () => { check.checked ? selected.add(module.partId) : selected.delete(module.partId); updatePreview(); });
     const title = document.createElement('span'); title.textContent=`${module.order}. ${module.name}`;
     label.append(check,title);
+    const compare = document.createElement('a');
+    compare.href = `/modules/?part=${encodeURIComponent(module.partId)}`;
+    compare.textContent = 'Compare legacy and modern';
+    compare.className = 'sim-compare-link';
     const meta = document.createElement('p'); meta.className='sim-meta';
     meta.textContent=`${module.status} · ${module.type}${module.needsCapture ? ' · Needs capture' : module.hasFixture ? ' · Captured markup' : ''}`;
     const details = document.createElement('details');
@@ -60,7 +64,7 @@ async function initSimulator() {
     const legacySource=document.createElement('details'),legacyTitle=document.createElement('summary'),legacyPre=document.createElement('pre');
     legacyTitle.textContent='Legacy original HTML';legacyPre.textContent=module.legacyHtml||'(no legacy source)';legacySource.append(legacyTitle,legacyPre);details.append(legacySource);
     if(module.needsCapture) {const p=document.createElement('p');p.textContent='Inspect this part in Slate. Save its rendered inner HTML at the capture path above, then rebuild. Use fictional applicant data.';details.append(p);}
-    card.append(label,meta,details);$('module-list').append(card);cards.push({card,check,module,meta});
+    card.append(label,meta,compare,details);$('module-list').append(card);cards.push({card,check,module,meta});
   }
   function filter() {
     const query=$('module-search').value.toLowerCase(), mode=$('module-filter').value;
