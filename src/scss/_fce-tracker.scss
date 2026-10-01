@@ -1,0 +1,169 @@
+/* Existing Slate table cells and the landing-page list share the same design.
+   State remains supplied by Slate; CSS never advances an applicant's progress. */
+.status-tracker, .fce-tracker {
+  --tracker-ink: #172c28;
+  --tracker-done: #17634c;
+  --tracker-red: #c8102e;
+  --tracker-line: #dce3e0;
+  container-type: inline-size;
+  color: #202b28;
+}
+.part.status-tracker {
+  padding: clamp(1rem, 3vw, 2rem);
+  border: 1px solid #e0e6e3;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 6px 28px rgb(20 40 30 / 5%);
+}
+.fce-tracker { padding-block: 3rem; }
+.fce-tracker h2 { margin: 0 0 2rem; font-size: 1.5rem; }
+.status-tracker > table, .fce-tracker__steps {
+  width: 100%;
+  border: 0;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.status-tracker tbody { display: block; }
+.status-tracker tr, .fce-tracker__steps {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(0, 1fr);
+  counter-reset: tracker-step;
+  isolation: isolate;
+}
+.status-tracker td, .fce-tracker__step {
+  --step-color: #697670;
+  --step-bg: #fff;
+  --step-border: #c1ccc6;
+  --step-line: var(--tracker-line);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  width: auto;
+  padding: 0 .6rem 1rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #53605a;
+  text-align: center;
+  vertical-align: top;
+  counter-increment: tracker-step;
+  animation: tracker-arrive 600ms ease-out both;
+  transition: color 350ms ease, background-color 350ms ease;
+  @for $i from 1 through 5 { &:nth-child(#{$i}) { animation-delay: #{($i - 1) * 75}ms; } }
+}
+.status-tracker td::before, .fce-tracker__node {
+  content: counter(tracker-step);
+  display: grid;
+  place-items: center;
+  position: relative;
+  z-index: 2;
+  width: 44px;
+  height: 44px;
+  box-sizing: border-box;
+  flex: 0 0 44px;
+  margin-bottom: 1rem;
+  border: 2px solid var(--step-border);
+  border-radius: 50%;
+  background: var(--step-bg);
+  color: var(--step-color);
+  font: 600 16px/1 system-ui, sans-serif;
+  transition: background-color 400ms ease, border-color 400ms ease, color 400ms ease, box-shadow 400ms ease;
+}
+.fce-tracker__node::before { content: counter(tracker-step); }
+.status-tracker td:not(:first-child)::after, .fce-tracker__step:not(:first-child)::after {
+  content: '';
+  position: absolute;
+  z-index: 0;
+  top: 21px;
+  right: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--step-line);
+  transform-origin: left;
+  animation: tracker-connect 700ms cubic-bezier(.2,.7,.2,1) both;
+  animation-delay: inherit;
+  transition: background-color 450ms ease;
+}
+.status-tracker td > strong, .status-tracker td > b, .fce-tracker__label {
+  display: block;
+  max-width: 12rem;
+  font: 600 .875rem/1.45 system-ui, sans-serif;
+  text-wrap: balance;
+}
+.status-tracker td br, .status-tracker > br { display: none; }
+.status-tracker td.complete, .fce-tracker__step.is-complete {
+  --step-color: #fff;
+  --step-bg: var(--tracker-done);
+  --step-border: var(--tracker-done);
+  --step-line: var(--tracker-done);
+  color: var(--tracker-ink);
+}
+.status-tracker td.complete::before, .fce-tracker__step.is-complete .fce-tracker__node::before { content: '\2713'; font-size: 22px; }
+.status-tracker td:is(.current, .current_add), .fce-tracker__step.is-current {
+  --step-color: #fff;
+  --step-bg: var(--tracker-red);
+  --step-border: var(--tracker-red);
+  --step-line: var(--tracker-done);
+  color: #97102a;
+}
+.status-tracker td:is(.current, .current_add)::before, .fce-tracker__step.is-current .fce-tracker__node {
+  box-shadow: 0 0 0 6px #fff, 0 0 0 8px rgb(200 16 46 / 20%);
+}
+.status-tracker td:is(.current, .current_add) > :is(strong, b)::after,
+.fce-tracker__step.is-current .fce-tracker__label::after {
+  content: 'Current step';
+  display: block;
+  margin-top: .45rem;
+  font-size: .6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+}
+.status-tracker > p, .status-tracker > em, .fce-tracker__description {
+  display: block;
+  margin: 1.25rem 0 0;
+  padding: 1.25rem 1.5rem;
+  border: 1px solid #e6eae7;
+  border-left: 3px solid var(--tracker-done);
+  border-radius: 0 10px 10px 0;
+  background: #f5f8f6;
+  color: #34443c;
+  font: 400 .9375rem/1.65 system-ui, sans-serif;
+  text-align: left;
+  strong, em { font: inherit; }
+}
+.status-tracker:has(.current, .current_add) > :is(p, em),
+.fce-tracker:has(.is-current) .fce-tracker__description { border-left-color: var(--tracker-red); }
+@container (max-width: 580px) {
+  .status-tracker tr, .fce-tracker__steps { grid-auto-flow: row; grid-template-columns: minmax(0, 1fr); }
+  .status-tracker td, .fce-tracker__step {
+    flex-direction: row;
+    gap: 1.25rem;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0 0 1.6rem;
+    min-height: 76px;
+  }
+  .status-tracker td:last-child, .fce-tracker__step:last-child { padding-bottom: 0; min-height: 44px; }
+  .status-tracker td::before, .fce-tracker__node { margin-bottom: 0; }
+  .status-tracker td > strong, .status-tracker td > b, .fce-tracker__label { padding-top: .6rem; max-width: none; text-wrap: initial; }
+  .status-tracker td:not(:first-child)::after, .fce-tracker__step:not(:first-child)::after {
+    left: 21px; right: auto; top: -32px; width: 2px; height: 32px;
+    animation-name: tracker-connect-vertical; transform-origin: top;
+  }
+}
+@keyframes tracker-arrive { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes tracker-connect { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes tracker-connect-vertical { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .status-tracker td, .status-tracker td::before, .status-tracker td::after,
+  .fce-tracker__step, .fce-tracker__step::after, .fce-tracker__node {
+    animation: none; transition: none;
+  }
+}
