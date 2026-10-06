@@ -127,11 +127,6 @@ export async function initPreview() {
       content.querySelectorAll('button').forEach(button=>button.disabled=false);
       content.querySelectorAll('a').forEach(link=>link.setAttribute('href','#'));
     }
-    if(behavior && (module.name==='DOM' || module.legacyName==='DOM') && module.replacement==='footer' && !module.hasFixture) {
-      const layout=fragmentForPreview(module.sourceHtml,module.partId);
-      layout.querySelectorAll('footer').forEach(footer=>footer.remove());
-      part.append(layout);
-    }
     const hasContent=[...content.childNodes].some(node=>node.nodeType!==8 && node.textContent?.trim()) || content.querySelector('img,svg,input,select,textarea,button,table,hr');
     part.append(content);
     if(!hasContent) {const note=document.createElement('p');note.className='sim-widget-placeholder';note.textContent='No visible static content. See Audit & source for this module’s markup and notes.';part.append(note);}

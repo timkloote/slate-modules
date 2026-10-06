@@ -71,7 +71,7 @@ The simulator contains all 217 audited modules across 11 views. Each preview sta
 
 ### Sources and audit updates
 
-- `src/simulator/audit.json` is the latest Book1.xlsx workbook snapshot, with source row numbers and all audit fields. Workbook notes are retained as data; deletions and renames in those notes are not executed.
+- `src/simulator/audit.json` is the latest module inventory snapshot, with source row numbers and all audit fields. Workbook notes are retained as data; deletions and renames in those notes are not executed.
 - `scripts/update-module-catalog.py` merges the current workbook by Module ID using Python's standard library, without modifying it. It retains original source numbering and legacy names, and rejects unknown, missing, or duplicate IDs before writing. To refresh:
 
   ```sh
@@ -79,12 +79,12 @@ The simulator contains all 217 audited modules across 11 views. Each preview sta
   ```
 
 - `scripts/simulator.js` maps each audit record’s retained source view and source order to `src/modules/<view>/<order>-*.html`. Ambiguous file matches fail the build. Missing sources are recorded in the inspector.
-- Local shared header substitutions apply to audited Header modules. DOM modules that contain a footer use the shared footer in the preview. This replaces their legacy layout/footer locally; original source stays available in the inspector. Views without those parts get no automatic header/footer shell.
+- Header and footer previews use their respective files in `src/modules/` directly (the footer lives in the DOM module). Edit those modules to update the preview and the markup intended for Slate. Shared `_includes` do not replace module content. Views without those parts get no automatic header/footer shell.
 - `src/simulator/captured-parts.json` defines the observed Main View subset.
 
 ### Styling and behavior
 
-The proposed classes in `src/simulator/audit.json` match column H (**New CSS Class Names**) of the revised inventory. Copy the entire space-separated value into Slate's module **Class Name** field; the classes belong on Slate's generated `.part` wrapper, not the static content's `<body>`. Select **Proposed audit classes** in the simulator to preview them.
+The proposed classes in `src/simulator/audit.json` match the **New CSS Class Names** column of the revised inventory. Copy the entire space-separated value into Slate's module **Class Name** field; the classes belong on Slate's generated `.part` wrapper, not the static content's `<body>`. Select **Proposed audit classes** in the simulator to preview them.
 
 Layout follows original class evidence: `leftcolumn` becomes `col-left`, `rightcolumn` becomes `col-right`, and `maincolumn` becomes `full-width`. A blank original layout stays unassigned. Each module also has a component group based on its content, such as `messaging-block`, `form-action`, or `checklist`. `has-js` marks JavaScript found in the legacy source, including script tags, inline handlers, JavaScript URLs, and commented-out scripts; it does not enable JavaScript. The workbook's separate original JS column remains unchanged; column H contains the complete proposed class list.
 
@@ -113,7 +113,7 @@ Imported relative image/media paths (for example `/icons/received.png`) resolve 
 Choose **Clean view layout → Slate behavior · vanilla JS**, then open **Clean view**, to run the migration of `133-scripts.html`. Select **132. DOM** for the column destinations and **133. Scripts** to enable the behavior. The original imported scripts remain untouched and are not executed.
 
 - `src/js/main-view-behavior.js` exports `initMainViewBehavior(root, options)`. It uses native DOM APIs, with no jQuery, Popper, or Bootstrap dependency. It runs after selected parts and captures have been inserted; repeat calls do not duplicate generated headings or form wrappers.
-- In this mode, the preview restores the original DOM module's layout markup and swaps only its footer for the shared footer. A DOM capture takes precedence and must include the column containers itself.
+- In this mode, the preview uses the DOM module’s own layout and footer markup. Missing column containers are reported; the preview does not add them. A DOM capture takes precedence and must include the column containers itself.
 - Both original `leftcolumn`/`rightcolumn` and proposed `col-left`/`col-right` classes are supported. The preview stylesheet supplies the responsive columns without Bootstrap.
 - The port covers column moves, widget classes, label changes, form wrapping, new-tab link attributes, table class removal, application-switch headings, and the empty-payment message. It does not recreate Slate forms, Bootstrap interactions, or server behavior.
 - A collapsible report lists unmatched selectors. They may refer to unselected parts, unavailable widget markup, or old part IDs. The migration preserves those IDs rather than remapping them by guesswork. Clean view hides the report and retains the selected behavior mode.
@@ -161,7 +161,7 @@ The build also writes `dist/css/grad-admissions-test.css` for the existing GitHu
 
 Use **Modules → Legacy originals** to preview `src/legacy/modules/` instead of `src/modules/`. All 217 legacy files are mapped to the same audit rows, part IDs, order, and selectable wrapper classes. The source choice persists per view and is included in stacked and Clean view links as `source=legacy`.
 
-- **Sanitized** retains the existing workflow: shared new header/footer substitutions, optional rendered captures, and stripped module CSS/scripts.
+- **Sanitized** retains the existing workflow: module source markup, optional rendered captures, and stripped module CSS/scripts.
 - **Legacy originals** uses the original files, including the original header/footer and DOM layout. Inline `style` attributes, `<style>` blocks from both head and body, and stylesheet links are retained. Module style dependencies load when that module is selected. Relative CSS asset URLs and stylesheet paths resolve against the Slate CDN.
 - Legacy mode bypasses rendered capture overrides; non-static widgets remain explicit placeholders. A missing legacy source is reported, never silently replaced with sanitized markup. **Audit & source** exposes both source paths and both HTML versions.
 - The simulator canvas remains stacked with no portal JavaScript. Clean view can run the existing vanilla Main View migration against the legacy DOM if DOM and Scripts are selected. Original scripts, inline event handlers, embedded frames, and live form/navigation behavior remain disabled. The new header's grad-admissions.js is not loaded with legacy markup.
@@ -193,7 +193,7 @@ Open **Module library** from the simulator, or visit **`/modules/`**. It lists a
 - Search by module name, original name, class, or part ID; filter by portal view and component class. Previous/Next follows the filtered list.
 - Legacy and Modern appear in separate iframe documents. Choose fit, 390px, 768px, or 1200px widths; wider canvases scroll horizontally without scaling the content. Open either preview in its own tab to use browser DevTools.
 - Legacy loads the Slate/Northeastern CSS environment, the owning view's primary legacy Styles module, and the selected module's original styles and classes. Modern loads the same base environment plus the current compiled grad admissions CSS and current module classes. Legacy does not load grad admissions CSS.
-- Source panels expose and copy the exact source files. Modern also exposes effective preview HTML for shared header/footer replacements or captures. Source paths show where to edit. The applied-styles list identifies inherited legacy sources, stylesheet URLs, and load failures.
+- Source panels expose and copy the exact source files. Modern also exposes effective preview HTML for rendered captures. Source paths show where to edit. The applied-styles list identifies inherited legacy sources, stylesheet URLs, and load failures.
 - Related modules lists every match across views by component class or normalized module name, with the reason for each match. Generic layout, JavaScript, and mobile markers are excluded. Select a component class to browse that entire family one module at a time.
 - Selection, filters, and canvas width are recorded in the URL for bookmarks. The library does not change the full-view simulator's saved selections.
 
@@ -212,3 +212,7 @@ Standard links in the individual module library open in a new tab. Relative page
 ### Website design references
 
 Open `/references/` from the simulator or module library to review 40 Northeastern graduate website captures from September 17, 2026. Search matches page titles, URLs, and section headings; page-type filters narrow the list. Select a screenshot to inspect the full page at panel width or its original 1440px width. The `?page=` URL preserves the selected reference. Original images and existing lightweight thumbnails are stored under `src/references/` and copied into the build, so the gallery does not depend on the external scrape directory. Website links open the current live page; screenshots remain historical references.
+
+### FCE tracker redesign
+
+The modern FCE Evaluation Status tracker variants keep their original tables, four-/five-cell branches, and state classes (`complete`, `current`, `current_add`, and pending classes). Their labels and active descriptions use the September 4 FCE PDF copy. Styling lives in `src/scss/_fce-tracker.scss`: completed checkmarks, a red current marker, staggered entrance, smooth state-color transitions, a vertical layout below 580px container width, and reduced-motion support. Legacy exports remain unchanged. The PDF's bin/checklist eligibility rules still require configuration in Slate; this visual update does not implement or infer those rules.

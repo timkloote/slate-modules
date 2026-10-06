@@ -2,7 +2,6 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, readdirSync } from 'node:fs';
 import { inventory, escapeHtml } from '../scripts/simulator.js';
-import { component } from '../scripts/components.js';
 
 test('audit maps every imported file exactly once and keeps IDs and ordering', () => {
  const data=inventory();
@@ -31,10 +30,10 @@ test('captured subset resolves only to existing Main View parts', () => {
  for(const id of capturedParts['main-view'])assert.ok(main.modules.some(m=>m.partId===id));
 });
 
-test('header/footer substitutions are conditional and preserve source Liquid', () => {
+test('previews use module sources and preserve source Liquid', () => {
  const {views}=inventory();
  for(const view of views)for(const m of view.modules) {
-  if(m.replacement&&!m.hasFixture)assert.equal(m.html,component(`${m.replacement}.html`).replaceAll('src="images/','src="/images/'));
+  assert.equal(m.replacement,null);
   if(!m.replacement&&!m.hasFixture)assert.equal(m.html,m.sourceHtml);
  }
  assert.equal(views.find(v=>v.slug==='fce-evaluation-status').modules.some(m=>m.replacement),false);

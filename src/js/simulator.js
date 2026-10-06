@@ -73,7 +73,7 @@ async function initSimulator() {
   function select(ids) {selected=new Set(ids);for(const {check,module} of cards)check.checked=selected.has(module.partId);updatePreview();}
   function updatePreview() {
     const legacy=$('module-source').value==='legacy';
-    $('view-summary').textContent=`${view.modules.length} audited parts · ${legacy ? 'Legacy originals (captures and shared replacements off)' : 'Sanitized modules (captures and shared replacements on)'}`;
+    $('view-summary').textContent=`${view.modules.length} audited parts · ${legacy ? 'Legacy module sources (captures off)' : 'Sanitized module sources (captures on)'}`;
     for(const {module,meta} of cards) meta.textContent=`${module.status} · ${module.type} · ${legacy ? (!module.legacySource ? 'Missing legacy file' : module.type!=='Static Content' ? 'Widget markup unavailable' : 'Legacy original') : module.needsCapture ? 'Needs capture' : module.hasFixture ? 'Captured markup' : 'Sanitized'}`;
     try {
       localStorage.setItem(key,JSON.stringify([...selected]));

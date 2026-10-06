@@ -1,22 +1,22 @@
 /* Existing Slate table cells and the landing-page list share the same design.
    State remains supplied by Slate; CSS never advances an applicant's progress. */
 .status-tracker, .fce-tracker {
-  --tracker-ink: #172c28;
-  --tracker-done: #17634c;
-  --tracker-red: #c8102e;
-  --tracker-line: #dce3e0;
+  --tracker-ink: #000;
+  --tracker-done: #000;
+  --tracker-current: var(--red);
+  --tracker-line: #ddd;
   container-type: inline-size;
-  color: #202b28;
+  color: #000;
 }
 .part.status-tracker {
   padding: clamp(1rem, 3vw, 2rem);
-  border: 1px solid #e0e6e3;
-  border-radius: 16px;
+  border: 1px solid #e3e3e3;
+  border-radius: 0;
   background: #fff;
-  box-shadow: 0 6px 28px rgb(20 40 30 / 5%);
+  box-shadow: none;
 }
 .fce-tracker { padding-block: 3rem; }
-.fce-tracker h2 { margin: 0 0 2rem; font-size: 1.5rem; }
+.fce-tracker h2 { margin: 0 0 2rem; }
 .status-tracker > table, .fce-tracker__steps {
   width: 100%;
   border: 0;
@@ -35,9 +35,9 @@
   isolation: isolate;
 }
 .status-tracker td, .fce-tracker__step {
-  --step-color: #697670;
+  --step-color: #666;
   --step-bg: #fff;
-  --step-border: #c1ccc6;
+  --step-border: #ccc;
   --step-line: var(--tracker-line);
   position: relative;
   display: flex;
@@ -49,13 +49,18 @@
   border: 0;
   border-radius: 0;
   background: transparent;
-  color: #53605a;
+  color: #555;
   text-align: center;
   vertical-align: top;
   counter-increment: tracker-step;
-  animation: tracker-arrive 600ms ease-out both;
   transition: color 350ms ease, background-color 350ms ease;
-  @for $i from 1 through 5 { &:nth-child(#{$i}) { animation-delay: #{($i - 1) * 75}ms; } }
+  @for $i from 1 through 5 {
+    &:nth-child(#{$i}) {
+      z-index: #{6 - $i};
+      --connector-delay: #{max(0, $i - 2) * 650 + 200}ms;
+      --node-delay: #{max(0, $i - 1) * 650}ms;
+    }
+  }
 }
 .status-tracker td::before, .fce-tracker__node {
   content: counter(tracker-step);
@@ -73,6 +78,8 @@
   background: var(--step-bg);
   color: var(--step-color);
   font: 600 16px/1 system-ui, sans-serif;
+  animation: tracker-node 300ms ease-out both;
+  animation-delay: var(--node-delay, 0ms);
   transition: background-color 400ms ease, border-color 400ms ease, color 400ms ease, box-shadow 400ms ease;
 }
 .fce-tracker__node::before { content: counter(tracker-step); }
@@ -85,9 +92,9 @@
   width: 100%;
   height: 2px;
   background: var(--step-line);
-  transform-origin: left;
-  animation: tracker-connect 700ms cubic-bezier(.2,.7,.2,1) both;
-  animation-delay: inherit;
+  /* Reveal the full-size stroke in sequence, without scaling its geometry. */
+  animation: tracker-connect 650ms cubic-bezier(.45,0,.55,1) both;
+  animation-delay: var(--connector-delay, 200ms);
   transition: background-color 450ms ease;
 }
 .status-tracker td > strong, .status-tracker td > b, .fce-tracker__label {
@@ -105,15 +112,24 @@
   color: var(--tracker-ink);
 }
 .status-tracker td.complete::before, .fce-tracker__step.is-complete .fce-tracker__node::before { content: '\2713'; font-size: 22px; }
+/* Reveal completed checks in sequence with a brief settling motion. */
+.status-tracker td.complete::before,
+.fce-tracker__step.is-complete .fce-tracker__node {
+  animation-name: tracker-check;
+  animation-duration: 450ms;
+}
+
 .status-tracker td:is(.current, .current_add), .fce-tracker__step.is-current {
   --step-color: #fff;
-  --step-bg: var(--tracker-red);
-  --step-border: var(--tracker-red);
+  --step-bg: var(--tracker-current);
+  --step-border: var(--tracker-current);
   --step-line: var(--tracker-done);
-  color: #97102a;
+  color: var(--tracker-current);
 }
 .status-tracker td:is(.current, .current_add)::before, .fce-tracker__step.is-current .fce-tracker__node {
-  box-shadow: 0 0 0 6px #fff, 0 0 0 8px rgb(200 16 46 / 20%);
+  box-shadow: 0 0 0 4px #fff, 0 0 0 5px var(--tracker-current);
+  animation: tracker-node 300ms ease-out both, tracker-current-pulse 2s ease-in-out infinite;
+  animation-delay: var(--node-delay, 0ms), calc(var(--node-delay, 0ms) + 300ms);
 }
 .status-tracker td:is(.current, .current_add) > :is(strong, b)::after,
 .fce-tracker__step.is-current .fce-tracker__label::after {
@@ -127,19 +143,19 @@
 }
 .status-tracker > p, .status-tracker > em, .fce-tracker__description {
   display: block;
-  margin: 1.25rem 0 0;
+  margin: 1.25rem 0 1rem;
   padding: 1.25rem 1.5rem;
-  border: 1px solid #e6eae7;
+  border: 1px solid #e3e3e3;
   border-left: 3px solid var(--tracker-done);
-  border-radius: 0 10px 10px 0;
-  background: #f5f8f6;
-  color: #34443c;
+  border-radius: 0;
+  background: #f5f5f5;
+  color: #333;
   font: 400 .9375rem/1.65 system-ui, sans-serif;
-  text-align: left;
+  text-align: center;
   strong, em { font: inherit; }
 }
 .status-tracker:has(.current, .current_add) > :is(p, em),
-.fce-tracker:has(.is-current) .fce-tracker__description { border-left-color: var(--tracker-red); }
+.fce-tracker:has(.is-current) .fce-tracker__description { border-left-color: var(--tracker-current); }
 @container (max-width: 580px) {
   .status-tracker tr, .fce-tracker__steps { grid-auto-flow: row; grid-template-columns: minmax(0, 1fr); }
   .status-tracker td, .fce-tracker__step {
@@ -155,12 +171,25 @@
   .status-tracker td > strong, .status-tracker td > b, .fce-tracker__label { padding-top: .6rem; max-width: none; text-wrap: initial; }
   .status-tracker td:not(:first-child)::after, .fce-tracker__step:not(:first-child)::after {
     left: 21px; right: auto; top: -32px; width: 2px; height: 32px;
-    animation-name: tracker-connect-vertical; transform-origin: top;
+    animation-name: tracker-connect-vertical;
   }
 }
-@keyframes tracker-arrive { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
-@keyframes tracker-connect { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-@keyframes tracker-connect-vertical { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes tracker-current-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 4px #fff, 0 0 0 5px var(--tracker-current), 0 0 0 5px rgb(212 27 44 / 0);
+  }
+  50% {
+    box-shadow: 0 0 0 4px #fff, 0 0 0 5px var(--tracker-current), 0 0 0 11px rgb(212 27 44 / 0.16);
+  }
+}
+@keyframes tracker-check {
+  0% { opacity: 0; transform: scale(.65) rotate(-12deg); }
+  70% { opacity: 1; transform: scale(1.08) rotate(0); }
+  100% { opacity: 1; transform: scale(1) rotate(0); }
+}
+@keyframes tracker-node { from { opacity: 0; } to { opacity: 1; } }
+@keyframes tracker-connect { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+@keyframes tracker-connect-vertical { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
 @media (prefers-reduced-motion: reduce) {
   .status-tracker td, .status-tracker td::before, .status-tracker td::after,
   .fce-tracker__step, .fce-tracker__step::after, .fce-tracker__node {

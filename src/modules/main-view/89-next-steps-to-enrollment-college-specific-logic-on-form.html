@@ -2,6 +2,365 @@
 Module: 89. Next Steps to Enrollment (College-Specific Logic on Form)
 Proposed Slate class names: col-left form-widget
 -->
-<body>
-Next Steps to Enrollment (College-Specific Logic on Form) Form Module
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title></title>
+  </head>
+  <body>
+<div id="form_92af3041-16c7-4300-9f01-b09edc8f8fd0" class="form_container"><script>/*<![CDATA[*/if (window['formEmbedHandler_https://enroll.northeastern.edu'] == null) { window.addEventListener('message', function(event) { if (event.origin == 'https://enroll.northeastern.edu' && event.data != null && event.data.xdm == true && event.data.query != null && event.data.query['embedElement'] != null && event.data.html != null) { try { if (event.data.type == 'script') eval(event.data.html); else { const embedElement = FW.$('#' + event.data.query['embedElement']); FW.$(window).scrollTop(event.data.query['embed'] != null ? embedElement.offset().top : 0); embedElement.html(event.data.html); } } catch(ex) { } FW.Progress.Unload(); } }, false); window['formEmbedHandler_https://enroll.northeastern.edu'] = true; }/*]]>*/</script><div id="form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b"><form enctype="multipart/form-data" id="form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container" method="post" data-page="1" data-page-count="1" data-embed="form_92af3041-16c7-4300-9f01-b09edc8f8fd0" action="https://enroll.northeastern.edu/register/form?id=13b0a4e6-0dd8-4995-885f-85fbeef19c1b&amp;person=da15b93d-b0de-4fae-a980-7ed9eff5499f&amp;embed=form_92af3041-16c7-4300-9f01-b09edc8f8fd0&amp;cmd=submit&amp;output=xdm&amp;embedElement=form_92af3041-16c7-4300-9f01-b09edc8f8fd0" novalidate="novalidate" data-fw-form="1" autocomplete="off" data-ready="1"><style>/*<![CDATA[*//* Hide submit button and "successfully saved" message." */
+
+/* #form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container > div.action.form_action > button.default.form_button_submit {
+display: none!important;} */
+
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .success {display: none !important;}
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container #form_response_banner {display: none !important;}
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container #form_question_17d9b9e9-1cbf-4576-9d42-a8ea43c02e82 {font-size: 24px !important;}
+
+/* Borrowed from Old Form */
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .collapse:not(.show) {visibility: collapse;}
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .collapse.show {visibility: visible;}
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .form_question.form_p {margin: 0 !important;}
+
+/* New CSS */
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container a {text-decoration: underline !important;} //This force-underlines all hyperlinks.
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .form_response {margin-left: 50px; font-size: 18px !important; font-style: italic !important;} // Moves checkbox over.
+// #form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .nste_header {font-weight: bold !important;}
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .panel_p {margin-top: 10px; margin-bottom: 10px; font-size: 18px !important;}
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .panel_ol li {list-style: decimal !important; margin-left:40px !important; font-size: 18px;}
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .panel_ul li {list-style: initial !important; margin-left:40px !important; font-size: 18px;}
+
+/* Formatting for Canada module */
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .canada_p {font-style: italic !important; font-size:18px;}
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .canada_ul li {list-style: initial !important; margin-left:40px !important; font-size: 18px;}
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .canada_ol li {list-style: decimal !important; margin-left:40px !important; font-size: 18px;}
+
+/* Formatting for accordion items. */
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .accordion {
+  font-family: 'Lato' !important;
+  background-color: #f2f2f2;
+  /* color: #444 */
+  cursor: pointer;
+  padding: 5px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 18px;
+  transition: 0.4s;
+  /* font-weight: 500 !important; */
+}
+
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .active, .accordion:hover {
+  background-color: #eee !important;
+}
+
+/* This controls the + icon at the end of each accordion item. */
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .accordion:after {
+  content: "\002B";
+  float: right;
+  margin-left: 5px;
+}
+
+/* This controls the - icon at the end of each accordion item. */
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .active:after {
+  content: "\2212";
+}
+
+
+#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container .panel {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  border: 1px black;
+}/*]]>*/</style><input name="id" type="hidden" value="13b0a4e6-0dd8-4995-885f-85fbeef19c1b"><input name="referrer" type="hidden" value="https://enroll.northeastern.edu/portal/app_status_sandbox"><input name="pid" type="hidden" value="2fK2lEypoN3-clptwrxKvYjQkwS17wJYyO40QE8OJGub93V8nb8_Em0uvGS1PN5UefJN65cSscs-ZgscZ-vBiE7WFqi2xrS-8dWLsJXVcdA"><input id="form_manage" type="hidden" value="1"><input id="round" type="hidden" value=""><div id="form_start"></div><div class="error hidden" id="form_92af3041-16c7-4300-9f01-b09edc8f8fd0_error"></div><div><script>/*<![CDATA[*/new function($) { const renderForm = function() { const form = window['Form'] = window['form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b'] = new FormFiller($('#form_page_13b0a4e6-0dd8-4995-885f-85fbeef19c1b')); form.initializeFieldLimits(); try {
+/* Borrowed from Old Form */
+$("button.form_button_save").addClass("default");
+$(".form_button_submit").text("Save Progress");
+
+/* Accordion script. */
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
+
+let condition_ac80692d26d842d6b2184054297d52f4 = function() {
+let condition = !((false) && (false) || (false) || (false) || (false) || (false));
+let question = form.getSectionById('ac80692d-26d8-42d6-b218-4054297d52f4');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_ac80692d26d842d6b2184054297d52f4);
+let condition_a7270c185717429db465a739856c60d8 = function() {
+let condition = (true);
+let question = form.getSectionById('a7270c18-5717-429d-b465-a739856c60d8');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_a7270c185717429db465a739856c60d8);
+let condition_5ab26db9dae34b5695daaffe399d55cd = function() {
+let condition = (false);
+let question = form.getSectionById('5ab26db9-dae3-4b56-95da-affe399d55cd');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_5ab26db9dae34b5695daaffe399d55cd);
+let condition_8995c060ef124bbf80e4047eb0501f33 = function() {
+let condition = (false) && (true);
+let question = form.getSectionById('8995c060-ef12-4bbf-80e4-047eb0501f33');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_8995c060ef124bbf80e4047eb0501f33);
+let condition_4687c0501c924b90bd5f315261d8c04b = function() {
+let condition = (false) && !(true) && (false);
+let question = form.getSectionById('4687c050-1c92-4b90-bd5f-315261d8c04b');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_4687c0501c924b90bd5f315261d8c04b);
+let condition_724e39422d5547d49005eb0dcf46ba7b = function() {
+let condition = (false);
+let question = form.getSectionById('724e3942-2d55-47d4-9005-eb0dcf46ba7b');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_724e39422d5547d49005eb0dcf46ba7b);
+let condition_3224d637e34340b29440c27b21274dc0 = function() {
+let condition = (true);
+let question = form.getSectionById('3224d637-e343-40b2-9440-c27b21274dc0');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_3224d637e34340b29440c27b21274dc0);
+let condition_23aa6003004145d88c6a1527332e8ba7 = function() {
+let condition = (true) && ((false) || (false) && (true));
+let question = form.getSectionById('23aa6003-0041-45d8-8c6a-1527332e8ba7');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_23aa6003004145d88c6a1527332e8ba7);
+let condition_421879f81fbf449fb5fdc607ed3c03e4 = function() {
+let condition = !(true) && !(false) && !(false) && !(false) && !(false);
+let question = form.getSectionById('421879f8-1fbf-449f-b5fd-c607ed3c03e4');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_421879f81fbf449fb5fdc607ed3c03e4);
+let condition_ca3d6d6360f2425aaf3fd32a1ec41fec = function() {
+let condition = (false) && ((false) || (false) && (true)) && (true) && (true);
+let question = form.getSectionById('ca3d6d63-60f2-425a-af3f-d32a1ec41fec');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_ca3d6d6360f2425aaf3fd32a1ec41fec);
+let condition_5307e826a05e4bb299dbdc7db0801f9d = function() {
+let condition = (false) && (true) && (true);
+let question = form.getSectionById('5307e826-a05e-4bb2-99db-dc7db0801f9d');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_5307e826a05e4bb299dbdc7db0801f9d);
+let condition_3ca285f4b4e44568aa6e7f9648a51a5a = function() {
+let condition = (false) && (true) && (true);
+let question = form.getSectionById('3ca285f4-b4e4-4568-aa6e-7f9648a51a5a');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_3ca285f4b4e44568aa6e7f9648a51a5a);
+let condition_05bd8a8bf64c4ff4991c84366cc13df4 = function() {
+let condition = (false) && (true);
+let question = form.getQuestionById('05bd8a8b-f64c-4ff4-991c-84366cc13df4');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_05bd8a8bf64c4ff4991c84366cc13df4);
+let condition_5b17c5a5b6f8470782f97c4038905bdd = function() {
+let condition = (false);
+let question = form.getQuestionById('5b17c5a5-b6f8-4707-82f9-7c4038905bdd');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_5b17c5a5b6f8470782f97c4038905bdd);
+let condition_6b6e6f67595c43178bd807debb3c1e77 = function() {
+let condition = (false);
+let question = form.getQuestionById('6b6e6f67-595c-4317-8bd8-07debb3c1e77');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_6b6e6f67595c43178bd807debb3c1e77);
+let condition_15fa4cb10bdc4fc8b7efe6be072333de = function() {
+let condition = (false);
+let question = form.getQuestionById('15fa4cb1-0bdc-4fc8-b7ef-e6be072333de');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_15fa4cb10bdc4fc8b7efe6be072333de);
+let condition_491c92e0a85f497f93cf77bd7f772a4f = function() {
+let condition = (false);
+let question = form.getQuestionById('491c92e0-a85f-497f-93cf-77bd7f772a4f');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_491c92e0a85f497f93cf77bd7f772a4f);
+let condition_ac511d24e72a4589a17b17101b97a838 = function() {
+let condition = (false) && (true);
+let question = form.getQuestionById('ac511d24-e72a-4589-a17b-17101b97a838');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_ac511d24e72a4589a17b17101b97a838);
+let condition_96e62e06641e457781ac61e5f3db6649 = function() {
+let condition = (false) && (false);
+let question = form.getQuestionById('96e62e06-641e-4577-81ac-61e5f3db6649');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_96e62e06641e457781ac61e5f3db6649);
+let condition_bb12c84b958d47bc9cfa984b74bce600 = function() {
+let condition = (false) && (false);
+let question = form.getQuestionById('bb12c84b-958d-47bc-9cfa-984b74bce600');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_bb12c84b958d47bc9cfa984b74bce600);
+let condition_3b756b303a1a45039f8ed2d3d701a12c = function() {
+let condition = (false);
+let question = form.getQuestionById('3b756b30-3a1a-4503-9f8e-d2d3d701a12c');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_3b756b303a1a45039f8ed2d3d701a12c);
+let condition_bd32534cd7d340359a550fa359a14282 = function() {
+let condition = (true) && (true) && ((true) || (false));
+let question = form.getQuestionById('bd32534c-d7d3-4035-9a55-0fa359a14282');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_bd32534cd7d340359a550fa359a14282);
+let condition_f055d4420ea44c408d6b871b9914a6cb = function() {
+let condition = (true) && (false) && ((true) || (false));
+let question = form.getQuestionById('f055d442-0ea4-4c40-8d6b-871b9914a6cb');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_f055d4420ea44c408d6b871b9914a6cb);
+let condition_29e26b18a361406db38d5dc8d27f58f0 = function() {
+let condition = (false);
+let question = form.getQuestionById('29e26b18-a361-406d-b38d-5dc8d27f58f0');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_29e26b18a361406db38d5dc8d27f58f0);
+let condition_4858125de449464ba51a9525e0c8bd59 = function() {
+let condition = (true);
+let question = form.getQuestionById('4858125d-e449-464b-a51a-9525e0c8bd59');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_4858125de449464ba51a9525e0c8bd59);
+let condition_a12de399e329437a835eb08faf14d215 = function() {
+let condition = (true);
+let question = form.getQuestionById('a12de399-e329-437a-835e-b08faf14d215');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_a12de399e329437a835eb08faf14d215);
+let condition_3bc8e2283a8b46ae8afb77c4198fab86 = function() {
+let condition = (false);
+let question = form.getQuestionById('3bc8e228-3a8b-46ae-8afb-77c4198fab86');
+question.toggleQuestion(condition);
+form.applyConditionalLogicRecursive(question);
+};
+form.appendServerLogic(condition_3bc8e2283a8b46ae8afb77c4198fab86);
+form.conditionalPromptConfig = 
+[{"field":"17d9b9e9-1cbf-4576-9d42-a8ea43c02e82","conditions":[{"prompts":["Send Your Official English Language Test Scores (DMSB)"],"condition":function(form) {
+return (false);
+}},{"prompts":["Review Additional Enrollment Information for Canada Campus Students"],"condition":function(form) {
+return (false);
+}},{"prompts":["Apply for Financial Aid"],"condition":function(form) {
+return (true);
+}},{"prompts":["Send Your Official Transcripts (DMSB)"],"condition":function(form) {
+return (false);
+}},{"prompts":["Review Tuition, Fee, and Payment Information"],"condition":function(form) {
+return (true);
+}},{"prompts":["Claim Your Husky ID Card (Online)"],"condition":function(form) {
+return (false);
+}},{"prompts":["Send Your Official Test Scores (DMSB)"],"condition":function(form) {
+return (false);
+}},{"prompts":["Submit Your Non-Refundable Enrollment Deposit"],"condition":function(form) {
+return (true);
+}},{"prompts":["Upload Required Visa Documents"],"condition":function(form) {
+return !(true) && !(false);
+}}]}];
+
+form.appendServerLogic(function() { form.applyConditionalPrompts('17d9b9e9-1cbf-4576-9d42-a8ea43c02e82'); });form.initializeLogic();
+
+
+} catch (ex) { if (console.log) console.log(ex); } form.ready(); }; $(renderForm); }(FW.$);/*]]>*/</script><div class="form_container"><div id="form_page_13b0a4e6-0dd8-4995-885f-85fbeef19c1b"><div class="form_loading hidden" aria-hidden="true">Loading...</div><div class="form_pages" aria-hidden="false"><div id="form_page_1" data-id="13b0a4e6-0dd8-4995-885f-85fbeef19c1b" data-page="1" class="form_page form_page_1" style="clear: left;"><div class="form_question form_p form_question_2fb110a6-49e9-4db2-b778-33248c66744a form_layout_stacked" id="form_question_2fb110a6-49e9-4db2-b778-33248c66744a" style="clear: left;" data-id="2fb110a6-49e9-4db2-b778-33248c66744a" data-type="p"><div class="form_label"><h3>Next Steps to Enrollment</h3></div></div></div><div id="form_page_2" data-id="ac80692d-26d8-42d6-b218-4054297d52f4" data-page="1" class="form_page form_page_2" style="clear: left;" aria-hidden="false"><div class="form_question form_p form_question_b15f2b5c-e8a3-477c-9d6f-f5d597a70789 form_layout_stacked" id="form_question_b15f2b5c-e8a3-477c-9d6f-f5d597a70789" style="clear: left;" data-id="b15f2b5c-e8a3-477c-9d6f-f5d597a70789" data-type="p"><div class="form_label"><button class="accordion nste_header">Submit Your Non-Refundable Enrollment Deposit</button><div class="panel" style=""><p class="panel_p">You must confirm your enrollment to reserve your place in the next class. You can find your enrollment deposit due date in your offer of admission, and you may pay your deposit via your applicant portal. If your status is committed, you do not have a payment due.</p></div></div></div><div class="form_question form_checkbox form_question_6aa6e855-8259-48fe-a351-df3e0e193c5a form_layout_stacked" id="form_question_6aa6e855-8259-48fe-a351-df3e0e193c5a" style="clear: left;" data-id="6aa6e855-8259-48fe-a351-df3e0e193c5a" data-type="checkbox" data-export="sys:app:nste_deposit" data-limit="1"><fieldset id="form_6aa6e855-8259-48fe-a351-df3e0e193c5a" aria-labelledby="form_label-form_6aa6e855-8259-48fe-a351-df3e0e193c5a"><div class="form_label" id="form_label-form_6aa6e855-8259-48fe-a351-df3e0e193c5a"></div><div class="form_responses"><div class="form_response"><input id="form_6aa6e855-8259-48fe-a351-df3e0e193c5a_1" type="checkbox" data-text="I have completed this task." name="form_6aa6e855-8259-48fe-a351-df3e0e193c5a" value="486be3fb-8f36-4cc1-82b0-4c9d954c8b5e" autocomplete="off"><label for="form_6aa6e855-8259-48fe-a351-df3e0e193c5a_1">I have completed this task.</label></div></div></fieldset></div></div><div id="form_page_3" data-id="cab33d64-d4cd-4f99-8632-f2655be8f57e" data-page="1" class="form_page form_page_3" style="clear: left;"></div><div id="form_page_4" data-id="a7270c18-5717-429d-b465-a739856c60d8" data-page="1" class="form_page form_page_4" style="clear: left;" aria-hidden="false"><div class="form_question form_p form_question_c0570eda-a404-406f-bb62-2ea18adcd05d form_layout_stacked" id="form_question_c0570eda-a404-406f-bb62-2ea18adcd05d" style="clear: left;" data-id="c0570eda-a404-406f-bb62-2ea18adcd05d" data-type="p"><div class="form_label"><button class="accordion nste_header">Complete Your Official Admissions File</button><div class="panel" style=""><p class="panel_p">
+    Visit your College admissions website for related instructions. Instructions or related links may also appear on your official letter of acceptance. Generally, new students should arrange to send to Northeastern University their final official transcripts from any previous universities attended, and official test scores, if required.
+  </p><p class="panel_p">
+    The following website and instructions may be a useful reference:
+  </p><p class="panel_p" style="margin-left: 40px;"><a href="https://www.khoury.northeastern.edu/information-for-overview/current-masters-and-certificate-students/new-students-masters/" target="_blank">www.khoury.northeastern.edu/information-for-overview/current-masters-and-certificate-students/new-students-masters/</a></p><p class="panel_p" style="margin-left: 40px;">
+    Reference the following section: <strong>Sending your official transcripts</strong></p><p class="panel_p">
+    When arranging to send your official transcripts to Northeastern, write or reference the following unique Application ID Number on your university transcript request:
+  </p><p class="panel_p" style="margin-left: 40px;"><span style="font-weight: bold !important;">Applicant ID: 809522998</span></p><p class="panel_p">
+    The above ID or Identification number is unique to you and will be used to help match your incoming documents to your official admissions file record.
+  </p></div></div></div><div class="form_question form_checkbox form_question_9f689844-5475-4bbe-8756-830441b40248 form_layout_stacked" id="form_question_9f689844-5475-4bbe-8756-830441b40248" style="clear: left;" data-id="9f689844-5475-4bbe-8756-830441b40248" data-type="checkbox" data-export="sys:app:nste_file" data-limit="1"><fieldset id="form_9f689844-5475-4bbe-8756-830441b40248" aria-labelledby="form_label-form_9f689844-5475-4bbe-8756-830441b40248"><div class="form_label" id="form_label-form_9f689844-5475-4bbe-8756-830441b40248"></div><div class="form_responses"><div class="form_response"><input id="form_9f689844-5475-4bbe-8756-830441b40248_1" type="checkbox" data-text="I have completed this task." name="form_9f689844-5475-4bbe-8756-830441b40248" value="486be3fb-8f36-4cc1-82b0-4c9d954c8b5e" autocomplete="off"><label for="form_9f689844-5475-4bbe-8756-830441b40248_1">I have completed this task.</label></div></div></fieldset></div></div><div id="form_page_5" data-id="d0f15cae-714c-4755-b30e-19985d207fe3" data-page="1" class="form_page form_page_5" style="clear: left;"></div><div id="form_page_6" data-id="5ab26db9-dae3-4b56-95da-affe399d55cd" data-page="1" class="form_page form_page_6 hidden" style="clear: left;" data-hidden-by-condition="1" aria-hidden="true"><div class="form_question form_p form_question_e1d0bd72-2407-4b3b-bd1e-e587f565c872 form_layout_stacked" id="form_question_e1d0bd72-2407-4b3b-bd1e-e587f565c872" style="clear: left;" data-id="e1d0bd72-2407-4b3b-bd1e-e587f565c872" data-type="p"><div class="form_label"><button class="accordion nste_header" disabled="">Send Your Official Transcripts</button><div class="panel"><p class="panel_p">
+    If you applied to D'Amore-McKim with unofficial or scanned copies of your transcripts, remember to request your official documents be sent to us. We accept official transcripts from the National Student Clearinghouse (<a href="http://www.studentclearinghouse.org" target="_blank">www.studentclearinghouse.org</a>), Parchment (<a href="http://www.parchment.com" target="_blank">www.parchment.com</a>), and eSCRIP-SAFE (<a href="http://www.escrip-safe.com">www.escrip-safe.com</a>). You can request to have your transcript emailed to us at <a href="mailto:gradbusiness@northeastern.edu" target="_blank">gradbusiness@northeastern.edu</a>, or select your program name through each service. Official transcripts are not required for former or current Northeastern students.<br><br>Parchment Program Name: Northeastern University, D’Amore-McKim School of Business<br>
+    National Student Clearinghouse Program Name: Northeastern University-D’Amore-McKim Grad Programs<br><br>If your academic work was completed outside the U.S., you'll submit your documents through Northeastern's Foreign Credential Evaluation (FCE) process. Simply upload your official transcripts and, if applicable, proof of degree conferral from every post-secondary institution you attended. Our team will review them to determine U.S. equivalency. View the full details on our dedicated webpage: <a href="https://northeastern.my.site.com/GraduateAdmissionsFAQ/s/article/What-documents-are-required-for-a-credential-evaluation" target="_blank">What documents are required for a credential evaluation?</a><br><br></p></div></div></div><div class="form_question form_checkbox form_question_b1540b0f-de71-47eb-a4c3-45d1e32250ce form_layout_stacked" id="form_question_b1540b0f-de71-47eb-a4c3-45d1e32250ce" style="clear: left;" data-id="b1540b0f-de71-47eb-a4c3-45d1e32250ce" data-type="checkbox" data-export="sys:app:nste_transcripts" data-limit="1"><fieldset id="form_b1540b0f-de71-47eb-a4c3-45d1e32250ce" aria-labelledby="form_label-form_b1540b0f-de71-47eb-a4c3-45d1e32250ce" disabled=""><div class="form_label" id="form_label-form_b1540b0f-de71-47eb-a4c3-45d1e32250ce"></div><div class="form_responses"><div class="form_response"><input id="form_b1540b0f-de71-47eb-a4c3-45d1e32250ce_1" type="checkbox" data-text="I have completed this task." name="form_b1540b0f-de71-47eb-a4c3-45d1e32250ce" value="486be3fb-8f36-4cc1-82b0-4c9d954c8b5e" autocomplete="off" disabled=""><label for="form_b1540b0f-de71-47eb-a4c3-45d1e32250ce_1">I have completed this task.</label></div></div></fieldset></div></div><div id="form_page_7" data-id="8995c060-ef12-4bbf-80e4-047eb0501f33" data-page="1" class="form_page form_page_7 hidden" style="clear: left;" data-hidden-by-condition="1" aria-hidden="true"><div class="form_question form_p form_question_2ccf79e4-947c-4ca3-af4e-c11da13c9375 form_layout_stacked" id="form_question_2ccf79e4-947c-4ca3-af4e-c11da13c9375" style="clear: left;" data-id="2ccf79e4-947c-4ca3-af4e-c11da13c9375" data-type="p"><div class="form_label"><button class="accordion nste_header" disabled="">Send Your Official Test Scores</button><div class="panel"><p class="panel_p">Northeastern University's D'Amore-McKim School of Business is currently test-optional and does not require applicants to submit GRE or GMAT scores. For more information, review our admissions policies.<br><br>
+If you applied to D’Amore-McKim with unofficial or scanned copies of your GMAT or GRE test score, remember to request that your official documents be sent to us. We accept official GMAT transcripts from the Graduate Management Admission Council (<a href="http://www.mba.com" target="_blank">www.mba.com</a>) and GRE scores through ETS (<a href="http://www.ets.org/gre.html" target="_blank">www.ets.org/gre.html</a>).<br><br>
+To find your D'Amore-McKim program codes, please visit our graduate program's <a href="https://damore-mckim.northeastern.edu/admissions/faq/" target="_blank">FAQ page</a>.</p></div></div></div><div class="form_question form_checkbox form_question_fd34693b-6d48-43fa-b17a-2ff0db55e863 form_layout_stacked" id="form_question_fd34693b-6d48-43fa-b17a-2ff0db55e863" style="clear: left;" data-id="fd34693b-6d48-43fa-b17a-2ff0db55e863" data-type="checkbox" data-export="sys:app:nste_scores" data-limit="1"><fieldset id="form_fd34693b-6d48-43fa-b17a-2ff0db55e863" aria-labelledby="form_label-form_fd34693b-6d48-43fa-b17a-2ff0db55e863" disabled=""><div class="form_label" id="form_label-form_fd34693b-6d48-43fa-b17a-2ff0db55e863"></div><div class="form_responses"><div class="form_response"><input id="form_fd34693b-6d48-43fa-b17a-2ff0db55e863_1" type="checkbox" data-text="I have completed this task." name="form_fd34693b-6d48-43fa-b17a-2ff0db55e863" value="486be3fb-8f36-4cc1-82b0-4c9d954c8b5e" autocomplete="off" disabled=""><label for="form_fd34693b-6d48-43fa-b17a-2ff0db55e863_1">I have completed this task.</label></div></div></fieldset></div></div><div id="form_page_8" data-id="4687c050-1c92-4b90-bd5f-315261d8c04b" data-page="1" class="form_page form_page_8 hidden" style="clear: left;" data-hidden-by-condition="1" aria-hidden="true"><div class="form_question form_p form_question_8d2c2b6b-818f-45db-a555-3ad301542efe form_layout_stacked" id="form_question_8d2c2b6b-818f-45db-a555-3ad301542efe" style="clear: left;" data-id="8d2c2b6b-818f-45db-a555-3ad301542efe" data-type="p"><div class="form_label"><button class="accordion nste_header" disabled="">Send Your Official English Language Test Scores</button><div class="panel"><p class="panel_p">If you applied to D’Amore-McKim with unofficial or scanned copies of an English language proficiency test score, remember to request that your official documents be sent to us. We accept English language proficiency test scores from TOEFL iBT® (<a href="http://www.toefl.org" target="_blank">http://www.toefl.org</a>), IELTS (<a href="http://www.ielts.org" target="_blank">http://www.ielts.org</a>), Duolingo (<a href="http://englishtest.duolingo.com" target="_blank">http://englishtest.duolingo.com</a>), and PTE Academic (<a href="http://www.pearsonpte.com" target="_blank">http://www.pearsonpte.com</a>).</p></div></div></div><div class="form_question form_checkbox form_question_4df33f3d-7e99-4564-bfda-6c9eed618560 form_layout_stacked" id="form_question_4df33f3d-7e99-4564-bfda-6c9eed618560" style="clear: left;" data-id="4df33f3d-7e99-4564-bfda-6c9eed618560" data-type="checkbox" data-export="sys:app:nste_english" data-limit="1"><fieldset id="form_4df33f3d-7e99-4564-bfda-6c9eed618560" aria-labelledby="form_label-form_4df33f3d-7e99-4564-bfda-6c9eed618560" disabled=""><div class="form_label" id="form_label-form_4df33f3d-7e99-4564-bfda-6c9eed618560"></div><div class="form_responses"><div class="form_response"><input id="form_4df33f3d-7e99-4564-bfda-6c9eed618560_1" type="checkbox" data-text="I have completed this task." name="form_4df33f3d-7e99-4564-bfda-6c9eed618560" value="486be3fb-8f36-4cc1-82b0-4c9d954c8b5e" autocomplete="off" disabled=""><label for="form_4df33f3d-7e99-4564-bfda-6c9eed618560_1">I have completed this task.</label></div></div></fieldset></div></div><div id="form_page_9" data-id="0ac41e76-0484-4fe4-a9e1-6b22fde9249e" data-page="1" class="form_page form_page_9" style="clear: left;"><div class="form_question form_p form_question_29e26b18-a361-406d-b38d-5dc8d27f58f0 form_layout_stacked hidden" id="form_question_29e26b18-a361-406d-b38d-5dc8d27f58f0" style="clear: left;" data-id="29e26b18-a361-406d-b38d-5dc8d27f58f0" data-type="p" data-hidden-by-condition="1" aria-hidden="true"><div class="form_label"><button class="accordion nste_header" disabled="">Claim Your Northeastern Student Account</button><div class="panel"><p class="panel_p">Claim your myNortheastern online account to set up your Northeastern email address and to gain access to the many University services, systems, and resources you'll use daily as a Northeastern student. You received an email titled “Claim Your Northeastern University Online Account” with instructions and a unique, personalized link.<br><br>
+If you are a current Northeastern University student or previous graduate, you will not need to claim a new Northeastern Student Account. You will continue to use your existing Northeastern University email.<br><br>
+If you need additional support with the account claim process, the IT Service Desk is available 24/7. Call 617.373.HELP [4357] or email <a href="mailto:help@northeastern.edu">help@northeastern.edu</a>.</p></div></div></div><div class="form_question form_p form_question_4858125d-e449-464b-a51a-9525e0c8bd59 form_layout_stacked" id="form_question_4858125d-e449-464b-a51a-9525e0c8bd59" style="clear: left;" data-id="4858125d-e449-464b-a51a-9525e0c8bd59" data-type="p" aria-hidden="false"><div class="form_label"><button class="accordion nste_header">Claim Your Northeastern Student Account</button><div class="panel" style=""><p class="panel_p">
+    Students eligible for a Northeastern online account will receive an automated account claim email 1 business day after decision is published and the claim token is valid for 60 days. Eligibility is based on admission data in university systems. Students can follow the steps below to claim their online account. If you are a current Northeastern University student or previous graduate, you will not need to claim a new Northeastern Student Account. You will continue to use your existing Northeastern University email.<br><br><span style="font-weight: bold !important;">To claim a student account:</span></p><ol class="panel_ol"><li>
+      Open Account Claim email.
+    </li><li>
+      Click on the “Claim your Northeastern online account now” claim token in email.
+    </li><li>
+      Follow the prompt to enroll in Duo, the university’s two-factor authentication provider.
+    </li><li>
+      Complete the “Student Account Claim” form.
+    </li><li>
+      Review and accept the “Northeastern University Appropriate Use Policy”.
+    </li><li>
+      Create a password.
+    </li></ol><p class="panel_p"><span style="font-weight: bold !important;">If you are unable to claim your student account:</span></p><p class="panel_p">
+    There are several reasons why you may not be unable to claim your student account.
+  </p><ul class="panel_ul"><li>
+      University admission data on file indicates that you are not eligible for a myNortheastern account and have not been sent an account claim email.
+    </li><li>
+      You have not accepted the Northeastern University Appropriate Use Policy for Computer Network Resources.
+    </li><li>
+      Your password doesn’t meet the minimum length requirement.
+    </li></ul><p class="panel_p">
+    If you need additional support with the account claim process, the IT Service Desk is available 24/7. Call 617. 373.HELP [4357] or email <u><a href="mailto:help@northeastern.edu">help@northeastern.edu</a></u>.
+  </p></div></div></div><div class="form_question form_checkbox form_question_3ba5c837-7699-4262-84b8-0e894c6d8927 form_layout_stacked" id="form_question_3ba5c837-7699-4262-84b8-0e894c6d8927" style="clear: left;" data-id="3ba5c837-7699-4262-84b8-0e894c6d8927" data-type="checkbox" data-export="sys:app:nste_account" data-limit="1"><fieldset id="form_3ba5c837-7699-4262-84b8-0e894c6d8927" aria-labelledby="form_label-form_3ba5c837-7699-4262-84b8-0e894c6d8927"><div class="form_label" id="form_label-form_3ba5c837-7699-4262-84b8-0e894c6d8927"></div><div class="form_responses"><div class="form_response"><input id="form_3ba5c837-7699-4262-84b8-0e894c6d8927_1" type="checkbox" data-text="I have completed this task." name="form_3ba5c837-7699-4262-84b8-0e894c6d8927" value="486be3fb-8f36-4cc1-82b0-4c9d954c8b5e" autocomplete="off"><label for="form_3ba5c837-7699-4262-84b8-0e894c6d8927_1">I have completed this task.</label></div></div></fieldset></div></div><div id="form_page_10" data-id="3224d637-e343-40b2-9440-c27b21274dc0" data-page="1" class="form_page form_page_10" style="clear: left;" data-export="Apply for Financial Aid" aria-hidden="false"><div class="form_question form_p form_question_a12de399-e329-437a-835e-b08faf14d215 form_layout_stacked" id="form_question_a12de399-e329-437a-835e-b08faf14d215" style="clear: left;" data-id="a12de399-e329-437a-835e-b08faf14d215" data-type="p" aria-hidden="false"><div class="form_label"><button class="accordion nste_header">Apply for Financial Aid</button><div class="panel"><p class="panel_p">If you are interested in utilizing financial aid to help cover the cost of your tuition and other expenses, you may learn about the types of aid available and the eligibility requirements by visiting the Student Financial Services <a href="https://studentfinance.northeastern.edu/" target="_blank">website</a>. You may also learn more information with this <a href="https://studentfinance.northeastern.edu/applying-for-aid/graduate/how-to-apply/" target="_blank">checklist</a>. Students are generally able to borrow up to $20,500 per academic year from the Federal Direct Student Loan program and may be eligible to borrow from additional supplemental loan programs if necessary.</p></div></div></div><div class="form_question form_p form_question_3bc8e228-3a8b-46ae-8afb-77c4198fab86 form_layout_stacked hidden" id="form_question_3bc8e228-3a8b-46ae-8afb-77c4198fab86" style="clear: left;" data-id="3bc8e228-3a8b-46ae-8afb-77c4198fab86" data-type="p" data-hidden-by-condition="1" aria-hidden="true"><div class="form_label"><button class="accordion nste_header" disabled="">Apply for Financial Aid</button><div class="panel"><p class="panel_p">
+    If you are interested in utilizing financial aid to help cover the cost of your tuition and other expenses, you may learn about the types of aid available and the eligibility requirements by visiting the <a href="https://law.northeastern.edu/admissions/jd/financial-aid/">Financing Your Education</a> page.&nbsp;Students are generally able to borrow up to $20,500 per academic year from the Federal Direct Student Loan program and may be eligible to borrow from additional supplemental loan programs if necessary.
+  </p></div></div></div><div class="form_question form_checkbox form_question_4299de91-ec85-451c-9122-80ae27a33d52 form_layout_stacked" id="form_question_4299de91-ec85-451c-9122-80ae27a33d52" style="clear: left;" data-id="4299de91-ec85-451c-9122-80ae27a33d52" data-type="checkbox" data-export="sys:app:nste_finaid" data-limit="1"><fieldset id="form_4299de91-ec85-451c-9122-80ae27a33d52" aria-labelledby="form_label-form_4299de91-ec85-451c-9122-80ae27a33d52"><div class="form_label" id="form_label-form_4299de91-ec85-451c-9122-80ae27a33d52"></div><div class="form_responses"><div class="form_response"><input id="form_4299de91-ec85-451c-9122-80ae27a33d52_1" type="checkbox" data-text="I have completed this task." name="form_4299de91-ec85-451c-9122-80ae27a33d52" value="486be3fb-8f36-4cc1-82b0-4c9d954c8b5e" autocomplete="off"><label for="form_4299de91-ec85-451c-9122-80ae27a33d52_1">I have completed this task.</label></div></div></fieldset></div></div><div id="form_page_11" data-id="23aa6003-0041-45d8-8c6a-1527332e8ba7" data-page="1" class="form_page form_page_11 hidden" style="clear: left;" data-hidden-by-condition="1" aria-hidden="true"><div class="form_question form_p form_question_1a836650-1142-495b-9701-e516c4fbb6eb form_layout_stacked" id="form_question_1a836650-1142-495b-9701-e516c4fbb6eb" style="clear: left;" data-id="1a836650-1142-495b-9701-e516c4fbb6eb" data-type="p"><div class="form_label"><button class="accordion nste_header" disabled="">Review Tuition, Fee, and Payment Information</button><div class="panel"><p class="panel_p">Please complete your <a href="https://studentfinance.northeastern.edu/billing-payments/sfra/" target="_blank">Student Financial Responsibility Agreement</a> (SFRA) via your Student Hub. Visit the link above for instructions on how to complete this form. This is required each year.<br><br>
+For more information related to tuition and fees, billing, and payment methods, visit&nbsp;<a href="https://studentfinance.northeastern.edu/" target="_blank">https://studentfinance.northeastern.edu/</a>.</p></div></div></div><div class="form_question form_checkbox form_question_5716bdb1-cd2d-4f49-b646-b420ddd96415 form_layout_stacked" id="form_question_5716bdb1-cd2d-4f49-b646-b420ddd96415" style="clear: left;" data-id="5716bdb1-cd2d-4f49-b646-b420ddd96415" data-type="checkbox" data-export="sys:app:nste_tuition" data-limit="1"><fieldset id="form_5716bdb1-cd2d-4f49-b646-b420ddd96415" aria-labelledby="form_label-form_5716bdb1-cd2d-4f49-b646-b420ddd96415" disabled=""><div class="form_label" id="form_label-form_5716bdb1-cd2d-4f49-b646-b420ddd96415"></div><div class="form_responses"><div class="form_response"><input id="form_5716bdb1-cd2d-4f49-b646-b420ddd96415_1" type="checkbox" data-text="I have completed this task." name="form_5716bdb1-cd2d-4f49-b646-b420ddd96415" value="486be3fb-8f36-4cc1-82b0-4c9d954c8b5e" autocomplete="off" disabled=""><label for="form_5716bdb1-cd2d-4f49-b646-b420ddd96415_1">I have completed this task.</label></div></div></fieldset></div></div><div id="form_page_12" data-id="421879f8-1fbf-449f-b5fd-c607ed3c03e4" data-page="1" class="form_page form_page_12 hidden" style="clear: left;" data-hidden-by-condition="1" aria-hidden="true"><div class="form_question form_p form_question_5022c891-64b7-47c2-a2d9-2c762e07b951 form_layout_stacked" id="form_question_5022c891-64b7-47c2-a2d9-2c762e07b951" style="clear: left;" data-id="5022c891-64b7-47c2-a2d9-2c762e07b951" data-type="p"><div class="form_label"><button class="accordion nste_header" disabled="">Upload Required Visa Documents</button><div class="panel"><p class="panel_p">After you pay your enrollment deposit, you will receive information on how to submit documentation for the Certificate of Eligibility for Nonimmigrant Student Status (Form I-20 or DS-2019), if applicable.</p><p class="panel_p">All admitted students who will be studying with an F-1 visa will need a Form I-20. Please carefully review the <a href="https://international.northeastern.edu/ogs/new-students/i-20-ds-2019-application/prearrivali20/" target="_blank">following instructions</a>.</p></div></div></div><div class="form_question form_checkbox form_question_0d880ff6-d656-4b34-959d-345be7235d11 form_layout_stacked" id="form_question_0d880ff6-d656-4b34-959d-345be7235d11" style="clear: left;" data-id="0d880ff6-d656-4b34-959d-345be7235d11" data-type="checkbox" data-export="sys:app:nste_visa" data-limit="1"><fieldset id="form_0d880ff6-d656-4b34-959d-345be7235d11" aria-labelledby="form_label-form_0d880ff6-d656-4b34-959d-345be7235d11" disabled=""><div class="form_label" id="form_label-form_0d880ff6-d656-4b34-959d-345be7235d11"></div><div class="form_responses"><div class="form_response"><input id="form_0d880ff6-d656-4b34-959d-345be7235d11_1" type="checkbox" data-text="I have completed this task." name="form_0d880ff6-d656-4b34-959d-345be7235d11" value="486be3fb-8f36-4cc1-82b0-4c9d954c8b5e" autocomplete="off" disabled=""><label for="form_0d880ff6-d656-4b34-959d-345be7235d11_1">I have completed this task.</label></div></div></fieldset></div></div><div id="form_page_13" data-id="ca3d6d63-60f2-425a-af3f-d32a1ec41fec" data-page="1" class="form_page form_page_13 hidden" style="clear: left;" data-hidden-by-condition="1" aria-hidden="true"><div class="form_question form_p form_question_89d3b2fd-63ac-4c72-84ed-8697c48ef580 form_layout_stacked" id="form_question_89d3b2fd-63ac-4c72-84ed-8697c48ef580" style="clear: left;" data-id="89d3b2fd-63ac-4c72-84ed-8697c48ef580" data-type="p"><div class="form_label"><button class="accordion nste_header" disabled="">Review Incoming Health Requirements</button><div class="panel"></div></div></div><div class="form_question form_checkbox form_question_de12f2bd-1cfc-434a-b6bb-3976ca40a901 form_layout_stacked" id="form_question_de12f2bd-1cfc-434a-b6bb-3976ca40a901" style="clear: left;" data-id="de12f2bd-1cfc-434a-b6bb-3976ca40a901" data-type="checkbox" data-export="sys:app:nste_health" data-limit="1"><fieldset id="form_de12f2bd-1cfc-434a-b6bb-3976ca40a901" aria-labelledby="form_label-form_de12f2bd-1cfc-434a-b6bb-3976ca40a901" disabled=""><div class="form_label" id="form_label-form_de12f2bd-1cfc-434a-b6bb-3976ca40a901"></div><div class="form_responses"><div class="form_response"><input id="form_de12f2bd-1cfc-434a-b6bb-3976ca40a901_1" type="checkbox" data-text="I have completed this task." name="form_de12f2bd-1cfc-434a-b6bb-3976ca40a901" value="486be3fb-8f36-4cc1-82b0-4c9d954c8b5e" autocomplete="off" disabled=""><label for="form_de12f2bd-1cfc-434a-b6bb-3976ca40a901_1">I have completed this task.</label></div></div></fieldset></div></div><div id="form_page_14" data-id="5307e826-a05e-4bb2-99db-dc7db0801f9d" data-page="1" class="form_page form_page_14 hidden" style="clear: left;" data-hidden-by-condition="1" aria-hidden="true"><div class="form_question form_p form_question_1d013110-3403-416c-aa4f-9e5eb77e656d form_layout_stacked" id="form_question_1d013110-3403-416c-aa4f-9e5eb77e656d" style="clear: left;" data-id="1d013110-3403-416c-aa4f-9e5eb77e656d" data-type="p"><div class="form_label"><button class="accordion nste_header" disabled="">Claim Your Husky ID Card (Optional)</button><div class="panel"><p class="panel_p">
+    Your Husky Card offers access to on-campus spaces and resources. A Husky Card is <u>optional</u> for online students and can be obtained any time you visit campus. For information about hours and locations, please visit the <a href="https://huskycard.sites.northeastern.edu/">Husky Card Services</a> website.<br><br>
+    If you’d like to request a Husky Card but are not planning a visit to campus, please email <a href="mailto:huskycard@northeastern.edu">huskycard@northeastern.edu</a> for more information about receiving a card by mail.<br><br>
+    For information regarding discounted semester unlimited MBTA passes for the Boston area (September to December or January to April), please visit the <a href="https://huskycard.sites.northeastern.edu/mbta/">Husky Card Services</a> website for deadlines and purchasing instructions.
+  </p></div></div></div><div class="form_question form_checkbox form_question_69cb9714-ec81-4cb1-a9c5-a98f0b49d032 form_layout_stacked" id="form_question_69cb9714-ec81-4cb1-a9c5-a98f0b49d032" style="clear: left;" data-id="69cb9714-ec81-4cb1-a9c5-a98f0b49d032" data-type="checkbox" data-export="sys:app:nste_husky" data-limit="1"><fieldset id="form_69cb9714-ec81-4cb1-a9c5-a98f0b49d032" aria-labelledby="form_label-form_69cb9714-ec81-4cb1-a9c5-a98f0b49d032" disabled=""><div class="form_label" id="form_label-form_69cb9714-ec81-4cb1-a9c5-a98f0b49d032"></div><div class="form_responses"><div class="form_response"><input id="form_69cb9714-ec81-4cb1-a9c5-a98f0b49d032_1" type="checkbox" data-text="I have completed this task – or will do so in-person / at a later time." name="form_69cb9714-ec81-4cb1-a9c5-a98f0b49d032" value="486be3fb-8f36-4cc1-82b0-4c9d954c8b5e" autocomplete="off" disabled=""><label for="form_69cb9714-ec81-4cb1-a9c5-a98f0b49d032_1">I have completed this task – or will do so in-person / at a later time.</label></div></div></fieldset></div></div><div id="form_page_15" data-id="3ca285f4-b4e4-4568-aa6e-7f9648a51a5a" data-page="1" class="form_page form_page_15 hidden" style="clear: left;" data-hidden-by-condition="1" aria-hidden="true"><div class="form_question form_p form_question_9983ca8a-b925-4c29-8532-cce318e2f761 form_layout_stacked" id="form_question_9983ca8a-b925-4c29-8532-cce318e2f761" style="clear: left;" data-id="9983ca8a-b925-4c29-8532-cce318e2f761" data-type="p"><div class="form_label"><button class="accordion nste_header" disabled="">Claim Your Husky ID Card (Optional)</button><div class="panel"><p class="panel_p">
+    Your Husky Card provides access to on-campus spaces and resources. While a Husky Card is optional for online students, any student can obtain one when they visit campus. For hours and locations, please visit the Husky Card Services website.<br><br>
+    If you’d like to request a Husky Card but are not planning a visit to campus, you can email <a href="mailto:huskycard@northeastern.edu" target="_blank">huskycard@northeastern.edu</a> for information on receiving a card by mail. Additionally, you can upload a photo for your Husky Card ahead of time through <a href="https://huskycardcenter.neu.edu/student/welcome.php" target="_blank">the website</a>. Information on photo guidelines can be found <a href="https://huskycard.northeastern.edu/photo-guidelines/" target="_blank">here</a>.<br><br>
+    For information on discounted semester unlimited MBTA passes for the Boston area (September to December or January to April), please visit the Husky Card Services website for deadlines and purchasing instructions.
+  </p></div></div></div><div class="form_question form_checkbox form_question_bee8b29e-7a53-4053-8fc0-7132164991b1 form_layout_stacked" id="form_question_bee8b29e-7a53-4053-8fc0-7132164991b1" style="clear: left;" data-id="bee8b29e-7a53-4053-8fc0-7132164991b1" data-type="checkbox" data-export="sys:app:nste_husky" data-limit="1"><fieldset id="form_bee8b29e-7a53-4053-8fc0-7132164991b1" aria-labelledby="form_label-form_bee8b29e-7a53-4053-8fc0-7132164991b1" disabled=""><div class="form_label" id="form_label-form_bee8b29e-7a53-4053-8fc0-7132164991b1"></div><div class="form_responses"><div class="form_response"><input id="form_bee8b29e-7a53-4053-8fc0-7132164991b1_1" type="checkbox" data-text="I have completed this task – or will do so in-person / at a later time." name="form_bee8b29e-7a53-4053-8fc0-7132164991b1" value="486be3fb-8f36-4cc1-82b0-4c9d954c8b5e" autocomplete="off" disabled=""><label for="form_bee8b29e-7a53-4053-8fc0-7132164991b1_1">I have completed this task – or will do so in-person / at a later time.</label></div></div></fieldset></div></div></div></div></div><div style="clear: left;"></div></div><div class="action form_action_submit form_action" aria-hidden="false"><button class="default form_button_submit" type="button">Save Progress</button><script async="async">/*<![CDATA[*/new function($) { const form = $('#form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b_container'); form.on('submit', function() { if (!FW.postbackEnabled) return false; }); form.find('button.form_button_submit').on('click', function() { const form = window['form_13b0a4e6-0dd8-4995-885f-85fbeef19c1b']; if (form.Validate()) FW.Lazy.Commit(this, { cmd: 'submit' }); return false; }); form.find('button.form_button_save').on('click', function() { FW.Lazy.Commit(this, { cmd: 'save' }); }); }(FW.$);/*]]>*/</script></div><div style="clear: both;"></div></form></div></div>
 </body>
+
+  </body>
+</html>
+
+
+

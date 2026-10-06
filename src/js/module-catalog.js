@@ -1,5 +1,5 @@
 /** Shared catalog filtering: component classes connect variants across portal views. */
-const structuralClasses = new Set(['col-left', 'col-right', 'full-width', 'has-js', 'mobile', 'note']);
+const structuralClasses = new Set(['col-left', 'col-right', 'col-span-all', 'full-width', 'has-js', 'mobile', 'note']);
 export function componentClasses(module) {
   return (module.newClasses || '').split(/\s+/).filter(name => name && !structuralClasses.has(name));
 }

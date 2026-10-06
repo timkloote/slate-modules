@@ -71,6 +71,36 @@ h1 {
   font-weight: 500;
 }
 
+/* Graduate heading hierarchy, matching the reference site's responsive type. */
+h2 {
+  font-family: "Noe Display", Georgia, serif;
+  font-size: 2.0625rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02063rem;
+}
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 2.667rem;
+    line-height: 1.13;
+    letter-spacing: -0.02938rem;
+  }
+}
+
+h3 {
+  font-family: "ff-real-headline-pro", sans-serif;
+  font-size: 1.6875rem;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02106rem;
+}
+@media (min-width: 1024px) {
+  h3 {
+    font-size: 2.083rem;
+    letter-spacing: -0.02969rem;
+  }
+}
+
 /* --------------------------------------------------------------------------
    3. Base / reset
    -------------------------------------------------------------------------- */
@@ -89,6 +119,11 @@ body {
   font-feature-settings: normal;
   font-variation-settings: normal;
   -webkit-tap-highlight-color: transparent;
+}
+
+/* Consistent spacing below headings and paragraph copy. */
+h1, h2, h3, h4, h5, h6, p {
+  margin-bottom: 1rem;
 }
 
 img {
@@ -576,6 +611,24 @@ footer a:focus {
   outline: 2px solid #63b3ed;
   outline-offset: 2px;
 }
+footer .footer-brand {
+  display: inline-flex;
+  padding: 0.5rem;
+  margin-left: -0.5rem;
+  color: var(--white);
+  text-decoration: none;
+}
+footer .footer-brand svg {
+  display: block;
+}
+footer .footer-brand:hover {
+  color: var(--light-gray);
+}
+@media (max-width: 768px) {
+  footer .footer-brand {
+    margin-left: 0;
+  }
+}
 footer {
   /* Cookie Preferences link, injected by the TrustArc widget script.
      Its markup ships its own margins — zero them out and set spacing
@@ -584,7 +637,7 @@ footer {
 footer .cookies {
   margin-top: 0.25rem;
 }
-footer .cookies * {
+footer .cookies *:not(:is(h1, h2, h3, h4, h5, h6, p)) {
   margin: 0;
 }
 footer .cookies li:has(> [x-data]:not(:empty)) > .cookie-preferences-preview {
@@ -789,8 +842,8 @@ footer ul {
     gap: 2.5rem;
   }
 }
-.placeholder-section__copy h1, .placeholder-section__copy h2 {
-  margin: 0 0 0.875rem;
+.placeholder-section__copy h1 {
+  margin: 0 0 1rem;
   font-family: "Noe Display", Georgia, serif;
   font-size: 2.4375rem;
   font-weight: 500;
@@ -798,21 +851,21 @@ footer ul {
   letter-spacing: 0.00613rem;
 }
 @media (min-width: 1024px) {
-  .placeholder-section__copy h1, .placeholder-section__copy h2 {
+  .placeholder-section__copy h1 {
     font-size: 3.75rem;
     letter-spacing: 0.00938rem;
   }
 }
 .placeholder-section__copy p {
   max-width: 60ch;
-  margin: 0 0 0.75rem;
+  margin: 0 0 1rem;
   font-family: "ff-real-headline-pro-2", sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
 }
 .placeholder-section__copy p:last-child {
-  margin-bottom: 0;
+  margin-bottom: 1rem;
 }
 @media (min-width: 1024px) {
   .placeholder-section__copy p {
@@ -875,20 +928,20 @@ footer ul {
 /* Existing Slate table cells and the landing-page list share the same design.
    State remains supplied by Slate; CSS never advances an applicant's progress. */
 .status-tracker, .fce-tracker {
-  --tracker-ink: #172c28;
-  --tracker-done: #17634c;
-  --tracker-red: #c8102e;
-  --tracker-line: #dce3e0;
+  --tracker-ink: #000;
+  --tracker-done: #000;
+  --tracker-current: var(--red);
+  --tracker-line: #ddd;
   container-type: inline-size;
-  color: #202b28;
+  color: #000;
 }
 
 .part.status-tracker {
   padding: clamp(1rem, 3vw, 2rem);
-  border: 1px solid #e0e6e3;
-  border-radius: 16px;
+  border: 1px solid #e3e3e3;
+  border-radius: 0;
   background: #fff;
-  box-shadow: 0 6px 28px rgba(20, 40, 30, 0.05);
+  box-shadow: none;
 }
 
 .fce-tracker {
@@ -897,7 +950,6 @@ footer ul {
 
 .fce-tracker h2 {
   margin: 0 0 2rem;
-  font-size: 1.5rem;
 }
 
 .status-tracker > table, .fce-tracker__steps {
@@ -923,9 +975,9 @@ footer ul {
 }
 
 .status-tracker td, .fce-tracker__step {
-  --step-color: #697670;
+  --step-color: #666;
   --step-bg: #fff;
-  --step-border: #c1ccc6;
+  --step-border: #ccc;
   --step-line: var(--tracker-line);
   position: relative;
   display: flex;
@@ -937,27 +989,36 @@ footer ul {
   border: 0;
   border-radius: 0;
   background: transparent;
-  color: #53605a;
+  color: #555;
   text-align: center;
   vertical-align: top;
   counter-increment: tracker-step;
-  animation: tracker-arrive 600ms ease-out both;
   transition: color 350ms ease, background-color 350ms ease;
 }
 .status-tracker td:nth-child(1), .fce-tracker__step:nth-child(1) {
-  animation-delay: 0ms;
+  z-index: 5;
+  --connector-delay: 200ms;
+  --node-delay: 0ms;
 }
 .status-tracker td:nth-child(2), .fce-tracker__step:nth-child(2) {
-  animation-delay: 75ms;
+  z-index: 4;
+  --connector-delay: 200ms;
+  --node-delay: 650ms;
 }
 .status-tracker td:nth-child(3), .fce-tracker__step:nth-child(3) {
-  animation-delay: 150ms;
+  z-index: 3;
+  --connector-delay: 850ms;
+  --node-delay: 1300ms;
 }
 .status-tracker td:nth-child(4), .fce-tracker__step:nth-child(4) {
-  animation-delay: 225ms;
+  z-index: 2;
+  --connector-delay: 1500ms;
+  --node-delay: 1950ms;
 }
 .status-tracker td:nth-child(5), .fce-tracker__step:nth-child(5) {
-  animation-delay: 300ms;
+  z-index: 1;
+  --connector-delay: 2150ms;
+  --node-delay: 2600ms;
 }
 
 .status-tracker td::before, .fce-tracker__node {
@@ -976,6 +1037,8 @@ footer ul {
   background: var(--step-bg);
   color: var(--step-color);
   font: 600 16px/1 system-ui, sans-serif;
+  animation: tracker-node 300ms ease-out both;
+  animation-delay: var(--node-delay, 0ms);
   transition: background-color 400ms ease, border-color 400ms ease, color 400ms ease, box-shadow 400ms ease;
 }
 
@@ -992,9 +1055,9 @@ footer ul {
   width: 100%;
   height: 2px;
   background: var(--step-line);
-  transform-origin: left;
-  animation: tracker-connect 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
-  animation-delay: inherit;
+  /* Reveal the full-size stroke in sequence, without scaling its geometry. */
+  animation: tracker-connect 650ms cubic-bezier(0.45, 0, 0.55, 1) both;
+  animation-delay: var(--connector-delay, 200ms);
   transition: background-color 450ms ease;
 }
 
@@ -1022,16 +1085,25 @@ footer ul {
   font-size: 22px;
 }
 
+/* Reveal completed checks in sequence with a brief settling motion. */
+.status-tracker td.complete::before,
+.fce-tracker__step.is-complete .fce-tracker__node {
+  animation-name: tracker-check;
+  animation-duration: 450ms;
+}
+
 .status-tracker td:is(.current, .current_add), .fce-tracker__step.is-current {
   --step-color: #fff;
-  --step-bg: var(--tracker-red);
-  --step-border: var(--tracker-red);
+  --step-bg: var(--tracker-current);
+  --step-border: var(--tracker-current);
   --step-line: var(--tracker-done);
-  color: #97102a;
+  color: var(--tracker-current);
 }
 
 .status-tracker td:is(.current, .current_add)::before, .fce-tracker__step.is-current .fce-tracker__node {
-  box-shadow: 0 0 0 6px #fff, 0 0 0 8px rgba(200, 16, 46, 0.2);
+  box-shadow: 0 0 0 4px #fff, 0 0 0 5px var(--tracker-current);
+  animation: tracker-node 300ms ease-out both, tracker-current-pulse 2s ease-in-out infinite;
+  animation-delay: var(--node-delay, 0ms), calc(var(--node-delay, 0ms) + 300ms);
 }
 
 .status-tracker td:is(.current, .current_add) > :is(strong, b)::after,
@@ -1047,15 +1119,15 @@ footer ul {
 
 .status-tracker > p, .status-tracker > em, .fce-tracker__description {
   display: block;
-  margin: 1.25rem 0 0;
+  margin: 1.25rem 0 1rem;
   padding: 1.25rem 1.5rem;
-  border: 1px solid #e6eae7;
+  border: 1px solid #e3e3e3;
   border-left: 3px solid var(--tracker-done);
-  border-radius: 0 10px 10px 0;
-  background: #f5f8f6;
-  color: #34443c;
+  border-radius: 0;
+  background: #f5f5f5;
+  color: #333;
   font: 400 0.9375rem/1.65 system-ui, sans-serif;
-  text-align: left;
+  text-align: center;
 }
 .status-tracker > p strong, .status-tracker > p em, .status-tracker > em strong, .status-tracker > em em, .fce-tracker__description strong, .fce-tracker__description em {
   font: inherit;
@@ -1063,7 +1135,7 @@ footer ul {
 
 .status-tracker:has(.current, .current_add) > :is(p, em),
 .fce-tracker:has(.is-current) .fce-tracker__description {
-  border-left-color: var(--tracker-red);
+  border-left-color: var(--tracker-current);
 }
 
 @container (max-width: 580px) {
@@ -1098,33 +1170,52 @@ footer ul {
     width: 2px;
     height: 32px;
     animation-name: tracker-connect-vertical;
-    transform-origin: top;
   }
 }
-@keyframes tracker-arrive {
+@keyframes tracker-current-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 4px #fff, 0 0 0 5px var(--tracker-current), 0 0 0 5px rgba(212, 27, 44, 0);
+  }
+  50% {
+    box-shadow: 0 0 0 4px #fff, 0 0 0 5px var(--tracker-current), 0 0 0 11px rgba(212, 27, 44, 0.16);
+  }
+}
+@keyframes tracker-check {
+  0% {
+    opacity: 0;
+    transform: scale(0.65) rotate(-12deg);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.08) rotate(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+@keyframes tracker-node {
   from {
     opacity: 0;
-    transform: translateY(6px);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
   }
 }
 @keyframes tracker-connect {
   from {
-    transform: scaleX(0);
+    clip-path: inset(0 100% 0 0);
   }
   to {
-    transform: scaleX(1);
+    clip-path: inset(0 0 0 0);
   }
 }
 @keyframes tracker-connect-vertical {
   from {
-    transform: scaleY(0);
+    clip-path: inset(0 0 100% 0);
   }
   to {
-    transform: scaleY(1);
+    clip-path: inset(0 0 0 0);
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -1626,6 +1717,23 @@ footer ul {
   }
 }
 
+/* Single-column content spanning the left and right content areas.
+   Unassigned column parts already separate groups in the layout script. */
+.part.col-span-all {
+  grid-column: 1/-1;
+  width: 100%;
+  min-width: 0;
+  max-width: var(--wrapperWidth);
+  margin-inline: auto;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+@media (max-width: 767px) {
+  .part.col-span-all {
+    padding: 1rem;
+  }
+}
+
 /* Utility parts must not leave empty boxes or spacing in the portal.
    Keep their contents active: the chatbot may render a floating widget.
    Include the element selector to match Slate render.css specificity:
@@ -1638,6 +1746,178 @@ div.part:is(.module-document-head, .chatbot, .module-scripts, .modules-scripts) 
 
 div.part.portal-footer {
   margin-bottom: 0;
+}
+
+/* Text CTA with the paired sliding arrows used on the graduate site.
+   Works with the reference markup without relying on Tailwind utilities. */
+.arrow-link,
+.form-action__content p a {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  padding-block: 1rem;
+  color: inherit;
+  text-decoration: none;
+  font-family: "ff-real-headline-pro", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.arrow-link > span:first-child,
+.form-action__content p a > span:first-child {
+  font-family: "ff-real-headline-pro", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+.arrow-link > span:last-child:has(> svg),
+.form-action__content p a > span:last-child:has(> svg) {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.25rem;
+  width: 0.875rem;
+  overflow: hidden;
+}
+.arrow-link > span:last-child:has(> svg) svg,
+.form-action__content p a > span:last-child:has(> svg) svg {
+  flex: 1 0 100%;
+  width: 0.875rem;
+  height: 0.875rem;
+  color: var(--red);
+  transition: transform 300ms ease-in-out 100ms;
+}
+.arrow-link:is(:hover, :focus-visible) > span:last-child > svg,
+.form-action__content p a:is(:hover, :focus-visible) > span:last-child > svg {
+  transform: translateX(1.125rem);
+}
+@media (prefers-reduced-motion: reduce) {
+  .arrow-link > span:last-child > svg,
+  .form-action__content p a > span:last-child > svg {
+    transition: none;
+  }
+  .arrow-link:is(:hover, :focus-visible) > span:last-child > svg,
+  .form-action__content p a:is(:hover, :focus-visible) > span:last-child > svg {
+    transform: none;
+  }
+}
+
+/* Form links use the same CTA treatment without requiring arrow markup. */
+.form-action__content p a::after {
+  content: "";
+  flex: 0 0 0.875rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 14' fill='none'%3E%3Cpath d='M8.08012 0.200012L14 6.74304L8.08012 13.2861L6.8546 12.2267L11.2789 7.49081H0V5.99527H11.2789L6.8546 1.25936L8.08012 0.200012Z' fill='%23c8102f'/%3E%3C/svg%3E");
+  background-size: 1.125rem 0.875rem;
+  background-repeat: repeat-x;
+  transition: background-position 300ms ease-in-out 100ms;
+}
+.form-action__content p a:is(:hover, :focus-visible)::after {
+  background-position: 1.125rem 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .form-action__content p a::after {
+    transition: none;
+  }
+  .form-action__content p a:is(:hover, :focus-visible)::after {
+    background-position: 0 0;
+  }
+}
+
+/* Filled buttons matching the graduate site's Slate form buttons. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border: 0;
+  border-radius: 0;
+  background-color: rgb(200, 16, 47);
+  color: #fff;
+  font-family: "ff-real-headline-pro-2", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.button::after {
+  content: "";
+  flex: 0 0 0.875rem;
+  width: 0.875rem;
+  height: 0.875rem;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M8.08012 0.200012L14 6.74304L8.08012 13.2861L6.8546 12.2267L11.2789 7.49081H0V5.99527H11.2789L6.8546 1.25936L8.08012 0.200012Z' fill='white'/%3E%3C/svg%3E") center/contain no-repeat;
+}
+.button:hover {
+  background-color: rgba(200, 16, 47, 0.8);
+  color: #fff;
+}
+@media (min-width: 768px) {
+  .button {
+    padding: 1.25rem;
+  }
+}
+.button:disabled, .button[aria-disabled=true] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
+}
+
+/* Keep links within paragraph copy visibly identifiable. */
+p a {
+  text-decoration: underline;
+}
+
+p a.button {
+  text-decoration: none;
+}
+
+/* Graduate-site select treatment; retain native option menus and keyboard use. */
+select {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-height: 3.5rem;
+  padding: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background-color: #f3f3f3;
+  color: rgb(82, 82, 82);
+  font-family: "ff-real-headline-pro", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+select:not([multiple]):not([size]), select[size="1"]:not([multiple]) {
+  appearance: none;
+  padding-right: 3.25rem;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 12' fill='none'%3E%3Cpath d='m2 2 7 7 7-7' stroke='%23d41b2c' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.125rem 0.75rem;
+}
+select:focus, select:active {
+  border-color: var(--red);
+  outline: 1px solid var(--red);
+  outline-offset: -1px;
+}
+select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+@media (forced-colors: active) {
+  select:not([multiple]):not([size]), select[size="1"]:not([multiple]) {
+    appearance: auto;
+    background-image: none;
+  }
 }
 
 /* Accessibility enhancements shared by the standalone portal markup. */

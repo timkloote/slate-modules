@@ -262,6 +262,22 @@
   }
 }
 
+/* Single-column content spanning the left and right content areas.
+   Unassigned column parts already separate groups in the layout script. */
+.part.col-span-all {
+  grid-column: 1 / -1;
+  width: 100%;
+  min-width: 0;
+  max-width: var(--wrapperWidth);
+  margin-inline: auto;
+  padding: 2rem;
+  box-sizing: border-box;
+
+  @media (max-width: 767px) {
+    padding: 1rem;
+  }
+}
+
 /* Utility parts must not leave empty boxes or spacing in the portal.
    Keep their contents active: the chatbot may render a floating widget.
    Include the element selector to match Slate render.css specificity:
@@ -274,4 +290,180 @@ div.part:is(.module-document-head, .chatbot, .module-scripts, .modules-scripts) 
 
 div.part.portal-footer {
   margin-bottom: 0;
+}
+
+/* Text CTA with the paired sliding arrows used on the graduate site.
+   Works with the reference markup without relying on Tailwind utilities. */
+.arrow-link,
+.form-action__content p a {
+  display: inline-flex;
+  align-items: center;
+  column-gap: 0.5rem;
+  padding-block: 1rem;
+  color: inherit;
+  text-decoration: none;
+  font-family: "ff-real-headline-pro", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+
+  > span:first-child {
+    font-family: "ff-real-headline-pro", sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  > span:last-child:has(> svg) {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.25rem;
+    width: 0.875rem;
+    overflow: hidden;
+
+    svg {
+      flex: 1 0 100%;
+      width: 0.875rem;
+      height: 0.875rem;
+      color: var(--red);
+      transition: transform 300ms ease-in-out 100ms;
+    }
+  }
+
+  &:is(:hover, :focus-visible) > span:last-child > svg {
+    transform: translateX(1.125rem);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    > span:last-child > svg { transition: none; }
+    &:is(:hover, :focus-visible) > span:last-child > svg { transform: none; }
+  }
+}
+
+/* Form links use the same CTA treatment without requiring arrow markup. */
+.form-action__content p a {
+  &::after {
+    content: "";
+    flex: 0 0 0.875rem;
+    width: 0.875rem;
+    height: 0.875rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 14' fill='none'%3E%3Cpath d='M8.08012 0.200012L14 6.74304L8.08012 13.2861L6.8546 12.2267L11.2789 7.49081H0V5.99527H11.2789L6.8546 1.25936L8.08012 0.200012Z' fill='%23c8102f'/%3E%3C/svg%3E");
+    background-size: 1.125rem 0.875rem;
+    background-repeat: repeat-x;
+    transition: background-position 300ms ease-in-out 100ms;
+  }
+
+  &:is(:hover, :focus-visible)::after {
+    background-position: 1.125rem 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    &::after { transition: none; }
+    &:is(:hover, :focus-visible)::after { background-position: 0 0; }
+  }
+}
+
+/* Filled buttons matching the graduate site's Slate form buttons. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border: 0;
+  border-radius: 0;
+  background-color: rgb(200, 16, 47);
+  color: #fff;
+  font-family: "ff-real-headline-pro-2", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 150ms cubic-bezier(.4, 0, .2, 1);
+
+  &::after {
+    content: "";
+    flex: 0 0 0.875rem;
+    width: 0.875rem;
+    height: 0.875rem;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M8.08012 0.200012L14 6.74304L8.08012 13.2861L6.8546 12.2267L11.2789 7.49081H0V5.99527H11.2789L6.8546 1.25936L8.08012 0.200012Z' fill='white'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  &:hover {
+    background-color: #c8102fcc;
+    color: #fff;
+  }
+
+  @media (min-width: 768px) {
+    padding: 1.25rem;
+  }
+
+  &:disabled,
+  &[aria-disabled="true"] {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+/* Keep links within paragraph copy visibly identifiable. */
+p a {
+  text-decoration: underline;
+}
+
+p a.button {
+  text-decoration: none;
+}
+
+/* Graduate-site select treatment; retain native option menus and keyboard use. */
+select {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-height: 3.5rem;
+  padding: 1rem;
+  border: 1px solid transparent;
+  border-radius: 0;
+  background-color: #f3f3f3;
+  color: rgb(82, 82, 82);
+  font-family: "ff-real-headline-pro", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.5;
+
+  &:not([multiple]):not([size]),
+  &[size="1"]:not([multiple]) {
+    appearance: none;
+    padding-right: 3.25rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 12' fill='none'%3E%3Cpath d='m2 2 7 7 7-7' stroke='%23d41b2c' stroke-width='2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1.125rem 0.75rem;
+  }
+
+  &:focus,
+  &:active {
+    border-color: var(--red);
+    outline: 1px solid var(--red);
+    outline-offset: -1px;
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  @media (forced-colors: active) {
+    &:not([multiple]):not([size]),
+    &[size="1"]:not([multiple]) {
+      appearance: auto;
+      background-image: none;
+    }
+  }
 }

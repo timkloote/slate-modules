@@ -77,6 +77,34 @@ h1 {
   font-weight: 500;
 }
 
+/* Graduate heading hierarchy, matching the reference site's responsive type. */
+h2 {
+  font-family: "Noe Display", Georgia, serif;
+  font-size: 2.0625rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: -0.02063rem;
+
+  @media (min-width: 1024px) {
+    font-size: 2.667rem;
+    line-height: 1.13;
+    letter-spacing: -0.02938rem;
+  }
+}
+
+h3 {
+  font-family: "ff-real-headline-pro", sans-serif;
+  font-size: 1.6875rem;
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.02106rem;
+
+  @media (min-width: 1024px) {
+    font-size: 2.083rem;
+    letter-spacing: -0.02969rem;
+  }
+}
+
 /* --------------------------------------------------------------------------
    3. Base / reset
    -------------------------------------------------------------------------- */
@@ -95,6 +123,11 @@ body {
   font-feature-settings: normal;
   font-variation-settings: normal;
   -webkit-tap-highlight-color: transparent
+}
+
+/* Consistent spacing below headings and paragraph copy. */
+h1, h2, h3, h4, h5, h6, p {
+  margin-bottom: 1rem;
 }
 
 img {
@@ -565,13 +598,29 @@ footer {
     }
   }
 
+  .footer-brand {
+    display: inline-flex;
+    padding: 0.5rem;
+    margin-left: -0.5rem;
+    color: var(--white);
+    text-decoration: none;
+
+    svg { display: block; }
+
+    &:hover { color: var(--light-gray); }
+
+    @media (max-width: 768px) {
+      margin-left: 0;
+    }
+  }
+
   /* Cookie Preferences link, injected by the TrustArc widget script.
      Its markup ships its own margins — zero them out and set spacing
      here instead so it sits in rhythm with the row above. */
   .cookies {
     margin-top: 0.25rem;
 
-    * { margin: 0; }
+    *:not(:is(h1, h2, h3, h4, h5, h6, p)) { margin: 0; }
     li:has(> [x-data]:not(:empty)) > .cookie-preferences-preview { display: none; }
   }
 
@@ -783,8 +832,8 @@ footer {
   }
 
   &__copy {
-    h1, h2 {
-      margin: 0 0 0.875rem;
+    h1 {
+      margin: 0 0 1rem;
       font-family: "Noe Display", Georgia, serif;
       font-size: 2.4375rem;
       font-weight: 500;
@@ -799,13 +848,13 @@ footer {
 
     p {
       max-width: 60ch;
-      margin: 0 0 0.75rem;
+      margin: 0 0 1rem;
       font-family: "ff-real-headline-pro-2", sans-serif;
       font-size: 1rem;
       font-weight: 400;
       line-height: 1.5;
 
-      &:last-child { margin-bottom: 0; }
+      &:last-child { margin-bottom: 1rem; }
 
       @media (min-width: 1024px) {
         font-size: 1.125rem;

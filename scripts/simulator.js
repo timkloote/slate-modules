@@ -1,5 +1,4 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
-import { component } from './components.js';
 
 export const slugify = name => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 export const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -26,12 +25,10 @@ export function inventory() {
     const fixture = `src/simulator/fixtures/${slug}/${record.partId}.html`;
     const hasFixture = existsSync(fixture);
     const html = source ? readFileSync(source, 'utf8') : '';
-    let replacement = null;
-    if (/^header(?:\b|$)/i.test(record.name)) replacement = 'header';
-    // These imported DOM modules contain the old footer. Substitution is local only.
-    if ((record.name === 'Footer' || record.name === 'DOM' || record.legacyName === 'DOM') && /<footer\b/i.test(html)) replacement = 'footer';
+    // Preview the module source itself; captures override only rendered widgets.
+    const replacement = null;
     view.modules.push({ ...record, source, legacySource, legacyHtml, fixture, hasFixture, replacement,
-      html: hasFixture ? readFileSync(fixture, 'utf8') : replacement ? component(`${replacement}.html`).replaceAll('src="images/', 'src="/images/') : html,
+      html: hasFixture ? readFileSync(fixture, 'utf8') : html,
       sourceHtml: html,
       needsCapture: record.type !== 'Static Content' && !hasFixture,
     });

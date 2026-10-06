@@ -25,20 +25,17 @@ async function render(search) {
  }
 }
 
-test('clean view assembles actual captured parts and moves modules into restored columns by default',async()=>{
+test('clean view assembles module markup and reports missing layout targets',async()=>{
  const data=inventory();
  const parts=data.capturedParts['main-view'].join(',');
  const document=await render(`?clean=1&labels=0&parts=${parts}`);
  assert.ok(document.body.classList.contains('sim-slate-behavior'));
  assert.ok(document.body.classList.contains('sim-clean'));
  assert.ok(!document.body.classList.contains('sim-labels'));
- for(const side of ['left','right']) {
-  const column=document.getElementById(`${side}column`);
-  assert.ok(column,`${side} destination restored`);
-  const parts=[...document.querySelectorAll(`.part.${side}column`)];
-  assert.ok(parts.length>0);
-  for(const part of parts)assert.equal(part.parentElement,column);
- }
+ // The current modern DOM module contains only the footer, so missing
+ // layout targets are reported rather than supplied by a preview replacement.
+ assert.equal(document.getElementById('leftcolumn'),null);
+ assert.match(document.querySelector('.sim-behavior-report').textContent,/No match: #leftcolumn/);
  assert.equal(document.querySelectorAll('footer').length,1);
 });
 
@@ -49,7 +46,7 @@ test('explicit stack mode and deselected Scripts still disable DOM moves',async(
  assert.equal(stack.getElementById('leftcolumn'),null);
  const script=data.views.find(v=>v.slug==='main-view').modules.find(m=>m.order===133);
  const disabled=await render(`?clean=1&layout=behavior&parts=${parts.filter(id=>id!==script.partId).join(',')}`);
- assert.equal(disabled.getElementById('leftcolumn').children.length,0);
+ assert.equal(disabled.getElementById('leftcolumn'),null);
  assert.match(disabled.querySelector('.sim-behavior-report').textContent,/Select module 133/);
 });
 
@@ -116,7 +113,8 @@ test('legacy preview keeps original head CSS, stylesheet links, inline styles, a
  const messagingPart=sanitized.getElementById(main.modules.find(m=>m.order===6).partId);
  assert.ok(messagingPart.querySelector('p'));
  assert.equal(messagingPart.querySelector('[style]'),null);
- assert.ok(sanitized.querySelector('[data-shared="header"]'));
+ assert.equal(sanitized.querySelector('[data-shared="header"]'),null);
+ assert.ok(sanitized.querySelector('header .header-top')); 
 });
 
 test('legacy clean view uses original DOM/footer and the vanilla behavior, without legacy scripts',async()=>{
@@ -130,11 +128,11 @@ test('legacy clean view uses original DOM/footer and the vanilla behavior, witho
 });
 
 
-test('fallback grid targets sanitized columns only; legacy keeps Bootstrap layout',async()=>{
+test('modern DOM has no injected grid; legacy keeps its module layout',async()=>{
  const parts=inventory().capturedParts['main-view'].join(',');
  const selector='.sim-slate-behavior.sim-sanitized .bodybackground > .module-layout__group:has(> #leftcolumn)';
  const sanitized=await render(`?source=sanitized&clean=1&parts=${parts}`);
- assert.ok(sanitized.querySelector(selector));
+ assert.equal(sanitized.querySelector(selector),null);
  const legacy=await render(`?source=legacy&clean=1&parts=${parts}`);
  assert.equal(legacy.querySelector(selector),null);
  assert.ok(legacy.body.classList.contains('sim-legacy'));

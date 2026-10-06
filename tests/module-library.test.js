@@ -31,8 +31,8 @@ test('updated names and reordered workbook rows retain original modern and legac
   assert.match(transactions[0].legacySource, /02-styles\.html$/);
   assert.equal(transactions[1].name, 'Header');
   assert.match(transactions[1].source, /01-header-deposited\.html$/);
-  assert.equal(transactions[1].replacement, 'header');
-  assert.equal(modules.find(module => module.legacyName === 'DOM').replacement, 'footer');
+  assert.equal(transactions[1].replacement, null);
+  assert.equal(modules.find(module => module.legacyName === 'DOM').replacement, null);
   assert.equal(modules.length, 217);
 });
 
