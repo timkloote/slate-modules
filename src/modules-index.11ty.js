@@ -3,7 +3,7 @@ import { documentPage } from '../scripts/simulator.js';
 export const data = { permalink: 'modules/index.html' };
 export default function () {
   return documentPage('Module library — Slate simulator', `
-<header class="sim-bar"><strong>Module library</strong><nav aria-label="Tools"><a href="/views/">View simulator</a><a href="/references/">References</a><a href="/">Landing page</a></nav>${liveViewPicker()}</header>
+<header class="sim-bar"><strong>Module library</strong><nav aria-label="Tools"><a href="/views/">View simulator</a><a href="/references/">References</a><a href="/photography/">Photography</a><a href="/">Landing page</a></nav>${liveViewPicker()}</header>
 <main class="module-library">
   <aside class="module-browser" aria-label="Find modules">
     <h1>One module at a time.</h1>

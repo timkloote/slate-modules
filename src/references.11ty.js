@@ -4,7 +4,7 @@ export const data = { permalink: 'references/index.html' };
 export default function () {
  const pages = JSON.parse(readFileSync('src/references/catalog.json', 'utf8'));
  return documentPage('Design references — Slate simulator', `
-<header class="sim-bar"><strong>Design references</strong><nav aria-label="Tools"><a href="/modules/">Module library</a> · <a href="/views/">View simulator</a></nav></header>
+<header class="sim-bar"><strong>Design references</strong><nav aria-label="Tools"><a href="/modules/">Module library</a> · <a href="/views/">View simulator</a> · <a href="/photography/">Photography</a></nav></header>
 <main class="reference-layout"><aside class="reference-browser"><h1>Northeastern website references</h1><p class="sim-hint">40 captured pages for reviewing layouts, typography, and module patterns. These are static screenshots captured September 17, 2026.</p>
 <label for="reference-search">Search pages and section headings</label><input type="search" id="reference-search" placeholder="Try tuition, cards, or support">
 <label for="reference-category">Page type</label><select id="reference-category"><option value="">All page types</option>${[...new Set(pages.map(p=>p.category))].sort().map(c=>`<option>${e(c)}</option>`).join('')}</select>

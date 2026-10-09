@@ -109,7 +109,9 @@ test('legacy preview keeps original head CSS, stylesheet links, inline styles, a
  assert.equal(legacy.querySelector('script,iframe,[onclick],[onchange]'),null);
  assert.ok(!legacy.body.classList.contains('sim-slate-behavior'));
  const sanitized=await render(`?source=sanitized&parts=${parts}`);
- assert.equal(sanitized.querySelector('style,link[rel="stylesheet"]'),null);
+ assert.equal(sanitized.querySelector('style'),null);
+ assert.ok(sanitized.querySelector('link[data-design-style]'));
+ assert.equal(legacy.querySelector('link[href="/css/grad-admissions.css"]'),null);
  const messagingPart=sanitized.getElementById(main.modules.find(m=>m.order===6).partId);
  assert.ok(messagingPart.querySelector('p'));
  assert.equal(messagingPart.querySelector('[style]'),null);

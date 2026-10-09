@@ -14,7 +14,7 @@ async function initSimulator() {
   const presetLayout = view.slug === 'main-view' ? 'behavior' : 'stacked';
   const presets = {
     redesign: {'module-source':'sanitized','portal-styles':'portal','class-mode':'new','layout-mode':presetLayout,'preview-width':'full'},
-    legacy: {'module-source':'legacy','portal-styles':'design','class-mode':'original','layout-mode':presetLayout,'preview-width':'full'},
+    legacy: {'module-source':'legacy','portal-styles':'legacy','class-mode':'original','layout-mode':presetLayout,'preview-width':'full'},
   };
   function applySettings(settings) {
     for (const [id, value] of Object.entries(settings || {})) {
@@ -24,8 +24,10 @@ async function initSimulator() {
     $('portal-preview').dataset.width = $('preview-width').value;
   }
   const currentPreset = () => Object.entries(presets).find(([, p]) => Object.entries(p).every(([id, value]) => $(id).value === value))?.[0] || 'custom';
+  applySettings(presets.redesign);
   try {
     const settings = JSON.parse(localStorage.getItem(settingsKey));
+    if (settings?.['module-source'] === 'legacy' && settings['portal-styles'] === 'design') settings['portal-styles'] = 'legacy';
     applySettings(settings);
   } catch { /* Settings storage is optional. */ }
   let selected = new Set(capturedParts[view.slug] || view.modules.filter(m => m.status === 'Active').map(m=>m.partId));

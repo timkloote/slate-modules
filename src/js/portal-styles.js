@@ -29,3 +29,18 @@ export function loadPortalStyles(document) {
     document.head.insertBefore(link, anchor);
   }
 }
+
+/** Legacy sources always stay isolated from the redesign skin. */
+export function configurePreviewStyles(document, params) {
+  const legacy = params.get('source') === 'legacy';
+  const mode = params.get('styles') || (legacy ? 'legacy' : 'design');
+  for (const link of document.head.querySelectorAll('link[data-design-style], link[href="/css/grad-admissions.css"]')) link.remove();
+  if (legacy || mode === 'portal' || mode === 'legacy') loadPortalStyles(document);
+  if (!legacy && mode !== 'legacy') {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = '/css/grad-admissions.css';
+    link.setAttribute('data-design-style', '');
+    document.head.append(link);
+  }
+}

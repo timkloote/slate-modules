@@ -1225,6 +1225,1214 @@ footer ul {
     transition: none;
   }
 }
+/* Graduate-site treatments on existing Slate wrappers. No content or layout
+   classes are added at runtime. Utility parts and the FCE tracker stay separate. */
+.part.application-details {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.application-details :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.application-details :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.application-details :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.application-details p {
+  line-height: 1.6;
+}
+.part.application-details p:last-child {
+  margin-bottom: 0;
+}
+.part.application-details :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.application-details li + li {
+  margin-top: 0.5rem;
+}
+.part.application-details a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.application-details a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.application-details img {
+  max-width: 100%;
+  height: auto;
+}
+.part.application-details :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.application-selector {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.application-selector :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.application-selector :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.application-selector :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.application-selector p {
+  line-height: 1.6;
+}
+.part.application-selector p:last-child {
+  margin-bottom: 0;
+}
+.part.application-selector :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.application-selector li + li {
+  margin-top: 0.5rem;
+}
+.part.application-selector a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.application-selector a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.application-selector img {
+  max-width: 100%;
+  height: auto;
+}
+.part.application-selector :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.checklist {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.checklist :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.checklist :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.checklist :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.checklist p {
+  line-height: 1.6;
+}
+.part.checklist p:last-child {
+  margin-bottom: 0;
+}
+.part.checklist :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.checklist li + li {
+  margin-top: 0.5rem;
+}
+.part.checklist a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.checklist a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.checklist img {
+  max-width: 100%;
+  height: auto;
+}
+.part.checklist :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.content-block {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.content-block :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.content-block :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.content-block :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.content-block p {
+  line-height: 1.6;
+}
+.part.content-block p:last-child {
+  margin-bottom: 0;
+}
+.part.content-block :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.content-block li + li {
+  margin-top: 0.5rem;
+}
+.part.content-block a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.content-block a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.content-block img {
+  max-width: 100%;
+  height: auto;
+}
+.part.content-block :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.document-link {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.document-link :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.document-link :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.document-link :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.document-link p {
+  line-height: 1.6;
+}
+.part.document-link p:last-child {
+  margin-bottom: 0;
+}
+.part.document-link :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.document-link li + li {
+  margin-top: 0.5rem;
+}
+.part.document-link a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.document-link a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.document-link img {
+  max-width: 100%;
+  height: auto;
+}
+.part.document-link :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.enrollment-actions {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.enrollment-actions :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.enrollment-actions :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.enrollment-actions :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.enrollment-actions p {
+  line-height: 1.6;
+}
+.part.enrollment-actions p:last-child {
+  margin-bottom: 0;
+}
+.part.enrollment-actions :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.enrollment-actions li + li {
+  margin-top: 0.5rem;
+}
+.part.enrollment-actions a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.enrollment-actions a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.enrollment-actions img {
+  max-width: 100%;
+  height: auto;
+}
+.part.enrollment-actions :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.event-registration {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.event-registration :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.event-registration :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.event-registration :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.event-registration p {
+  line-height: 1.6;
+}
+.part.event-registration p:last-child {
+  margin-bottom: 0;
+}
+.part.event-registration :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.event-registration li + li {
+  margin-top: 0.5rem;
+}
+.part.event-registration a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.event-registration a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.event-registration img {
+  max-width: 100%;
+  height: auto;
+}
+.part.event-registration :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.faq {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.faq :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.faq :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.faq :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.faq p {
+  line-height: 1.6;
+}
+.part.faq p:last-child {
+  margin-bottom: 0;
+}
+.part.faq :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.faq li + li {
+  margin-top: 0.5rem;
+}
+.part.faq a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.faq a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.faq img {
+  max-width: 100%;
+  height: auto;
+}
+.part.faq :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.form-action {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.form-action :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.form-action :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.form-action :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.form-action p {
+  line-height: 1.6;
+}
+.part.form-action p:last-child {
+  margin-bottom: 0;
+}
+.part.form-action :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.form-action li + li {
+  margin-top: 0.5rem;
+}
+.part.form-action a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.form-action a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.form-action img {
+  max-width: 100%;
+  height: auto;
+}
+.part.form-action :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.form-widget {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.form-widget :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.form-widget :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.form-widget :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.form-widget p {
+  line-height: 1.6;
+}
+.part.form-widget p:last-child {
+  margin-bottom: 0;
+}
+.part.form-widget :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.form-widget li + li {
+  margin-top: 0.5rem;
+}
+.part.form-widget a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.form-widget a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.form-widget img {
+  max-width: 100%;
+  height: auto;
+}
+.part.form-widget :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.materials-upload {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.materials-upload :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.materials-upload :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.materials-upload :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.materials-upload p {
+  line-height: 1.6;
+}
+.part.materials-upload p:last-child {
+  margin-bottom: 0;
+}
+.part.materials-upload :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.materials-upload li + li {
+  margin-top: 0.5rem;
+}
+.part.materials-upload a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.materials-upload a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.materials-upload img {
+  max-width: 100%;
+  height: auto;
+}
+.part.materials-upload :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.messaging-block {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.messaging-block :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.messaging-block :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.messaging-block :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.messaging-block p {
+  line-height: 1.6;
+}
+.part.messaging-block p:last-child {
+  margin-bottom: 0;
+}
+.part.messaging-block :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.messaging-block li + li {
+  margin-top: 0.5rem;
+}
+.part.messaging-block a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.messaging-block a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.messaging-block img {
+  max-width: 100%;
+  height: auto;
+}
+.part.messaging-block :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.navigation-card {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.navigation-card :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.navigation-card :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.navigation-card :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.navigation-card p {
+  line-height: 1.6;
+}
+.part.navigation-card p:last-child {
+  margin-bottom: 0;
+}
+.part.navigation-card :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.navigation-card li + li {
+  margin-top: 0.5rem;
+}
+.part.navigation-card a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.navigation-card a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.navigation-card img {
+  max-width: 100%;
+  height: auto;
+}
+.part.navigation-card :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.notification {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.notification :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.notification :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.notification :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.notification p {
+  line-height: 1.6;
+}
+.part.notification p:last-child {
+  margin-bottom: 0;
+}
+.part.notification :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.notification li + li {
+  margin-top: 0.5rem;
+}
+.part.notification a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.notification a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.notification img {
+  max-width: 100%;
+  height: auto;
+}
+.part.notification :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.payment-block {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.payment-block :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.payment-block :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.payment-block :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.payment-block p {
+  line-height: 1.6;
+}
+.part.payment-block p:last-child {
+  margin-bottom: 0;
+}
+.part.payment-block :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.payment-block li + li {
+  margin-top: 0.5rem;
+}
+.part.payment-block a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.payment-block a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.payment-block img {
+  max-width: 100%;
+  height: auto;
+}
+.part.payment-block :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.resource-links {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.resource-links :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.resource-links :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.resource-links :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.resource-links p {
+  line-height: 1.6;
+}
+.part.resource-links p:last-child {
+  margin-bottom: 0;
+}
+.part.resource-links :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.resource-links li + li {
+  margin-top: 0.5rem;
+}
+.part.resource-links a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.resource-links a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.resource-links img {
+  max-width: 100%;
+  height: auto;
+}
+.part.resource-links :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.status-summary {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.status-summary :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.status-summary :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.status-summary :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.status-summary p {
+  line-height: 1.6;
+}
+.part.status-summary p:last-child {
+  margin-bottom: 0;
+}
+.part.status-summary :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.status-summary li + li {
+  margin-top: 0.5rem;
+}
+.part.status-summary a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.status-summary a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.status-summary img {
+  max-width: 100%;
+  height: auto;
+}
+.part.status-summary :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.student-comments {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.student-comments :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.student-comments :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.student-comments :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.student-comments p {
+  line-height: 1.6;
+}
+.part.student-comments p:last-child {
+  margin-bottom: 0;
+}
+.part.student-comments :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.student-comments li + li {
+  margin-top: 0.5rem;
+}
+.part.student-comments a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.student-comments a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.student-comments img {
+  max-width: 100%;
+  height: auto;
+}
+.part.student-comments :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.support-block {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.support-block :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.support-block :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.support-block :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.support-block p {
+  line-height: 1.6;
+}
+.part.support-block p:last-child {
+  margin-bottom: 0;
+}
+.part.support-block :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.support-block li + li {
+  margin-top: 0.5rem;
+}
+.part.support-block a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.support-block a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.support-block img {
+  max-width: 100%;
+  height: auto;
+}
+.part.support-block :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.video-upload {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.video-upload :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.video-upload :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.video-upload :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.video-upload p {
+  line-height: 1.6;
+}
+.part.video-upload p:last-child {
+  margin-bottom: 0;
+}
+.part.video-upload :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.video-upload li + li {
+  margin-top: 0.5rem;
+}
+.part.video-upload a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.video-upload a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.video-upload img {
+  max-width: 100%;
+  height: auto;
+}
+.part.video-upload :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+.part.welcome-links {
+  --module-space: clamp(1.25rem, 3vw, 2rem);
+  padding: var(--module-space);
+  min-width: 0;
+  color: #242424;
+  background: #fff;
+  overflow-wrap: anywhere;
+  border: 0;
+}
+.part.welcome-links :is(h1, h2, h3, h4) {
+  color: inherit;
+  font-family: "Noe Display", Georgia, serif;
+  font-weight: 500;
+  line-height: 1.15;
+}
+.part.welcome-links :is(h2, h3) {
+  font-size: clamp(1.5rem, 2.5vw, 2.0625rem);
+}
+.part.welcome-links :is(h1, h2, h3, h4, p):first-child {
+  margin-top: 0;
+}
+.part.welcome-links p {
+  line-height: 1.6;
+}
+.part.welcome-links p:last-child {
+  margin-bottom: 0;
+}
+.part.welcome-links :is(ul, ol) {
+  padding-left: 1.25rem;
+}
+.part.welcome-links li + li {
+  margin-top: 0.5rem;
+}
+.part.welcome-links a:not(.button) {
+  color: #c8102f;
+  text-underline-offset: 0.2em;
+}
+.part.welcome-links a:not(.button):hover {
+  text-decoration: underline;
+}
+.part.welcome-links img {
+  max-width: 100%;
+  height: auto;
+}
+.part.welcome-links :is(input, textarea, select) {
+  max-width: 100%;
+}
+
+/* Dark feature panels mirror the site's support and outcomes sections. */
+.part:is(.messaging-block, .support-block, .enrollment-actions) {
+  background: #111;
+  color: #fff;
+}
+.part:is(.messaging-block, .support-block, .enrollment-actions) a:not(.button), .part:is(.messaging-block, .support-block, .enrollment-actions) .arrow-link {
+  color: #fff;
+  text-decoration: underline;
+}
+.part:is(.messaging-block, .support-block, .enrollment-actions) :is(h2, h3) {
+  margin-bottom: 1rem;
+}
+.part:is(.messaging-block, .support-block, .enrollment-actions) > strong:first-child {
+  display: block;
+  font-family: "Noe Display", Georgia, serif;
+  font-size: 1.5rem;
+}
+.part:is(.messaging-block, .support-block, .enrollment-actions) :is(.redtext, .graytext) {
+  color: #fff;
+}
+
+/* Red is reserved for prominent notices and event registration. */
+.part:is(.notification, .event-registration) {
+  background: #c8102f;
+  color: #fff;
+}
+.part:is(.notification, .event-registration) a:not(.button), .part:is(.notification, .event-registration) .redtext {
+  color: #fff;
+}
+.part:is(.notification, .event-registration) a {
+  text-decoration: underline;
+}
+.part:is(.notification, .event-registration) .button {
+  background: #111;
+}
+
+/* Quiet informational sections contrast with the action panels. */
+.part:is(.application-details, .payment-block, .student-comments, .welcome-links) {
+  background: #f3f3f3;
+}
+
+.part.application-details #appdetails {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.part.application-details #appdetails li {
+  margin: 0;
+  padding-block: 0.875rem;
+  border-bottom: 1px solid #d5d5d5;
+}
+.part.application-details #appdetails li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.part.application-details #appdetails strong {
+  font-size: 0.8125rem;
+}
+
+.part:is(.document-link, .navigation-card, .form-action) {
+  border-top: 3px solid #c8102f;
+  background: #f3f3f3;
+}
+.part:is(.document-link, .navigation-card, .form-action) .arrow-link, .part:is(.document-link, .navigation-card, .form-action) .form-action__content p a {
+  color: #242424;
+}
+
+.part:is(.resource-links, .faq, .welcome-links) a {
+  line-height: 1.6;
+}
+.part:is(.resource-links, .faq, .welcome-links) li {
+  padding-block: 0.5rem;
+  border-bottom: 1px solid #d5d5d5;
+}
+
+/* Editorial image/text compositions use only existing media containers. */
+.part.content-block {
+  border-top: 1px solid #d5d5d5;
+}
+.part.content-block img {
+  display: block;
+}
+.part.content-block figure {
+  margin: 0 0 1.5rem;
+}
+
+.part.photo-block {
+  padding: 0;
+  border: 0;
+}
+.part.photo-block img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Structured checklist and payment data retain their table semantics. */
+.part:is(.checklist, .payment-block, .status-summary) table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+.part:is(.checklist, .payment-block, .status-summary) :is(th, td) {
+  padding: 0.875rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #d5d5d5;
+}
+.part:is(.checklist, .payment-block, .status-summary) th {
+  background: #111;
+  color: #fff;
+  font-weight: 700;
+}
+.part:is(.checklist, .payment-block, .status-summary) tr:nth-child(even) td {
+  background: #f3f3f3;
+}
+.part:is(.checklist, .payment-block, .status-summary) td img {
+  width: auto;
+  max-width: 1.5rem;
+  vertical-align: middle;
+}
+@media (max-width: 480px) {
+  .part:is(.checklist, .payment-block, .status-summary) :is(th, td) {
+    padding: 0.625rem 0.375rem;
+    font-size: 0.8125rem;
+    overflow-wrap: anywhere;
+  }
+}
+
+.part:is(.materials-upload, .video-upload, .form-widget) {
+  background: #f3f3f3;
+  border-top: 3px solid #111;
+}
+.part:is(.materials-upload, .video-upload, .form-widget) :is(input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), textarea) {
+  box-sizing: border-box;
+  padding: 0.75rem;
+  border: 1px solid #bcbcbc;
+  border-radius: 0;
+  background: #fff;
+  color: #242424;
+  font: inherit;
+}
+.part:is(.materials-upload, .video-upload, .form-widget) label {
+  font-size: 0.875rem;
+  font-weight: 700;
+}
+
+.part.divider {
+  padding: 0;
+  border: 0;
+}
+
+.part.divider hr {
+  border: 0;
+  border-top: 1px solid #d5d5d5;
+  margin-block: 1.5rem;
+}
+
+/* Status summaries introduce the tracker or summarize the evaluation outcome.
+   Support both semantic headings and the existing underlined legend title. */
+.part.status-summary {
+  padding: clamp(1.5rem, 4vw, 3rem);
+  border-top: 4px solid #c8102f;
+  background: #f3f3f3;
+  color: #242424;
+  text-align: center;
+  line-height: 1.75;
+}
+.part.status-summary :is(h2, h3), .part.status-summary > u:first-child {
+  display: block;
+  max-width: 32ch;
+  margin: 0 auto 1rem;
+  color: #111;
+  font-family: "Noe Display", Georgia, serif;
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 500;
+  line-height: 1.15;
+  text-decoration: none;
+  text-wrap: balance;
+}
+.part.status-summary {
+  /* The title now supplies spacing; suppress its two legacy line breaks. */
+}
+.part.status-summary > u:first-child + br,
+.part.status-summary > u:first-child + br + br {
+  display: none;
+}
+.part.status-summary p {
+  max-width: 65ch;
+  margin-inline: auto;
+}
+.part.status-summary a:not(.button) {
+  font-weight: 700;
+}
+.part.status-summary :is(ul, ol, table) {
+  text-align: left;
+}
+
 /* ==========================================================================
    Slate content modules
 
@@ -1236,11 +2444,6 @@ footer ul {
    Do not @use or @import slate.scss: that would duplicate its generated CSS.
    Keep module rules scoped to their component class and nest media queries.
    ========================================================================== */
-/* Temporary part boundaries for development; revisit during module styling. */
-[id^=part_]:not(:is(.module-document-head, .chatbot, .module-scripts, .modules-scripts)) {
-  border: 1px solid var(--light-gray);
-}
-
 /* Empty-payment message inserted by the vanilla Main View behavior. */
 .slate-payment-heading {
   margin-top: 0;
@@ -1530,8 +2733,8 @@ footer ul {
    Paste the complete New CSS Class Names value into Slate’s module Class Name
    field. These selectors target the generated .part wrapper, not body.
    has-js is a reference tag only and intentionally has no styling hook.
-   Layout and component rules are intentionally pending. Comments keep these
-   declaration-free hooks visible in the compiled grad-admissions.css export. */
+   Component treatments are defined in module-treatments. Comments keep these
+   structural hooks visible in the compiled grad-admissions.css export. */
 .part.full-width {
   /* Styling pending. */
 }

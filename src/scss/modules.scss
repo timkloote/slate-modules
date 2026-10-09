@@ -1,4 +1,5 @@
 @use 'fce-tracker';
+@use 'module-treatments';
 
 /* ==========================================================================
    Slate content modules
@@ -11,11 +12,6 @@
    Do not @use or @import slate.scss: that would duplicate its generated CSS.
    Keep module rules scoped to their component class and nest media queries.
    ========================================================================== */
-
-/* Temporary part boundaries for development; revisit during module styling. */
-[id^="part_"]:not(:is(.module-document-head, .chatbot, .module-scripts, .modules-scripts)) {
-  border: 1px solid var(--light-gray);
-}
 
 /* Empty-payment message inserted by the vanilla Main View behavior. */
 .slate-payment-heading { margin-top: 0; }
@@ -81,8 +77,8 @@
    Paste the complete New CSS Class Names value into Slate’s module Class Name
    field. These selectors target the generated .part wrapper, not body.
    has-js is a reference tag only and intentionally has no styling hook.
-   Layout and component rules are intentionally pending. Comments keep these
-   declaration-free hooks visible in the compiled grad-admissions.css export. */
+   Component treatments are defined in module-treatments. Comments keep these
+   structural hooks visible in the compiled grad-admissions.css export. */
 
 .part.full-width {
   /* Styling pending. */

@@ -166,3 +166,34 @@ button:disabled { cursor: default; opacity: .45; }
  .reference-review { height: 85dvh; }
  .reference-canvas { padding: .5rem; }
 }
+
+/* Presets and Clean view are the primary controls; tuning stays discoverable. */
+.sim-options { margin-left: auto; }
+.sim-options > summary { cursor: pointer; font-weight: 600; padding: .5rem; }
+.sim-options[open] { flex: 1 0 100%; margin-left: 0; }
+.sim-options-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; padding: 1rem 0; border-top: 1px solid #ccd4dc; }
+.sim-notice > summary { cursor: pointer; }
+.sim-notice p { margin-bottom: 0; }
+
+/* Photography planning is a development resource, separate from portal CSS. */
+.photo-plan { max-width: 1180px; margin: auto; padding: clamp(1.25rem, 4vw, 3rem); }
+.photo-plan section + section { margin-top: 3rem; }
+.photo-plan-intro { padding: clamp(1.5rem, 4vw, 3rem); background: #111; color: white; border-top: 5px solid #c8102f; }
+.photo-plan h1 { font-family: Georgia, serif; font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.1; margin: .75rem 0 1.25rem; }
+.photo-plan h2, .photo-plan h3 { font-family: Georgia, serif; line-height: 1.2; }
+.photo-plan h2 { font-size: 1.875rem; }
+.photo-plan h3 { font-size: 1.5rem; margin: 1rem 0; }
+.photo-plan-intro p { max-width: 70ch; }
+.photo-eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.photo-plan-status { display: inline-block; border: 1px solid #666; padding: .5rem .75rem; font-size: .875rem; }
+.photo-priority-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+.photo-priority { padding: 1.5rem; background: #fff; border-top: 3px solid #c8102f; }
+.photo-priority-top { display: flex; align-items: center; gap: 1rem; color: #a00e26; }
+.photo-number { font: 2rem Georgia, serif; }
+.photo-priority dt { margin-top: 1rem; font-weight: 700; font-size: .875rem; }
+.photo-priority dd { margin: .25rem 0 0; }
+.photo-awaiting { border-top: 1px solid #ddd; padding-top: 1rem; color: #545454; font-size: .875rem; }
+.photo-request { padding: 1.5rem 2rem; background: #e9ecef; }
+.photo-plan li + li { margin-top: .65rem; }
+.photo-plan-notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+@media (max-width: 700px) { .photo-priority-grid, .photo-plan-notes { grid-template-columns: 1fr; } .photo-request { padding: 1.25rem; } }

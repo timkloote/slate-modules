@@ -90,7 +90,7 @@ Layout follows original class evidence: `leftcolumn` becomes `col-left`, `rightc
 
 `src/scss/modules.scss` contains declaration-free `.part.<class>` hooks for these proposals, retained in the compiled CSS with comments. Add component styling there as modules are reviewed. The class proposals do not execute deletion or renaming suggestions from workbook notes.
 
-Edit `src/scss/slate.scss` and `src/js/grad-admissions.js` for production work. Both views load the production CSS; only Clean view loads grad-admissions.js after assembling the selected parts. Shared header controls remain interactive; destination links are prevented from navigating. The existing application entry point loads its Northeastern dependencies as usual.
+Edit `src/scss/slate.scss` and `src/js/grad-admissions.js` for production work. Sanitized previews load the production CSS unless Original portal only is selected. Legacy previews never load grad-admissions.css; only sanitized Clean view loads grad-admissions.js after assembling the selected parts. Shared header controls remain interactive; destination links are prevented from navigating. The existing application entry point loads its Northeastern dependencies as usual.
 
 `src/scss/simulator.scss`, `src/scss/simulator-preview.scss`, and `src/js/simulator*.js` belong only to the development interface. Do not paste these into Slate. No source modules or audit notes are rewritten during preview generation.
 
@@ -137,7 +137,7 @@ Choose **Styles → Portal + design** to load the two supplied Slate base CSS sn
 4. `https://enroll-northeastern-edu.cdn.technolutions.net/shared/tailwind.css`
 5. `https://enroll-northeastern-edu.cdn.technolutions.net/shared/build-mobile-global.css`
 
-They load before the local preview/design styles. This uses the order supplied for development; match the final placement of new CSS in build.xslt when deploying. The choice persists per view and carries into Clean view URLs as `styles=portal`. **Design only** remains the default. Existing Clean view tabs retain their URL settings; reopen the link after switching styles.
+They load before the local preview/design styles. This uses the order supplied for development; match the final placement of new CSS in build.xslt when deploying. The choice persists per view and carries into Clean view URLs as `styles=portal`. **Portal redesign** is the default preset. **Legacy portal** loads original portal CSS without grad-admissions.css. Source, stylesheet, class, layout, width, and label controls remain available under **Preview options**. Existing Clean view tabs retain their URL settings; reopen the link after switching styles.
 
 The simulator controls and landing page are unaffected. These are live CDN references, so network availability and upstream updates affect the preview; relative font/image URLs resolve on the CDN. Failed stylesheet loads are reported in the browser console.
 

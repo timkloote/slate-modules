@@ -1,4 +1,4 @@
-import { loadPortalStyles } from './portal-styles.js';
+import { configurePreviewStyles } from './portal-styles.js';
 import { initMainViewBehavior } from './main-view-behavior.js';
 
 /**
@@ -94,7 +94,7 @@ export function groupColumnParts(container) {
 }
 export async function initPreview() {
  const params=new URLSearchParams(location.search);
- if(params.get('styles')==='portal') loadPortalStyles(document);
+ configurePreviewStyles(document, params);
  const response=await fetch('/simulator/data.json');if(!response.ok)throw new Error(`HTTP ${response.status}`);
  const {views}=await response.json();
  const view=views.find(v=>v.slug===document.querySelector('[data-view]').dataset.view);
