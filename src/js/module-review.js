@@ -10,24 +10,30 @@
     const host = document.createElement('div');
     host.id = 'module-review-tools';
     host.style.cssText = 'position:fixed;bottom:16px;left:16px;z-index:2147483647;max-width:calc(100vw - 32px);';
+    host.style.setProperty('z-index', '2147483647', 'important');
+    host.style.setProperty('position', 'fixed', 'important');
     const shadow = host.attachShadow({ mode: 'open' });
     shadow.innerHTML = `<style>
       :host{font:14px/1.5 Arial,sans-serif;color:#fff}
-      section{background:#17212a;padding:12px;border-radius:6px;box-shadow:0 3px 16px #0003;max-width:440px;box-sizing:border-box}
+      section{position:relative;z-index:1;background:#17212a;padding:12px;border-radius:6px;box-shadow:0 3px 16px #0003;max-width:440px;box-sizing:border-box}
       button{font:inherit;color:#fff;background:#17212a;border:1px solid #fff;border-radius:3px;padding:6px 10px;cursor:pointer}
       button:focus-visible{outline:3px solid #ffce55;outline-offset:3px}
+      button:disabled{opacity:.5;cursor:default}.part-id{display:flex;align-items:center;gap:8px;margin-top:8px}.part-id code{min-width:0}.copy{display:inline-flex;align-items:center;justify-content:center;flex:none;padding:6px}.copy svg{width:16px;height:16px}.module-name{font-size:18px;font-weight:700;line-height:1.35}
       p{margin:8px 0 0;overflow-wrap:anywhere}code{font:12px/1.5 monospace;user-select:text}
       [hidden]{display:none!important}.outline{position:fixed;pointer-events:none;border:2px solid #c8102f;box-sizing:border-box;background:#c8102f08}
       @media print{:host{display:none}}
-    </style><section aria-label="Module review tools"><button type="button" aria-pressed="false">Module review: Off</button><div hidden><p role="status" aria-live="polite">Hover over a module or focus a link/control inside it.</p><p><code></code></p></div></section><div class="outline" hidden></div>`;
+    </style><section aria-label="Module review tools"><button type="button" aria-pressed="false">Module review: Off</button><div class="details" hidden><p class="module-name" role="status" aria-live="polite">Hover to inspect. Click a module to pin its title and ID.</p><div class="part-id"><code></code><button class="copy" type="button" aria-label="Copy part ID" title="Copy part ID" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 9V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4"/></svg></button></div><p class="copy-status" role="status" aria-live="polite"></p></div></section><div class="outline" hidden></div>`;
     document.body.append(host);
     const toggle = shadow.querySelector('button');
-    const details = shadow.querySelector('section div');
-    const label = shadow.querySelector('[role="status"]');
+    const details = shadow.querySelector('.details');
+    const label = shadow.querySelector('.module-name');
     const id = shadow.querySelector('code');
+    const copy = shadow.querySelector('.copy');
+    const copyStatus = shadow.querySelector('.copy-status');
     const outline = shadow.querySelector('.outline');
     let enabled = false;
     let current = null;
+    let pinned = false;
     function position() {
       if (!enabled || !current?.isConnected) { outline.hidden = true; return; }
       const rect = current.getBoundingClientRect();
@@ -39,23 +45,41 @@
       toggle.textContent = `Module review: ${enabled ? 'On' : 'Off'}`;
       toggle.setAttribute('aria-pressed', String(enabled));
       details.hidden = !enabled;
-      if (!enabled) { current = null; outline.hidden = true; }
+      if (!enabled) { current = null; pinned = false; outline.hidden = true; }
       try { sessionStorage.setItem('slate-module-review', String(enabled)); } catch { /* Storage can be unavailable in Slate. */ }
     }
     function identify(event) {
       if (!enabled || !(event.target instanceof Element)) return;
-      current = event.target.closest('.part[id^="part_"]');
-      if (!current) { outline.hidden = true; return; }
+      if (pinned && event.type !== 'click') return;
+      const part = event.target.closest('.part[id^="part_"]');
+      if (!part) {
+        if (!pinned) { current = null; outline.hidden = true; }
+        return;
+      }
+      current = part;
+      if (event.type === 'click') pinned = true;
       const record = catalog?.[current.id];
       label.textContent = record ? `${record.view} · ${record.order}. ${record.name}` : current.dataset.module || 'Module not in the current inventory';
       id.textContent = current.id;
+      copy.disabled = false;
+      copyStatus.textContent = '';
       position();
     }
+    copy.addEventListener('click', async () => {
+      const text = id.textContent;
+      try {
+        await navigator.clipboard.writeText(text);
+        copyStatus.textContent = 'Copied part ID.';
+      } catch {
+        copyStatus.textContent = 'Clipboard unavailable. Select the part ID and copy it manually.';
+      }
+    });
     toggle.addEventListener('click', () => setEnabled(!enabled));
     document.addEventListener('pointerover', identify);
     document.addEventListener('focusin', identify);
+    document.addEventListener('click', identify);
     document.addEventListener('pointerout', event => {
-      if (current && !current.contains(event.relatedTarget)) { current = null; outline.hidden = true; }
+      if (!pinned && current && !current.contains(event.relatedTarget)) { current = null; outline.hidden = true; }
     });
     document.addEventListener('keydown', event => { if (enabled && event.key === 'Escape') setEnabled(false); });
     document.addEventListener('scroll', position, true);

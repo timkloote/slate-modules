@@ -205,7 +205,7 @@ The module library styles Liquid logic (`{% … %}`) and values (`{{ … }}`) wi
 
 ### Temporary stakeholder module review
 
-Modern full-view previews, including Clean view, load a separate `module-review.js` with a fixed **Module review: Off/On** toggle. Turn it on to outline hovered modules and read their inventory name, view, order, and full Slate part ID. Focusing a link or control inside a module also identifies it. Escape turns review off. The preference persists for the current browser tab; module markup and interactions are preserved.
+Modern full-view previews, including Clean view, load a separate `module-review.js` with a fixed **Module review: Off/On** toggle. Turn it on to outline hovered modules and read their inventory name, view, order, and full Slate part ID. The copy icon beside the part ID copies only that ID. The module title appears in larger, bold text. Focusing a link or control inside a module also identifies it. Clicking a module pins its title, ID, and outline until another module is clicked or review is turned off, so moving to the copy icon preserves the selection. Escape turns review off. The preference persists for the current browser tab; module markup and interactions are preserved. The controls use z-index 2147483647 with an important override, above ordinary portal content; browser top-layer dialogs can still appear above them.
 
 For Slate, build and upload **`dist/js/module-review.js`** (the build embeds the current audit catalog). Add a separate temporary tag alongside the existing app script, adjusting the URL to the uploaded asset:
 

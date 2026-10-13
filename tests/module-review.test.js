@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
 import { parseHTML } from 'linkedom';
 
-test('review toggles, identifies Slate wrappers, handles unknown IDs, and preserves markup', () => {
+test('review toggles, copies identity, handles clipboard failure and unknown IDs, and preserves markup', async () => {
   const { document, window } = parseHTML('<html><body><div class="part col-left messaging-block" id="part_example"><div><p>Greetings <a href="/test">Link</a></p></div></div><div class="part" id="part_unknown">Other</div></body></html>');
   const part = document.getElementById('part_example');
   const original = part.outerHTML;
@@ -12,17 +12,42 @@ test('review toggles, identifies Slate wrappers, handles unknown IDs, and preser
   document.getElementById('part_unknown').getBoundingClientRect = part.getBoundingClientRect;
   const storage = new Map();
   const script = readFileSync('src/js/module-review.js', 'utf8').replace('null; /* MODULE_REVIEW_CATALOG */', JSON.stringify({ part_example: { view: 'Main View', order: 8, name: 'Law welcome' } }) + ';');
-  const context = { document, window, Element: window.Element, sessionStorage: { getItem: key => storage.get(key), setItem: (key, value) => storage.set(key, value) } };
+  let copied;
+  const clipboard = { writeText: async text => { copied = text; } };
+  const context = { document, window, navigator: { clipboard }, Element: window.Element, sessionStorage: { getItem: key => storage.get(key), setItem: (key, value) => storage.set(key, value) } };
   runInNewContext(script, context);
   const shadow = document.getElementById('module-review-tools').shadowRoot;
   const button = shadow.querySelector('button');
+  assert.equal(document.getElementById('module-review-tools').style.getPropertyValue('z-index'), '2147483647');
+  assert.equal(shadow.querySelector('.copy').disabled, true);
   assert.equal(button.getAttribute('aria-pressed'), 'false');
   button.click();
   part.querySelector('a').dispatchEvent(new window.Event('pointerover', { bubbles: true }));
   assert.equal(shadow.querySelector('[role="status"]').textContent, 'Main View · 8. Law welcome');
   assert.equal(shadow.querySelector('code').textContent, 'part_example');
   assert.equal(shadow.querySelector('.outline').hidden, false);
+  part.querySelector('p').click();
+  part.dispatchEvent(new window.Event('pointerout', { bubbles: true }));
+  document.getElementById('part_unknown').dispatchEvent(new window.Event('pointerover', { bubbles: true }));
+  assert.equal(shadow.querySelector('code').textContent, 'part_example');
+  assert.equal(shadow.querySelector('.outline').hidden, false);
+  // The displayed identity remains available when moving to the copy control.
+  document.body.dispatchEvent(new window.Event('pointerover', { bubbles: true }));
+  shadow.querySelector('.copy').click();
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(copied, 'part_example');
+  assert.equal(shadow.querySelector('.copy').getAttribute('aria-label'), 'Copy part ID');
+  assert.equal(shadow.querySelector('.copy').parentElement.className, 'part-id');
+  assert.equal(shadow.querySelector('.copy').textContent, '');
+  assert.ok(shadow.querySelector('.copy svg'));
+  assert.match(shadow.querySelector('.copy-status').textContent, /Copied/);
+  clipboard.writeText = async () => { throw new Error('Denied'); };
+  shadow.querySelector('.copy').click();
+  await new Promise(resolve => setImmediate(resolve));
+  assert.match(shadow.querySelector('.copy-status').textContent, /copy it manually/);
   document.getElementById('part_unknown').dispatchEvent(new window.Event('focusin', { bubbles: true }));
+  assert.equal(shadow.querySelector('code').textContent, 'part_example');
+  document.getElementById('part_unknown').click();
   assert.match(shadow.querySelector('[role="status"]').textContent, /not in the current inventory/);
   const escape = new window.Event('keydown');
   escape.key = 'Escape'; document.dispatchEvent(escape);
