@@ -156,5 +156,7 @@ export async function initPreview() {
  document.addEventListener('click',e=>{if(e.target.closest('a'))e.preventDefault();});
  // Load the production entry point after the assembled parts exist.
  if(clean && !legacy) {const app=document.createElement('script');app.src='/js/grad-admissions.js';document.body.append(app);}
+ // Separate review layer; safe to remove without changing portal functionality.
+ if(!legacy) {const review=document.createElement('script');review.src='/js/module-review.js';document.body.append(review);}
 }
 if(typeof document!=='undefined' && document.querySelector('[data-view]'))initPreview().catch(error=>{document.querySelector('.part_rows_container').textContent=`Preview unavailable: ${error.message}`;});

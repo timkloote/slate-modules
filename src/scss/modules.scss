@@ -189,7 +189,11 @@
 }
 
 .part.portal-navigation {
-  /* Styling pending. */
+  /* Slate owns the link markup; place the shared button arrow before its text. */
+  a::after {
+    order: -1;
+    transform: scaleX(-1);
+  }
 }
 
 .part.resource-links {
@@ -362,7 +366,8 @@ div.part.portal-footer {
 }
 
 /* Filled buttons matching the graduate site's Slate form buttons. */
-.button {
+.button,
+.part.portal-navigation a {
   display: inline-flex;
   align-items: center;
   justify-content: center;

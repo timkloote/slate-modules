@@ -2844,7 +2844,11 @@ footer ul {
 }
 
 .part.portal-navigation {
-  /* Styling pending. */
+  /* Slate owns the link markup; place the shared button arrow before its text. */
+}
+.part.portal-navigation a::after {
+  order: -1;
+  transform: scaleX(-1);
 }
 
 .part.resource-links {
@@ -3030,7 +3034,8 @@ div.part.portal-footer {
 }
 
 /* Filled buttons matching the graduate site's Slate form buttons. */
-.button {
+.button,
+.part.portal-navigation a {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -3048,28 +3053,34 @@ div.part.portal-footer {
   cursor: pointer;
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
-.button::after {
+.button::after,
+.part.portal-navigation a::after {
   content: "";
   flex: 0 0 0.875rem;
   width: 0.875rem;
   height: 0.875rem;
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M8.08012 0.200012L14 6.74304L8.08012 13.2861L6.8546 12.2267L11.2789 7.49081H0V5.99527H11.2789L6.8546 1.25936L8.08012 0.200012Z' fill='white'/%3E%3C/svg%3E") center/contain no-repeat;
 }
-.button:hover {
+.button:hover,
+.part.portal-navigation a:hover {
   background-color: rgba(200, 16, 47, 0.8);
   color: #fff;
 }
 @media (min-width: 768px) {
-  .button {
+  .button,
+  .part.portal-navigation a {
     padding: 1.25rem;
   }
 }
-.button:disabled, .button[aria-disabled=true] {
+.button:disabled, .button[aria-disabled=true],
+.part.portal-navigation a:disabled,
+.part.portal-navigation a[aria-disabled=true] {
   opacity: 0.6;
   cursor: not-allowed;
 }
 @media (prefers-reduced-motion: reduce) {
-  .button {
+  .button,
+  .part.portal-navigation a {
     transition: none;
   }
 }

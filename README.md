@@ -203,6 +203,18 @@ Previews remain static: imported scripts and form actions do not execute, Liquid
 
 The module library styles Liquid logic (`{% … %}`) and values (`{{ … }}`) with italics and slightly reduced opacity in both code panels and visible preview text. This is annotation only: no mock values or Liquid evaluation. Source files and copied code remain exact. Attribute expressions, comments, and form values are highlighted in source code only; preview highlighting never rewrites attributes or form values.
 
+### Temporary stakeholder module review
+
+Modern full-view previews, including Clean view, load a separate `module-review.js` with a fixed **Module review: Off/On** toggle. Turn it on to outline hovered modules and read their inventory name, view, order, and full Slate part ID. Focusing a link or control inside a module also identifies it. Escape turns review off. The preference persists for the current browser tab; module markup and interactions are preserved.
+
+For Slate, build and upload **`dist/js/module-review.js`** (the build embeds the current audit catalog). Add a separate temporary tag alongside the existing app script, adjusting the URL to the uploaded asset:
+
+```html
+<script src="js/module-review.js" defer></script>
+```
+
+No other assets or module markup changes are needed. Unknown IDs are shown explicitly rather than assigned a guessed name. Remove this script tag after review; keep the production app tag. To retire the local preview feature, remove its loading line in `src/js/simulator-preview.js` and delete `src/js/module-review.js`. The optional build step tolerates the source file being absent. Legacy previews do not load the inspector.
+
 ### Live Slate view links
 
 The simulator directory, view pages, and module library have a **Live Slate view** dropdown with the 11 supplied sandbox URLs. Choose a destination, then **Open live view ↗** to open a new tab; the two inactive destinations are labeled. View pages preselect their matching destination where the audit name has a confirmed match. FCE Evaluation Status and FCE Updates - Temp Message are not assumed to match differently named live FCE views. The destination list lives in `src/js/live-views.js`; opening a link uses your existing Slate login and does not change the local preview.

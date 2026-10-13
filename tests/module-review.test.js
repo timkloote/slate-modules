@@ -1,0 +1,34 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { runInNewContext } from 'node:vm';
+import { parseHTML } from 'linkedom';
+
+test('review toggles, identifies Slate wrappers, handles unknown IDs, and preserves markup', () => {
+  const { document, window } = parseHTML('<html><body><div class="part col-left messaging-block" id="part_example"><div><p>Greetings <a href="/test">Link</a></p></div></div><div class="part" id="part_unknown">Other</div></body></html>');
+  const part = document.getElementById('part_example');
+  const original = part.outerHTML;
+  part.getBoundingClientRect = () => ({ left: 10, top: 20, width: 300, height: 100 });
+  document.getElementById('part_unknown').getBoundingClientRect = part.getBoundingClientRect;
+  const storage = new Map();
+  const script = readFileSync('src/js/module-review.js', 'utf8').replace('null; /* MODULE_REVIEW_CATALOG */', JSON.stringify({ part_example: { view: 'Main View', order: 8, name: 'Law welcome' } }) + ';');
+  const context = { document, window, Element: window.Element, sessionStorage: { getItem: key => storage.get(key), setItem: (key, value) => storage.set(key, value) } };
+  runInNewContext(script, context);
+  const shadow = document.getElementById('module-review-tools').shadowRoot;
+  const button = shadow.querySelector('button');
+  assert.equal(button.getAttribute('aria-pressed'), 'false');
+  button.click();
+  part.querySelector('a').dispatchEvent(new window.Event('pointerover', { bubbles: true }));
+  assert.equal(shadow.querySelector('[role="status"]').textContent, 'Main View · 8. Law welcome');
+  assert.equal(shadow.querySelector('code').textContent, 'part_example');
+  assert.equal(shadow.querySelector('.outline').hidden, false);
+  document.getElementById('part_unknown').dispatchEvent(new window.Event('focusin', { bubbles: true }));
+  assert.match(shadow.querySelector('[role="status"]').textContent, /not in the current inventory/);
+  const escape = new window.Event('keydown');
+  escape.key = 'Escape'; document.dispatchEvent(escape);
+  assert.equal(button.getAttribute('aria-pressed'), 'false');
+  assert.equal(shadow.querySelector('.outline').hidden, true);
+  assert.equal(part.outerHTML, original);
+  runInNewContext(script, context);
+  assert.equal(document.querySelectorAll('#module-review-tools').length, 1);
+});

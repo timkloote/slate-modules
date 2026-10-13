@@ -1,4 +1,4 @@
-import { mkdir, writeFile } from 'node:fs/promises';
+import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import * as sass from 'sass';
 
 export default function (eleventyConfig) {
@@ -8,6 +8,17 @@ export default function (eleventyConfig) {
   eleventyConfig.addWatchTarget('src/legacy/modules/');
   eleventyConfig.addWatchTarget('src/simulator/');
   eleventyConfig.addPassthroughCopy({ 'src/js': 'js', 'src/references': 'references', 'src/simulator/styles': 'simulator/styles', images: 'images' });
+  // Temporary, standalone review asset: include every ID, including inactive parts.
+  eleventyConfig.on('eleventy.after', async () => {
+    const source = await readFile('src/js/module-review.js', 'utf8').catch(error => {
+      if (error.code === 'ENOENT') return null;
+      throw error;
+    });
+    if (!source) return;
+    const audit = JSON.parse(await readFile('src/simulator/audit.json', 'utf8'));
+    const catalog = Object.fromEntries(audit.modules.map(({ partId, view, order, name }) => [partId, { view, order, name }]));
+    await writeFile('dist/js/module-review.js', source.replace('null; /* MODULE_REVIEW_CATALOG */', `${JSON.stringify(catalog)}; /* MODULE_REVIEW_CATALOG */`));
+  });
   eleventyConfig.on('eleventy.before', async () => {
     await mkdir('dist/css', { recursive: true });
     for (const [source, output, style] of [
