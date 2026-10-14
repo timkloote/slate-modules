@@ -7,7 +7,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addWatchTarget('src/modules/');
   eleventyConfig.addWatchTarget('src/legacy/modules/');
   eleventyConfig.addWatchTarget('src/simulator/');
-  eleventyConfig.addPassthroughCopy({ 'src/js': 'js', 'src/references': 'references', 'src/simulator/styles': 'simulator/styles', images: 'images' });
+  eleventyConfig.addPassthroughCopy({ 'src/js': 'js', 'src/references': 'references', 'src/simulator/styles': 'simulator/styles', images: 'images', 'grad-admissions/images': 'grad-admissions/images' });
   // Temporary, standalone review asset: include every ID, including inactive parts.
   eleventyConfig.on('eleventy.after', async () => {
     const source = await readFile('src/js/module-review.js', 'utf8').catch(error => {

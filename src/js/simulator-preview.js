@@ -8,9 +8,10 @@ import { initMainViewBehavior } from './main-view-behavior.js';
  */
 const SLATE_ASSET_BASE = 'https://enroll-northeastern-edu.cdn.technolutions.net/';
 
-/** Imported relative assets belong to Slate; shared local components keep local paths. */
+/** Imported relative assets belong to Slate; shared local components and graduate admissions images keep local paths. */
 export function resolveSlateAsset(value, localAssets = false) {
   const path = value.trim();
+  if (path.startsWith('/grad-admissions/images/')) return value;
   if (localAssets || !path || path.startsWith('#') || /\{[{%]/.test(path) || /^(?:[a-z][a-z\d+.-]*:|\/\/)/i.test(path)) return value;
   return new URL(path, SLATE_ASSET_BASE).href;
 }
