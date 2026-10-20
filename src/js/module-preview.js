@@ -1,3 +1,4 @@
+import { enhanceApplicantIds } from './applicant-id.js';
 import { highlightLiquidPreview } from './liquid-highlight.js';
 import { loadPortalStyles } from './portal-styles.js';
 import { fragmentForPreview, moduleForSource } from './simulator-preview.js';
@@ -63,6 +64,7 @@ export async function initModulePreview() {
     if (!part.textContent.trim() && !part.querySelector('img,svg,input,select,textarea,button,table,hr')) notes.push('No visible content: this module may contain only styles, scripts, or hidden fields.');
   }
   document.querySelector('.part_rows_container').append(part);
+  if (!legacy) enhanceApplicantIds(part);
   document.title = `${legacy ? 'Legacy' : 'Modern'} — ${record.name}`;
   document.addEventListener('submit', event => event.preventDefault());
   const report = () => {

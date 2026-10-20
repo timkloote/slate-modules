@@ -1,4 +1,5 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
+import { parseHTML } from 'linkedom';
 
 export const slugify = name => name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 export const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -27,10 +28,14 @@ export function inventory() {
     const html = source ? readFileSync(source, 'utf8') : '';
     // Preview the module source itself; captures override only rendered widgets.
     const replacement = null;
-    view.modules.push({ ...record, source, legacySource, legacyHtml, fixture, hasFixture, replacement,
+    // A rendered form pasted into the module source is already a capture.
+    const hasRenderedForm = record.type === 'Form' && Boolean(
+      parseHTML(html).document.querySelector('form .form_question')
+    );
+    view.modules.push({ ...record, source, legacySource, legacyHtml, fixture, hasFixture, hasRenderedForm, replacement,
       html: hasFixture ? readFileSync(fixture, 'utf8') : html,
       sourceHtml: html,
-      needsCapture: record.type !== 'Static Content' && !hasFixture,
+      needsCapture: record.type !== 'Static Content' && !hasFixture && !hasRenderedForm,
     });
   }
   for (const view of views) view.modules.sort((a,b) => a.order-b.order);

@@ -1,3 +1,4 @@
+import { enhanceApplicantIds } from './applicant-id.js';
 import { configurePreviewStyles } from './portal-styles.js';
 import { initMainViewBehavior } from './main-view-behavior.js';
 
@@ -135,6 +136,7 @@ export async function initPreview() {
   }
   container.append(part);
  }
+ if(!legacy) enhanceApplicantIds(container);
  if(clean && params.get('layout')==='columns') groupColumnParts(container);
  if(behavior) {
   const scriptPart=view.modules.find(module=>module.order===133 && (module.name==='Scripts' || module.legacyName==='Scripts'));

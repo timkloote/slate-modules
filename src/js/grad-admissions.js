@@ -8,6 +8,10 @@
 (() => {
   'use strict';
 
+  const applicantIdUrl = document.currentScript?.src
+    ? new URL('./applicant-id.js', document.currentScript.src).href
+    : document.baseURI ? new URL('js/applicant-id.js', document.baseURI).href : null;
+
   // 1. SHARED DEPENDENCIES
   const dependencyUrls = [
     'https://global-packages.cdn.northeastern.edu/global-elements/dist/js/index.umd.js',
@@ -237,6 +241,10 @@
   function initApp() {
     initPortalColumns();
     initNavigation();
+    if (applicantIdUrl) {
+      void import(applicantIdUrl).then(({ initApplicantIds }) => initApplicantIds(document))
+        .catch(error => console.error('[Slate Applicant ID]', error));
+    }
     void initGlobalLibraries();
   }
 

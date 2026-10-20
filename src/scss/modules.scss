@@ -295,6 +295,8 @@ div.part.portal-footer {
 /* Text CTA with the paired sliding arrows used on the graduate site.
    Works with the reference markup without relying on Tailwind utilities. */
 .arrow-link,
+#part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a,
+.part a.button,
 .form-action__content p a {
   display: inline-flex;
   align-items: center;
@@ -342,7 +344,10 @@ div.part.portal-footer {
   }
 }
 
-/* Form links use the same CTA treatment without requiring arrow markup. */
+/* CTA links use the same treatment without requiring arrow markup.
+   Module 33 opts in through its existing Slate part ID. */
+#part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a,
+.part a.button,
 .form-action__content p a {
   &::after {
     content: "";
@@ -413,14 +418,38 @@ div.part.portal-footer {
   }
 }
 
-/* Keep links within paragraph copy visibly identifiable. */
-p a {
-  text-decoration: underline;
+/* Navigation CTAs use bold text and a red arrow; form actions stay filled. */
+.part a.button {
+  justify-content: flex-start;
+  padding: 1rem 0;
+  background: transparent;
+  color: inherit;
+  font-family: "ff-real-headline-pro", sans-serif;
+  font-size: .9rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  &::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 14' fill='none'%3E%3Cpath d='M8.08012 0.200012L14 6.74304L8.08012 13.2861L6.8546 12.2267L11.2789 7.49081H0V5.99527H11.2789L6.8546 1.25936L8.08012 0.200012Z' fill='%23c8102f'/%3E%3C/svg%3E");
+    background-size: 1.125rem 0.875rem;
+    background-repeat: repeat-x;
+  }
+
+  &:hover { background: transparent; color: inherit; }
+  &:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 }
 
-p a.button {
-  text-decoration: none;
+/* Space the captured SSN input below its label without altering other forms. */
+.part.form-widget .form_question[data-export="sys:ssn"] .form_responses {
+  margin-top: .75rem;
 }
+.part.form-widget .form_action_submit { margin-top: 1.5rem; }
+
+/* The SSN save action is a simple filled button, including in disabled previews. */
+#part_5adcf777-b965-4a07-b86e-f3a7b348bcbe button.form_button_submit::after {
+  content: none;
+}
+
 
 /* Graduate-site select treatment; retain native option menus and keyboard use. */
 select {
@@ -506,3 +535,19 @@ select {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* Generated at runtime; the ID remains readable and selectable text. */
+.part .applicant-id {
+  display: block;
+  box-sizing: border-box;
+  margin-block: 1.25rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid #d5d5d5;
+  background: #e5e5e5;
+  color: #242424;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.part .applicant-id + br { display: none; }

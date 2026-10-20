@@ -1233,6 +1233,7 @@ footer ul {
    classes are added at runtime. Utility parts and the FCE tracker stay separate. */
 .part.application-details {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -1264,6 +1265,12 @@ footer ul {
 .part.application-details li + li {
   margin-top: 0.5rem;
 }
+.part.application-details {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.application-details u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.application-details a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -1281,6 +1288,7 @@ footer ul {
 
 .part.application-selector {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -1312,6 +1320,12 @@ footer ul {
 .part.application-selector li + li {
   margin-top: 0.5rem;
 }
+.part.application-selector {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.application-selector u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.application-selector a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -1329,6 +1343,7 @@ footer ul {
 
 .part.checklist {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -1360,6 +1375,12 @@ footer ul {
 .part.checklist li + li {
   margin-top: 0.5rem;
 }
+.part.checklist {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.checklist u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.checklist a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -1377,6 +1398,7 @@ footer ul {
 
 .part.content-block {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -1408,6 +1430,12 @@ footer ul {
 .part.content-block li + li {
   margin-top: 0.5rem;
 }
+.part.content-block {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.content-block u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.content-block a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -1425,6 +1453,7 @@ footer ul {
 
 .part.document-link {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -1456,6 +1485,12 @@ footer ul {
 .part.document-link li + li {
   margin-top: 0.5rem;
 }
+.part.document-link {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.document-link u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.document-link a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -1473,6 +1508,7 @@ footer ul {
 
 .part.enrollment-actions {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -1504,6 +1540,12 @@ footer ul {
 .part.enrollment-actions li + li {
   margin-top: 0.5rem;
 }
+.part.enrollment-actions {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.enrollment-actions u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.enrollment-actions a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -1521,6 +1563,7 @@ footer ul {
 
 .part.event-registration {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -1552,6 +1595,12 @@ footer ul {
 .part.event-registration li + li {
   margin-top: 0.5rem;
 }
+.part.event-registration {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.event-registration u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.event-registration a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -1569,6 +1618,7 @@ footer ul {
 
 .part.faq {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -1600,6 +1650,12 @@ footer ul {
 .part.faq li + li {
   margin-top: 0.5rem;
 }
+.part.faq {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.faq u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.faq a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -1617,6 +1673,7 @@ footer ul {
 
 .part.form-action {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -1648,6 +1705,12 @@ footer ul {
 .part.form-action li + li {
   margin-top: 0.5rem;
 }
+.part.form-action {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.form-action u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.form-action a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -1665,6 +1728,7 @@ footer ul {
 
 .part.form-widget {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -1696,6 +1760,12 @@ footer ul {
 .part.form-widget li + li {
   margin-top: 0.5rem;
 }
+.part.form-widget {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.form-widget u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.form-widget a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -1713,6 +1783,7 @@ footer ul {
 
 .part.materials-upload {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -1744,6 +1815,12 @@ footer ul {
 .part.materials-upload li + li {
   margin-top: 0.5rem;
 }
+.part.materials-upload {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.materials-upload u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.materials-upload a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -1761,6 +1838,7 @@ footer ul {
 
 .part.messaging-block {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -1792,6 +1870,12 @@ footer ul {
 .part.messaging-block li + li {
   margin-top: 0.5rem;
 }
+.part.messaging-block {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.messaging-block u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.messaging-block a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -1809,6 +1893,7 @@ footer ul {
 
 .part.navigation-card {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -1840,6 +1925,12 @@ footer ul {
 .part.navigation-card li + li {
   margin-top: 0.5rem;
 }
+.part.navigation-card {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.navigation-card u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.navigation-card a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -1857,6 +1948,7 @@ footer ul {
 
 .part.notification {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -1888,6 +1980,12 @@ footer ul {
 .part.notification li + li {
   margin-top: 0.5rem;
 }
+.part.notification {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.notification u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.notification a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -1905,6 +2003,7 @@ footer ul {
 
 .part.payment-block {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -1936,6 +2035,12 @@ footer ul {
 .part.payment-block li + li {
   margin-top: 0.5rem;
 }
+.part.payment-block {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.payment-block u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.payment-block a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -1953,6 +2058,7 @@ footer ul {
 
 .part.resource-links {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -1984,6 +2090,12 @@ footer ul {
 .part.resource-links li + li {
   margin-top: 0.5rem;
 }
+.part.resource-links {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.resource-links u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.resource-links a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -2001,6 +2113,7 @@ footer ul {
 
 .part.status-summary {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -2032,6 +2145,12 @@ footer ul {
 .part.status-summary li + li {
   margin-top: 0.5rem;
 }
+.part.status-summary {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.status-summary u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.status-summary a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -2049,6 +2168,7 @@ footer ul {
 
 .part.student-comments {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -2080,6 +2200,12 @@ footer ul {
 .part.student-comments li + li {
   margin-top: 0.5rem;
 }
+.part.student-comments {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.student-comments u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.student-comments a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -2097,6 +2223,7 @@ footer ul {
 
 .part.support-block {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -2128,6 +2255,12 @@ footer ul {
 .part.support-block li + li {
   margin-top: 0.5rem;
 }
+.part.support-block {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.support-block u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.support-block a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -2145,6 +2278,7 @@ footer ul {
 
 .part.video-upload {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -2176,6 +2310,12 @@ footer ul {
 .part.video-upload li + li {
   margin-top: 0.5rem;
 }
+.part.video-upload {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.video-upload u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.video-upload a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -2193,6 +2333,7 @@ footer ul {
 
 .part.welcome-links {
   --module-space: clamp(1.25rem, 3vw, 2rem);
+  --module-link-color: #c8102f;
   padding: var(--module-space);
   min-width: 0;
   color: #242424;
@@ -2224,6 +2365,12 @@ footer ul {
 .part.welcome-links li + li {
   margin-top: 0.5rem;
 }
+.part.welcome-links {
+  /* Slate sometimes wraps links in <u>; let the link own its underline. */
+}
+.part.welcome-links u:has(> a:only-child) {
+  text-decoration: none;
+}
 .part.welcome-links a:not(.button) {
   color: #c8102f;
   text-underline-offset: 0.2em;
@@ -2243,10 +2390,10 @@ footer ul {
 .part:is(.messaging-block, .support-block, .enrollment-actions) {
   background: #111;
   color: #fff;
+  --module-link-color: #fff;
 }
-.part:is(.messaging-block, .support-block, .enrollment-actions) a:not(.button), .part:is(.messaging-block, .support-block, .enrollment-actions) .arrow-link {
+.part:is(.messaging-block, .support-block, .enrollment-actions) .arrow-link {
   color: #fff;
-  text-decoration: underline;
 }
 .part:is(.messaging-block, .support-block, .enrollment-actions) :is(h2, h3) {
   margin-bottom: 1rem;
@@ -2260,16 +2407,16 @@ footer ul {
   color: #fff;
 }
 
-/* Red is reserved for prominent notices and event registration. */
+/* Quiet notice panels retain a small red accent without a solid color fill. */
 .part:is(.notification, .event-registration) {
-  background: #c8102f;
-  color: #fff;
+  box-sizing: border-box;
+  background: #f7f7f7;
+  color: #242424;
+  border: 1px solid #e5e5e5;
+  border-top: 3px solid #c8102f;
 }
 .part:is(.notification, .event-registration) a:not(.button), .part:is(.notification, .event-registration) .redtext {
-  color: #fff;
-}
-.part:is(.notification, .event-registration) a {
-  text-decoration: underline;
+  color: #c8102f;
 }
 .part:is(.notification, .event-registration) .button {
   background: #111;
@@ -2314,10 +2461,13 @@ footer ul {
   border-bottom: 1px solid #d5d5d5;
 }
 
-/* Editorial image/text compositions use only existing media containers. */
-.part.content-block {
-  border-top: 1px solid #d5d5d5;
+/* Light boundaries around modules that retain a white background. */
+.part:is(.application-selector, .checklist, .content-block, .faq, .resource-links) {
+  box-sizing: border-box;
+  border: 1px solid #e5e5e5;
 }
+
+/* Editorial image/text compositions use only existing media containers. */
 .part.content-block img {
   display: block;
 }
@@ -2435,6 +2585,202 @@ footer ul {
 }
 .part.status-summary :is(ul, ol, table) {
   text-align: left;
+}
+
+/* One treatment for ordinary content links, including visited links.
+   Explicit arrow CTAs and buttons retain their component styling. */
+.part.application-details a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.application-details a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.application-details a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.application-selector a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.application-selector a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.application-selector a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.checklist a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.checklist a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.checklist a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.content-block a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.content-block a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.content-block a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.document-link a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.document-link a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.document-link a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.enrollment-actions a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.enrollment-actions a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.enrollment-actions a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.event-registration a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.event-registration a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.event-registration a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.faq a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.faq a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.faq a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.form-action a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.form-action a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.form-action a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.form-widget a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.form-widget a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.form-widget a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.materials-upload a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.materials-upload a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.materials-upload a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.messaging-block a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.messaging-block a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.messaging-block a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.navigation-card a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.navigation-card a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.navigation-card a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.notification a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.notification a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.notification a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.payment-block a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.payment-block a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.payment-block a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.resource-links a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.resource-links a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.resource-links a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.status-summary a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.status-summary a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.status-summary a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.student-comments a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.student-comments a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.student-comments a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.support-block a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.support-block a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.support-block a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.video-upload a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.video-upload a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.video-upload a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+.part.welcome-links a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  color: var(--module-link-color);
+  text-decoration: none;
+  text-underline-offset: 0.2em;
+}
+.part.welcome-links a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):hover, .part.welcome-links a:not(.button):not(.arrow-link):not(:has(img, svg, picture)):focus-visible {
+  text-decoration: underline;
+}
+
+/* Inline links need a persistent underline against dark feature panels. */
+.part:is(.messaging-block, .support-block, .enrollment-actions) a:not(.button):not(.arrow-link):not(:has(img, svg, picture)) {
+  text-decoration: underline;
 }
 
 /* ==========================================================================
@@ -2962,6 +3308,8 @@ div.part.portal-footer {
 /* Text CTA with the paired sliding arrows used on the graduate site.
    Works with the reference markup without relying on Tailwind utilities. */
 .arrow-link,
+#part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a,
+.part a.button,
 .form-action__content p a {
   display: inline-flex;
   align-items: center;
@@ -2975,6 +3323,8 @@ div.part.portal-footer {
   line-height: 1.2;
 }
 .arrow-link > span:first-child,
+#part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a > span:first-child,
+.part a.button > span:first-child,
 .form-action__content p a > span:first-child {
   font-family: "ff-real-headline-pro", sans-serif;
   font-size: 0.9rem;
@@ -2982,6 +3332,8 @@ div.part.portal-footer {
   line-height: 1.2;
 }
 .arrow-link > span:last-child:has(> svg),
+#part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a > span:last-child:has(> svg),
+.part a.button > span:last-child:has(> svg),
 .form-action__content p a > span:last-child:has(> svg) {
   display: flex;
   flex-shrink: 0;
@@ -2992,6 +3344,8 @@ div.part.portal-footer {
   overflow: hidden;
 }
 .arrow-link > span:last-child:has(> svg) svg,
+#part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a > span:last-child:has(> svg) svg,
+.part a.button > span:last-child:has(> svg) svg,
 .form-action__content p a > span:last-child:has(> svg) svg {
   flex: 1 0 100%;
   width: 0.875rem;
@@ -3000,21 +3354,30 @@ div.part.portal-footer {
   transition: transform 300ms ease-in-out 100ms;
 }
 .arrow-link:is(:hover, :focus-visible) > span:last-child > svg,
+#part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a:is(:hover, :focus-visible) > span:last-child > svg,
+.part a.button:is(:hover, :focus-visible) > span:last-child > svg,
 .form-action__content p a:is(:hover, :focus-visible) > span:last-child > svg {
   transform: translateX(1.125rem);
 }
 @media (prefers-reduced-motion: reduce) {
   .arrow-link > span:last-child > svg,
+  #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a > span:last-child > svg,
+  .part a.button > span:last-child > svg,
   .form-action__content p a > span:last-child > svg {
     transition: none;
   }
   .arrow-link:is(:hover, :focus-visible) > span:last-child > svg,
+  #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a:is(:hover, :focus-visible) > span:last-child > svg,
+  .part a.button:is(:hover, :focus-visible) > span:last-child > svg,
   .form-action__content p a:is(:hover, :focus-visible) > span:last-child > svg {
     transform: none;
   }
 }
 
-/* Form links use the same CTA treatment without requiring arrow markup. */
+/* CTA links use the same treatment without requiring arrow markup.
+   Module 33 opts in through its existing Slate part ID. */
+#part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a::after,
+.part a.button::after,
 .form-action__content p a::after {
   content: "";
   flex: 0 0 0.875rem;
@@ -3025,13 +3388,19 @@ div.part.portal-footer {
   background-repeat: repeat-x;
   transition: background-position 300ms ease-in-out 100ms;
 }
+#part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a:is(:hover, :focus-visible)::after,
+.part a.button:is(:hover, :focus-visible)::after,
 .form-action__content p a:is(:hover, :focus-visible)::after {
   background-position: 1.125rem 0;
 }
 @media (prefers-reduced-motion: reduce) {
+  #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a::after,
+  .part a.button::after,
   .form-action__content p a::after {
     transition: none;
   }
+  #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a:is(:hover, :focus-visible)::after,
+  .part a.button:is(:hover, :focus-visible)::after,
   .form-action__content p a:is(:hover, :focus-visible)::after {
     background-position: 0 0;
   }
@@ -3089,13 +3458,43 @@ div.part.portal-footer {
   }
 }
 
-/* Keep links within paragraph copy visibly identifiable. */
-p a {
-  text-decoration: underline;
+/* Navigation CTAs use bold text and a red arrow; form actions stay filled. */
+.part a.button {
+  justify-content: flex-start;
+  padding: 1rem 0;
+  background: transparent;
+  color: inherit;
+  font-family: "ff-real-headline-pro", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.part a.button::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 14' fill='none'%3E%3Cpath d='M8.08012 0.200012L14 6.74304L8.08012 13.2861L6.8546 12.2267L11.2789 7.49081H0V5.99527H11.2789L6.8546 1.25936L8.08012 0.200012Z' fill='%23c8102f'/%3E%3C/svg%3E");
+  background-size: 1.125rem 0.875rem;
+  background-repeat: repeat-x;
+}
+.part a.button:hover {
+  background: transparent;
+  color: inherit;
+}
+.part a.button:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 4px;
 }
 
-p a.button {
-  text-decoration: none;
+/* Space the captured SSN input below its label without altering other forms. */
+.part.form-widget .form_question[data-export="sys:ssn"] .form_responses {
+  margin-top: 0.75rem;
+}
+
+.part.form-widget .form_action_submit {
+  margin-top: 1.5rem;
+}
+
+/* The SSN save action is a simple filled button, including in disabled previews. */
+#part_5adcf777-b965-4a07-b86e-f3a7b348bcbe button.form_button_submit::after {
+  content: none;
 }
 
 /* Graduate-site select treatment; retain native option menus and keyboard use. */
@@ -3174,6 +3573,25 @@ select:disabled {
   .part .module-image-layout {
     grid-template-columns: minmax(0, 1fr);
   }
+}
+
+/* Generated at runtime; the ID remains readable and selectable text. */
+.part .applicant-id {
+  display: block;
+  box-sizing: border-box;
+  margin-block: 1.25rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid #d5d5d5;
+  background: #e5e5e5;
+  color: #242424;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.part .applicant-id + br {
+  display: none;
 }
 
 /* Accessibility enhancements shared by the standalone portal markup. */

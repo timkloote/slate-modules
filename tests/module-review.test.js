@@ -22,6 +22,23 @@ test('review toggles, copies identity, handles clipboard failure and unknown IDs
   assert.equal(shadow.querySelector('.copy').disabled, true);
   assert.equal(button.getAttribute('aria-pressed'), 'false');
   button.click();
+  const search = shadow.querySelector('input');
+  let scrolled = false;
+  part.scrollIntoView = () => { scrolled = true; };
+  search.value = '8';
+  search.dispatchEvent(new window.Event('input'));
+  assert.equal(shadow.querySelectorAll('.search-results button').length, 1);
+  shadow.querySelector('.search-results button').click();
+  assert.equal(scrolled, true);
+  assert.equal(shadow.querySelector('code').textContent, 'part_example');
+  search.value = 'law welcome';
+  search.dispatchEvent(new window.Event('input'));
+  assert.equal(shadow.querySelectorAll('.search-results button').length, 1);
+  search.value = 'does not exist';
+  search.dispatchEvent(new window.Event('input'));
+  assert.match(shadow.querySelector('.search-status').textContent, /No matching/);
+  // Resume the existing hover and pin checks from an unpinned state.
+  button.click(); button.click();
   part.querySelector('a').dispatchEvent(new window.Event('pointerover', { bubbles: true }));
   assert.equal(shadow.querySelector('[role="status"]').textContent, 'Main View · 8. Law welcome');
   assert.equal(shadow.querySelector('code').textContent, 'part_example');

@@ -16,7 +16,7 @@ test('audit maps every imported file exactly once and keeps IDs and ordering', (
   for(const m of view.modules) {
    assert.match(m.partId,/^part_[a-f0-9-]{36}$/);
    assert.equal(m.sourceHtml,readFileSync(m.source,'utf8'));
-   assert.equal(m.needsCapture,m.type!=='Static Content'&&!m.hasFixture);
+   assert.equal(m.needsCapture,m.type!=='Static Content'&&!m.hasFixture&&!m.hasRenderedForm);
    const row=audit.modules.find(r=>r.partId===m.partId);
    for(const key of Object.keys(row))assert.equal(m[key],row[key]);
   }
@@ -39,3 +39,10 @@ test('previews use module sources and preserve source Liquid', () => {
  assert.equal(views.find(v=>v.slug==='fce-evaluation-status').modules.some(m=>m.replacement),false);
  assert.equal(escapeHtml('<script>"&'), '&lt;script&gt;&quot;&amp;');
 });
+
+ test('rendered SSN form source is available without a separate fixture',()=>{
+  const module=inventory().views.find(view=>view.slug==='main-view').modules.find(module=>module.order===83);
+  assert.equal(module.hasRenderedForm,true);
+  assert.equal(module.needsCapture,false);
+  assert.match(module.html,/Social Security Number/);
+ });
