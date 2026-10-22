@@ -16,7 +16,7 @@ test('audit maps every imported file exactly once and keeps IDs and ordering', (
   for(const m of view.modules) {
    assert.match(m.partId,/^part_[a-f0-9-]{36}$/);
    assert.equal(m.sourceHtml,readFileSync(m.source,'utf8'));
-   assert.equal(m.needsCapture,m.type!=='Static Content'&&!m.hasFixture&&!m.hasRenderedForm);
+   assert.equal(m.needsCapture,m.type!=='Static Content'&&!m.hasFixture&&!m.hasRenderedForm&&!m.hasRenderedSelector);
    const row=audit.modules.find(r=>r.partId===m.partId);
    for(const key of Object.keys(row))assert.equal(m[key],row[key]);
   }
@@ -46,3 +46,11 @@ test('previews use module sources and preserve source Liquid', () => {
   assert.equal(module.needsCapture,false);
   assert.match(module.html,/Social Security Number/);
  });
+
+test('FCE application selector uses rendered source options in the preview',()=>{
+ const module=inventory().views.find(view=>view.slug==='fce-evaluation-status').modules.find(module=>module.order===1);
+ assert.equal(module.hasRenderedSelector,true);
+ assert.equal(module.needsCapture,false);
+ assert.match(module.html,/<select/);
+ assert.match(module.html,/Robotics/);
+});

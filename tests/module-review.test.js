@@ -74,3 +74,32 @@ test('review toggles, copies identity, handles clipboard failure and unknown IDs
   runInNewContext(script, context);
   assert.equal(document.querySelectorAll('#module-review-tools').length, 1);
 });
+
+test('review shares live destinations, selects the current Slate view, and updates its new-tab link', async () => {
+  const { liveViews } = await import('../src/js/live-views.js');
+  const { document, window } = parseHTML('<html><body></body></html>');
+  const script = readFileSync('src/js/module-review.js', 'utf8')
+    .replace('[]; /* MODULE_REVIEW_VIEWS */', JSON.stringify(liveViews) + ';');
+  // Linkedom omits the browser's select.value setter.
+  const createElement = document.createElement.bind(document);
+  const selectPrototype = Object.getPrototypeOf(createElement('select'));
+  Object.defineProperty(selectPrototype, 'value', { configurable: true, get() { return this._value; }, set(value) { this._value = value; } });
+  runInNewContext(script, {
+    document, window: { location: { href: liveViews.find(view => view.id === 'letters').url }, addEventListener() {} },
+    URL, Element: window.Element, sessionStorage: { getItem() {}, setItem() {} },
+  });
+  const shadow = document.getElementById('module-review-tools').shadowRoot;
+  const picker = shadow.querySelector('.view-picker');
+  const select = picker.querySelector('select');
+  const link = picker.querySelector('a');
+  assert.equal(picker.hidden, false);
+  assert.equal(select.querySelectorAll('option').length, liveViews.length);
+  assert.equal(select.value, 'letters');
+  assert.equal(link.href, liveViews.find(view => view.id === 'letters').url);
+  assert.equal(link.target, '_blank');
+  assert.equal(link.rel, 'noopener noreferrer');
+  select.value = 'testing-fcechecklist';
+  select.dispatchEvent(new window.Event('change'));
+  assert.equal(link.href, liveViews.find(view => view.id === 'testing-fcechecklist').url);
+  assert.match(select.lastElementChild.textContent, /inactive/);
+});

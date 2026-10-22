@@ -189,6 +189,17 @@
 }
 
 .part.portal-navigation {
+  /* Override Slate's #content link colors and utility colors on nested spans. */
+  a,
+  a:link,
+  a:visited,
+  a:hover,
+  a:focus-visible,
+  a:active,
+  a span {
+    color: #fff !important;
+  }
+
   /* Slate owns the link markup; place the shared button arrow before its text. */
   a::after {
     order: -1;
@@ -295,6 +306,8 @@ div.part.portal-footer {
 /* Text CTA with the paired sliding arrows used on the graduate site.
    Works with the reference markup without relying on Tailwind utilities. */
 .arrow-link,
+#part_43ada4b5-1326-44ba-ad29-32bad37c18ac a,
+#part_e0d2d69b-021d-414f-92c1-6dac775b1326 a,
 #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a,
 .part a.button,
 .form-action__content p a {
@@ -345,7 +358,9 @@ div.part.portal-footer {
 }
 
 /* CTA links use the same treatment without requiring arrow markup.
-   Module 33 opts in through its existing Slate part ID. */
+   Modules 29, 30, and 33 opt in through their existing Slate part IDs. */
+#part_43ada4b5-1326-44ba-ad29-32bad37c18ac a,
+#part_e0d2d69b-021d-414f-92c1-6dac775b1326 a,
 #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a,
 .part a.button,
 .form-action__content p a {
@@ -536,8 +551,9 @@ select {
   }
 }
 
-/* Generated at runtime; the ID remains readable and selectable text. */
-.part .applicant-id {
+/* Shared muted callout: generated Applicant IDs and module 123's college information. */
+.part .applicant-id,
+#part_cf6009e1-4065-47ce-9f9d-fae0d8fd2123 p:nth-of-type(2):has(> a:only-child) {
   display: block;
   box-sizing: border-box;
   margin-block: 1.25rem;

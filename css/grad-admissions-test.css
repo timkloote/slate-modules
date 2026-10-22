@@ -3194,6 +3194,18 @@ footer ul {
 }
 
 .part.portal-navigation {
+  /* Override Slate's #content link colors and utility colors on nested spans. */
+}
+.part.portal-navigation a,
+.part.portal-navigation a:link,
+.part.portal-navigation a:visited,
+.part.portal-navigation a:hover,
+.part.portal-navigation a:focus-visible,
+.part.portal-navigation a:active,
+.part.portal-navigation a span {
+  color: #fff !important;
+}
+.part.portal-navigation {
   /* Slate owns the link markup; place the shared button arrow before its text. */
 }
 .part.portal-navigation a::after {
@@ -3308,6 +3320,8 @@ div.part.portal-footer {
 /* Text CTA with the paired sliding arrows used on the graduate site.
    Works with the reference markup without relying on Tailwind utilities. */
 .arrow-link,
+#part_43ada4b5-1326-44ba-ad29-32bad37c18ac a,
+#part_e0d2d69b-021d-414f-92c1-6dac775b1326 a,
 #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a,
 .part a.button,
 .form-action__content p a {
@@ -3323,6 +3337,8 @@ div.part.portal-footer {
   line-height: 1.2;
 }
 .arrow-link > span:first-child,
+#part_43ada4b5-1326-44ba-ad29-32bad37c18ac a > span:first-child,
+#part_e0d2d69b-021d-414f-92c1-6dac775b1326 a > span:first-child,
 #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a > span:first-child,
 .part a.button > span:first-child,
 .form-action__content p a > span:first-child {
@@ -3332,6 +3348,8 @@ div.part.portal-footer {
   line-height: 1.2;
 }
 .arrow-link > span:last-child:has(> svg),
+#part_43ada4b5-1326-44ba-ad29-32bad37c18ac a > span:last-child:has(> svg),
+#part_e0d2d69b-021d-414f-92c1-6dac775b1326 a > span:last-child:has(> svg),
 #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a > span:last-child:has(> svg),
 .part a.button > span:last-child:has(> svg),
 .form-action__content p a > span:last-child:has(> svg) {
@@ -3344,6 +3362,8 @@ div.part.portal-footer {
   overflow: hidden;
 }
 .arrow-link > span:last-child:has(> svg) svg,
+#part_43ada4b5-1326-44ba-ad29-32bad37c18ac a > span:last-child:has(> svg) svg,
+#part_e0d2d69b-021d-414f-92c1-6dac775b1326 a > span:last-child:has(> svg) svg,
 #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a > span:last-child:has(> svg) svg,
 .part a.button > span:last-child:has(> svg) svg,
 .form-action__content p a > span:last-child:has(> svg) svg {
@@ -3354,6 +3374,8 @@ div.part.portal-footer {
   transition: transform 300ms ease-in-out 100ms;
 }
 .arrow-link:is(:hover, :focus-visible) > span:last-child > svg,
+#part_43ada4b5-1326-44ba-ad29-32bad37c18ac a:is(:hover, :focus-visible) > span:last-child > svg,
+#part_e0d2d69b-021d-414f-92c1-6dac775b1326 a:is(:hover, :focus-visible) > span:last-child > svg,
 #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a:is(:hover, :focus-visible) > span:last-child > svg,
 .part a.button:is(:hover, :focus-visible) > span:last-child > svg,
 .form-action__content p a:is(:hover, :focus-visible) > span:last-child > svg {
@@ -3361,12 +3383,16 @@ div.part.portal-footer {
 }
 @media (prefers-reduced-motion: reduce) {
   .arrow-link > span:last-child > svg,
+  #part_43ada4b5-1326-44ba-ad29-32bad37c18ac a > span:last-child > svg,
+  #part_e0d2d69b-021d-414f-92c1-6dac775b1326 a > span:last-child > svg,
   #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a > span:last-child > svg,
   .part a.button > span:last-child > svg,
   .form-action__content p a > span:last-child > svg {
     transition: none;
   }
   .arrow-link:is(:hover, :focus-visible) > span:last-child > svg,
+  #part_43ada4b5-1326-44ba-ad29-32bad37c18ac a:is(:hover, :focus-visible) > span:last-child > svg,
+  #part_e0d2d69b-021d-414f-92c1-6dac775b1326 a:is(:hover, :focus-visible) > span:last-child > svg,
   #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a:is(:hover, :focus-visible) > span:last-child > svg,
   .part a.button:is(:hover, :focus-visible) > span:last-child > svg,
   .form-action__content p a:is(:hover, :focus-visible) > span:last-child > svg {
@@ -3375,7 +3401,9 @@ div.part.portal-footer {
 }
 
 /* CTA links use the same treatment without requiring arrow markup.
-   Module 33 opts in through its existing Slate part ID. */
+   Modules 29, 30, and 33 opt in through their existing Slate part IDs. */
+#part_43ada4b5-1326-44ba-ad29-32bad37c18ac a::after,
+#part_e0d2d69b-021d-414f-92c1-6dac775b1326 a::after,
 #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a::after,
 .part a.button::after,
 .form-action__content p a::after {
@@ -3388,17 +3416,23 @@ div.part.portal-footer {
   background-repeat: repeat-x;
   transition: background-position 300ms ease-in-out 100ms;
 }
+#part_43ada4b5-1326-44ba-ad29-32bad37c18ac a:is(:hover, :focus-visible)::after,
+#part_e0d2d69b-021d-414f-92c1-6dac775b1326 a:is(:hover, :focus-visible)::after,
 #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a:is(:hover, :focus-visible)::after,
 .part a.button:is(:hover, :focus-visible)::after,
 .form-action__content p a:is(:hover, :focus-visible)::after {
   background-position: 1.125rem 0;
 }
 @media (prefers-reduced-motion: reduce) {
+  #part_43ada4b5-1326-44ba-ad29-32bad37c18ac a::after,
+  #part_e0d2d69b-021d-414f-92c1-6dac775b1326 a::after,
   #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a::after,
   .part a.button::after,
   .form-action__content p a::after {
     transition: none;
   }
+  #part_43ada4b5-1326-44ba-ad29-32bad37c18ac a:is(:hover, :focus-visible)::after,
+  #part_e0d2d69b-021d-414f-92c1-6dac775b1326 a:is(:hover, :focus-visible)::after,
   #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a:is(:hover, :focus-visible)::after,
   .part a.button:is(:hover, :focus-visible)::after,
   .form-action__content p a:is(:hover, :focus-visible)::after {
@@ -3575,8 +3609,9 @@ select:disabled {
   }
 }
 
-/* Generated at runtime; the ID remains readable and selectable text. */
-.part .applicant-id {
+/* Shared muted callout: generated Applicant IDs and module 123's college information. */
+.part .applicant-id,
+#part_cf6009e1-4065-47ce-9f9d-fae0d8fd2123 p:nth-of-type(2):has(> a:only-child) {
   display: block;
   box-sizing: border-box;
   margin-block: 1.25rem;

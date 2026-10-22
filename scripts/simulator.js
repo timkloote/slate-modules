@@ -32,10 +32,13 @@ export function inventory() {
     const hasRenderedForm = record.type === 'Form' && Boolean(
       parseHTML(html).document.querySelector('form .form_question')
     );
-    view.modules.push({ ...record, source, legacySource, legacyHtml, fixture, hasFixture, hasRenderedForm, replacement,
+    const hasRenderedSelector = record.type === 'Application Selector' && Boolean(
+      parseHTML(html).document.querySelector('select option')
+    );
+    view.modules.push({ ...record, source, legacySource, legacyHtml, fixture, hasFixture, hasRenderedForm, hasRenderedSelector, replacement,
       html: hasFixture ? readFileSync(fixture, 'utf8') : html,
       sourceHtml: html,
-      needsCapture: record.type !== 'Static Content' && !hasFixture && !hasRenderedForm,
+      needsCapture: record.type !== 'Static Content' && !hasFixture && !hasRenderedForm && !hasRenderedSelector,
     });
   }
   for (const view of views) view.modules.sort((a,b) => a.order-b.order);
