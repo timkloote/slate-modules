@@ -46,5 +46,5 @@ export function inventory() {
 }
 
 export function documentPage(title, body, script, css = 'simulator') {
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escapeHtml(title)}</title><link rel="stylesheet" href="/css/${css}.css"></head><body>${body}<script type="module" src="/js/${script}.js"></script>${body.includes('data-live-view-picker') ? '<script type="module" src="/js/live-views.js"></script>' : ''}</body></html>`;
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${escapeHtml(title)}</title><link rel="stylesheet" href="/css/${css}.css"></head><body>${body}<script type="module" src="/js/${script}.js"></script>${body.includes('data-all-clean-views') ? '<script type="module" src="/js/clean-views.js"></script>' : ''}${body.includes('data-live-view-picker') ? '<script type="module" src="/js/live-views.js"></script>' : ''}</body></html>`;
 }

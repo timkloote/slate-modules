@@ -17,10 +17,10 @@ test('review toggles, copies identity, handles clipboard failure and unknown IDs
   const context = { document, window, navigator: { clipboard }, Element: window.Element, sessionStorage: { getItem: key => storage.get(key), setItem: (key, value) => storage.set(key, value) } };
   runInNewContext(script, context);
   const shadow = document.getElementById('module-review-tools').shadowRoot;
-  const button = shadow.querySelector('button');
+  const button = shadow.querySelector('.review-toggle');
   assert.equal(document.getElementById('module-review-tools').style.getPropertyValue('z-index'), '2147483647');
   assert.equal(shadow.querySelector('.copy').disabled, true);
-  assert.equal(button.getAttribute('aria-pressed'), 'false');
+  assert.equal(button.getAttribute('aria-checked'), 'false');
   button.click();
   const search = shadow.querySelector('input');
   let scrolled = false;
@@ -38,7 +38,7 @@ test('review toggles, copies identity, handles clipboard failure and unknown IDs
   search.dispatchEvent(new window.Event('input'));
   assert.match(shadow.querySelector('.search-status').textContent, /No matching/);
   // Resume the existing hover and pin checks from an unpinned state.
-  button.click(); button.click();
+  shadow.querySelector('.close-review').click(); button.click();
   part.querySelector('a').dispatchEvent(new window.Event('pointerover', { bubbles: true }));
   assert.equal(shadow.querySelector('[role="status"]').textContent, 'Main View · 8. Law welcome');
   assert.equal(shadow.querySelector('code').textContent, 'part_example');
@@ -68,21 +68,20 @@ test('review toggles, copies identity, handles clipboard failure and unknown IDs
   assert.match(shadow.querySelector('[role="status"]').textContent, /not in the current inventory/);
   const escape = new window.Event('keydown');
   escape.key = 'Escape'; document.dispatchEvent(escape);
-  assert.equal(button.getAttribute('aria-pressed'), 'false');
+  assert.equal(button.getAttribute('aria-checked'), 'false');
   assert.equal(shadow.querySelector('.outline').hidden, true);
   assert.equal(part.outerHTML, original);
   runInNewContext(script, context);
   assert.equal(document.querySelectorAll('#module-review-tools').length, 1);
 });
 
-test('review shares live destinations, selects the current Slate view, and updates its new-tab link', async () => {
+test('review dropdown selects the current Slate view and updates its new-tab link', async () => {
   const { liveViews } = await import('../src/js/live-views.js');
   const { document, window } = parseHTML('<html><body></body></html>');
   const script = readFileSync('src/js/module-review.js', 'utf8')
     .replace('[]; /* MODULE_REVIEW_VIEWS */', JSON.stringify(liveViews) + ';');
   // Linkedom omits the browser's select.value setter.
-  const createElement = document.createElement.bind(document);
-  const selectPrototype = Object.getPrototypeOf(createElement('select'));
+  const selectPrototype = Object.getPrototypeOf(document.createElement('select'));
   Object.defineProperty(selectPrototype, 'value', { configurable: true, get() { return this._value; }, set(value) { this._value = value; } });
   runInNewContext(script, {
     document, window: { location: { href: liveViews.find(view => view.id === 'letters').url }, addEventListener() {} },
@@ -92,7 +91,30 @@ test('review shares live destinations, selects the current Slate view, and updat
   const picker = shadow.querySelector('.view-picker');
   const select = picker.querySelector('select');
   const link = picker.querySelector('a');
+  assert.equal(picker.hidden, true);
+  const toggle = shadow.querySelector('.review-toggle');
+  const details = shadow.querySelector('.details');
+  assert.equal(details.contains(picker), false);
+  assert.equal(link.parentElement, select.parentElement);
+  assert.equal(details.hidden, true);
+  toggle.click();
+  assert.equal(details.hidden, false);
+  assert.equal(toggle.getAttribute('aria-expanded'), 'true');
+  assert.equal(toggle.hidden, true);
+  assert.equal(document.getElementById('module-review-tools').hasAttribute('data-open'), true);
+  assert.equal(shadow.querySelector('.panel-header strong').textContent, 'Module Review');
+  assert.ok(shadow.querySelector('.search-field svg[aria-hidden="true"]'));
+  assert.equal(shadow.querySelector('.search-field input').id, 'module-search');
+  assert.equal(shadow.querySelector('.panel-header').hidden, false);
   assert.equal(picker.hidden, false);
+  shadow.querySelector('.close-review').click();
+  assert.equal(toggle.hidden, false);
+  assert.equal(document.getElementById('module-review-tools').hasAttribute('data-open'), false);
+  assert.equal(shadow.querySelector('.switch-label').textContent, 'Module Review: Off');
+  assert.equal(shadow.querySelector('.panel-header').hidden, true);
+  assert.equal(details.hidden, true);
+  assert.equal(toggle.getAttribute('aria-expanded'), 'false');
+  assert.equal(picker.hidden, true);
   assert.equal(select.querySelectorAll('option').length, liveViews.length);
   assert.equal(select.value, 'letters');
   assert.equal(link.href, liveViews.find(view => view.id === 'letters').url);

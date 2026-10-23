@@ -3129,16 +3129,85 @@ footer ul {
   /* Styling pending. */
 }
 
-.part.enrollment-actions {
-  /* Styling pending. */
+/* The standalone enrollment page has a spacious, light overview. */
+.part.enrollment-actions:has(.enrollment-overview) {
+  background: #fff;
+  color: #242424;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  border-top: 4px solid #c8102f;
+}
+.part.enrollment-actions:has(.enrollment-overview) .enrollment-overview__eyebrow {
+  margin: 0 0 1rem;
+  color: #c8102f;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.part.enrollment-actions:has(.enrollment-overview) h3 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin: 0 0 1rem;
+}
+.part.enrollment-actions:has(.enrollment-overview) .enrollment-overview__intro {
+  max-width: 60ch;
+  margin: 0 0 2rem;
+}
+.part.enrollment-actions:has(.enrollment-overview) .enrollment-overview__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+.part.enrollment-actions:has(.enrollment-overview) h4 {
+  margin: 0 0 1.25rem;
+  font-size: 1.5rem;
+}
+.part.enrollment-actions:has(.enrollment-overview) .enrollment-overview__deposit {
+  padding: clamp(1.25rem, 3vw, 2rem);
+  background: #f3f3f3;
+}
+.part.enrollment-actions:has(.enrollment-overview) dl {
+  margin: 0;
+}
+.part.enrollment-actions:has(.enrollment-overview) dl > div + div {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #d5d5d5;
+}
+.part.enrollment-actions:has(.enrollment-overview) dt {
+  font-size: 0.8125rem;
+  color: #555;
+}
+.part.enrollment-actions:has(.enrollment-overview) dd {
+  margin: 0.375rem 0 0;
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.part.enrollment-actions:has(.enrollment-overview) .enrollment-overview__actions {
+  padding-block: clamp(1.25rem, 3vw, 2rem);
+}
+.part.enrollment-actions:has(.enrollment-overview) .enrollment-overview__actions p {
+  margin: 0;
+  border-bottom: 1px solid #e5e5e5;
+}
+.part.enrollment-actions:has(.enrollment-overview) a.arrow-link {
+  color: #000;
+}
+@media (max-width: 640px) {
+  .part.enrollment-actions:has(.enrollment-overview) .enrollment-overview__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .part.enrollment-actions:has(.enrollment-overview) .enrollment-overview__actions {
+    padding-block: 0;
+  }
 }
 
 .part.event-registration {
   /* Styling pending. */
 }
 
-.part.faq {
-  /* Styling pending. */
+.part.faq a.arrow-link {
+  color: #000;
 }
 
 .part.form-action {
@@ -3203,7 +3272,7 @@ footer ul {
 .part.portal-navigation a:focus-visible,
 .part.portal-navigation a:active,
 .part.portal-navigation a span {
-  color: #fff !important;
+  color: #000 !important;
 }
 .part.portal-navigation {
   /* Slate owns the link markup; place the shared button arrow before its text. */
@@ -3400,8 +3469,9 @@ div.part.portal-footer {
   }
 }
 
-/* CTA links use the same treatment without requiring arrow markup.
+/* Text-only arrow links use the same treatment without extra markup.
    Modules 29, 30, and 33 opt in through their existing Slate part IDs. */
+.arrow-link:not(:has(svg))::after,
 #part_43ada4b5-1326-44ba-ad29-32bad37c18ac a::after,
 #part_e0d2d69b-021d-414f-92c1-6dac775b1326 a::after,
 #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a::after,
@@ -3416,6 +3486,7 @@ div.part.portal-footer {
   background-repeat: repeat-x;
   transition: background-position 300ms ease-in-out 100ms;
 }
+.arrow-link:not(:has(svg)):is(:hover, :focus-visible)::after,
 #part_43ada4b5-1326-44ba-ad29-32bad37c18ac a:is(:hover, :focus-visible)::after,
 #part_e0d2d69b-021d-414f-92c1-6dac775b1326 a:is(:hover, :focus-visible)::after,
 #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a:is(:hover, :focus-visible)::after,
@@ -3424,6 +3495,7 @@ div.part.portal-footer {
   background-position: 1.125rem 0;
 }
 @media (prefers-reduced-motion: reduce) {
+  .arrow-link:not(:has(svg))::after,
   #part_43ada4b5-1326-44ba-ad29-32bad37c18ac a::after,
   #part_e0d2d69b-021d-414f-92c1-6dac775b1326 a::after,
   #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a::after,
@@ -3431,6 +3503,7 @@ div.part.portal-footer {
   .form-action__content p a::after {
     transition: none;
   }
+  .arrow-link:not(:has(svg)):is(:hover, :focus-visible)::after,
   #part_43ada4b5-1326-44ba-ad29-32bad37c18ac a:is(:hover, :focus-visible)::after,
   #part_e0d2d69b-021d-414f-92c1-6dac775b1326 a:is(:hover, :focus-visible)::after,
   #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a:is(:hover, :focus-visible)::after,
@@ -3442,7 +3515,7 @@ div.part.portal-footer {
 
 /* Filled buttons matching the graduate site's Slate form buttons. */
 .button,
-.part.portal-navigation a {
+.part.portal-navigation a:not(.arrow-link) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -3461,7 +3534,7 @@ div.part.portal-footer {
   transition: background-color 150ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button::after,
-.part.portal-navigation a::after {
+.part.portal-navigation a:not(.arrow-link)::after {
   content: "";
   flex: 0 0 0.875rem;
   width: 0.875rem;
@@ -3469,25 +3542,25 @@ div.part.portal-footer {
   background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14' fill='none'%3E%3Cpath d='M8.08012 0.200012L14 6.74304L8.08012 13.2861L6.8546 12.2267L11.2789 7.49081H0V5.99527H11.2789L6.8546 1.25936L8.08012 0.200012Z' fill='white'/%3E%3C/svg%3E") center/contain no-repeat;
 }
 .button:hover,
-.part.portal-navigation a:hover {
+.part.portal-navigation a:not(.arrow-link):hover {
   background-color: rgba(200, 16, 47, 0.8);
   color: #fff;
 }
 @media (min-width: 768px) {
   .button,
-  .part.portal-navigation a {
+  .part.portal-navigation a:not(.arrow-link) {
     padding: 1.25rem;
   }
 }
 .button:disabled, .button[aria-disabled=true],
-.part.portal-navigation a:disabled,
-.part.portal-navigation a[aria-disabled=true] {
+.part.portal-navigation a:not(.arrow-link):disabled,
+.part.portal-navigation a:not(.arrow-link)[aria-disabled=true] {
   opacity: 0.6;
   cursor: not-allowed;
 }
 @media (prefers-reduced-motion: reduce) {
   .button,
-  .part.portal-navigation a {
+  .part.portal-navigation a:not(.arrow-link) {
     transition: none;
   }
 }
@@ -3627,6 +3700,11 @@ select:disabled {
 
 .part .applicant-id + br {
   display: none;
+}
+
+/* SOL admitted-student registration uses black text with the red CTA arrow. */
+#part_830c15fb-cff4-4d97-820e-8744ed07e487 a.arrow-link {
+  color: #000;
 }
 
 /* Accessibility enhancements shared by the standalone portal markup. */

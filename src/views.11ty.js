@@ -1,9 +1,11 @@
+import { allCleanViewsButton } from '../scripts/clean-views.js';
 import { liveViewPicker } from '../scripts/live-views.js';
 import { inventory, escapeHtml as e, documentPage } from '../scripts/simulator.js';
 const help = (name, items) => `<details class="sim-help"><summary aria-label="Help for ${name}" title="Help for ${name}">ⓘ</summary><div class="sim-help-content"><strong>${name}</strong><dl>${items.map(([option, description]) => `<dt>${option}</dt><dd>${description}</dd>`).join('')}</dl></div></details>`;
 export default class {
   data() { return { pagination: { data: 'simulatorViews', size: 1, alias: 'view' }, simulatorViews: inventory().views, permalink: ({view}) => `views/${view.slug}/index.html` }; }
   render({ view }) {
+    const { views, capturedParts } = inventory();
     return documentPage(`${view.name} — Slate simulator`, `
     <header class="sim-bar"><a href="/views/">Slate simulator</a><a href="/modules/">Module library</a><a href="/references/">References</a><a href="/photography/">Photography</a><a href="/">Landing page</a>${liveViewPicker(view.slug)}</header>
     <main class="sim-workspace" data-view="${e(view.slug)}">
@@ -22,6 +24,7 @@ export default class {
         <div class="sim-toolbar">
           <div class="sim-control"><label>Preset <select id="view-preset"><option value="custom">Custom</option><option value="redesign">Portal redesign</option><option value="legacy">Legacy portal</option></select></label>${help('Preset', [['Portal redesign', `Sanitized modules, Portal + design styles, proposed audit classes, ${view.slug === 'main-view' ? 'Slate behavior · vanilla JS' : 'Slate stack'} layout, full width.`], ['Legacy portal', `Legacy originals, original portal styles without redesign CSS, original audit classes, ${view.slug === 'main-view' ? 'Slate behavior · vanilla JS' : 'Slate stack'} layout, full width.`], ['Custom', 'Shown automatically when the settings below do not match a preset. Your last settings are remembered per view.']])}</div>
           <a id="clean-preview" target="_blank" rel="noopener" title="Open selected modules without inspector labels or notices">Clean view ↗</a>
+          ${allCleanViewsButton(views, capturedParts)}
           <details class="sim-options"><summary>Preview options</summary><div class="sim-options-controls">
           <div class="sim-control"><label>Modules <select id="module-source"><option value="sanitized">Sanitized</option><option value="legacy">Legacy originals</option></select></label>${help('Modules', [['Sanitized', 'Cleaned module HTML, new shared header and footer, and available rendered captures. Module CSS and scripts are stripped.'], ['Legacy originals', 'Original module HTML, header, footer, and module CSS. Rendered captures are not substituted; original scripts remain inactive.']])}</div>
           <div class="sim-control"><label>Styles <select id="portal-styles"><option value="legacy">Original portal only</option><option value="design">Design only</option><option value="portal">Portal + design</option></select></label>${help('Styles', [['Original portal only', 'Loads the original portal styles without redesign CSS. Used by the Legacy portal preset.'], ['Design only', 'Loads local redesign CSS for sanitized modules. Legacy originals never load redesign CSS.'], ['Portal + design', 'Loads two Slate base stylesheets, Slate render.css and layout.css, and five Northeastern stylesheets before the local redesign CSS. Redesign CSS applies only to sanitized modules.']])}</div>

@@ -124,8 +124,42 @@
   /* Styling pending. */
 }
 
-.part.enrollment-actions {
-  /* Styling pending. */
+/* The standalone enrollment page has a spacious, light overview. */
+.part.enrollment-actions:has(.enrollment-overview) {
+  background: #fff;
+  color: #242424;
+  padding: clamp(1.5rem, 5vw, 4rem);
+  border-top: 4px solid #c8102f;
+
+  .enrollment-overview__eyebrow {
+    margin: 0 0 1rem;
+    color: #c8102f;
+    font-size: .75rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  h3 { font-size: clamp(2rem, 4vw, 3rem); margin: 0 0 1rem; }
+  .enrollment-overview__intro { max-width: 60ch; margin: 0 0 2rem; }
+  .enrollment-overview__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+  }
+  h4 { margin: 0 0 1.25rem; font-size: 1.5rem; }
+  .enrollment-overview__deposit { padding: clamp(1.25rem, 3vw, 2rem); background: #f3f3f3; }
+  dl { margin: 0; }
+  dl > div + div { margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid #d5d5d5; }
+  dt { font-size: .8125rem; color: #555; }
+  dd { margin: .375rem 0 0; font-size: 1.125rem; font-weight: 700; }
+  .enrollment-overview__actions { padding-block: clamp(1.25rem, 3vw, 2rem); }
+  .enrollment-overview__actions p { margin: 0; border-bottom: 1px solid #e5e5e5; }
+  a.arrow-link { color: #000; }
+  @media (max-width: 640px) {
+    .enrollment-overview__grid { grid-template-columns: minmax(0, 1fr); }
+    .enrollment-overview__actions { padding-block: 0; }
+  }
 }
 
 .part.event-registration {
@@ -133,7 +167,7 @@
 }
 
 .part.faq {
-  /* Styling pending. */
+  a.arrow-link { color: #000; }
 }
 
 .part.form-action {
@@ -197,7 +231,7 @@
   a:focus-visible,
   a:active,
   a span {
-    color: #fff !important;
+    color: #000 !important;
   }
 
   /* Slate owns the link markup; place the shared button arrow before its text. */
@@ -357,8 +391,9 @@ div.part.portal-footer {
   }
 }
 
-/* CTA links use the same treatment without requiring arrow markup.
+/* Text-only arrow links use the same treatment without extra markup.
    Modules 29, 30, and 33 opt in through their existing Slate part IDs. */
+.arrow-link:not(:has(svg)),
 #part_43ada4b5-1326-44ba-ad29-32bad37c18ac a,
 #part_e0d2d69b-021d-414f-92c1-6dac775b1326 a,
 #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a,
@@ -387,7 +422,7 @@ div.part.portal-footer {
 
 /* Filled buttons matching the graduate site's Slate form buttons. */
 .button,
-.part.portal-navigation a {
+.part.portal-navigation a:not(.arrow-link) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -567,3 +602,9 @@ select {
   overflow-wrap: anywhere;
 }
 .part .applicant-id + br { display: none; }
+
+/* SOL admitted-student registration uses black text with the red CTA arrow. */
+#part_830c15fb-cff4-4d97-820e-8744ed07e487 a.arrow-link {
+  color: #000;
+}
+

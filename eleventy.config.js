@@ -1,5 +1,6 @@
 import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import * as sass from 'sass';
+import { readdirSync } from 'node:fs';
 import { liveViews } from './src/js/live-views.js';
 
 export default function (eleventyConfig) {
@@ -8,7 +9,14 @@ export default function (eleventyConfig) {
   eleventyConfig.addWatchTarget('src/modules/');
   eleventyConfig.addWatchTarget('src/legacy/modules/');
   eleventyConfig.addWatchTarget('src/simulator/');
-  eleventyConfig.addPassthroughCopy({ 'src/js': 'js', 'src/references': 'references', 'src/simulator/styles': 'simulator/styles', images: 'images', 'grad-admissions/images': 'grad-admissions/images' });
+  // The review script is generated below with its navigation destinations.
+  // Never copy its empty source placeholders over the generated asset in serve mode.
+  for (const file of readdirSync('src/js')) {
+    if (file !== 'module-review.js') eleventyConfig.addPassthroughCopy({ [`src/js/${file}`]: `js/${file}` });
+  }
+  eleventyConfig.addWatchTarget('src/js/module-review.js');
+  eleventyConfig.addWatchTarget('src/js/live-views.js');
+  eleventyConfig.addPassthroughCopy({ 'src/references': 'references', 'src/simulator/styles': 'simulator/styles', images: 'images', 'grad-admissions/images': 'grad-admissions/images' });
   // Temporary, standalone review asset: include every ID, including inactive parts.
   eleventyConfig.on('eleventy.after', async () => {
     const source = await readFile('src/js/module-review.js', 'utf8').catch(error => {
