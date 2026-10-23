@@ -1,11 +1,12 @@
 /** Temporary stakeholder inspector. Build embeds the audit catalog so this file
  * works in Slate by itself, without fetching data or changing module markup.
- * Remove its script tag to retire it. Default off; preference lasts for this tab.
+ * Remove its script tag to retire it. Default off; preference is shared across views on this site.
  */
 (() => {
   'use strict';
   const catalog = null; /* MODULE_REVIEW_CATALOG */
   const views = []; /* MODULE_REVIEW_VIEWS */
+  const simulatorViews = []; /* MODULE_REVIEW_SIMULATOR_VIEWS */
   function init() {
     if (document.getElementById('module-review-tools')) return;
     const host = document.createElement('div');
@@ -98,22 +99,53 @@
     const viewPicker = shadow.querySelector('.view-picker');
     const viewSelect = viewPicker.querySelector('select');
     const viewLink = viewPicker.querySelector('a');
-    if (views.length) {
-      for (const view of views) {
+    let destinations = views;
+    let currentView;
+    if (views.length || simulatorViews.length) {
+      const currentUrl = new URL(window.location.href);
+      const simulatorPath = currentUrl.pathname.match(/^(.*\/views\/)([^/]+)\/(?:preview\/)?(?:index\.html)?$/);
+      const simulatorView = simulatorPath && simulatorViews.find(view => view.id === simulatorPath[2]);
+      if (simulatorView) {
+        // Simulator pages have their own inventory; do not guess live FCE mappings.
+        destinations = simulatorViews.map(view => {
+          const url = new URL(`${simulatorPath[1]}${view.id}/preview/`, currentUrl);
+          for (const key of ['source', 'styles', 'classes']) {
+            if (currentUrl.searchParams.has(key)) url.searchParams.set(key, currentUrl.searchParams.get(key));
+          }
+          if (!url.searchParams.has('classes')) url.searchParams.set('classes', 'new');
+          url.searchParams.set('clean', '1');
+          url.searchParams.set('labels', '0');
+          url.searchParams.set('layout', currentUrl.searchParams.get('layout') === 'columns' ? 'columns' : view.id === 'main-view' ? 'behavior' : 'stacked');
+          return { ...view, url: url.href };
+        });
+        currentView = simulatorView;
+        viewLink.setAttribute('aria-label', 'Open selected simulator view in a new tab');
+      } else if (currentUrl.pathname.startsWith('/portal/')) {
+        // Keep the deployed portal origin, path and applicant context; only cmd varies.
+        destinations = views.map(view => {
+          const url = new URL(currentUrl.href);
+          const cmd = new URL(view.url).searchParams.get('cmd');
+          url.hash = '';
+          url.searchParams.delete('cmd');
+          if (cmd) url.searchParams.set('cmd', cmd);
+          return { ...view, url: url.href };
+        });
+        currentView = destinations.find(view => new URL(view.url).searchParams.get('cmd') === currentUrl.searchParams.get('cmd'));
+      } else {
+        currentView = views.find(view => view.url === currentUrl.href);
+      }
+      for (const view of destinations) {
         const option = document.createElement('option');
         option.value = view.id;
         option.textContent = `${view.name}${view.inactive ? ' (inactive)' : ''}`;
         viewSelect.append(option);
       }
-      const currentUrl = new URL(window.location.href);
-      const currentView = views.find(view => {
-        const url = new URL(view.url);
-        return url.origin === currentUrl.origin && url.pathname === currentUrl.pathname && url.searchParams.get('cmd') === currentUrl.searchParams.get('cmd');
-      });
-      viewSelect.value = (currentView || views[0]).id;
-      const syncView = () => { viewLink.href = views.find(view => view.id === viewSelect.value).url; };
-      viewSelect.addEventListener('change', syncView);
-      syncView();
+      if (destinations.length) {
+        viewSelect.value = (currentView || destinations[0]).id;
+        const syncView = () => { viewLink.href = destinations.find(view => view.id === viewSelect.value).url; };
+        viewSelect.addEventListener('change', syncView);
+        syncView();
+      }
     }
     let enabled = false;
     let current = null;
@@ -136,9 +168,10 @@
       details.hidden = !enabled;
       panelHeader.hidden = !enabled;
       toggle.hidden = enabled;
-      viewPicker.hidden = !enabled || !views.length;
+      viewPicker.hidden = !enabled || !destinations.length;
       if (!enabled) { current = null; pinned = false; outline.hidden = true; }
-      try { sessionStorage.setItem('slate-module-review', String(enabled)); } catch { /* Storage can be unavailable in Slate. */ }
+      try { localStorage.setItem('slate-module-review', String(enabled)); } catch { /* Shared storage can be unavailable in Slate. */ }
+      try { sessionStorage.setItem('slate-module-review', String(enabled)); } catch { /* Tab storage is optional. */ }
     }
     function identify(event) {
       if (!enabled || !(event.target instanceof Element)) return;
@@ -205,7 +238,12 @@
     document.addEventListener('keydown', event => { if (enabled && event.key === 'Escape') setEnabled(false); });
     document.addEventListener('scroll', position, true);
     window.addEventListener('resize', position);
-    try { setEnabled(sessionStorage.getItem('slate-module-review') === 'true'); } catch { setEnabled(false); }
+    let savedState = null;
+    try { savedState = localStorage.getItem('slate-module-review'); } catch { /* Fall back to this tab. */ }
+    if (savedState === null) {
+      try { savedState = sessionStorage.getItem('slate-module-review'); } catch { /* Default off without storage. */ }
+    }
+    setEnabled(savedState === 'true');
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });
   else init();

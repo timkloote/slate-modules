@@ -2,6 +2,7 @@ import { mkdir, writeFile, readFile } from 'node:fs/promises';
 import * as sass from 'sass';
 import { readdirSync } from 'node:fs';
 import { liveViews } from './src/js/live-views.js';
+import { inventory } from './scripts/simulator.js';
 
 export default function (eleventyConfig) {
   eleventyConfig.addWatchTarget('src/_includes/');
@@ -26,7 +27,8 @@ export default function (eleventyConfig) {
     if (!source) return;
     const audit = JSON.parse(await readFile('src/simulator/audit.json', 'utf8'));
     const catalog = Object.fromEntries(audit.modules.map(({ partId, view, order, name }) => [partId, { view, order, name }]));
-    await writeFile('dist/js/module-review.js', source.replace('null; /* MODULE_REVIEW_CATALOG */', `${JSON.stringify(catalog)}; /* MODULE_REVIEW_CATALOG */`).replace('[]; /* MODULE_REVIEW_VIEWS */', `${JSON.stringify(liveViews)}; /* MODULE_REVIEW_VIEWS */`));
+    const simulatorViews = inventory().views.map(({ slug, name }) => ({ id: slug, name }));
+    await writeFile('dist/js/module-review.js', source.replace('null; /* MODULE_REVIEW_CATALOG */', `${JSON.stringify(catalog)}; /* MODULE_REVIEW_CATALOG */`).replace('[]; /* MODULE_REVIEW_VIEWS */', `${JSON.stringify(liveViews)}; /* MODULE_REVIEW_VIEWS */`).replace('[]; /* MODULE_REVIEW_SIMULATOR_VIEWS */', `${JSON.stringify(simulatorViews)}; /* MODULE_REVIEW_SIMULATOR_VIEWS */`));
   });
   eleventyConfig.on('eleventy.before', async () => {
     await mkdir('dist/css', { recursive: true });

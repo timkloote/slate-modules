@@ -125,3 +125,74 @@ test('review dropdown selects the current Slate view and updates its new-tab lin
   assert.equal(link.href, liveViews.find(view => view.id === 'testing-fcechecklist').url);
   assert.match(select.lastElementChild.textContent, /inactive/);
 });
+
+test('review stays open in a new view tab and remembers closing it', () => {
+  const saved = new Map();
+  const script = readFileSync('src/js/module-review.js', 'utf8');
+  function openView() {
+    const { document, window } = parseHTML('<html><body></body></html>');
+    const tabStorage = new Map();
+    runInNewContext(script, {
+      document, window, Element: window.Element,
+      localStorage: { getItem: key => saved.get(key) ?? null, setItem: (key, value) => saved.set(key, value) },
+      sessionStorage: { getItem: key => tabStorage.get(key) ?? null, setItem: (key, value) => tabStorage.set(key, value) },
+    });
+    return document.getElementById('module-review-tools').shadowRoot;
+  }
+  const first = openView();
+  assert.equal(first.querySelector('.details').hidden, true);
+  first.querySelector('.review-toggle').click();
+  const next = openView();
+  assert.equal(next.querySelector('.details').hidden, false);
+  assert.equal(next.querySelector('.review-toggle').getAttribute('aria-checked'), 'true');
+  next.querySelector('.close-review').click();
+  assert.equal(openView().querySelector('.details').hidden, true);
+});
+
+test('review navigation stays in the simulator or current deployed Slate portal', async () => {
+  const { liveViews } = await import('../src/js/live-views.js');
+  const simulatorViews = [
+    { id: 'main-view', name: 'Main View' },
+    { id: 'fce-evaluation-status', name: 'FCE Evaluation Status' },
+  ];
+  function openAt(href) {
+    const { document, window } = parseHTML('<html><body></body></html>');
+    const prototype = Object.getPrototypeOf(document.createElement('select'));
+    Object.defineProperty(prototype, 'value', { configurable: true, get() { return this._value; }, set(value) { this._value = value; } });
+    const script = readFileSync('src/js/module-review.js', 'utf8')
+      .replace('[]; /* MODULE_REVIEW_VIEWS */', JSON.stringify(liveViews) + ';')
+      .replace('[]; /* MODULE_REVIEW_SIMULATOR_VIEWS */', JSON.stringify(simulatorViews) + ';');
+    runInNewContext(script, {
+      document, window: { location: { href }, addEventListener() {} }, URL,
+      sessionStorage: { getItem() {}, setItem() {} },
+    });
+    const shadow = document.getElementById('module-review-tools').shadowRoot;
+    const select = shadow.querySelector('select');
+    return { select, change(value) {
+      select.value = value;
+      select.dispatchEvent(new window.Event('change'));
+      return new URL(shadow.querySelector('.view-picker a').href);
+    } };
+  }
+  for (const base of ['http://localhost:8080', 'https://example.github.io/slate-modules']) {
+    const ui = openAt(`${base}/views/main-view/preview/?clean=1&parts=part_main&source=legacy&classes=original`);
+    assert.equal(ui.select.querySelectorAll('option').length, 2);
+    assert.equal(ui.select.value, 'main-view');
+    const url = ui.change('fce-evaluation-status');
+    assert.equal(url.href.startsWith(`${base}/views/fce-evaluation-status/preview/`), true);
+    assert.equal(url.searchParams.get('parts'), null);
+    assert.equal(url.searchParams.get('clean'), '1');
+    assert.equal(url.searchParams.get('source'), 'legacy');
+    assert.equal(url.searchParams.get('layout'), 'stacked');
+  }
+  for (const path of ['app_status_sandbox', 'app_status']) {
+    const ui = openAt(`https://enroll.northeastern.edu/portal/${path}?cmd=letters&app=example#old`);
+    assert.equal(ui.select.value, 'letters');
+    const url = ui.change('information');
+    assert.equal(url.pathname, `/portal/${path}`);
+    assert.equal(url.searchParams.get('cmd'), 'information');
+    assert.equal(url.searchParams.get('app'), 'example');
+    assert.equal(url.hash, '');
+    assert.equal(ui.change('main-view').searchParams.has('cmd'), false);
+  }
+});
