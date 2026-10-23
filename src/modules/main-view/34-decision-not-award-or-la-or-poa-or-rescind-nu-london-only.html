@@ -20,7 +20,7 @@ Proposed Slate class names: col-left document-link
             <h2>
               <strong>You have a new decision</strong>
             </h2>
-            <a href="/apply/update?id={{decision.guid}}" target="_blank">View your decision</a>
+            <a class="arrow-link" href="/apply/update?id={{decision.guid}}" target="_blank">View your decision</a>
           </div>
         </div>
         {% endfor %}{% if {{decisions_read}} %}{% for decision in decisions_read %}
@@ -34,8 +34,8 @@ Proposed Slate class names: col-left document-link
             <h2>
               Access your previously viewed {% if {{decision.name}} == 'Admit' %}<strong>Offer to study</strong>{% else %}<strong>{{decision.name}}</strong> decision{% endif %}
             </h2>
-            <a href="/apply/update?id={{decision.guid}}" target="_blank">{% if {{decision.name}} == 'Admit' %}View your offer{% else %}View your decision{% endif %}</a><br />
-            <a href="/apply/download.pdf?s={{decision.guid}}&amp;output=letter.pdf">{% if {{decision.name}} == 'Admit' %}Download your offer letter{% else %}Download your decision letter{% endif %}</a>
+            <a class="arrow-link" href="/apply/update?id={{decision.guid}}" target="_blank">{% if {{decision.name}} == 'Admit' %}View your offer{% else %}View your decision{% endif %}</a><br />
+            <a class="arrow-link" href="/apply/download.pdf?s={{decision.guid}}&amp;output=letter.pdf">{% if {{decision.name}} == 'Admit' %}Download your offer letter{% else %}Download your decision letter{% endif %}</a>
           </div>
         </div>
         {% endfor %}{% endif %}

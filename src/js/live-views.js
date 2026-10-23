@@ -18,10 +18,11 @@ export function initLiveViewPicker(document) {
   const picker = document.querySelector('[data-live-view-picker]');
   if (!picker || picker.dataset.initialized) return;
   picker.dataset.initialized = 'true';
+  const destinations = picker.dataset.viewDestinations ? JSON.parse(picker.dataset.viewDestinations) : liveViews;
   const select = picker.querySelector('select');
   const link = picker.querySelector('a');
   const sync = () => {
-    const view = liveViews.find(view => view.id === select.value);
+    const view = destinations.find(view => view.id === select.value);
     if (view) link.href = view.url;
   };
   select.addEventListener('change', sync);

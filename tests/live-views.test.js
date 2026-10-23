@@ -16,10 +16,10 @@ test('picker preselects matching view and changes the new-tab link without navig
   Object.defineProperty(select, 'value', { get: () => value, set: next => value = next });
   initLiveViewPicker(document);
   const link = document.querySelector('a');
-  assert.match(link.href, /cmd=letters$/);
-  select.value = 'testing-fcechecklist';
+  assert.match(link.href, /^\/views\/letters\/preview\//);
+  select.value = 'fce-evaluation-status';
   select.dispatchEvent(new Event('change'));
-  assert.match(link.href, /cmd=testing_fcechecklist$/);
+  assert.match(link.href, /^\/views\/fce-evaluation-status\/preview\//);
   assert.equal(link.target, '_blank');
   assert.equal(link.rel, 'noopener noreferrer');
 });

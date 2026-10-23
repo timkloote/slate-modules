@@ -103,7 +103,7 @@
     let currentView;
     if (views.length || simulatorViews.length) {
       const currentUrl = new URL(window.location.href);
-      const simulatorPath = currentUrl.pathname.match(/^(.*\/views\/)([^/]+)\/(?:preview\/)?(?:index\.html)?$/);
+      const simulatorPath = currentUrl.pathname.match(/^(.*\/views\/)([^/]+)(?:\/preview)?(?:\/index\.html|\/)?$/);
       const simulatorView = simulatorPath && simulatorViews.find(view => view.id === simulatorPath[2]);
       if (simulatorView) {
         // Simulator pages have their own inventory; do not guess live FCE mappings.

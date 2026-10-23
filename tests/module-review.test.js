@@ -175,7 +175,8 @@ test('review navigation stays in the simulator or current deployed Slate portal'
     } };
   }
   for (const base of ['http://localhost:8080', 'https://example.github.io/slate-modules']) {
-    const ui = openAt(`${base}/views/main-view/preview/?clean=1&parts=part_main&source=legacy&classes=original`);
+    for (const route of ['main-view', 'main-view/', 'main-view/index.html', 'main-view/preview', 'main-view/preview/', 'main-view/preview/index.html']) {
+    const ui = openAt(`${base}/views/${route}?clean=1&parts=part_main&source=legacy&classes=original`);
     assert.equal(ui.select.querySelectorAll('option').length, 2);
     assert.equal(ui.select.value, 'main-view');
     const url = ui.change('fce-evaluation-status');
@@ -184,6 +185,7 @@ test('review navigation stays in the simulator or current deployed Slate portal'
     assert.equal(url.searchParams.get('clean'), '1');
     assert.equal(url.searchParams.get('source'), 'legacy');
     assert.equal(url.searchParams.get('layout'), 'stacked');
+    }
   }
   for (const path of ['app_status_sandbox', 'app_status']) {
     const ui = openAt(`https://enroll.northeastern.edu/portal/${path}?cmd=letters&app=example#old`);

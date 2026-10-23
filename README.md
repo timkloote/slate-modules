@@ -217,7 +217,7 @@ No other assets or module markup changes are needed. Unknown IDs are shown expli
 
 ### Live Slate view links
 
-The simulator directory, view pages, and module library have a **Live Slate view** dropdown with the 11 supplied sandbox URLs. Choose a destination, then **Open live view ↗** to open a new tab; the two inactive destinations are labeled. View pages preselect their matching destination where the audit name has a confirmed match. FCE Evaluation Status and FCE Updates - Temp Message are not assumed to match differently named live FCE views. The destination list lives in `src/js/live-views.js`; opening a link uses your existing Slate login and does not change the local preview.
+The simulator directory, view pages, and module library have a **Simulator view** dropdown built from the local audit inventory. **Open view ↗** opens the selected clean simulator preview in a new tab. Module Review also uses local simulator destinations on view and preview routes, including URLs without a trailing slash. In Slate, Module Review keeps the current portal origin, path, and applicant query parameters and changes only `cmd`, using the live view commands in `src/js/live-views.js`.
 
 Standard links in the individual module library open in a new tab. Relative page links resolve against the live Slate sandbox (not localhost or the asset CDN). Liquid-dependent URLs remain disabled with an explanatory tooltip; executable URLs, imported scripts, and form submissions remain disabled. The full-view simulator retains its existing inert-link behavior.
 
