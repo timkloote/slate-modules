@@ -94,6 +94,19 @@ export function groupColumnParts(container) {
     segment.querySelector(`.sim-column-${side}`).append(part);
   }
 }
+/** Hide unevaluated control tags in clean previews so they cannot become grid items.
+ * This is display cleanup only: all branches remain, and values stay visible.
+ */
+export function hideLiquidControls(root) {
+  for (const node of [...root.childNodes]) {
+    if (node.nodeType === 3) {
+      node.textContent = node.textContent.replace(/\{%[\s\S]*?%\}/g, '');
+    } else if ((node.nodeType === 1 || node.nodeType === 11) && !node.matches?.('script,style,textarea,input,select')) {
+      hideLiquidControls(node);
+    }
+  }
+}
+
 export async function initPreview() {
  const params=new URLSearchParams(location.search);
  configurePreviewStyles(document, params);
@@ -125,6 +138,7 @@ export async function initPreview() {
     placeholder.append(title,text);part.append(placeholder);
   } else {
     const content=fragmentForPreview(module.html,module.partId,Boolean(module.replacement && !module.hasFixture),legacy);
+    if(clean) hideLiquidControls(content);
     if(module.replacement) {
       content.querySelectorAll('button').forEach(button=>button.disabled=false);
       content.querySelectorAll('a').forEach(link=>link.setAttribute('href','#'));

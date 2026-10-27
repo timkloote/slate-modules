@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { parseHTML, DOMParser } from 'linkedom';
 import { inventory } from '../scripts/simulator.js';
-import { initPreview } from '../src/js/simulator-preview.js';
+import { initPreview, hideLiquidControls } from '../src/js/simulator-preview.js';
 
 // linkedom needs a document wrapper for fragments; browsers add it automatically.
 class PreviewParser extends DOMParser {
@@ -141,4 +141,23 @@ test('modern DOM has no injected grid; legacy keeps its module layout',async()=>
  assert.ok(legacy.getElementById('leftcolumn').classList.contains('col-md-6'));
  assert.ok(legacy.getElementById('rightcolumn').classList.contains('col-md-6'));
  assert.equal(legacy.querySelector('.part_rows_container').classList.contains('sim-columns'),false);
+});
+
+test('clean preview control tags do not consume grid cells and preserve content and values', () => {
+ const { document } = parseHTML('<html><body></body></html>');
+ const source = inventory().views.find(view => view.slug === 'information').modules.find(module => module.order === 3).html;
+ const parsed = new PreviewParser().parseFromString(source, 'text/html');
+ const root = parsed.body;
+ const guidance = root.querySelector('.information-hub__guidance');
+ assert.match(guidance.textContent, /\{% if/);
+ const links = [...root.querySelectorAll('a')].map(link => link.getAttribute('href'));
+ hideLiquidControls(root);
+ assert.doesNotMatch(guidance.textContent, /\{%/);
+ assert.equal(guidance.querySelectorAll('.information-hub__note').length, 5);
+ assert.deepEqual([...root.querySelectorAll('a')].map(link => link.getAttribute('href')), links);
+ assert.ok([...guidance.childNodes].filter(node => node.nodeType === 3).every(node => !node.textContent.trim()));
+ const values = document.createElement('div');
+ values.textContent = '{% if {{flag}} %}Deposit: {{deposit_status}}{% endif %}';
+ hideLiquidControls(values);
+ assert.equal(values.textContent, 'Deposit: {{deposit_status}}');
 });

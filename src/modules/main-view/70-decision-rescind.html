@@ -12,10 +12,6 @@ Proposed Slate class names: col-left document-link
       <div class="document-link__content">
         {% for decision in decisions_unread_rescind %}
         <div class="document-link__layout">
-          <div class="document-link__media">
-            <img src="/icons/new_decision2.png" />
-          </div>
-
           <div class="document-link__content">
             <h2>
               You have a new decision
@@ -27,13 +23,9 @@ Proposed Slate class names: col-left document-link
         {% endfor %}{% if {{decisions_read}} %}{% for decision in decisions_read_rescind %}
 
         <div class="document-link__layout">
-          <div class="document-link__media">
-            <img src="/icons/new_decision2.png" />
-          </div>
-
           <div class="document-link__content">
             <h2>
-              Access your previously viewed <strong>{{decision.name}}</strong> decision
+              Access your previously viewed <span>{{decision.name}}</span> decision
             </h2>
             <a href="/apply/update?id={{decision.guid}}" target="_blank">View your decision</a><br />
             <a href="/apply/download.pdf?s={{decision.guid}}&amp;output=letter.pdf">Download your decision letter</a>

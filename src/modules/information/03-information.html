@@ -7,97 +7,79 @@ Proposed Slate class names: col-span-all resource-links
     <title></title>
   </head>
   <body>
+    <div class="information-hub">
+      <div class="module-image-layout information-hub__overview">
     <figure class="module-image">
       <img src="/grad-admissions/images/tree-lined-walk.jpg" alt="Two people walk together along a tree-lined campus path." />
     </figure>
-
-    <section>
-    <div class="resource-links__group">
-      <div class="resource-links__content">
-        <div class="resource-links__layout">
-          <div class="resource-links__content">
+        <section class="module-image-content">
+          <h2>Explore Northeastern</h2>
+          <div class="information-hub__links">
             <p>
-              <a href="https://www.northeastern.edu/graduate" target="_blank">Graduate Programs</a>
+              <a class="arrow-link" href="https://www.northeastern.edu/graduate" target="_blank">Graduate Programs</a>
             </p>
 
             <p>
-              <a href="https://www.northeastern.edu/graduate/our-campus-network" target="_blank">Campus Network</a>
+              <a class="arrow-link" href="https://www.northeastern.edu/graduate/our-campus-network" target="_blank">Campus Network</a>
             </p>
 
             <p>
-              <a href="https://www.northeastern.edu/academics/colleges" target="_blank">Colleges and Schools</a>
+              <a class="arrow-link" href="https://www.northeastern.edu/academics/colleges" target="_blank">Colleges and Schools</a>
             </p>
 
             <p>
-              <a href="https://www.northeastern.edu/graduate/why-northeastern/about-our-academics/experiential-learning" target="_blank">Experiential Learning including Cooperative Education (Co-op)</a>
+              <a class="arrow-link" href="https://www.northeastern.edu/graduate/why-northeastern/about-our-academics/experiential-learning" target="_blank">Experiential Learning including Cooperative Education (Co-op)</a>
             </p>
 
             <p>
-              <a href="https://phd.northeastern.edu" target="_blank">PhD Education</a>
+              <a class="arrow-link" href="https://phd.northeastern.edu" target="_blank">PhD Education</a>
             </p>
 
             <p>
-              <a href="https://studentfinance.northeastern.edu" target="_blank">Student Financial Services</a><br />
+              <a class="arrow-link" href="https://studentfinance.northeastern.edu" target="_blank">Student Financial Services</a><br />
               (find information related to tuition and fees, billing and payments, financial aid, etc.)
             </p>
 
             <p>
-              <a href="https://registrar.northeastern.edu" target="_blank">Northeastern's Registrar</a><br />
+              <a class="arrow-link" href="https://registrar.northeastern.edu" target="_blank">Northeastern's Registrar</a><br />
               (find the official university catalog and calendar)
             </p>
 
             <p>
-              <a href="https://international.northeastern.edu/ogs" target="_blank">Office of Global Services</a><br />
+              <a class="arrow-link" href="https://international.northeastern.edu/ogs" target="_blank">Office of Global Services</a><br />
               (for international students)
             </p>
-            {% if {{international_admit_campus_canada}} == 'Yes' %}<strong></strong>
 
-            <p>
-              <strong>Proof of Acceptance/Study Permit Application</strong>
-            </p>
-
-            <p>
-              All admitted students who will need a study permit should use the Proof of Acceptance (POA) letter to support their student permit application. For more information visit: <a href="https://international.northeastern.edu/ogs/student-support/global-campuses/canada/" target="_blank">https://international.northeastern.edu/ogs/student-support/global-campuses/canada/</a>
-            </p>
-            {% endif %}{% if {{international_admitf}} == 'Yes' %}<strong></strong>
-
-            <p>
-              <strong>Office of Global Services (OGS) Orientation</strong>
-            </p>
-
-            <p>
-              Orientation is mandatory for all international students to attend. Visit <a href="https://international.northeastern.edu/ogs/" target="_blank">https://international.northeastern.edu/ogs/</a> for information.
-            </p>
-            {% endif %}{% if {{boston_admit}} == 'Yes' %}{% if {{sol_app}} != 'Y' %}<strong></strong>
-
-            <p>
-              <strong>Student Health Plan</strong>
-            </p>
-
-            <p>
-              The Commonwealth of Massachusetts requires that all students who are matriculating, carry a course load of nine credits or more or are enrolled in a full-time program have hospital insurance. Students who are covered under comparable insurance may request to waive the health insurance fee. The University Health and Counseling Services Center, Northeastern's student health services, coordinates care for all students enrolled in the health insurance plan. Graduate students who have waived participation in the insurance are eligible for services if they have paid the student health fee. Please refer to the University Health and Counseling Services Center's web site for further information,&nbsp;<a href="https://studenthealthplan.northeastern.edu/">https://studenthealthplan.northeastern.edu/</a>.
-            </p>
-
-            <p>
-              <strong>Immunization Requirements</strong>
-            </p>
-
-            <p>
-              In accordance with state law, full-time students must provide documentation of immunity to certain diseases. Students will be blocked from registration for the next semester until this requirement is met. Contact your clinician for completion of the Health Form: <a href="http://www.northeastern.edu/uhcs/wp-content/uploads/2016/03/2016-17-Health-Report-Meningitis-Waiver.pdf" target="_blank">https://go.gallagherstudent.com/Universities/Northeastern%20University/Home</a>. You can contact the <a href="http://www.northeastern.edu/uhcs/about-uhcs/contact-us/" target="_blank">University Health and Counseling Services Center</a> for further information.
-            </p>
-
-            <p>
-              <strong>Off-Campus Housing</strong>
-            </p>
-
-            <p>
-              Students may search for housing, sublets, and roommates through the listings and message boards on <a href="https://www.northeastern.edu/housing/university-housing/" target="_blank">http://www.northeastern.edu/offcampus/</a>. This free service requires account registration with your Northeastern e-mail account.
-            </p>
-            {% endif %}{% endif %}
           </div>
-        </div>
+        </section>
+      </div>
+      <div class="information-hub__guidance">
+            {% if {{international_admit_campus_canada}} == 'Yes' %}
+
+            <section class="information-hub__note"><h3>Proof of Acceptance/Study Permit Application</h3><p>
+              All admitted students who will need a study permit should use the Proof of Acceptance (POA) letter to support their student permit application. For more information visit: <a href="https://international.northeastern.edu/ogs/student-support/global-campuses/canada/" target="_blank">https://international.northeastern.edu/ogs/student-support/global-campuses/canada/</a>
+            </p></section>
+            {% endif %}{% if {{international_admitf}} == 'Yes' %}
+
+            <section class="information-hub__note"><h3>Office of Global Services (OGS) Orientation</h3><p>
+              Orientation is mandatory for all international students to attend. Visit <a href="https://international.northeastern.edu/ogs/" target="_blank">https://international.northeastern.edu/ogs/</a> for information.
+            </p></section>
+            {% endif %}{% if {{boston_admit}} == 'Yes' %}{% if {{sol_app}} != 'Y' %}
+
+            <section class="information-hub__note"><h3>Student Health Plan</h3><p>
+              The Commonwealth of Massachusetts requires that all students who are matriculating, carry a course load of nine credits or more or are enrolled in a full-time program have hospital insurance. Students who are covered under comparable insurance may request to waive the health insurance fee. The University Health and Counseling Services Center, Northeastern's student health services, coordinates care for all students enrolled in the health insurance plan. Graduate students who have waived participation in the insurance are eligible for services if they have paid the student health fee. Please refer to the University Health and Counseling Services Center's web site for further information,&nbsp;<a href="https://studenthealthplan.northeastern.edu/">https://studenthealthplan.northeastern.edu/</a>.
+            </p></section>
+
+            <section class="information-hub__note"><h3>Immunization Requirements</h3><p>
+              In accordance with state law, full-time students must provide documentation of immunity to certain diseases. Students will be blocked from registration for the next semester until this requirement is met. Contact your clinician for completion of the Health Form: <a href="http://www.northeastern.edu/uhcs/wp-content/uploads/2016/03/2016-17-Health-Report-Meningitis-Waiver.pdf" target="_blank">https://go.gallagherstudent.com/Universities/Northeastern%20University/Home</a>. You can contact the <a href="http://www.northeastern.edu/uhcs/about-uhcs/contact-us/" target="_blank">University Health and Counseling Services Center</a> for further information.
+            </p></section>
+
+            <section class="information-hub__note"><h3>Off-Campus Housing</h3><p>
+              Students may search for housing, sublets, and roommates through the listings and message boards on <a href="https://www.northeastern.edu/housing/university-housing/" target="_blank">http://www.northeastern.edu/offcampus/</a>. This free service requires account registration with your Northeastern e-mail account.
+            </p></section>
+            {% endif %}{% endif %}
+
       </div>
     </div>
-    </section>
   </body>
 </html>

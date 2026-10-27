@@ -661,3 +661,61 @@ select {
   .form_checkbox input[type='checkbox'] { flex: none; width: 1.125rem; height: 1.125rem; margin: .2rem 0 0; accent-color: #c8102f; }
   .form_checkbox label { margin: 0; padding: 0; color: #242424; font-size: .9375rem; line-height: 1.6; }
 }
+
+/* Award and supporting decision letters use black text with red CTA arrows. */
+#part_1493d3ed-48e5-476e-83f9-8116c5bfe55d a.arrow-link,
+#part_7ebbab21-ada1-45b6-9983-1995e784218c a.arrow-link,
+#part_d2da05e8-8784-49f6-ae0a-97075cb0f0cc a.arrow-link {
+  color: #000;
+}
+
+/* NU London confirmed-student checklist links use black text and red arrows. */
+#part_eee94d92-fb79-4336-98c0-6efe9ae61459 a.arrow-link {
+  color: #000;
+}
+
+/* NU London accepted-offer links use black text with red arrows. */
+#part_e7bff210-75fe-4b0a-b6db-8945105a6ab4 a.arrow-link {
+  color: #000;
+}
+
+/* Distinguish inline copy links from standalone NU London actions. */
+#part_09b9b91a-c8ec-4130-a0ba-d617716df95f {
+  a.arrow-link { color: #000; }
+  a:not(.arrow-link) {
+    color: #c8102f;
+    text-decoration: underline;
+    text-underline-offset: .2em;
+  }
+}
+
+/* Pay Deposit CTAs must remain white against their black feature panel. */
+#part_f2de19f7-7a0c-4787-b5c4-2d2e1eb30994 {
+  a.arrow-link,
+  a.arrow-link:is(:link, :visited, :hover, :focus-visible, :active),
+  a.arrow-link span {
+    color: #fff;
+  }
+}
+
+/* Information is a resource hub: a compact photo, link directory and guidance. */
+.part.resource-links:has(.information-hub) {
+  .information-hub__overview { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: clamp(1.5rem, 4vw, 3rem); }
+  .information-hub__overview > .module-image { --module-image-ratio: 4 / 5; }
+  .information-hub__links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 1.5rem; }
+  .information-hub__links p { margin: 0; padding-block: .5rem 1rem; border-bottom: 1px solid #e5e5e5; font-size: .875rem; color: #555; }
+  .information-hub__links a.arrow-link { color: #000; padding-block: .75rem; }
+  .information-hub__guidance { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+  .information-hub__guidance:not(:has(section)) { display: none; }
+  .information-hub__note { padding: clamp(1rem, 2vw, 1.5rem); border-top: 3px solid #c8102f; background: #f7f7f7; }
+  .information-hub__note h3 { font-size: 1.375rem; margin: 0 0 1rem; }
+  .information-hub__note p { margin: 0; }
+  .information-hub__note a { text-decoration: underline; text-underline-offset: .2em; }
+  @media (max-width: 900px) {
+    .information-hub__links { grid-template-columns: minmax(0, 1fr); }
+  }
+  @media (max-width: 640px) {
+    .information-hub__overview, .information-hub__guidance { grid-template-columns: minmax(0, 1fr); }
+    .information-hub__overview > .module-image { --module-image-ratio: 16 / 9; }
+  }
+}
