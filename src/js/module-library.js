@@ -3,7 +3,7 @@ import { catalogModules, componentClasses, filterModules, relatedModules } from 
 
 export function statusBadge(document, status) {
   const badge = document.createElement('span');
-  badge.className = `module-status module-status--${status === 'Active' ? 'active' : status === 'Inactive' ? 'inactive' : 'unknown'}`;
+  badge.className = `module-status module-status--${status === 'Active' ? 'active' : status === 'Inactive' ? 'inactive' : status === 'Deleted' ? 'deleted' : 'unknown'}`;
   badge.textContent = status;
   return badge;
 }
@@ -34,7 +34,7 @@ export async function initModuleLibrary() {
     link.dataset.part = module.partId;
     const title = document.createElement('strong'); title.textContent = module.name;
     const meta = document.createElement('span'); meta.textContent = detail || `${module.viewName} · ${module.order}`;
-    meta.append(' · ', statusBadge(document, module.status));
+    meta.append(' · ', statusBadge(document, module.deleted ? 'Deleted' : module.status));
     link.append(title, meta);
     link.addEventListener('click', event => {
       if (event.ctrlKey || event.metaKey || event.shiftKey || event.altKey) return;
@@ -60,7 +60,7 @@ export async function initModuleLibrary() {
   function select(module) {
     selected = module;
     $('module-title').textContent = module.name;
-    $('module-location').replaceChildren(`${module.viewName} · Module ${module.order} · `, statusBadge(document, module.status), ` · ${module.type}`);
+    $('module-location').replaceChildren(`${module.viewName} · Module ${module.order} · `, statusBadge(document, module.deleted ? 'Deleted' : module.status), ` · ${module.type}`);
     $('module-identity').textContent = module.partId;
     $('module-in-view').href = `/views/${module.viewSlug}/`;
     $('module-notes').textContent = `${module.notes || 'No workbook notes.'} Workbook row ${module.sourceRow}. Legacy name: ${module.legacyName || module.name}. Source filenames retain their original numbering.`;

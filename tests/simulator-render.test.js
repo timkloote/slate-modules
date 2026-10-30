@@ -10,9 +10,9 @@ class PreviewParser extends DOMParser {
   return super.parseFromString(/<html\b/i.test(html) ? html : `<html><head></head><body>${html}</body></html>`,type);
  }
 }
-async function render(search) {
+async function render(search, data = inventory()) {
  const {document}=parseHTML('<html><head></head><body><main data-view="main-view"><table><tbody><tr><td><div class="part_rows_container"></div></td></tr></tbody></table></main></body></html>');
- const replacements={document,DOMParser:PreviewParser,location:{search},fetch:async()=>({ok:true,json:async()=>inventory()})};
+ const replacements={document,DOMParser:PreviewParser,location:{search},fetch:async()=>({ok:true,json:async()=>data})};
  const previous=Object.fromEntries(Object.keys(replacements).map(key=>[key,Object.getOwnPropertyDescriptor(globalThis,key)]));
  try {
   Object.assign(globalThis,replacements);
@@ -54,7 +54,10 @@ test('CSS column experiment stacks each side independently and keeps full-width 
  const modules=inventory().views.find(v=>v.slug==='main-view').modules;
  const selected=[5,6,55,56,62,67,69,109];
  const parts=modules.filter(module=>selected.includes(module.order)).map(module=>module.partId).join(',');
- const document=await render(`?clean=1&layout=columns&parts=${parts}`);
+ // Keep this layout fixture independent of portal retirement metadata.
+ const data=inventory();
+ for (const view of data.views) for (const module of view.modules) module.deleted=false;
+ const document=await render(`?clean=1&layout=columns&parts=${parts}`, data);
  const container=document.querySelector('.part_rows_container');
  const segments=[...container.querySelectorAll(':scope > .sim-column-segment')];
  assert.equal(segments.length,2);
@@ -161,3 +164,12 @@ test('clean preview control tags do not consume grid cells and preserve content 
  hideLiquidControls(values);
  assert.equal(values.textContent, 'Deposit: {{deposit_status}}');
 });
+
+ test('deleted parts cannot render in modern views even when explicitly selected; legacy retains them', async () => {
+ const deleted=inventory().views.find(view=>view.slug==='main-view').modules.filter(module=>module.deleted);
+ const parts=deleted.map(module=>module.partId).join(',');
+ const modern=await render(`?parts=${parts}`);
+ assert.equal(modern.querySelectorAll('.part_rows_container > .part').length,0);
+ const legacy=await render(`?source=legacy&parts=${parts}`);
+ for(const module of deleted) assert.ok(legacy.getElementById(module.partId),module.name);
+ });

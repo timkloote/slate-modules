@@ -124,7 +124,7 @@ export async function initPreview() {
  document.body.classList.toggle('sim-legacy',legacy);
  document.body.classList.toggle('sim-clean',clean);
  document.body.classList.toggle('sim-labels',!clean && params.get('labels')!=='0');
- for(const record of view.modules.filter(m=>selected.has(m.partId))) {
+ for(const record of view.modules.filter(m=>selected.has(m.partId) && (legacy || !m.deleted))) {
   const module=moduleForSource(record,legacy);
   const part=document.createElement('div');part.id=module.partId;
   part.className=`part ${params.get('classes')==='new'?module.newClasses:module.originalClasses}`;

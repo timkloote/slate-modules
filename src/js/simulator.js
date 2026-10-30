@@ -70,12 +70,12 @@ async function initSimulator() {
   }
   function filter() {
     const query=$('module-search').value.toLowerCase(), mode=$('module-filter').value;
-    for(const {card,module:m} of cards) card.hidden= !`${m.name} ${m.partId} ${m.type} ${m.notes}`.toLowerCase().includes(query) || (mode==='capture'&&!($('module-source').value==='legacy' ? m.type!=='Static Content' : m.needsCapture)) || (mode==='active'&&m.status!=='Active') || (mode==='inactive'&&m.status!=='Inactive');
+    for(const {card,module:m} of cards) card.hidden= (m.deleted && $('module-source').value !== 'legacy') || !`${m.name} ${m.partId} ${m.type} ${m.notes}`.toLowerCase().includes(query) || (mode==='capture'&&!($('module-source').value==='legacy' ? m.type!=='Static Content' : m.needsCapture)) || (mode==='active'&&m.status!=='Active') || (mode==='inactive'&&m.status!=='Inactive');
   }
   function select(ids) {selected=new Set(ids);for(const {check,module} of cards)check.checked=selected.has(module.partId);updatePreview();}
   function updatePreview() {
     const legacy=$('module-source').value==='legacy';
-    $('view-summary').textContent=`${view.modules.length} audited parts · ${legacy ? 'Legacy module sources (captures off)' : 'Sanitized module sources (captures on)'}`;
+    $('view-summary').textContent=`${view.modules.filter(m => legacy || !m.deleted).length} audited parts · ${legacy ? 'Legacy module sources (captures off)' : 'Sanitized module sources (captures on)'}`;
     for(const {module,meta} of cards) meta.textContent=`${module.status} · ${module.type} · ${legacy ? (!module.legacySource ? 'Missing legacy file' : module.type!=='Static Content' ? 'Widget markup unavailable' : 'Legacy original') : module.needsCapture ? 'Needs capture' : module.hasFixture ? 'Captured markup' : 'Sanitized'}`;
     try {
       localStorage.setItem(key,JSON.stringify([...selected]));

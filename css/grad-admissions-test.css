@@ -3895,6 +3895,151 @@ select:disabled {
   }
 }
 
+/* Admissions Letters uses a high-contrast header across all three columns. */
+#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 th {
+  background: #000;
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Student Support email stays inline within the accepted-offer guidance. */
+#part_e7bff210-75fe-4b0a-b6db-8945105a6ab4 a[href^="mailto:"] {
+  color: #c8102f;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+/* FCE Checklist: Slate places this selector in a 9/3 row with an empty left
+   column. Stack that row and contain its floated select before the return link. */
+#portal_row_container > .portal_row:has(> .part_rows_container > #part_e9259ead-7c1c-4422-81fc-004443d6a34b) {
+  display: block;
+}
+#portal_row_container > .portal_row:has(> .part_rows_container > #part_e9259ead-7c1c-4422-81fc-004443d6a34b) > .part_rows_container {
+  width: 100%;
+  min-width: 0;
+  float: none;
+  box-sizing: border-box;
+}
+#portal_row_container > .portal_row:has(> .part_rows_container > #part_e9259ead-7c1c-4422-81fc-004443d6a34b) > .part_rows_container:empty {
+  display: none;
+}
+
+#part_e9259ead-7c1c-4422-81fc-004443d6a34b {
+  display: flow-root;
+  box-sizing: border-box;
+  width: 100%;
+}
+#part_e9259ead-7c1c-4422-81fc-004443d6a34b select {
+  /* Slate supplies float:right directly on this element. */
+  float: none !important;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 36rem;
+}
+
+/* Slate link colors must not override the FCE FAQ's black link text. */
+#part_75880a6f-e449-4204-930f-5f2fedab96e1 a,
+#part_75880a6f-e449-4204-930f-5f2fedab96e1 a:is(:link, :visited, :hover, :focus, :focus-visible, :active),
+#part_75880a6f-e449-4204-930f-5f2fedab96e1 a span {
+  color: #000 !important;
+}
+
+/* Let the letters list fill its module and grow with longer letter names. */
+#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 {
+  min-width: 0;
+}
+#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 .part_admissions {
+  width: 100%;
+  max-width: none;
+}
+#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 table {
+  width: 100%;
+  max-width: none;
+  table-layout: auto;
+  border-collapse: collapse;
+  font-size: 1rem;
+}
+#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 th, #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 td {
+  padding: 1rem 1.25rem;
+  text-align: left;
+  vertical-align: middle;
+  line-height: 1.5;
+  border-bottom: 1px solid #d5d5d5;
+}
+#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 th:first-child, #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 td:first-child {
+  width: 5rem;
+}
+#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 th:last-child, #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 td:last-child {
+  width: 10rem;
+}
+#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 td:nth-child(2) {
+  overflow-wrap: anywhere;
+}
+#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 td img {
+  width: 22px;
+  height: 22px;
+  max-width: none;
+}
+@media (max-width: 640px) {
+  #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 th, #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 td {
+    padding: 0.75rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 th:first-child, #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 td:first-child {
+    width: 3rem;
+  }
+  #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 th:last-child, #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 td:last-child {
+    width: 6rem;
+  }
+}
+
+/* Keep all Transactions action links black despite Slate's link overrides. */
+:is(#part_34e19cac-f0a8-4d7f-b223-9c522897516e,
+#part_74726e8b-6de7-47ed-88e1-71b1551dcedd,
+#part_b46ccc68-57f1-4e98-8881-fd81932fb1cd,
+#part_ac942727-1ed9-4cbf-88b5-8eee66877b5a,
+#part_39c42061-8184-4e74-9294-5602b9ec940a,
+#part_3180786d-4bc4-4133-903e-05b2ff6ea846,
+#part_6b671956-8ea5-410c-b94c-cceeaccab76e,
+#part_45a0a61b-84af-4743-9c0f-13be7f04a167,
+#part_b50b2f9e-84b1-40cf-99ff-e1801cf3ea29,
+#part_655517af-c7f9-435b-89f2-297da74f9b3a,
+#part_e40697ea-0be1-44b5-a66e-b23dc8739855,
+#part_9980df84-c974-465e-9b8f-78b57170a878,
+#part_17aab61d-d521-44b0-b658-b6f35f8b52a7,
+#part_b8f2b3d9-1ab3-471d-b718-ae1ccfef614d) a,
+:is(#part_34e19cac-f0a8-4d7f-b223-9c522897516e,
+#part_74726e8b-6de7-47ed-88e1-71b1551dcedd,
+#part_b46ccc68-57f1-4e98-8881-fd81932fb1cd,
+#part_ac942727-1ed9-4cbf-88b5-8eee66877b5a,
+#part_39c42061-8184-4e74-9294-5602b9ec940a,
+#part_3180786d-4bc4-4133-903e-05b2ff6ea846,
+#part_6b671956-8ea5-410c-b94c-cceeaccab76e,
+#part_45a0a61b-84af-4743-9c0f-13be7f04a167,
+#part_b50b2f9e-84b1-40cf-99ff-e1801cf3ea29,
+#part_655517af-c7f9-435b-89f2-297da74f9b3a,
+#part_e40697ea-0be1-44b5-a66e-b23dc8739855,
+#part_9980df84-c974-465e-9b8f-78b57170a878,
+#part_17aab61d-d521-44b0-b658-b6f35f8b52a7,
+#part_b8f2b3d9-1ab3-471d-b718-ae1ccfef614d) a:is(:link, :visited, :hover, :focus, :focus-visible, :active),
+:is(#part_34e19cac-f0a8-4d7f-b223-9c522897516e,
+#part_74726e8b-6de7-47ed-88e1-71b1551dcedd,
+#part_b46ccc68-57f1-4e98-8881-fd81932fb1cd,
+#part_ac942727-1ed9-4cbf-88b5-8eee66877b5a,
+#part_39c42061-8184-4e74-9294-5602b9ec940a,
+#part_3180786d-4bc4-4133-903e-05b2ff6ea846,
+#part_6b671956-8ea5-410c-b94c-cceeaccab76e,
+#part_45a0a61b-84af-4743-9c0f-13be7f04a167,
+#part_b50b2f9e-84b1-40cf-99ff-e1801cf3ea29,
+#part_655517af-c7f9-435b-89f2-297da74f9b3a,
+#part_e40697ea-0be1-44b5-a66e-b23dc8739855,
+#part_9980df84-c974-465e-9b8f-78b57170a878,
+#part_17aab61d-d521-44b0-b658-b6f35f8b52a7,
+#part_b8f2b3d9-1ab3-471d-b718-ae1ccfef614d) a span {
+  color: #000 !important;
+}
+
 /* Accessibility enhancements shared by the standalone portal markup. */
 .visually-hidden,
 .skip-link:not(:focus) {

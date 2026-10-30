@@ -2838,7 +2838,8 @@
       "sourceRow": 168,
       "legacyName": "Welcome",
       "sourceOrder": 1,
-      "sourceView": "Unsubmitted Applications"
+      "sourceView": "Unsubmitted Applications",
+      "deleted": true
     },
     {
       "view": "Admissions File Review Hub",
@@ -2855,7 +2856,8 @@
       "sourceRow": 169,
       "legacyName": "Application Selector",
       "sourceOrder": 1,
-      "sourceView": "Admissions File Review Hub"
+      "sourceView": "Admissions File Review Hub",
+      "deleted": true
     },
     {
       "view": "Admissions File Review Hub",
@@ -2872,7 +2874,8 @@
       "sourceRow": 170,
       "legacyName": "Return to Portal",
       "sourceOrder": 2,
-      "sourceView": "Admissions File Review Hub"
+      "sourceView": "Admissions File Review Hub",
+      "deleted": true
     },
     {
       "view": "Materials/Checklist",
@@ -3025,7 +3028,8 @@
       "sourceRow": 179,
       "legacyName": "Messaging Block - Pre-Admit and Deny (London)",
       "sourceOrder": 7,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3042,7 +3046,8 @@
       "sourceRow": 180,
       "legacyName": "Canada PAL Notification",
       "sourceOrder": 22,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3110,7 +3115,8 @@
       "sourceRow": 184,
       "legacyName": "POA Tuition Estimate Note",
       "sourceOrder": 38,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3144,7 +3150,8 @@
       "sourceRow": 186,
       "legacyName": "Admitted Student Day Registration (SOL JD Admit LSAC 24-25)",
       "sourceOrder": 41,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3161,7 +3168,8 @@
       "sourceRow": 187,
       "legacyName": "***OLD*** Pay Deposit CTA",
       "sourceOrder": 45,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3178,7 +3186,8 @@
       "sourceRow": 188,
       "legacyName": "PhD Apps - Email Group Letter Reminder",
       "sourceOrder": 47,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3212,7 +3221,8 @@
       "sourceRow": 190,
       "legacyName": "Payments-App Payment",
       "sourceOrder": 54,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3229,7 +3239,8 @@
       "sourceRow": 191,
       "legacyName": "Payment Due (London Acceptance Deposit)",
       "sourceOrder": 65,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3246,7 +3257,8 @@
       "sourceRow": 192,
       "legacyName": "Payment - Enrollment Deposit",
       "sourceOrder": 67,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3263,7 +3275,8 @@
       "sourceRow": 193,
       "legacyName": "Payment - App Fee",
       "sourceOrder": 68,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3280,7 +3293,8 @@
       "sourceRow": 194,
       "legacyName": "Decision",
       "sourceOrder": 69,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3297,7 +3311,8 @@
       "sourceRow": 195,
       "legacyName": "OGS POA - Canada",
       "sourceOrder": 71,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3314,7 +3329,8 @@
       "sourceRow": 196,
       "legacyName": "Canada SDS Selection",
       "sourceOrder": 74,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3331,7 +3347,8 @@
       "sourceRow": 197,
       "legacyName": "CPS Video",
       "sourceOrder": 84,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3348,7 +3365,8 @@
       "sourceRow": 198,
       "legacyName": "INACTIVE (OLD): Self-Service Checklist (All Except DMSB)",
       "sourceOrder": 86,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3365,7 +3383,8 @@
       "sourceRow": 199,
       "legacyName": "INACTIVE (OLD): Self-Service Checklist (DMSB Only)",
       "sourceOrder": 87,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3382,7 +3401,8 @@
       "sourceRow": 200,
       "legacyName": "Admissions File Final Review Tracker",
       "sourceOrder": 93,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3399,7 +3419,8 @@
       "sourceRow": 201,
       "legacyName": "(Test Only) Checklist Post-Admission- table only - mobile",
       "sourceOrder": 96,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3433,7 +3454,8 @@
       "sourceRow": 203,
       "legacyName": "Checklist - table only - mobile",
       "sourceOrder": 106,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3450,7 +3472,8 @@
       "sourceRow": 204,
       "legacyName": "Checklist Standard",
       "sourceOrder": 107,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3467,7 +3490,8 @@
       "sourceRow": 205,
       "legacyName": "Military Checklist",
       "sourceOrder": 108,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3484,7 +3508,8 @@
       "sourceRow": 206,
       "legacyName": "Materials - Final Review",
       "sourceOrder": 122,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "Main View",
@@ -3501,7 +3526,8 @@
       "sourceRow": 207,
       "legacyName": "College Category Test",
       "sourceOrder": 130,
-      "sourceView": "Main View"
+      "sourceView": "Main View",
+      "deleted": true
     },
     {
       "view": "FCE Evaluation Status",
@@ -3518,7 +3544,8 @@
       "sourceRow": 208,
       "legacyName": "Space",
       "sourceOrder": 19,
-      "sourceView": "FCE Evaluation Status"
+      "sourceView": "FCE Evaluation Status",
+      "deleted": true
     },
     {
       "view": "Options",
@@ -3535,7 +3562,8 @@
       "sourceRow": 209,
       "legacyName": "Admissions Letters",
       "sourceOrder": 6,
-      "sourceView": "Options"
+      "sourceView": "Options",
+      "deleted": true
     },
     {
       "view": "Options",
@@ -3552,7 +3580,8 @@
       "sourceRow": 210,
       "legacyName": "Materials/Checklist",
       "sourceOrder": 7,
-      "sourceView": "Options"
+      "sourceView": "Options",
+      "deleted": true
     },
     {
       "view": "Options",
@@ -3569,7 +3598,8 @@
       "sourceRow": 211,
       "legacyName": "Enrollment Module",
       "sourceOrder": 10,
-      "sourceView": "Options"
+      "sourceView": "Options",
+      "deleted": true
     },
     {
       "view": "Options",
@@ -3586,7 +3616,8 @@
       "sourceRow": 212,
       "legacyName": "Support",
       "sourceOrder": 11,
-      "sourceView": "Options"
+      "sourceView": "Options",
+      "deleted": true
     },
     {
       "view": "Options",
@@ -3603,7 +3634,8 @@
       "sourceRow": 213,
       "legacyName": "Information",
       "sourceOrder": 15,
-      "sourceView": "Options"
+      "sourceView": "Options",
+      "deleted": true
     },
     {
       "view": "Transactions",
@@ -3620,7 +3652,8 @@
       "sourceRow": 214,
       "legacyName": "Update Info",
       "sourceOrder": 9,
-      "sourceView": "Transactions"
+      "sourceView": "Transactions",
+      "deleted": true
     },
     {
       "view": "Transactions",
@@ -3637,7 +3670,8 @@
       "sourceRow": 215,
       "legacyName": "Defer",
       "sourceOrder": 10,
-      "sourceView": "Transactions"
+      "sourceView": "Transactions",
+      "deleted": true
     },
     {
       "view": "Transactions",
@@ -3671,7 +3705,8 @@
       "sourceRow": 217,
       "legacyName": "Acceptance Survey",
       "sourceOrder": 13,
-      "sourceView": "Transactions"
+      "sourceView": "Transactions",
+      "deleted": true
     },
     {
       "view": "Transactions",
@@ -3688,7 +3723,8 @@
       "sourceRow": 218,
       "legacyName": "Apply to another program",
       "sourceOrder": 18,
-      "sourceView": "Transactions"
+      "sourceView": "Transactions",
+      "deleted": true
     }
   ]
 }

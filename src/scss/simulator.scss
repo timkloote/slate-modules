@@ -116,6 +116,7 @@ button:disabled { cursor: default; opacity: .45; }
   vertical-align: baseline;
 }
 .module-status.module-status--active { color: #166534; background: #dcfce7; }
+.module-status.module-status--deleted,
 .module-status.module-status--inactive { color: #991b1b; background: #fee2e2; }
 .module-status.module-status--unknown { color: #374151; background: #e5e7eb; }
 
