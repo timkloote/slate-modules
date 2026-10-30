@@ -17,7 +17,7 @@
     const shadow = host.attachShadow({ mode: 'open' });
     shadow.innerHTML = `<style>
       :host{font:14px/1.5 Arial,sans-serif;color:#fff}
-      section{position:relative;z-index:1;background:#17212a;padding:12px;border-radius:6px;box-shadow:0 3px 16px #0003;width:440px;max-width:100%;box-sizing:border-box}
+      section{position:relative;z-index:1;background:#17212a;padding:12px;border:2px solid #fff;border-radius:6px;box-shadow:0 0 0 1px #17212a,0 4px 18px #0006;width:440px;max-width:100%;box-sizing:border-box}
       button{font:inherit;color:#fff;background:#17212a;border:1px solid #fff;border-radius:3px;padding:6px 10px;cursor:pointer}
       button:focus-visible{outline:3px solid #ffce55;outline-offset:3px}
       button:disabled{opacity:.5;cursor:default}.part-id{display:flex;align-items:center;gap:8px;margin-top:8px}.part-id code{min-width:0}.copy{display:inline-flex;align-items:center;justify-content:center;flex:none;padding:6px}.copy svg{width:16px;height:16px}.module-name{font-size:18px;font-weight:700;line-height:1.35}
@@ -28,7 +28,7 @@
       input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #ffce55;outline-offset:2px}
       .search-results{display:grid;gap:4px;max-height:220px;overflow:auto;margin-top:8px}
       .search-results button{text-align:left;width:100%}.search-status{font-size:12px}
-      section:has(.review-toggle:not([hidden])){width:auto}
+      section:has(.review-toggle:not([hidden])){display:flex;align-items:center;width:auto}
       :host([data-open]) section{display:flex;flex-direction:column;width:100%;max-height:calc(100dvh - 32px);padding:16px;overflow-y:auto}
       :host([data-open]) .panel-header,:host([data-open]) .view-picker{flex:none}
       :host([data-open]) .details{flex:none;padding:4px}
@@ -37,6 +37,10 @@
       .search-field svg{position:absolute;left:11px;top:50%;transform:translateY(-50%);width:18px;height:18px;color:#54616c;pointer-events:none}
       .search-field input{margin-top:0;padding-left:38px;min-height:40px}
       .review-toggle{display:inline-flex;align-items:center;gap:10px;padding:2px 0;border:0;background:transparent}
+      .drag-handle{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;padding:0;margin-right:8px;border:0;cursor:grab;touch-action:none;user-select:none;vertical-align:middle}
+      .drag-handle:active{cursor:grabbing}
+      :host([data-open]) .drag-handle{position:absolute;top:18px;left:16px;margin:0}
+      :host([data-open]) .panel-header{padding-left:38px}
       .switch-track{position:relative;display:inline-block;flex:none;width:36px;height:22px;border:1px solid #aab3bb;border-radius:12px;background:#54616c;box-sizing:border-box}
       .switch-track::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff}
       .review-toggle[aria-checked="true"] .switch-track{background:#c8102f;border-color:#c8102f}
@@ -55,8 +59,28 @@
       .view-controls select{flex:1;min-width:0;width:0;margin:0}
       .view-controls a{display:inline-flex;align-items:center;justify-content:center;flex:none;padding:8px 10px;border:1px solid #fff;border-radius:3px;background:#fff;color:#17212a;font:inherit;font-weight:700;text-decoration:none;white-space:nowrap}
       .view-controls a:hover{background:#e4e9ed}
+      :host([data-open]) section{border-radius:12px;padding-bottom:28px}
+      .resize-handle{position:absolute;right:5px;bottom:5px;z-index:2;width:24px;height:24px;padding:0;border:0;background:transparent;cursor:ew-resize;touch-action:none;color:#fff}
+      .resize-handle svg{width:16px;height:16px;pointer-events:none}
+      :host([data-open]) .details{padding:0}
+      .panel-header{padding-bottom:12px;border-bottom:1px solid #ffffff40}
+      .panel-header strong{font-size:17px;letter-spacing:.01em}
+      .close-review{border-color:#ffffff50;border-radius:8px;background:#ffffff0d}
+      .close-review:hover,.search-results button:hover{background:#ffffff20}
+      input,select,.view-controls a{border-radius:6px}
+      .view-picker{padding:12px;margin-bottom:16px;border:1px solid #ffffff30;border-radius:8px;background:#ffffff08}
+      .navigation-heading{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#c3ccd4}
+      .inspection-card{margin-top:16px;padding:16px;border:1px solid #fff;border-left:4px solid #c8102f;border-radius:8px;background:#fff;color:#17212a;box-shadow:0 2px 8px #0002}
+      .identity-heading{margin:0;color:#54616c;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+      .inspection-card .module-name{margin-top:8px;font-size:22px;font-weight:700;line-height:1.3;letter-spacing:-.02em}
+      .inspection-card .part-id{padding-top:12px;margin-top:12px;border-top:1px solid #d6dde3}
+      .inspection-card code{overflow-wrap:anywhere}
+      .inspection-card .copy{background:#edf1f4;color:#17212a;border-color:#c3ccd4;border-radius:6px}
+      .inspection-card .copy:hover:not(:disabled){background:#dce4ea}
+      .copy-status:empty,.search-status:empty{display:none}
       @media print{:host{display:none}}
     </style><section aria-label="View navigation and module review tools">
+      <button class="drag-handle" type="button" aria-label="Move Module Review" title="Drag to move; use arrow keys when focused"><span aria-hidden="true">⠿</span></button>
       <div class="panel-header" hidden><strong>Module Review</strong><button class="close-review" type="button" aria-label="Close Module Review" title="Close Module Review"><span aria-hidden="true">×</span></button></div>
       <nav class="view-picker" aria-label="View navigation" hidden>
         <strong class="navigation-heading">View navigation</strong>
@@ -76,15 +100,20 @@
           </div>
           <p class="search-status" aria-live="polite"></p>
           <div class="search-results"></div>
+          <div class="inspection-card">
+          <p class="identity-heading">Module identity</p>
           <p class="module-name" role="status" aria-live="polite">Hover to inspect. Click a module to pin its title and ID.</p>
           <div class="part-id"><code></code><button class="copy" type="button" aria-label="Copy part ID" title="Copy part ID" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 9V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4"/></svg></button></div>
           <p class="copy-status" role="status" aria-live="polite"></p>
+          </div>
         </div>
       </div>
       <button class="review-toggle" type="button" role="switch" aria-label="Module Review" aria-checked="false" aria-expanded="false" aria-controls="review-details"><span class="switch-track" aria-hidden="true"></span><span class="switch-label">Module Review: Off</span></button>
-    </section><div class="outline" hidden></div>`;
+    </section><button class="resize-handle" type="button" aria-label="Resize Module Review width" title="Drag to resize; use left and right arrow keys when focused" hidden><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 13 13 3M8 13l5-5"/></svg></button><div class="outline" hidden></div>`;
     document.body.append(host);
     const toggle = shadow.querySelector('.review-toggle');
+    const handle = shadow.querySelector('.drag-handle');
+    const resizeHandle = shadow.querySelector('.resize-handle');
     const details = shadow.querySelector('.details');
     const panelHeader = shadow.querySelector('.panel-header');
     const close = shadow.querySelector('.close-review');
@@ -150,6 +179,77 @@
     let enabled = false;
     let current = null;
     let pinned = false;
+    let location = null;
+    let drag = null;
+    let panelWidth = 360;
+    let resizing = null;
+    function resizeTools(width) {
+      const rect = host.getBoundingClientRect();
+      const available = Math.max(0, window.innerWidth - rect.left - 16);
+      panelWidth = Math.min(Math.max(280, width), available);
+      host.style.width = `${panelWidth}px`;
+      moveTools(rect.left, rect.top);
+    }
+    resizeHandle.addEventListener('pointerdown', event => {
+      if (event.button !== 0 || resizing) return;
+      const rect = host.getBoundingClientRect();
+      resizing = { id: event.pointerId, x: event.clientX, width: rect.width };
+      resizeHandle.setPointerCapture(event.pointerId);
+      event.preventDefault();
+    });
+    resizeHandle.addEventListener('pointermove', event => {
+      if (!resizing || event.pointerId !== resizing.id) return;
+      resizeTools(resizing.width + event.clientX - resizing.x);
+    });
+    function endResize(event) {
+      if (!resizing || event.pointerId !== resizing.id) return;
+      resizing = null;
+      if (resizeHandle.hasPointerCapture(event.pointerId)) resizeHandle.releasePointerCapture(event.pointerId);
+    }
+    resizeHandle.addEventListener('pointerup', endResize);
+    resizeHandle.addEventListener('pointercancel', endResize);
+    resizeHandle.addEventListener('lostpointercapture', () => { resizing = null; });
+    resizeHandle.addEventListener('keydown', event => {
+      if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+      event.preventDefault();
+      const step = event.shiftKey ? 40 : 10;
+      resizeTools(host.getBoundingClientRect().width + (event.key === 'ArrowRight' ? step : -step));
+    });
+    function moveTools(left, top) {
+      const rect = host.getBoundingClientRect();
+      location = {
+        left: Math.max(0, Math.min(left, window.innerWidth - rect.width)),
+        top: Math.max(0, Math.min(top, window.innerHeight - rect.height)),
+      };
+      Object.assign(host.style, { left: `${location.left}px`, top: `${location.top}px`, bottom: 'auto' });
+    }
+    handle.addEventListener('pointerdown', event => {
+      if (event.button !== 0 || drag) return;
+      const rect = host.getBoundingClientRect();
+      drag = { id: event.pointerId, x: event.clientX, y: event.clientY, left: rect.left, top: rect.top };
+      handle.setPointerCapture(event.pointerId);
+      event.preventDefault();
+    });
+    handle.addEventListener('pointermove', event => {
+      if (!drag || event.pointerId !== drag.id) return;
+      moveTools(drag.left + event.clientX - drag.x, drag.top + event.clientY - drag.y);
+    });
+    function endDrag(event) {
+      if (!drag || event.pointerId !== drag.id) return;
+      drag = null;
+      if (handle.hasPointerCapture(event.pointerId)) handle.releasePointerCapture(event.pointerId);
+    }
+    handle.addEventListener('pointerup', endDrag);
+    handle.addEventListener('pointercancel', endDrag);
+    handle.addEventListener('lostpointercapture', () => { drag = null; });
+    handle.addEventListener('keydown', event => {
+      const direction = { ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, -1], ArrowDown: [0, 1] }[event.key];
+      if (!direction) return;
+      event.preventDefault();
+      const rect = host.getBoundingClientRect();
+      const step = event.shiftKey ? 40 : 10;
+      moveTools(rect.left + direction[0] * step, rect.top + direction[1] * step);
+    });
     function position() {
       if (!enabled || !current?.isConnected) { outline.hidden = true; return; }
       const rect = current.getBoundingClientRect();
@@ -160,7 +260,7 @@
       enabled = value;
       host.toggleAttribute('data-open', enabled);
       Object.assign(host.style, enabled
-        ? { top: '', bottom: '16px', left: '16px', width: '360px', maxWidth: 'calc(100vw - 32px)' }
+        ? { top: '', bottom: '16px', left: '16px', width: `${panelWidth}px`, maxWidth: 'calc(100vw - 32px)' }
         : { top: '', bottom: '16px', left: '16px', width: '', maxWidth: 'calc(100vw - 32px)' });
       toggle.querySelector('.switch-label').textContent = `Module Review: ${enabled ? 'On' : 'Off'}`;
       toggle.setAttribute('aria-checked', String(enabled));
@@ -168,7 +268,9 @@
       details.hidden = !enabled;
       panelHeader.hidden = !enabled;
       toggle.hidden = enabled;
+      resizeHandle.hidden = !enabled;
       viewPicker.hidden = !enabled || !destinations.length;
+      if (location) moveTools(location.left, location.top);
       if (!enabled) { current = null; pinned = false; outline.hidden = true; }
       try { localStorage.setItem('slate-module-review', String(enabled)); } catch { /* Shared storage can be unavailable in Slate. */ }
       try { sessionStorage.setItem('slate-module-review', String(enabled)); } catch { /* Tab storage is optional. */ }
@@ -238,6 +340,7 @@
     document.addEventListener('keydown', event => { if (enabled && event.key === 'Escape') setEnabled(false); });
     document.addEventListener('scroll', position, true);
     window.addEventListener('resize', position);
+    window.addEventListener('resize', () => { if (location) moveTools(location.left, location.top); });
     let savedState = null;
     try { savedState = localStorage.getItem('slate-module-review'); } catch { /* Fall back to this tab. */ }
     if (savedState === null) {

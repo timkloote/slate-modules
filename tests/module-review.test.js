@@ -198,3 +198,89 @@ test('review navigation stays in the simulator or current deployed Slate portal'
     assert.equal(ui.change('main-view').searchParams.has('cmd'), false);
   }
 });
+
+test('review tools drag, retain their position when toggled, and stay inside the viewport', () => {
+  const { document, window } = parseHTML('<html><body></body></html>');
+  window.innerWidth = 1000;
+  window.innerHeight = 800;
+  runInNewContext(readFileSync('src/js/module-review.js', 'utf8'), { document, window });
+  const host = document.getElementById('module-review-tools');
+  const shadow = host.shadowRoot;
+  const handle = shadow.querySelector('.drag-handle');
+  host.getBoundingClientRect = () => ({ left: parseFloat(host.style.left) || 16, top: parseFloat(host.style.top) || 700, width: 360, height: 100 });
+  let captured = false;
+  handle.setPointerCapture = () => { captured = true; };
+  handle.hasPointerCapture = () => captured;
+  handle.releasePointerCapture = () => { captured = false; };
+  function pointer(type, x, y) {
+    const event = new window.Event(type);
+    Object.assign(event, { button: 0, pointerId: 1, clientX: x, clientY: y });
+    handle.dispatchEvent(event);
+  }
+  pointer('pointerdown', 20, 710);
+  pointer('pointermove', 220, 410);
+  assert.equal(host.style.left, '216px');
+  assert.equal(host.style.top, '400px');
+  assert.equal(shadow.querySelector('.review-toggle').getAttribute('aria-checked'), 'false');
+  pointer('pointerup', 220, 410);
+  assert.equal(captured, false);
+  shadow.querySelector('.review-toggle').click();
+  assert.equal(host.style.left, '216px');
+  shadow.querySelector('.close-review').click();
+  assert.equal(host.style.top, '400px');
+  pointer('pointerdown', 220, 410);
+  pointer('pointermove', 2000, -1000);
+  assert.equal(host.style.left, '640px');
+  assert.equal(host.style.top, '0px');
+  pointer('pointercancel', 2000, -1000);
+  pointer('pointermove', 300, 300);
+  assert.equal(host.style.left, '640px');
+  const key = new window.Event('keydown');
+  key.key = 'ArrowLeft';
+  handle.dispatchEvent(key);
+  assert.equal(host.style.left, '630px');
+});
+
+test('open review resizes from its corner and remembers width when reopened', () => {
+  const { document, window } = parseHTML('<html><body></body></html>');
+  window.innerWidth = 1000;
+  window.innerHeight = 800;
+  runInNewContext(readFileSync('src/js/module-review.js', 'utf8'), { document, window });
+  const host = document.getElementById('module-review-tools');
+  const shadow = host.shadowRoot;
+  host.getBoundingClientRect = () => ({ left: 16, top: 100, width: parseFloat(host.style.width) || 220, height: 500 });
+  const corner = shadow.querySelector('.resize-handle');
+  let captured = false;
+  corner.setPointerCapture = () => { captured = true; };
+  corner.hasPointerCapture = () => captured;
+  corner.releasePointerCapture = () => { captured = false; };
+  function pointer(type, x) {
+    const event = new window.Event(type);
+    Object.assign(event, { button: 0, pointerId: 2, clientX: x });
+    corner.dispatchEvent(event);
+  }
+  assert.equal(corner.hidden, true);
+  shadow.querySelector('.review-toggle').click();
+  assert.equal(corner.hidden, false);
+  pointer('pointerdown', 376);
+  pointer('pointermove', 576);
+  assert.equal(host.style.width, '560px');
+  pointer('pointerup', 576);
+  assert.equal(captured, false);
+  shadow.querySelector('.close-review').click();
+  assert.equal(corner.hidden, true);
+  shadow.querySelector('.review-toggle').click();
+  assert.equal(host.style.width, '560px');
+  pointer('pointerdown', 576);
+  pointer('pointermove', 2000);
+  assert.equal(host.style.width, '968px');
+  pointer('pointermove', -2000);
+  assert.equal(host.style.width, '280px');
+  pointer('pointercancel', -2000);
+  pointer('pointermove', 900);
+  assert.equal(host.style.width, '280px');
+  const key = new window.Event('keydown');
+  key.key = 'ArrowRight';
+  corner.dispatchEvent(key);
+  assert.equal(host.style.width, '290px');
+});
