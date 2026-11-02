@@ -3,6 +3,7 @@ import * as sass from 'sass';
 import { readdirSync } from 'node:fs';
 import { liveViews } from './src/js/live-views.js';
 import { inventory } from './scripts/simulator.js';
+import { moduleReviewCatalog } from './scripts/module-review-catalog.js';
 
 export default function (eleventyConfig) {
   eleventyConfig.addWatchTarget('src/_includes/');
@@ -16,6 +17,7 @@ export default function (eleventyConfig) {
     if (file !== 'module-review.js') eleventyConfig.addPassthroughCopy({ [`src/js/${file}`]: `js/${file}` });
   }
   eleventyConfig.addWatchTarget('src/js/module-review.js');
+  eleventyConfig.addWatchTarget('scripts/module-review-catalog.js');
   eleventyConfig.addWatchTarget('src/js/live-views.js');
   eleventyConfig.addPassthroughCopy({ 'src/references': 'references', 'src/simulator/styles': 'simulator/styles', images: 'images', 'grad-admissions/images': 'grad-admissions/images' });
   // Temporary, standalone review asset: include every ID, including inactive parts.
@@ -26,7 +28,8 @@ export default function (eleventyConfig) {
     });
     if (!source) return;
     const audit = JSON.parse(await readFile('src/simulator/audit.json', 'utf8'));
-    const catalog = Object.fromEntries(audit.modules.map(({ partId, view, order, name }) => [partId, { view, order, name }]));
+    const { aliases, additionalModules = [] } = JSON.parse(await readFile('src/simulator/module-review-aliases.json', 'utf8'));
+    const catalog = moduleReviewCatalog([...audit.modules, ...additionalModules], aliases);
     const simulatorViews = inventory().views.map(({ slug, name }) => ({ id: slug, name }));
     await writeFile('dist/js/module-review.js', source.replace('null; /* MODULE_REVIEW_CATALOG */', `${JSON.stringify(catalog)}; /* MODULE_REVIEW_CATALOG */`).replace('[]; /* MODULE_REVIEW_VIEWS */', `${JSON.stringify(liveViews)}; /* MODULE_REVIEW_VIEWS */`).replace('[]; /* MODULE_REVIEW_SIMULATOR_VIEWS */', `${JSON.stringify(simulatorViews)}; /* MODULE_REVIEW_SIMULATOR_VIEWS */`));
   });

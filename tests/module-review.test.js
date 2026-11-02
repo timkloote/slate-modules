@@ -284,3 +284,93 @@ test('open review resizes from its corner and remembers width when reopened', ()
   corner.dispatchEvent(key);
   assert.equal(host.style.width, '290px');
 });
+
+test('cloned Main View IDs resolve original identities for inspect, copy, and search without changing DOM IDs', async () => {
+  const { moduleReviewCatalog } = await import('../scripts/module-review-catalog.js');
+  const { modules } = JSON.parse(readFileSync('src/simulator/audit.json', 'utf8'));
+  const { aliases, unmapped, additionalModules = [] } = JSON.parse(readFileSync('src/simulator/module-review-aliases.json', 'utf8'));
+  const catalog = moduleReviewCatalog([...modules, ...additionalModules], aliases);
+  const unsubmitted = catalog['part_5e023fe5-c358-4635-9e94-806426eb8b13'];
+  assert.equal(unsubmitted.view, 'Unsubmitted Applications');
+  assert.equal(unsubmitted.name, 'Application Selector');
+  assert.equal(unsubmitted.originalPartId, undefined);
+  assert.equal(Object.keys(aliases).length, 181);
+  assert.equal(new Set(Object.values(aliases)).size, 181);
+  assert.equal(unmapped.length, 1);
+  for (const [clone, original] of Object.entries(aliases)) {
+    assert.equal(catalog[clone].view, catalog[original].view);
+    assert.equal(catalog[clone].name, catalog[original].name);
+    assert.equal(catalog[clone].originalPartId, original);
+  }
+  const enrollment = Object.keys(aliases).filter(clone => catalog[clone].view === 'Enrollment  Module');
+  assert.deepEqual(enrollment.map(clone => catalog[clone].order), [1, 2, 3, 4, 5]);
+  assert.equal(catalog['part_d71606b7-3e85-4470-aebc-f7c6bc81686f'].originalPartId, 'part_dfe41bc1-2cc0-4778-a32d-ffa1f8531743');
+  const fce = Object.keys(aliases).filter(clone => catalog[clone].view === 'FCE Evaluation Status');
+  assert.deepEqual(fce.map(clone => catalog[clone].order), Array.from({ length: 24 }, (_, i) => i + 1).filter(order => order !== 19));
+  assert.equal(catalog['part_cbe79464-d5a0-4a40-a11f-b400740d160f'].originalPartId, 'part_b6ca4f02-158c-4a55-b4ab-efffebac58ee');
+  assert.equal(catalog['part_7250f2e2-a751-481e-98b4-af7ab957a618'].order, 6);
+  assert.equal(catalog['part_b0818bc7-ed61-4ba1-9ed0-e85d685870f0'].order, 18);
+  assert.equal(catalog['part_c398c17e-7651-456e-b0ca-7ff79a2e1054'].originalPartId, 'part_2ec5856b-a01a-4549-adeb-e55cbc26f6fd');
+  assert.equal(catalog['part_4f3c7a4f-d21a-47cd-939e-8fe8d2248db2'].originalPartId, 'part_62ab62e5-0524-49a2-9924-65d2bd729505');
+  assert.equal(catalog['part_c398c17e-7651-456e-b0ca-7ff79a2e1054'].view, 'FCE Updates - Temp Message');
+  const information = Object.keys(aliases).filter(clone => catalog[clone].view === 'Information');
+  assert.deepEqual(information.map(clone => catalog[clone].order), [1, 2, 3, 4, 5]);
+  assert.equal(catalog['part_64acebd1-5b83-4bac-afd5-91e2b54c6d90'].originalPartId, 'part_f987738a-63c8-455e-a77d-6592e9f82b3a');
+  assert.equal(catalog['part_570f652a-b72e-414b-ad9f-907197a6adc6'].originalPartId, 'part_bdd0cd2c-3fcb-4b91-a688-5240f7cc9895');
+  const letters = Object.keys(aliases).filter(clone => catalog[clone].view === 'Letters');
+  assert.deepEqual(letters.map(clone => catalog[clone].order), [1, 2, 3, 4, 5]);
+  assert.equal(catalog['part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82'].originalPartId, 'part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6');
+  const options = Object.keys(aliases).filter(clone => catalog[clone].view === 'Options');
+  assert.deepEqual(options.map(clone => catalog[clone].order), [1, 2, 3, 4, 5, 8, 9, 12, 13, 14]);
+  assert.equal(catalog['part_e1e007d9-d15c-4984-8811-c1763632bc57'].originalPartId, 'part_b7660575-3aeb-4dae-9cb9-a5842c5fb1b5');
+  const transactions = Object.keys(aliases).filter(clone => catalog[clone].view === 'Transactions');
+  assert.deepEqual(transactions.map(clone => catalog[clone].order), [1, 2, 3, 4, 5, 6, 7, 8, 11, 12, 14, 15, 18, 16, 17]);
+  assert.equal(catalog['part_27616a39-29a8-4468-b549-d5ef64f8d88f'].originalPartId, 'part_45a0a61b-84af-4743-9c0f-13be7f04a167');
+  assert.equal(catalog['part_ffb02451-b813-4c45-a8b2-f874608baaf5'].originalPartId, 'part_b8f2b3d9-1ab3-471d-b718-ae1ccfef614d');
+  const materials = Object.keys(aliases).filter(clone => catalog[clone].view === 'Materials/Checklist');
+  assert.deepEqual(materials.map(clone => catalog[clone].order), [1, 2, 3, 4, 5, 6, 7]);
+  assert.equal(catalog['part_84879a8d-3d03-429e-af39-9e1c2cb1239f'].originalPartId, 'part_8877aec9-c0c2-412a-920a-26f8fd9c44ab');
+  assert.equal(catalog['part_bcc7a0c3-64a8-44a4-993c-0c2e17dddbe9'].originalPartId, 'part_fd0bf798-010e-4727-8ded-2bdd55db1131');
+  // Same-name variants must retain their distinct inventory identities.
+  assert.equal(catalog['part_ac3a76a1-55f1-4555-ab2e-d6442119c5b4'].order, 48);
+  assert.equal(catalog['part_f8960b27-0606-4cbe-8bf8-969b7cf191bc'].order, 49);
+  assert.equal(catalog['part_571cedc3-25d6-41b6-961a-4e28a767d9ed'].order, 72);
+  assert.equal(catalog['part_a9ce89ca-8c2e-4d4b-a22a-fb21b04cacd1'].order, 73);
+  const clone = 'part_ac3a76a1-55f1-4555-ab2e-d6442119c5b4';
+  const original = aliases[clone];
+  const { document, window } = parseHTML(`<html><body><div class="part" id="${clone}">Deposit</div><div class="part" id="${original}">Original</div></body></html>`);
+  const part = document.getElementById(clone);
+  const markup = part.outerHTML;
+  part.getBoundingClientRect = () => ({ left: 15, top: 25, width: 200, height: 80 });
+  document.getElementById(original).getBoundingClientRect = part.getBoundingClientRect;
+  let copied;
+  runInNewContext(readFileSync('src/js/module-review.js', 'utf8').replace('null; /* MODULE_REVIEW_CATALOG */', JSON.stringify(catalog) + ';'), {
+    document, window, Element: window.Element, navigator: { clipboard: { async writeText(value) { copied = value; } } },
+  });
+  const shadow = document.getElementById('module-review-tools').shadowRoot;
+  shadow.querySelector('.review-toggle').click();
+  part.click();
+  assert.equal(shadow.querySelector('.module-name').textContent, 'Main View · 48. Pay Deposit CTA');
+  assert.equal(shadow.querySelector('code').textContent, original);
+  assert.equal(shadow.querySelector('.clone-id').textContent, `Clone part ID: ${clone}`);
+  assert.equal(shadow.querySelector('.outline').style.left, '15px');
+  shadow.querySelector('.copy').click();
+  await new Promise(resolve => setImmediate(resolve));
+  assert.equal(copied, original);
+  const search = shadow.querySelector('input');
+  for (const [query, count] of [[clone, 1], [original, 2], ['48', 2], ['Pay Deposit CTA', 2]]) {
+    search.value = query;
+    search.dispatchEvent(new window.Event('input'));
+    assert.equal(shadow.querySelectorAll('.search-results button').length, count);
+  }
+  let scrolled = false;
+  part.scrollIntoView = () => { scrolled = true; };
+  shadow.querySelector('.search-results button').click();
+  assert.equal(scrolled, true);
+  document.getElementById(original).click();
+  assert.equal(shadow.querySelector('.clone-id').hidden, true);
+  assert.equal(shadow.querySelector('code').textContent, original);
+  assert.equal(part.outerHTML, markup);
+  assert.throws(() => moduleReviewCatalog(modules, { part_clone: 'part_missing' }), /Unknown original/);
+  assert.throws(() => moduleReviewCatalog(modules, { [original]: original }), /Unknown original|conflicts/);
+});

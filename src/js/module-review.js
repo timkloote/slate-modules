@@ -78,6 +78,7 @@
       .inspection-card .copy{background:#edf1f4;color:#17212a;border-color:#c3ccd4;border-radius:6px}
       .inspection-card .copy:hover:not(:disabled){background:#dce4ea}
       .copy-status:empty,.search-status:empty{display:none}
+      .clone-id{font-size:11px;color:#54616c}
       @media print{:host{display:none}}
     </style><section aria-label="View navigation and module review tools">
       <button class="drag-handle" type="button" aria-label="Move Module Review" title="Drag to move; use arrow keys when focused"><span aria-hidden="true">⠿</span></button>
@@ -105,6 +106,7 @@
           <p class="module-name" role="status" aria-live="polite">Hover to inspect. Click a module to pin its title and ID.</p>
           <div class="part-id"><code></code><button class="copy" type="button" aria-label="Copy part ID" title="Copy part ID" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M15 9V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h4"/></svg></button></div>
           <p class="copy-status" role="status" aria-live="polite"></p>
+          <p class="clone-id" hidden></p>
           </div>
         </div>
       </div>
@@ -121,6 +123,7 @@
     const id = shadow.querySelector('code');
     const copy = shadow.querySelector('.copy');
     const copyStatus = shadow.querySelector('.copy-status');
+    const cloneId = shadow.querySelector('.clone-id');
     const outline = shadow.querySelector('.outline');
     const search = shadow.querySelector('input');
     const results = shadow.querySelector('.search-results');
@@ -287,7 +290,9 @@
       if (event.type === 'click') pinned = true;
       const record = catalog?.[current.id];
       label.textContent = record ? `${record.view} · ${record.order}. ${record.name}` : current.dataset.module || 'Module not in the current inventory';
-      id.textContent = current.id;
+      id.textContent = record?.originalPartId || current.id;
+      cloneId.hidden = !record?.originalPartId;
+      cloneId.textContent = record?.originalPartId ? `Clone part ID: ${current.id}` : '';
       copy.disabled = false;
       copyStatus.textContent = '';
       position();
@@ -299,7 +304,7 @@
       const matches = [...document.querySelectorAll('.part[id^="part_"]')].filter(part => {
         const record = catalog?.[part.id];
         if (/^\d+$/.test(query)) return String(record?.order ?? part.dataset.order) === query;
-        return `${record?.view || ''} ${record?.name || part.dataset.module || ''} ${part.id}`.toLowerCase().includes(query);
+        return `${record?.view || ''} ${record?.name || part.dataset.module || ''} ${part.id} ${record?.originalPartId || ''}`.toLowerCase().includes(query);
       });
       searchStatus.textContent = matches.length ? `${matches.length} matching module${matches.length === 1 ? '' : 's'} on this page.` : 'No matching modules on this page.';
       for (const part of matches) {
