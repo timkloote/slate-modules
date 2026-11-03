@@ -581,6 +581,11 @@ header:is([role="banner"], [role="dialog"]) {
 /* ==========================================================================
    6. Footer
    ========================================================================== */
+// Outrank Slate build.css's generic footer background, even when it loads later.
+footer[role="contentinfo"] {
+  background: var(--black);
+}
+
 footer {
   padding-block: 1.5rem;
   width: 100%;
