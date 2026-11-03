@@ -40,3 +40,25 @@ test('does not invent absent widgets or replace existing payment content', () =>
  assert.ok(missing.includes('#leftcolumn'));
  assert.ok(missing.includes('#part_416aad3d-54b3-4596-9c3c-bf4360ffe893 > select'));
 });
+
+test('cloned payment widget gets the same empty state without replacing generated content', async () => {
+ const { readFileSync } = await import('node:fs');
+ const { runInNewContext } = await import('node:vm');
+ const clone='part_039d29bd-7971-4365-97d8-12796df5329c';
+ for (const content of ['', '<p>Payment due: $100</p>']) {
+  for (const inline of [false,true]) {
+   const document=documentFor(`<div id="${clone}">${content}</div>`);
+   if (inline) {
+    const source=readFileSync('src/modules/main-view/133-scripts.html','utf8').match(/<script[^>]*>([\s\S]*?)<\/script>/)[1];
+    runInNewContext(source,{document});
+    document.dispatchEvent(new document.defaultView.Event('DOMContentLoaded'));
+   } else { initMainViewBehavior(document);initMainViewBehavior(document); }
+   const widget=document.getElementById(clone);
+   if (content) assert.equal(widget.innerHTML,content);
+   else {
+    assert.equal(widget.querySelectorAll('h3').length,1);
+    assert.match(widget.textContent,/You have no payments due at this time/);
+   }
+  }
+ }
+});

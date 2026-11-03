@@ -53,7 +53,7 @@ export function initMainViewBehavior(root = document, { ignoreElement = () => fa
     if (select.previousElementSibling?.hasAttribute('data-slate-switch-heading')) continue;
     const heading = create('h3', 'Switch Applications'); heading.dataset.slateSwitchHeading = 'true'; select.before(heading);
   }
-  for (const payment of find('#part_2dd69944-5553-456a-8b05-4c6903e6f2be')) {
+  for (const payment of find('#part_2dd69944-5553-456a-8b05-4c6903e6f2be, #part_039d29bd-7971-4365-97d8-12796df5329c')) {
     if ([...payment.children].some(child => !ignoreElement(child))) continue;
     payment.append(create('h3', 'Payments', 'payment_sum slate-payment-heading'), create('p', 'You have no payments due at this time.'));
   }

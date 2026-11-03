@@ -3389,9 +3389,9 @@ div.part.portal-footer {
 /* Text CTA with the paired sliding arrows used on the graduate site.
    Works with the reference markup without relying on Tailwind utilities. */
 .arrow-link,
-#part_43ada4b5-1326-44ba-ad29-32bad37c18ac a,
-#part_e0d2d69b-021d-414f-92c1-6dac775b1326 a,
-#part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a,
+:is(#part_43ada4b5-1326-44ba-ad29-32bad37c18ac, #part_a78361b5-e22c-400a-9e68-9bd4a1b8790c) a,
+:is(#part_e0d2d69b-021d-414f-92c1-6dac775b1326, #part_25d5cd50-3473-4151-8f14-075c49567842) a,
+:is(#part_0b36c5a3-4762-4e4f-80aa-9d105d509387, #part_a17cc95f-ce64-4656-a7fd-2644495a1f27) a,
 .part a.button,
 .form-action__content p a {
   display: inline-flex;
@@ -3406,9 +3406,9 @@ div.part.portal-footer {
   line-height: 1.2;
 }
 .arrow-link > span:first-child,
-#part_43ada4b5-1326-44ba-ad29-32bad37c18ac a > span:first-child,
-#part_e0d2d69b-021d-414f-92c1-6dac775b1326 a > span:first-child,
-#part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a > span:first-child,
+:is(#part_43ada4b5-1326-44ba-ad29-32bad37c18ac, #part_a78361b5-e22c-400a-9e68-9bd4a1b8790c) a > span:first-child,
+:is(#part_e0d2d69b-021d-414f-92c1-6dac775b1326, #part_25d5cd50-3473-4151-8f14-075c49567842) a > span:first-child,
+:is(#part_0b36c5a3-4762-4e4f-80aa-9d105d509387, #part_a17cc95f-ce64-4656-a7fd-2644495a1f27) a > span:first-child,
 .part a.button > span:first-child,
 .form-action__content p a > span:first-child {
   font-family: "ff-real-headline-pro", sans-serif;
@@ -3417,9 +3417,9 @@ div.part.portal-footer {
   line-height: 1.2;
 }
 .arrow-link > span:last-child:has(> svg),
-#part_43ada4b5-1326-44ba-ad29-32bad37c18ac a > span:last-child:has(> svg),
-#part_e0d2d69b-021d-414f-92c1-6dac775b1326 a > span:last-child:has(> svg),
-#part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a > span:last-child:has(> svg),
+:is(#part_43ada4b5-1326-44ba-ad29-32bad37c18ac, #part_a78361b5-e22c-400a-9e68-9bd4a1b8790c) a > span:last-child:has(> svg),
+:is(#part_e0d2d69b-021d-414f-92c1-6dac775b1326, #part_25d5cd50-3473-4151-8f14-075c49567842) a > span:last-child:has(> svg),
+:is(#part_0b36c5a3-4762-4e4f-80aa-9d105d509387, #part_a17cc95f-ce64-4656-a7fd-2644495a1f27) a > span:last-child:has(> svg),
 .part a.button > span:last-child:has(> svg),
 .form-action__content p a > span:last-child:has(> svg) {
   display: flex;
@@ -3431,9 +3431,9 @@ div.part.portal-footer {
   overflow: hidden;
 }
 .arrow-link > span:last-child:has(> svg) svg,
-#part_43ada4b5-1326-44ba-ad29-32bad37c18ac a > span:last-child:has(> svg) svg,
-#part_e0d2d69b-021d-414f-92c1-6dac775b1326 a > span:last-child:has(> svg) svg,
-#part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a > span:last-child:has(> svg) svg,
+:is(#part_43ada4b5-1326-44ba-ad29-32bad37c18ac, #part_a78361b5-e22c-400a-9e68-9bd4a1b8790c) a > span:last-child:has(> svg) svg,
+:is(#part_e0d2d69b-021d-414f-92c1-6dac775b1326, #part_25d5cd50-3473-4151-8f14-075c49567842) a > span:last-child:has(> svg) svg,
+:is(#part_0b36c5a3-4762-4e4f-80aa-9d105d509387, #part_a17cc95f-ce64-4656-a7fd-2644495a1f27) a > span:last-child:has(> svg) svg,
 .part a.button > span:last-child:has(> svg) svg,
 .form-action__content p a > span:last-child:has(> svg) svg {
   flex: 1 0 100%;
@@ -3443,26 +3443,26 @@ div.part.portal-footer {
   transition: transform 300ms ease-in-out 100ms;
 }
 .arrow-link:is(:hover, :focus-visible) > span:last-child > svg,
-#part_43ada4b5-1326-44ba-ad29-32bad37c18ac a:is(:hover, :focus-visible) > span:last-child > svg,
-#part_e0d2d69b-021d-414f-92c1-6dac775b1326 a:is(:hover, :focus-visible) > span:last-child > svg,
-#part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a:is(:hover, :focus-visible) > span:last-child > svg,
+:is(#part_43ada4b5-1326-44ba-ad29-32bad37c18ac, #part_a78361b5-e22c-400a-9e68-9bd4a1b8790c) a:is(:hover, :focus-visible) > span:last-child > svg,
+:is(#part_e0d2d69b-021d-414f-92c1-6dac775b1326, #part_25d5cd50-3473-4151-8f14-075c49567842) a:is(:hover, :focus-visible) > span:last-child > svg,
+:is(#part_0b36c5a3-4762-4e4f-80aa-9d105d509387, #part_a17cc95f-ce64-4656-a7fd-2644495a1f27) a:is(:hover, :focus-visible) > span:last-child > svg,
 .part a.button:is(:hover, :focus-visible) > span:last-child > svg,
 .form-action__content p a:is(:hover, :focus-visible) > span:last-child > svg {
   transform: translateX(1.125rem);
 }
 @media (prefers-reduced-motion: reduce) {
   .arrow-link > span:last-child > svg,
-  #part_43ada4b5-1326-44ba-ad29-32bad37c18ac a > span:last-child > svg,
-  #part_e0d2d69b-021d-414f-92c1-6dac775b1326 a > span:last-child > svg,
-  #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a > span:last-child > svg,
+  :is(#part_43ada4b5-1326-44ba-ad29-32bad37c18ac, #part_a78361b5-e22c-400a-9e68-9bd4a1b8790c) a > span:last-child > svg,
+  :is(#part_e0d2d69b-021d-414f-92c1-6dac775b1326, #part_25d5cd50-3473-4151-8f14-075c49567842) a > span:last-child > svg,
+  :is(#part_0b36c5a3-4762-4e4f-80aa-9d105d509387, #part_a17cc95f-ce64-4656-a7fd-2644495a1f27) a > span:last-child > svg,
   .part a.button > span:last-child > svg,
   .form-action__content p a > span:last-child > svg {
     transition: none;
   }
   .arrow-link:is(:hover, :focus-visible) > span:last-child > svg,
-  #part_43ada4b5-1326-44ba-ad29-32bad37c18ac a:is(:hover, :focus-visible) > span:last-child > svg,
-  #part_e0d2d69b-021d-414f-92c1-6dac775b1326 a:is(:hover, :focus-visible) > span:last-child > svg,
-  #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a:is(:hover, :focus-visible) > span:last-child > svg,
+  :is(#part_43ada4b5-1326-44ba-ad29-32bad37c18ac, #part_a78361b5-e22c-400a-9e68-9bd4a1b8790c) a:is(:hover, :focus-visible) > span:last-child > svg,
+  :is(#part_e0d2d69b-021d-414f-92c1-6dac775b1326, #part_25d5cd50-3473-4151-8f14-075c49567842) a:is(:hover, :focus-visible) > span:last-child > svg,
+  :is(#part_0b36c5a3-4762-4e4f-80aa-9d105d509387, #part_a17cc95f-ce64-4656-a7fd-2644495a1f27) a:is(:hover, :focus-visible) > span:last-child > svg,
   .part a.button:is(:hover, :focus-visible) > span:last-child > svg,
   .form-action__content p a:is(:hover, :focus-visible) > span:last-child > svg {
     transform: none;
@@ -3472,9 +3472,9 @@ div.part.portal-footer {
 /* Text-only arrow links use the same treatment without extra markup.
    Modules 29, 30, and 33 opt in through their existing Slate part IDs. */
 .arrow-link:not(:has(svg))::after,
-#part_43ada4b5-1326-44ba-ad29-32bad37c18ac a::after,
-#part_e0d2d69b-021d-414f-92c1-6dac775b1326 a::after,
-#part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a::after,
+:is(#part_43ada4b5-1326-44ba-ad29-32bad37c18ac, #part_a78361b5-e22c-400a-9e68-9bd4a1b8790c) a::after,
+:is(#part_e0d2d69b-021d-414f-92c1-6dac775b1326, #part_25d5cd50-3473-4151-8f14-075c49567842) a::after,
+:is(#part_0b36c5a3-4762-4e4f-80aa-9d105d509387, #part_a17cc95f-ce64-4656-a7fd-2644495a1f27) a::after,
 .part a.button::after,
 .form-action__content p a::after {
   content: "";
@@ -3487,26 +3487,26 @@ div.part.portal-footer {
   transition: background-position 300ms ease-in-out 100ms;
 }
 .arrow-link:not(:has(svg)):is(:hover, :focus-visible)::after,
-#part_43ada4b5-1326-44ba-ad29-32bad37c18ac a:is(:hover, :focus-visible)::after,
-#part_e0d2d69b-021d-414f-92c1-6dac775b1326 a:is(:hover, :focus-visible)::after,
-#part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a:is(:hover, :focus-visible)::after,
+:is(#part_43ada4b5-1326-44ba-ad29-32bad37c18ac, #part_a78361b5-e22c-400a-9e68-9bd4a1b8790c) a:is(:hover, :focus-visible)::after,
+:is(#part_e0d2d69b-021d-414f-92c1-6dac775b1326, #part_25d5cd50-3473-4151-8f14-075c49567842) a:is(:hover, :focus-visible)::after,
+:is(#part_0b36c5a3-4762-4e4f-80aa-9d105d509387, #part_a17cc95f-ce64-4656-a7fd-2644495a1f27) a:is(:hover, :focus-visible)::after,
 .part a.button:is(:hover, :focus-visible)::after,
 .form-action__content p a:is(:hover, :focus-visible)::after {
   background-position: 1.125rem 0;
 }
 @media (prefers-reduced-motion: reduce) {
   .arrow-link:not(:has(svg))::after,
-  #part_43ada4b5-1326-44ba-ad29-32bad37c18ac a::after,
-  #part_e0d2d69b-021d-414f-92c1-6dac775b1326 a::after,
-  #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a::after,
+  :is(#part_43ada4b5-1326-44ba-ad29-32bad37c18ac, #part_a78361b5-e22c-400a-9e68-9bd4a1b8790c) a::after,
+  :is(#part_e0d2d69b-021d-414f-92c1-6dac775b1326, #part_25d5cd50-3473-4151-8f14-075c49567842) a::after,
+  :is(#part_0b36c5a3-4762-4e4f-80aa-9d105d509387, #part_a17cc95f-ce64-4656-a7fd-2644495a1f27) a::after,
   .part a.button::after,
   .form-action__content p a::after {
     transition: none;
   }
   .arrow-link:not(:has(svg)):is(:hover, :focus-visible)::after,
-  #part_43ada4b5-1326-44ba-ad29-32bad37c18ac a:is(:hover, :focus-visible)::after,
-  #part_e0d2d69b-021d-414f-92c1-6dac775b1326 a:is(:hover, :focus-visible)::after,
-  #part_0b36c5a3-4762-4e4f-80aa-9d105d509387 a:is(:hover, :focus-visible)::after,
+  :is(#part_43ada4b5-1326-44ba-ad29-32bad37c18ac, #part_a78361b5-e22c-400a-9e68-9bd4a1b8790c) a:is(:hover, :focus-visible)::after,
+  :is(#part_e0d2d69b-021d-414f-92c1-6dac775b1326, #part_25d5cd50-3473-4151-8f14-075c49567842) a:is(:hover, :focus-visible)::after,
+  :is(#part_0b36c5a3-4762-4e4f-80aa-9d105d509387, #part_a17cc95f-ce64-4656-a7fd-2644495a1f27) a:is(:hover, :focus-visible)::after,
   .part a.button:is(:hover, :focus-visible)::after,
   .form-action__content p a:is(:hover, :focus-visible)::after {
     background-position: 0 0;
@@ -3600,7 +3600,7 @@ div.part.portal-footer {
 }
 
 /* The SSN save action is a simple filled button, including in disabled previews. */
-#part_5adcf777-b965-4a07-b86e-f3a7b348bcbe button.form_button_submit::after {
+:is(#part_5adcf777-b965-4a07-b86e-f3a7b348bcbe, #part_c4876e87-d42d-4b0e-86c6-3f85c23aeea2) button.form_button_submit::after {
   content: none;
 }
 
@@ -3684,7 +3684,7 @@ select:disabled {
 
 /* Shared muted callout: generated Applicant IDs and module 123's college information. */
 .part .applicant-id,
-#part_cf6009e1-4065-47ce-9f9d-fae0d8fd2123 p:nth-of-type(2):has(> a:only-child) {
+:is(#part_cf6009e1-4065-47ce-9f9d-fae0d8fd2123, #part_ea40b14a-8c42-456c-8409-9415f314f728) p:nth-of-type(2):has(> a:only-child) {
   display: block;
   box-sizing: border-box;
   margin-block: 1.25rem;
@@ -3703,30 +3703,30 @@ select:disabled {
 }
 
 /* SOL admitted-student registration uses black text with the red CTA arrow. */
-#part_830c15fb-cff4-4d97-820e-8744ed07e487 a.arrow-link {
+:is(#part_830c15fb-cff4-4d97-820e-8744ed07e487, #part_855efcf4-3a65-40ad-95c3-3e2165f79e85) a.arrow-link {
   color: #000;
 }
 
 /* NU London decision links retain black text with red CTA arrows. */
-#part_09820320-2f3f-46cd-83e3-531686e37833 a.arrow-link {
+:is(#part_09820320-2f3f-46cd-83e3-531686e37833, #part_4754c8e4-6f0f-4ade-88f7-82fbfa9755c0) a.arrow-link {
   color: #000;
 }
 
 /* London agent confirmation and scholarship links use black text with red arrows. */
-#part_71f1ece4-966d-461f-a69c-67eaba110e2e a.arrow-link,
-#part_4fdf01b4-8d5e-4fee-bf0f-87dccc42b4b6 a.arrow-link {
+:is(#part_71f1ece4-966d-461f-a69c-67eaba110e2e, #part_824d8fde-f0b6-45dd-b391-35defbc55aef) a.arrow-link,
+:is(#part_4fdf01b4-8d5e-4fee-bf0f-87dccc42b4b6, #part_e7f87577-c39b-4b09-a7d6-8b61fda86f49) a.arrow-link {
   color: #000;
 }
 
 /* Next Steps to Enrollment: separate each task and its completion control. */
-#part_92af3041-16c7-4300-9f01-b09edc8f8fd0 .form_page:has(.nste_header) {
+:is(#part_92af3041-16c7-4300-9f01-b09edc8f8fd0, #part_f26a7185-c463-4bfb-9f06-1bfc7ce3518e) .form_page:has(.nste_header) {
   margin-block: 1.5rem;
   padding: clamp(1rem, 2vw, 1.5rem);
   border: 1px solid #d5d5d5;
   border-top: 3px solid #c8102f;
   background: #fff;
 }
-#part_92af3041-16c7-4300-9f01-b09edc8f8fd0 button.nste_header {
+:is(#part_92af3041-16c7-4300-9f01-b09edc8f8fd0, #part_f26a7185-c463-4bfb-9f06-1bfc7ce3518e) button.nste_header {
   display: block;
   width: 100%;
   box-sizing: border-box;
@@ -3743,54 +3743,54 @@ select:disabled {
   text-align: left;
   opacity: 1;
 }
-#part_92af3041-16c7-4300-9f01-b09edc8f8fd0 button.nste_header:hover {
+:is(#part_92af3041-16c7-4300-9f01-b09edc8f8fd0, #part_f26a7185-c463-4bfb-9f06-1bfc7ce3518e) button.nste_header:hover {
   background: #e8e8e8;
   color: #111;
 }
-#part_92af3041-16c7-4300-9f01-b09edc8f8fd0 button.nste_header:focus-visible {
+:is(#part_92af3041-16c7-4300-9f01-b09edc8f8fd0, #part_f26a7185-c463-4bfb-9f06-1bfc7ce3518e) button.nste_header:focus-visible {
   outline: 2px solid #c8102f;
   outline-offset: 3px;
 }
-#part_92af3041-16c7-4300-9f01-b09edc8f8fd0 .panel {
+:is(#part_92af3041-16c7-4300-9f01-b09edc8f8fd0, #part_f26a7185-c463-4bfb-9f06-1bfc7ce3518e) .panel {
   color: #242424;
   background: #fff;
   padding-inline: 0;
 }
-#part_92af3041-16c7-4300-9f01-b09edc8f8fd0 .panel_p {
+:is(#part_92af3041-16c7-4300-9f01-b09edc8f8fd0, #part_f26a7185-c463-4bfb-9f06-1bfc7ce3518e) .panel_p {
   margin-block: 1rem;
   line-height: 1.65;
 }
-#part_92af3041-16c7-4300-9f01-b09edc8f8fd0 .form_question.form_checkbox {
+:is(#part_92af3041-16c7-4300-9f01-b09edc8f8fd0, #part_f26a7185-c463-4bfb-9f06-1bfc7ce3518e) .form_question.form_checkbox {
   margin-top: 1.5rem;
   margin-bottom: 0.25rem;
 }
-#part_92af3041-16c7-4300-9f01-b09edc8f8fd0 .form_checkbox fieldset {
+:is(#part_92af3041-16c7-4300-9f01-b09edc8f8fd0, #part_f26a7185-c463-4bfb-9f06-1bfc7ce3518e) .form_checkbox fieldset {
   margin: 0;
   padding: 0;
   border: 0;
 }
-#part_92af3041-16c7-4300-9f01-b09edc8f8fd0 .form_checkbox .form_responses {
+:is(#part_92af3041-16c7-4300-9f01-b09edc8f8fd0, #part_f26a7185-c463-4bfb-9f06-1bfc7ce3518e) .form_checkbox .form_responses {
   padding: 0.875rem 1rem;
   background: #f7f7f7;
   border: 1px solid #e5e5e5;
 }
-#part_92af3041-16c7-4300-9f01-b09edc8f8fd0 .form_checkbox .form_response {
+:is(#part_92af3041-16c7-4300-9f01-b09edc8f8fd0, #part_f26a7185-c463-4bfb-9f06-1bfc7ce3518e) .form_checkbox .form_response {
   display: flex;
   align-items: flex-start;
   gap: 0.75rem;
   padding-block: 0.25rem;
 }
-#part_92af3041-16c7-4300-9f01-b09edc8f8fd0 .form_checkbox .form_response + .form_response {
+:is(#part_92af3041-16c7-4300-9f01-b09edc8f8fd0, #part_f26a7185-c463-4bfb-9f06-1bfc7ce3518e) .form_checkbox .form_response + .form_response {
   margin-top: 0.75rem;
 }
-#part_92af3041-16c7-4300-9f01-b09edc8f8fd0 .form_checkbox input[type=checkbox] {
+:is(#part_92af3041-16c7-4300-9f01-b09edc8f8fd0, #part_f26a7185-c463-4bfb-9f06-1bfc7ce3518e) .form_checkbox input[type=checkbox] {
   flex: none;
   width: 1.125rem;
   height: 1.125rem;
   margin: 0.2rem 0 0;
   accent-color: #c8102f;
 }
-#part_92af3041-16c7-4300-9f01-b09edc8f8fd0 .form_checkbox label {
+:is(#part_92af3041-16c7-4300-9f01-b09edc8f8fd0, #part_f26a7185-c463-4bfb-9f06-1bfc7ce3518e) .form_checkbox label {
   margin: 0;
   padding: 0;
   color: #242424;
@@ -3799,36 +3799,36 @@ select:disabled {
 }
 
 /* Award and supporting decision letters use black text with red CTA arrows. */
-#part_1493d3ed-48e5-476e-83f9-8116c5bfe55d a.arrow-link,
-#part_7ebbab21-ada1-45b6-9983-1995e784218c a.arrow-link,
-#part_d2da05e8-8784-49f6-ae0a-97075cb0f0cc a.arrow-link {
+:is(#part_1493d3ed-48e5-476e-83f9-8116c5bfe55d, #part_5d0c04f1-bca9-4478-ba5d-e9275cde17cc) a.arrow-link,
+:is(#part_7ebbab21-ada1-45b6-9983-1995e784218c, #part_75ebd133-1c19-438f-8ae0-cd273d1ea1b8) a.arrow-link,
+:is(#part_d2da05e8-8784-49f6-ae0a-97075cb0f0cc, #part_37d943df-f1af-475a-895b-8c8c2c598779) a.arrow-link {
   color: #000;
 }
 
 /* NU London confirmed-student checklist links use black text and red arrows. */
-#part_eee94d92-fb79-4336-98c0-6efe9ae61459 a.arrow-link {
+:is(#part_eee94d92-fb79-4336-98c0-6efe9ae61459, #part_be3b2c9c-83ee-4ba3-bf3d-1210e3744ae1) a.arrow-link {
   color: #000;
 }
 
 /* NU London accepted-offer links use black text with red arrows. */
-#part_e7bff210-75fe-4b0a-b6db-8945105a6ab4 a.arrow-link {
+:is(#part_e7bff210-75fe-4b0a-b6db-8945105a6ab4, #part_9d4bd640-1ba9-4b5a-8524-3c9f571589de) a.arrow-link {
   color: #000;
 }
 
 /* Distinguish inline copy links from standalone NU London actions. */
-#part_09b9b91a-c8ec-4130-a0ba-d617716df95f a.arrow-link {
+:is(#part_09b9b91a-c8ec-4130-a0ba-d617716df95f, #part_dc0136de-cdbb-4340-b454-a42e61e0bebc) a.arrow-link {
   color: #000;
 }
-#part_09b9b91a-c8ec-4130-a0ba-d617716df95f a:not(.arrow-link) {
+:is(#part_09b9b91a-c8ec-4130-a0ba-d617716df95f, #part_dc0136de-cdbb-4340-b454-a42e61e0bebc) a:not(.arrow-link) {
   color: #c8102f;
   text-decoration: underline;
   text-underline-offset: 0.2em;
 }
 
 /* Pay Deposit CTAs must remain white against their black feature panel. */
-#part_f2de19f7-7a0c-4787-b5c4-2d2e1eb30994 a.arrow-link,
-#part_f2de19f7-7a0c-4787-b5c4-2d2e1eb30994 a.arrow-link:is(:link, :visited, :hover, :focus-visible, :active),
-#part_f2de19f7-7a0c-4787-b5c4-2d2e1eb30994 a.arrow-link span {
+:is(#part_f2de19f7-7a0c-4787-b5c4-2d2e1eb30994, #part_ac3a76a1-55f1-4555-ab2e-d6442119c5b4) a.arrow-link,
+:is(#part_f2de19f7-7a0c-4787-b5c4-2d2e1eb30994, #part_ac3a76a1-55f1-4555-ab2e-d6442119c5b4) a.arrow-link:is(:link, :visited, :hover, :focus-visible, :active),
+:is(#part_f2de19f7-7a0c-4787-b5c4-2d2e1eb30994, #part_ac3a76a1-55f1-4555-ab2e-d6442119c5b4) a.arrow-link span {
   color: #fff;
 }
 
@@ -3896,14 +3896,14 @@ select:disabled {
 }
 
 /* Admissions Letters uses a high-contrast header across all three columns. */
-#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 th {
+:is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) th {
   background: #000;
   color: #fff;
   font-weight: 700;
 }
 
 /* Student Support email stays inline within the accepted-offer guidance. */
-#part_e7bff210-75fe-4b0a-b6db-8945105a6ab4 a[href^="mailto:"] {
+:is(#part_e7bff210-75fe-4b0a-b6db-8945105a6ab4, #part_9d4bd640-1ba9-4b5a-8524-3c9f571589de) a[href^="mailto:"] {
   color: #c8102f;
   text-decoration: underline;
   text-underline-offset: 0.2em;
@@ -3911,25 +3911,25 @@ select:disabled {
 
 /* FCE Checklist: Slate places this selector in a 9/3 row with an empty left
    column. Stack that row and contain its floated select before the return link. */
-#portal_row_container > .portal_row:has(> .part_rows_container > #part_e9259ead-7c1c-4422-81fc-004443d6a34b) {
+#portal_row_container > .portal_row:has(> .part_rows_container > :is(#part_e9259ead-7c1c-4422-81fc-004443d6a34b, #part_31d46389-fc14-45db-878e-a506624d7931)) {
   display: block;
 }
-#portal_row_container > .portal_row:has(> .part_rows_container > #part_e9259ead-7c1c-4422-81fc-004443d6a34b) > .part_rows_container {
+#portal_row_container > .portal_row:has(> .part_rows_container > :is(#part_e9259ead-7c1c-4422-81fc-004443d6a34b, #part_31d46389-fc14-45db-878e-a506624d7931)) > .part_rows_container {
   width: 100%;
   min-width: 0;
   float: none;
   box-sizing: border-box;
 }
-#portal_row_container > .portal_row:has(> .part_rows_container > #part_e9259ead-7c1c-4422-81fc-004443d6a34b) > .part_rows_container:empty {
+#portal_row_container > .portal_row:has(> .part_rows_container > :is(#part_e9259ead-7c1c-4422-81fc-004443d6a34b, #part_31d46389-fc14-45db-878e-a506624d7931)) > .part_rows_container:empty {
   display: none;
 }
 
-#part_e9259ead-7c1c-4422-81fc-004443d6a34b {
+:is(#part_e9259ead-7c1c-4422-81fc-004443d6a34b, #part_31d46389-fc14-45db-878e-a506624d7931) {
   display: flow-root;
   box-sizing: border-box;
   width: 100%;
 }
-#part_e9259ead-7c1c-4422-81fc-004443d6a34b select {
+:is(#part_e9259ead-7c1c-4422-81fc-004443d6a34b, #part_31d46389-fc14-45db-878e-a506624d7931) select {
   /* Slate supplies float:right directly on this element. */
   float: none !important;
   display: block;
@@ -3939,104 +3939,104 @@ select:disabled {
 }
 
 /* Slate link colors must not override the FCE FAQ's black link text. */
-#part_75880a6f-e449-4204-930f-5f2fedab96e1 a,
-#part_75880a6f-e449-4204-930f-5f2fedab96e1 a:is(:link, :visited, :hover, :focus, :focus-visible, :active),
-#part_75880a6f-e449-4204-930f-5f2fedab96e1 a span {
+:is(#part_75880a6f-e449-4204-930f-5f2fedab96e1, #part_1c50d5b5-6af2-4971-9e90-2bab654094db) a,
+:is(#part_75880a6f-e449-4204-930f-5f2fedab96e1, #part_1c50d5b5-6af2-4971-9e90-2bab654094db) a:is(:link, :visited, :hover, :focus, :focus-visible, :active),
+:is(#part_75880a6f-e449-4204-930f-5f2fedab96e1, #part_1c50d5b5-6af2-4971-9e90-2bab654094db) a span {
   color: #000 !important;
 }
 
 /* Let the letters list fill its module and grow with longer letter names. */
-#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 {
+:is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) {
   min-width: 0;
 }
-#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 .part_admissions {
+:is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) .part_admissions {
   width: 100%;
   max-width: none;
 }
-#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 table {
+:is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) table {
   width: 100%;
   max-width: none;
   table-layout: auto;
   border-collapse: collapse;
   font-size: 1rem;
 }
-#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 th, #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 td {
+:is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) th, :is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) td {
   padding: 1rem 1.25rem;
   text-align: left;
   vertical-align: middle;
   line-height: 1.5;
   border-bottom: 1px solid #d5d5d5;
 }
-#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 th:first-child, #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 td:first-child {
+:is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) th:first-child, :is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) td:first-child {
   width: 5rem;
 }
-#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 th:last-child, #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 td:last-child {
+:is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) th:last-child, :is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) td:last-child {
   width: 10rem;
 }
-#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 td:nth-child(2) {
+:is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) td:nth-child(2) {
   overflow-wrap: anywhere;
 }
-#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 td img {
+:is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) td img {
   width: 22px;
   height: 22px;
   max-width: none;
 }
 @media (max-width: 640px) {
-  #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 th, #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 td {
+  :is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) th, :is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) td {
     padding: 0.75rem 0.5rem;
     font-size: 0.875rem;
   }
-  #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 th:first-child, #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 td:first-child {
+  :is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) th:first-child, :is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) td:first-child {
     width: 3rem;
   }
-  #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 th:last-child, #part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6 td:last-child {
+  :is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) th:last-child, :is(#part_3f2442e6-56d0-4f2a-bfbb-62a534a2d6f6, #part_093956eb-c4ab-4e44-8ebe-2f60b6f4eb82) td:last-child {
     width: 6rem;
   }
 }
 
 /* Keep all Transactions action links black despite Slate's link overrides. */
-:is(#part_34e19cac-f0a8-4d7f-b223-9c522897516e,
-#part_74726e8b-6de7-47ed-88e1-71b1551dcedd,
-#part_b46ccc68-57f1-4e98-8881-fd81932fb1cd,
-#part_ac942727-1ed9-4cbf-88b5-8eee66877b5a,
-#part_39c42061-8184-4e74-9294-5602b9ec940a,
-#part_3180786d-4bc4-4133-903e-05b2ff6ea846,
-#part_6b671956-8ea5-410c-b94c-cceeaccab76e,
-#part_45a0a61b-84af-4743-9c0f-13be7f04a167,
-#part_b50b2f9e-84b1-40cf-99ff-e1801cf3ea29,
+:is(:is(#part_34e19cac-f0a8-4d7f-b223-9c522897516e, #part_602f6204-c75e-4c6f-9e6a-6719683fe614),
+:is(#part_74726e8b-6de7-47ed-88e1-71b1551dcedd, #part_454dd0c1-c160-41f5-b97c-fb60ff95c5e0),
+:is(#part_b46ccc68-57f1-4e98-8881-fd81932fb1cd, #part_ff5b8820-b18a-4da5-98d8-3263d4ba4eae),
+:is(#part_ac942727-1ed9-4cbf-88b5-8eee66877b5a, #part_de846de4-cb1c-4bbe-96c5-a93da5e6f2cd),
+:is(#part_39c42061-8184-4e74-9294-5602b9ec940a, #part_8e370bbc-9de7-48d8-9bd9-7db9119b5955),
+:is(#part_3180786d-4bc4-4133-903e-05b2ff6ea846, #part_8d9b45c8-9b88-4448-9e28-a8fbf3669f59),
+:is(#part_6b671956-8ea5-410c-b94c-cceeaccab76e, #part_85b3d6d7-ca42-4fbc-8a1b-baa2503fabb8),
+:is(#part_45a0a61b-84af-4743-9c0f-13be7f04a167, #part_27616a39-29a8-4468-b549-d5ef64f8d88f),
+:is(#part_b50b2f9e-84b1-40cf-99ff-e1801cf3ea29, #part_2648b4d3-2d5d-4e40-bf47-1bdb641f593d),
 #part_655517af-c7f9-435b-89f2-297da74f9b3a,
 #part_e40697ea-0be1-44b5-a66e-b23dc8739855,
-#part_9980df84-c974-465e-9b8f-78b57170a878,
+:is(#part_9980df84-c974-465e-9b8f-78b57170a878, #part_e4e30e54-46d8-4798-aa53-9c8fe8d48b39),
 #part_17aab61d-d521-44b0-b658-b6f35f8b52a7,
-#part_b8f2b3d9-1ab3-471d-b718-ae1ccfef614d) a,
-:is(#part_34e19cac-f0a8-4d7f-b223-9c522897516e,
-#part_74726e8b-6de7-47ed-88e1-71b1551dcedd,
-#part_b46ccc68-57f1-4e98-8881-fd81932fb1cd,
-#part_ac942727-1ed9-4cbf-88b5-8eee66877b5a,
-#part_39c42061-8184-4e74-9294-5602b9ec940a,
-#part_3180786d-4bc4-4133-903e-05b2ff6ea846,
-#part_6b671956-8ea5-410c-b94c-cceeaccab76e,
-#part_45a0a61b-84af-4743-9c0f-13be7f04a167,
-#part_b50b2f9e-84b1-40cf-99ff-e1801cf3ea29,
+:is(#part_b8f2b3d9-1ab3-471d-b718-ae1ccfef614d, #part_ffb02451-b813-4c45-a8b2-f874608baaf5)) a,
+:is(:is(#part_34e19cac-f0a8-4d7f-b223-9c522897516e, #part_602f6204-c75e-4c6f-9e6a-6719683fe614),
+:is(#part_74726e8b-6de7-47ed-88e1-71b1551dcedd, #part_454dd0c1-c160-41f5-b97c-fb60ff95c5e0),
+:is(#part_b46ccc68-57f1-4e98-8881-fd81932fb1cd, #part_ff5b8820-b18a-4da5-98d8-3263d4ba4eae),
+:is(#part_ac942727-1ed9-4cbf-88b5-8eee66877b5a, #part_de846de4-cb1c-4bbe-96c5-a93da5e6f2cd),
+:is(#part_39c42061-8184-4e74-9294-5602b9ec940a, #part_8e370bbc-9de7-48d8-9bd9-7db9119b5955),
+:is(#part_3180786d-4bc4-4133-903e-05b2ff6ea846, #part_8d9b45c8-9b88-4448-9e28-a8fbf3669f59),
+:is(#part_6b671956-8ea5-410c-b94c-cceeaccab76e, #part_85b3d6d7-ca42-4fbc-8a1b-baa2503fabb8),
+:is(#part_45a0a61b-84af-4743-9c0f-13be7f04a167, #part_27616a39-29a8-4468-b549-d5ef64f8d88f),
+:is(#part_b50b2f9e-84b1-40cf-99ff-e1801cf3ea29, #part_2648b4d3-2d5d-4e40-bf47-1bdb641f593d),
 #part_655517af-c7f9-435b-89f2-297da74f9b3a,
 #part_e40697ea-0be1-44b5-a66e-b23dc8739855,
-#part_9980df84-c974-465e-9b8f-78b57170a878,
+:is(#part_9980df84-c974-465e-9b8f-78b57170a878, #part_e4e30e54-46d8-4798-aa53-9c8fe8d48b39),
 #part_17aab61d-d521-44b0-b658-b6f35f8b52a7,
-#part_b8f2b3d9-1ab3-471d-b718-ae1ccfef614d) a:is(:link, :visited, :hover, :focus, :focus-visible, :active),
-:is(#part_34e19cac-f0a8-4d7f-b223-9c522897516e,
-#part_74726e8b-6de7-47ed-88e1-71b1551dcedd,
-#part_b46ccc68-57f1-4e98-8881-fd81932fb1cd,
-#part_ac942727-1ed9-4cbf-88b5-8eee66877b5a,
-#part_39c42061-8184-4e74-9294-5602b9ec940a,
-#part_3180786d-4bc4-4133-903e-05b2ff6ea846,
-#part_6b671956-8ea5-410c-b94c-cceeaccab76e,
-#part_45a0a61b-84af-4743-9c0f-13be7f04a167,
-#part_b50b2f9e-84b1-40cf-99ff-e1801cf3ea29,
+:is(#part_b8f2b3d9-1ab3-471d-b718-ae1ccfef614d, #part_ffb02451-b813-4c45-a8b2-f874608baaf5)) a:is(:link, :visited, :hover, :focus, :focus-visible, :active),
+:is(:is(#part_34e19cac-f0a8-4d7f-b223-9c522897516e, #part_602f6204-c75e-4c6f-9e6a-6719683fe614),
+:is(#part_74726e8b-6de7-47ed-88e1-71b1551dcedd, #part_454dd0c1-c160-41f5-b97c-fb60ff95c5e0),
+:is(#part_b46ccc68-57f1-4e98-8881-fd81932fb1cd, #part_ff5b8820-b18a-4da5-98d8-3263d4ba4eae),
+:is(#part_ac942727-1ed9-4cbf-88b5-8eee66877b5a, #part_de846de4-cb1c-4bbe-96c5-a93da5e6f2cd),
+:is(#part_39c42061-8184-4e74-9294-5602b9ec940a, #part_8e370bbc-9de7-48d8-9bd9-7db9119b5955),
+:is(#part_3180786d-4bc4-4133-903e-05b2ff6ea846, #part_8d9b45c8-9b88-4448-9e28-a8fbf3669f59),
+:is(#part_6b671956-8ea5-410c-b94c-cceeaccab76e, #part_85b3d6d7-ca42-4fbc-8a1b-baa2503fabb8),
+:is(#part_45a0a61b-84af-4743-9c0f-13be7f04a167, #part_27616a39-29a8-4468-b549-d5ef64f8d88f),
+:is(#part_b50b2f9e-84b1-40cf-99ff-e1801cf3ea29, #part_2648b4d3-2d5d-4e40-bf47-1bdb641f593d),
 #part_655517af-c7f9-435b-89f2-297da74f9b3a,
 #part_e40697ea-0be1-44b5-a66e-b23dc8739855,
-#part_9980df84-c974-465e-9b8f-78b57170a878,
+:is(#part_9980df84-c974-465e-9b8f-78b57170a878, #part_e4e30e54-46d8-4798-aa53-9c8fe8d48b39),
 #part_17aab61d-d521-44b0-b658-b6f35f8b52a7,
-#part_b8f2b3d9-1ab3-471d-b718-ae1ccfef614d) a span {
+:is(#part_b8f2b3d9-1ab3-471d-b718-ae1ccfef614d, #part_ffb02451-b813-4c45-a8b2-f874608baaf5)) a span {
   color: #000 !important;
 }
 
