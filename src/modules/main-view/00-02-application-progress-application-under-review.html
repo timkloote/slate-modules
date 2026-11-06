@@ -1,0 +1,22 @@
+<!--
+Main View draft: Application progress tracker, stage 2.
+Proposed Slate class names: col-span-all status-tracker application-progress-tracker
+Place below Header/Hidden Fields and above messaging blocks. Configure one visible variant in Slate.
+No Slate part ID assigned yet. See docs/main-view-progress-tracker.md.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head><title></title></head>
+  <body>
+    <h2>Track Your Application</h2>
+    <table aria-label="Application progress" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="complete" aria-label="Submit Your Materials: Completed"><strong>Submit Your Materials</strong></td>
+          <td class="current" aria-current="step" aria-label="Application Under Review: Current step"><strong>Application Under Review</strong></td>
+          <td class="not_current" aria-label="Decision Available: Upcoming"><strong>Decision Available</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Your application is being reviewed. We’ll contact you if we need revisions or additional materials, and you can check back here for updates.</p>
+  </body>
+</html>

@@ -9,7 +9,8 @@ test('audit maps every imported file exactly once and keeps IDs and ordering', (
  const modules=data.views.flatMap(v=>v.modules);
  assert.equal(modules.length, audit.modules.length);
  assert.equal(new Set(modules.map(m=>m.partId)).size,modules.length);
- const files=readdirSync('src/modules',{withFileTypes:true}).filter(d=>d.isDirectory()).flatMap(d=>readdirSync(`src/modules/${d.name}`).filter(f=>f.endsWith('.html')).map(f=>`src/modules/${d.name}/${f}`));
+ // 00- prefixed new-part drafts have no Slate IDs and are previewed separately.
+ const files=readdirSync('src/modules',{withFileTypes:true}).filter(d=>d.isDirectory()).flatMap(d=>readdirSync(`src/modules/${d.name}`).filter(f=>f.endsWith('.html')&&!f.startsWith('00-')).map(f=>`src/modules/${d.name}/${f}`));
  assert.deepEqual(modules.map(m=>m.source).sort(),files.sort());
  for(const view of data.views) {
   assert.deepEqual(view.modules.map(m=>m.order),view.modules.map(m=>m.order).sort((a,b)=>a-b));

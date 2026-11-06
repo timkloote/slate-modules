@@ -960,6 +960,11 @@ footer ul {
   margin: 0 0 2rem;
 }
 
+.application-progress-tracker > h2 {
+  margin: 0 0 2rem;
+  text-align: center;
+}
+
 .status-tracker > table, .fce-tracker__steps {
   width: 100%;
   border: 0;
