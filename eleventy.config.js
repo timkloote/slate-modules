@@ -40,6 +40,7 @@ export default function (eleventyConfig) {
     const { aliases } = JSON.parse(await readFile('src/simulator/module-review-aliases.json', 'utf8'));
     for (const [source, output, style] of [
       ['grad-admissions', 'grad-admissions', 'expanded'],
+      ['application-progress', 'application-progress', 'expanded'],
       ['simulator', 'simulator', 'expanded'],
       ['simulator-preview', 'simulator-preview', 'expanded'],
       ['module-preview', 'module-preview', 'expanded'],
