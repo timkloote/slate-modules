@@ -10,7 +10,7 @@ function renderDetail(){
  if(state==='waived')detail.append(element('p','Your deposit requirement has been waived. No payment is required.'));
  if(state==='skipped')detail.append(element('p','This step does not apply to this illustrative scenario.'));
  if(step.action&&!['upcoming','skipped','waived'].includes(state)){
-  const button=element('button',step.action,'step-action');button.type='button';button.addEventListener('click',()=>{const note=detail.querySelector('.mock-destination');if(note)return;const message=element('p','Preview only — the destination for this step will be added once confirmed.','mock-destination');message.setAttribute('role','status');detail.append(message);});detail.append(button);
+  const button=element('button',step.action,'step-action arrow-link');button.type='button';button.addEventListener('click',()=>{const note=detail.querySelector('.mock-destination');if(note)return;const message=element('p','Preview only — the destination for this step will be added once confirmed.','mock-destination');message.setAttribute('role','status');detail.append(message);});detail.append(button);
  }
 }
 function render(){
