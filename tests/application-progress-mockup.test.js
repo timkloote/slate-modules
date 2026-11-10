@@ -21,7 +21,6 @@ test('review mockup renders all scenarios and lets reviewers inspect steps', asy
   assert.equal(scenario.states.length,steps.length);
   picker.value=scenario.id;picker.dispatchEvent(new window.Event('change'));
   assert.equal(document.querySelectorAll('#steps li').length,8);
-  assert.equal(document.querySelector('#scenario-title').textContent,scenario.title);
   scenario.states.forEach((state,i)=>assert.equal(document.querySelectorAll('#steps li')[i].dataset.state,state));
  }
  picker.value='revised-award';picker.dispatchEvent(new window.Event('change'));

@@ -16,7 +16,7 @@ function renderDetail(){
 function render(){
  const scenario=currentScenario();list.replaceChildren();
  steps.forEach((step,i)=>{const state=scenario.states[i], li=element('li','');li.dataset.state=state;const button=element('button','');button.type='button';button.setAttribute('aria-pressed',String(i===selectedStep));if(state==='current')button.setAttribute('aria-current','step');button.append(element('span',state==='complete'?'✓':state==='waived'?'✓':state==='skipped'?'–':String(i+1),'node'),element('span',state==='complete'&&step.doneTitle?step.doneTitle:step.title,'step-label'),element('span',statusLabels[state],'step-status'));button.addEventListener('click',()=>{selectedStep=i;render();list.querySelectorAll('button')[i].focus();});li.append(button);list.append(li);});
- document.querySelector('#scenario-title').textContent=scenario.title;document.querySelector('#scenario-note').textContent=scenario.note;renderDetail();
+ renderDetail();
 }
 function selectScenario(){const s=currentScenario();selectedStep=s.states.findIndex(state=>state==='action'||state==='current');if(selectedStep<0)selectedStep=steps.length-1;render();}
 picker.addEventListener('change',()=>{history.replaceState(null,'',`#${picker.value}`);document.querySelector('#share-status').textContent='';selectScenario();});
