@@ -198,3 +198,26 @@ button:disabled { cursor: default; opacity: .45; }
 .photo-plan li + li { margin-top: .65rem; }
 .photo-plan-notes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
 @media (max-width: 700px) { .photo-priority-grid, .photo-plan-notes { grid-template-columns: 1fr; } .photo-request { padding: 1.25rem; } }
+
+/* Group tool destinations without crowding the view directory header. */
+.sim-site-header { align-items:center; gap:1rem; position:relative; z-index:30; }
+.sim-site-header .sim-brand { font-weight:750; text-decoration:none; letter-spacing:-.02em; }
+.sim-tools-menu > summary { display:flex; align-items:center; gap:1.25rem; list-style:none; cursor:pointer; padding:.55rem .85rem; border:1px solid #ffffff60; border-radius:5px; font-size:.875rem; font-weight:650; }
+.sim-tools-menu > summary::-webkit-details-marker { display:none; }
+.sim-tools-menu[open] > summary { background:#fff; color:#14191e; }
+.sim-tools-menu[open] > summary span { transform:rotate(180deg); }
+.sim-tools-panel { position:absolute; right:1.5rem; top:calc(100% - .35rem); display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; width:min(620px,calc(100vw - 3rem)); padding:1.5rem; background:#fff; color:#17212a; border:1px solid #cbd2d8; border-top:3px solid #d41b2c; border-radius:0 0 8px 8px; box-shadow:0 12px 28px #0003; max-height:75dvh; overflow:auto; }
+.sim-tools-panel h2 { margin:0 0 .7rem; font-size:.7rem; text-transform:uppercase; letter-spacing:.1em; color:#65717b; }
+.sim-tools-group a { display:block; padding:.55rem .65rem; margin-inline:-.65rem; color:#17212a; text-decoration:none; font-size:.9rem; font-weight:650; border-radius:4px; }
+.sim-tools-group a:hover { background:#f1f3f5; color:#aa1626; }
+.sim-tools-group a span { display:block; color:#65717b; font-size:.75rem; font-weight:400; margin-top:.15rem; }
+.sim-tools-live { grid-column:1 / -1; padding-top:1rem; border-top:1px solid #e0e4e8; min-width:0; }
+.sim-tools-live [data-live-view-picker] { display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; }
+.sim-tools-live [data-live-view-picker] select { flex:1; min-width:0; }
+.sim-tools-live [data-live-view-picker] a { color:#aa1626; }
+@media(max-width:600px) {
+ .sim-tools-panel { grid-template-columns:minmax(0,1fr); gap:1rem; padding:1.1rem; }
+ .sim-tools-live [data-live-view-picker] { flex-direction:column; align-items:stretch; }
+ .sim-site-header { padding-inline:1rem; }
+ .sim-tools-panel { right:1rem; width:calc(100vw - 2rem); }
+}

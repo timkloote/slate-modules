@@ -1,5 +1,5 @@
+import { simulatorNavigation } from '../scripts/simulator-navigation.js';
 import { allCleanViewsButton } from '../scripts/clean-views.js';
-import { liveViewPicker } from '../scripts/live-views.js';
 import { inventory, escapeHtml as e, documentPage } from '../scripts/simulator.js';
 const help = (name, items) => `<details class="sim-help"><summary aria-label="Help for ${name}" title="Help for ${name}">ⓘ</summary><div class="sim-help-content"><strong>${name}</strong><dl>${items.map(([option, description]) => `<dt>${option}</dt><dd>${description}</dd>`).join('')}</dl></div></details>`;
 export default class {
@@ -7,7 +7,7 @@ export default class {
   render({ view }) {
     const { views, capturedParts } = inventory();
     return documentPage(`${view.name} — Slate simulator`, `
-    <header class="sim-bar"><a href="/views/">Slate simulator</a><a href="/modules/">Module library</a><a href="/references/">References</a><a href="/photography/">Photography</a><a href="/">Landing page</a>${liveViewPicker(view.slug)}</header>
+    ${simulatorNavigation('Slate simulator', view.slug)}
     <main class="sim-workspace" data-view="${e(view.slug)}">
       <aside class="sim-inspector">
         <label for="view-picker">View</label><select id="view-picker"></select>
