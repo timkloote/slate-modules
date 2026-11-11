@@ -41,6 +41,7 @@ export default function (eleventyConfig) {
     for (const [source, output, style] of [
       ['grad-admissions', 'grad-admissions', 'expanded'],
       ['application-progress', 'application-progress', 'expanded'],
+      ['application-progress-wireframe', 'application-progress-wireframe', 'expanded'],
       ['simulator', 'simulator', 'expanded'],
       ['simulator-preview', 'simulator-preview', 'expanded'],
       ['module-preview', 'module-preview', 'expanded'],

@@ -29,3 +29,7 @@ Edit `src/js/application-progress-data.js` to change step labels, descriptions, 
 The scenario selector includes all proposed phases plus revised awards, deposit waivers, no award, deny, and redirect. Its hash links can be copied and shared directly. Desktop shows a horizontal tracker, tablet wraps into two rows, and mobile shows a vertical tracker. Keyboard users can inspect every step using ordinary buttons.
 
 Publication follows the repository's existing GitHub Pages workflow on main. No applicant data is used. The page is a review artifact, not a live applicant status display. EDGE/FastApps and exact enrollment/deposit dependencies remain open decisions.
+
+## Grayscale wireframe
+
+Share `/drafts/application-progress-wireframe/` for the grayscale wireframe. It uses the same page renderer, scenario data, and interactions as the styled mockup, with `application-progress-wireframe.css`. Both one-module and all-scenario displays remain available. The simulator's Explore tools menu links to both versions.

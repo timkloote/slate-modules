@@ -1,0 +1,14 @@
+// Keep the same responsive geometry and interactions as the designed prototype.
+@use 'application-progress';
+body { background:#fafafa; font-family:Arial,Helvetica,sans-serif; }
+main { filter:grayscale(1); }
+.tracker { border:1px solid #aaa; border-top:3px solid #333; box-shadow:none; }
+.tracker-heading h2, .step-detail h3 { font-family:Arial,Helvetica,sans-serif; font-weight:600; letter-spacing:-.025em; }
+.tracker-heading h2 { font-size:28px; }
+.step-detail h3 { font-size:22px; }
+.tracker-steps li[data-state=current], .tracker-steps li[data-state=action] { --ink:#333; --fill:#555; --edge:#555; }
+.tracker-steps li:is([data-state=current],[data-state=action]) .step-label { color:#222; }
+.step-detail { background:#f3f3f3; border-left-color:#555; }
+.step-action { font-family:Arial,Helvetica,sans-serif; }
+.state-key [data-state=current]::before, .state-key [data-state=action]::before { background:#555; }
+button:focus-visible, a:focus-visible, select:focus-visible { outline-color:#222; }
