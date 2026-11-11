@@ -1,14 +1,43 @@
-// Keep the same responsive geometry and interactions as the designed prototype.
-@use 'application-progress';
-body { background:#fafafa; font-family:Arial,Helvetica,sans-serif; }
-main { filter:grayscale(1); }
-.tracker { border:1px solid #aaa; border-top:3px solid #333; box-shadow:none; }
-.tracker-heading h2, .step-detail h3 { font-family:Arial,Helvetica,sans-serif; font-weight:600; letter-spacing:-.025em; }
-.tracker-heading h2 { font-size:28px; }
-.step-detail h3 { font-size:22px; }
-.tracker-steps li[data-state=current], .tracker-steps li[data-state=action] { --ink:#333; --fill:#555; --edge:#555; }
-.tracker-steps li:is([data-state=current],[data-state=action]) .step-label { color:#222; }
-.step-detail { background:#f3f3f3; border-left-color:#555; }
-.step-action { font-family:Arial,Helvetica,sans-serif; }
-.state-key [data-state=current]::before, .state-key [data-state=action]::before { background:#555; }
-button:focus-visible, a:focus-visible, select:focus-visible { outline-color:#222; }
+/* Standalone brainstorming wireframe: no brand assets or production styles. */
+* { box-sizing:border-box; }
+body { margin:0; background:#fff; color:#222; font:14px/1.5 Arial,Helvetica,sans-serif; }
+main { max-width:1280px; margin:0 auto; padding:24px; }
+[hidden] { display:none !important; }
+button,select { font:inherit; color:inherit; background:#fff; border:1px solid #999; border-radius:0; }
+button { cursor:pointer; }
+button:focus-visible,select:focus-visible { outline:2px solid #222; outline-offset:3px; }
+.review-controls { display:flex; flex-wrap:wrap; gap:16px; margin-bottom:24px; }
+.review-controls label { display:block; margin-bottom:4px; font-size:12px; }
+.review-controls select { max-width:100%; padding:6px 24px 6px 8px; }
+.tracker { padding:20px; border:1px solid #aaa; }
+h2,h3 { font:600 18px/1.4 Arial,Helvetica,sans-serif; margin:0 0 8px; }
+h3 { font-size:16px; }
+.tracker-intro { margin:0 0 24px; color:#666; font-size:13px; }
+.tracker-steps { display:grid; grid-template-columns:repeat(8,minmax(0,1fr)); gap:8px; list-style:none; padding:0; margin:0; }
+.tracker-steps li { min-width:0; }
+.tracker-steps button { display:flex; flex-direction:column; align-items:flex-start; width:100%; height:100%; padding:10px 8px; text-align:left; background:#fafafa; border:1px dashed #bbb; }
+.tracker-steps button:hover { background:#eee; }
+.tracker-steps button[aria-pressed=true] { border:2px solid #555; padding:9px 7px; background:#eee; }
+.node { display:grid; place-items:center; width:24px; height:24px; border:1px solid #999; margin-bottom:10px; font-size:12px; }
+.step-label { font-size:12px; font-weight:600; }
+.step-status { margin-top:8px; color:#666; font-size:11px; }
+.step-detail { margin-top:20px; padding:16px; border:1px dashed #aaa; background:#fafafa; }
+.detail-status { margin:0 0 8px; font-size:11px; color:#666; }
+.step-detail > p { max-width:760px; }
+.step-action { padding:0; border:0; background:transparent; text-decoration:underline; text-underline-offset:3px; font-size:13px; }
+.mock-destination { font-size:12px; color:#666; }
+.state-key { display:flex; flex-wrap:wrap; gap:16px; margin-top:20px; color:#666; font-size:11px; }
+.state-key span { padding:3px 6px; border:1px solid #ccc; }
+.scenario-module { margin-bottom:28px; }
+.scenario-module-title { font-size:13px; margin-bottom:8px; color:#555; }
+@media(max-width:1000px) { .tracker-steps {grid-template-columns:repeat(4,minmax(0,1fr));} }
+@media(max-width:600px) {
+ main { padding:16px; }
+ .tracker { padding:14px; }
+ .review-controls { flex-direction:column; gap:12px; }
+ .review-controls select { width:100%; }
+ .tracker-steps { grid-template-columns:minmax(0,1fr); }
+ .tracker-steps button { display:grid; grid-template-columns:24px minmax(0,1fr); column-gap:12px; }
+ .node {grid-row:1 / 3; margin:0; align-self:center;}
+ .step-status {margin-top:2px;}
+}
