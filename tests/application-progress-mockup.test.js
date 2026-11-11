@@ -30,6 +30,16 @@ test('review mockup renders all scenarios and lets reviewers inspect steps', asy
  document.querySelectorAll('#steps button')[6].click();
  assert.match(document.querySelector('#step-detail').textContent,/Pay Your Deposit/);
  assert.equal(location.hash,'#revised-award');
+ const mode=document.querySelector('#display-mode');
+ mode.value='all';mode.dispatchEvent(new window.Event('change'));
+ assert.equal(document.querySelector('#step-detail').hidden,true);
+ assert.equal(document.querySelectorAll('.step-module').length,8);
+ picker.value='waived';picker.dispatchEvent(new window.Event('change'));
+ assert.equal(document.querySelectorAll('.step-module')[6].dataset.state,'waived');
+ assert.match(document.querySelectorAll('.step-module')[6].textContent,/No payment is required/);
+ mode.value='single';mode.dispatchEvent(new window.Event('change'));
+ assert.equal(document.querySelector('#step-detail').hidden,false);
+ assert.equal(document.querySelector('#all-step-details').hidden,true);
  location.hash='#invalid';callbacks.hashchange();
  assert.equal(picker.value,'missing');
 });

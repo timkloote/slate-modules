@@ -34,3 +34,11 @@
 #steps li[data-state=skipped] .node { border-style:dashed; }
 .tracker { border-top-color:#d41b2c; box-shadow:none; }
 button,select { border-radius:0; }
+
+[hidden] { display:none !important; }
+.all-step-details { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; margin-top:24px; }
+.all-step-details .step-detail { margin:0; min-width:0; }
+.module-number { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.1em; margin:0 0 12px; color:#666; }
+.step-module[data-state=complete], .step-module[data-state=waived] { border-left-color:#000; }
+.step-module[data-state=upcoming], .step-module[data-state=skipped] { border-left-color:#ccc; }
+@media(max-width:640px) { .all-step-details {grid-template-columns:minmax(0,1fr)} }
