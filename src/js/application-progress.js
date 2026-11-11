@@ -19,7 +19,6 @@ function render(){
  renderDetail();
 }
 function selectScenario(){const s=currentScenario();selectedStep=s.states.findIndex(state=>state==='action'||state==='current');if(selectedStep<0)selectedStep=steps.length-1;render();}
-picker.addEventListener('change',()=>{history.replaceState(null,'',`#${picker.value}`);document.querySelector('#share-status').textContent='';selectScenario();});
+picker.addEventListener('change',()=>{history.replaceState(null,'',`#${picker.value}`);selectScenario();});
 function fromHash(){picker.value=scenarios.some(s=>s.id===location.hash.slice(1))?location.hash.slice(1):'missing';selectScenario();}
 window.addEventListener('hashchange',fromHash);fromHash();
-document.querySelector('#copy-link').addEventListener('click',async()=>{const url=new URL(location.href);url.hash=picker.value;try{await navigator.clipboard.writeText(url.href);document.querySelector('#share-status').textContent='Scenario link copied.';}catch{document.querySelector('#share-status').textContent=`Copy this link: ${url.href}`;}});
